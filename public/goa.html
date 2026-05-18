@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Goa — SoloSafar</title>
+  <link rel="stylesheet" href="dest-style.css">
+  <style>:root { --accent: #e05b1e; }</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="homepage.html" class="nav-back">
+    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    Back to Home
+  </a>
+  <a href="homepage.html" class="nav-logo">SoloSafar</a>
+</nav>
+
+<!-- HERO -->
+<section class="dest-hero">
+  <div class="hero-bg" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Baga_Beach%2C_North_Goa.jpg/1600px-Baga_Beach%2C_North_Goa.jpg')"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow"><span>Sun & Sand · Western Coast</span></div>
+    <h1 class="hero-destination"><em>Sun-Kissed</em><br>Goa</h1>
+    <p class="hero-tagline">Where the Arabian Sea meets Portuguese charm — beaches, basilicas, and unforgettable sunsets.</p>
+    <div class="hero-meta">
+      <div class="hero-stat"><span class="hero-stat-num">40+</span><span class="hero-stat-label">Beaches</span></div>
+      <div class="hero-stat"><span class="hero-stat-num">₹3K</span><span class="hero-stat-label">Per Day</span></div>
+      <div class="hero-stat"><span class="hero-stat-num">Oct–Mar</span><span class="hero-stat-label">Best Season</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="watercolour-break"></div>
+
+<div class="dest-body">
+
+<!-- INTRO -->
+<section class="section-intro fade-up">
+  <div>
+    <div class="section-intro-label">Coastal Jewel of India</div>
+    <h2>Goa: More Than Just <em>Beaches</em></h2>
+  </div>
+  <div class="section-intro-text">
+    <p>Nestled along the Arabian Sea, Goa is India's smallest state with the biggest soul. Colonial Portuguese architecture meets vibrant beach culture in a heady blend of history, spice, and surf.</p>
+    <p>From the shimmering sands of Baga to the sacred Basilica of Bom Jesus, every corner of Goa tells a layered story. The perfect canvas for the solo traveller.</p>
+  </div>
+</section>
+
+<!-- PLACES SCROLL -->
+<section class="section-places fade-up">
+  <div class="section-label">Places to Discover</div>
+  <div class="places-scroll">
+    <div class="place-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Baga_Beach%2C_North_Goa.jpg/800px-Baga_Beach%2C_North_Goa.jpg" alt="Baga Beach" loading="lazy">
+      <div class="place-card-label"><div class="place-card-num">01</div>Baga Beach</div>
+    </div>
+<div class="place-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Anjuna_Beach_Goa.jpg/800px-Anjuna_Beach_Goa.jpg" alt="Anjuna Beach" loading="lazy">
+      <div class="place-card-label"><div class="place-card-num">02</div>Anjuna Beach</div>
+    </div>
+<div class="place-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Dudhsagar_Falls%2C_Goa.jpg/800px-Dudhsagar_Falls%2C_Goa.jpg" alt="Dudhsagar Falls" loading="lazy">
+      <div class="place-card-label"><div class="place-card-num">03</div>Dudhsagar Falls</div>
+    </div>
+<div class="place-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Basilica_of_Bom_Jesus_frontal.jpg/800px-Basilica_of_Bom_Jesus_frontal.jpg" alt="Basilica of Bom Jesus" loading="lazy">
+      <div class="place-card-label"><div class="place-card-num">04</div>Basilica of Bom Jesus</div>
+    </div>
+<div class="place-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Fort_Aguada_2.jpg/800px-Fort_Aguada_2.jpg" alt="Fort Aguada" loading="lazy">
+      <div class="place-card-label"><div class="place-card-num">05</div>Fort Aguada</div>
+    </div>
+  </div>
+</section>
+
+<!-- MAP -->
+<section class="section-map fade-up">
+  <div class="map-text">
+    <div class="section-label" style="color:var(--gold)">Getting There</div>
+    <h2>Reaching Goa</h2>
+    <p>Goa is well connected by air (Dabolim / Mopa Airport), rail (Madgaon & Thivim stations), and road via NH66. Internal travel is best done by renting a scooter.</p>
+  </div>
+  <div class="map-visual">
+    <iframe src="https://maps.google.com/maps?q=Goa, India&output=embed" allowfullscreen loading="lazy"></iframe>
+  </div>
+</section>
+
+<!-- PLANNER -->
+<section class="section-plan fade-up">
+  <div class="section-label">Trip Planner</div>
+  <div class="plan-grid">
+    <div class="plan-form">
+      <div class="field-group"><label>Your Name</label><input type="text" id="name" placeholder="Enter your name"></div>
+      <div class="field-group"><label>Age</label><input type="number" id="age" placeholder="Your age"></div>
+      <div class="field-group"><label>Number of Days</label><input type="number" id="days" placeholder="How many days?" oninput="calcBudget()"></div>
+      <div class="field-group"><label>Travel Date</label><input type="date" id="tdate"></div>
+      <button class="btn-primary" onclick="saveDetails()">Save My Trip →</button>
+    </div>
+    <div class="budget-display">
+      <div class="budget-label">Estimated Budget</div>
+      <div class="budget-num" id="budgetNum">₹0</div>
+      <div class="budget-sub">Based on ₹3000/day average</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOD + STAY -->
+<section class="section-essentials fade-up">
+  <div class="essentials-col">
+    <div class="section-label">Local Flavours</div>
+    <h3>What to Eat</h3>
+    <div class="essential-item">
+      <img class="essential-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Fish_curry_%28Flickr_-_pandaexplorer%29.jpg/640px-Fish_curry_%28Flickr_-_pandaexplorer%29.jpg" alt="Goan Fish Curry">
+      <div class="essential-text"><h4>Goan Fish Curry</h4><p>Coconut milk curry with local spices — the soul of Goan cuisine.</p></div>
+    </div>
+<div class="essential-item">
+      <img class="essential-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Prawn_Balchao.jpg/640px-Prawn_Balchao.jpg" alt="Prawn Balchão">
+      <div class="essential-text"><h4>Prawn Balchão</h4><p>Fiery, tangy prawn pickle unique to Goan kitchens.</p></div>
+    </div>
+<div class="essential-item">
+      <img class="essential-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Bebinca_Goa.jpg/640px-Bebinca_Goa.jpg" alt="Bebinca">
+      <div class="essential-text"><h4>Bebinca</h4><p>Classic Goan layered dessert — rich, golden, irresistible.</p></div>
+    </div>
+  </div>
+  <div class="essentials-col">
+    <div class="section-label">Where to Rest</div>
+    <h3>Places to Stay</h3>
+    <div class="essential-item">
+      <img class="essential-img" src="https://cdn.zostel.com/media/photos/Goa/DSC00219-min.jpg" alt="Zostel Goa">
+      <div class="essential-text"><h4>Zostel Goa</h4><p>Vibrant backpacker hostel with pool, great for meeting fellow solo travelers.</p></div>
+    </div>
+<div class="essential-item">
+      <img class="essential-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Goa_hotel.jpg/640px-Goa_hotel.jpg" alt="Beachside Inn (Calangute)">
+      <div class="essential-text"><h4>Beachside Inn (Calangute)</h4><p>Budget stay steps from the beach with all essential amenities.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO -->
+<section class="section-video fade-up">
+  <div class="video-inner">
+    <img src="https://cdn1.tripoto.com/media/filter/tst/img/1429685/Image/1581689878_5_9.jpg" alt="Goa">
+    <div class="video-overlay">
+      <h3>Experience Goa</h3>
+      <a href="https://youtu.be/jYLXQWVpDYk" target="_blank" class="video-btn">▶ Watch the Film</a>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="section-reviews fade-up">
+  <div class="section-label">Traveller Stories</div>
+  <div class="reviews-grid">
+    <div class="review-form-wrap">
+      <h3 style="font-family:'Playfair Display',serif;font-size:1.8rem;margin-bottom:8px;">Share Your Story</h3>
+      <textarea id="reviewInput" placeholder="What was your Goa experience like?"></textarea>
+      <button class="btn-primary" onclick="submitReview()">Post Review →</button>
+    </div>
+    <div class="reviews-list" id="reviewsList">
+      <div class="review-item"><p>"Goa solo was life-changing. The sunsets at Vagator are something else — met so many amazing people!"</p><div class="review-meta">Priya M. · March 2024</div></div>
+<div class="review-item"><p>"Rented a scooter and explored every beach in 5 days. Budget-friendly if you eat local."</p><div class="review-meta">Rohan K. · January 2024</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SAFETY -->
+<section class="section-safety fade-up">
+  <div class="section-label" style="color:var(--gold)">Stay Safe, Travel Smart</div>
+  <div class="safety-grid">
+    <div class="safety-card">
+      <div class="safety-icon">🚨</div>
+      <h4>Emergency Contacts</h4>
+      <ul><li>Goa Police: +91-832-2424001</li><li>Ambulance: 108</li><li>Tourist Helpline: 1363</li></ul>
+    </div>
+<div class="safety-card">
+      <div class="safety-icon">🌊</div>
+      <h4>Beach Safety</h4>
+      <ul><li>Swim only at flagged zones</li><li>Avoid isolated beaches after dark</li><li>Watch out for rip currents</li></ul>
+    </div>
+<div class="safety-card">
+      <div class="safety-icon">🛵</div>
+      <h4>Travel Tips</h4>
+      <ul><li>Always lock your scooter</li><li>Keep copies of your documents</li><li>Stay hydrated — it gets very hot</li></ul>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<footer class="dest-footer">
+  <a href="homepage.html" class="dest-footer-logo">SoloSafar</a>
+  <div class="dest-footer-links">
+    <a href="homepage.html">All Destinations</a>
+    <a href="feedback.html">Feedback</a>
+    <a href="mailto:bolotohsolo@gmail.com">Contact</a>
+  </div>
+</footer>
+
+<script>
+const DAILY = 3000;
+function calcBudget() {
+  const d = parseInt(document.getElementById('days').value) || 0;
+  document.getElementById('budgetNum').textContent = '₹' + (d * DAILY).toLocaleString('en-IN');
+}
+function saveDetails() {
+  const n = document.getElementById('name').value;
+  const d = document.getElementById('days').value;
+  if (!n || !d) { alert('Please fill in your name and number of days.'); return; }
+  alert('Trip saved! Have an amazing time in Goa, ' + n + '!');
+}
+function submitReview() {
+  const txt = document.getElementById('reviewInput').value.trim();
+  if (!txt) { alert('Please write something first!'); return; }
+  const list = document.getElementById('reviewsList');
+  const item = document.createElement('div');
+  item.className = 'review-item';
+  item.innerHTML = '<p>' + txt + '</p><div class="review-meta">Just now · Verified Traveller</div>';
+  list.prepend(item);
+  document.getElementById('reviewInput').value = '';
+}
+
+// Scroll nav
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// Fade-up on scroll
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

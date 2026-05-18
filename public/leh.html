@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leh Ladakh — SoloSafar</title>
+  <link rel="stylesheet" href="dest-style.css">
+  <style>:root { --accent: #4a7fa5; }</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="homepage.html" class="nav-back">
+    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    Back to Home
+  </a>
+  <a href="homepage.html" class="nav-logo">SoloSafar</a>
+</nav>
+
+<!-- HERO -->
+<section class="dest-hero">
+  <div class="hero-bg" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Pangong_tso_lake.jpg/1600px-Pangong_tso_lake.jpg')"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow"><span>High Altitude · J&K · 3500m+</span></div>
+    <h1 class="hero-destination"><em>Roof</em> of<br>the World</h1>
+    <p class="hero-tagline">Ancient monasteries, crystalline lakes, and mountain passes that steal your breath — literally.</p>
+    <div class="hero-meta">
+      <div class="hero-stat"><span class="hero-stat-num">5359m</span><span class="hero-stat-label">Khardung La Pass</span></div>
+      <div class="hero-stat"><span class="hero-stat-num">₹4K</span><span class="hero-stat-label">Per Day</span></div>
+      <div class="hero-stat"><span class="hero-stat-num">Jun–Sep</span><span class="hero-stat-label">Best Season</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="watercolour-break"></div>
+
+<div class="dest-body">
+
+<!-- INTRO -->
+<section class="section-intro fade-up">
+  <div>
+    <div class="section-intro-label">The Last Frontier</div>
+    <h2>Ladakh: Where Earth Meets <em>Sky</em></h2>
+  </div>
+  <div class="section-intro-text">
+    <p>A high-altitude cold desert in the northernmost reaches of India, Leh-Ladakh is a landscape unlike anywhere else on Earth. Barren mountains shimmer in impossible colours at dawn.</p>
+    <p>Buddhist monasteries cling to cliffsides. Pangong Lake shifts from blue to turquoise to green. For solo travellers who want to be truly alone with the universe — this is it.</p>
+  </div>
+</section>
+
+<!-- PLACES SCROLL -->
+<section class="section-places fade-up">
+  <div class="section-label">Places to Discover</div>
+  <div class="places-scroll">
+    <div class="place-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Pangong_tso_lake.jpg/800px-Pangong_tso_lake.jpg" alt="Pangong Lake" loading="lazy">
+      <div class="place-card-label"><div class="place-card-num">01</div>Pangong Lake</div>
+    </div>
+<div class="place-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Khardung_La_pass.jpg/800px-Khardung_La_pass.jpg" alt="Khardung La Pass" loading="lazy">
+      <div class="place-card-label"><div class="place-card-num">02</div>Khardung La Pass</div>
+    </div>
+<div class="place-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Nubra_Valley_Ladakh.jpg/800px-Nubra_Valley_Ladakh.jpg" alt="Nubra Valley" loading="lazy">
+      <div class="place-card-label"><div class="place-card-num">03</div>Nubra Valley</div>
+    </div>
+<div class="place-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Thiksey_Monastery_Ladakh.jpg/800px-Thiksey_Monastery_Ladakh.jpg" alt="Thiksey Monastery" loading="lazy">
+      <div class="place-card-label"><div class="place-card-num">04</div>Thiksey Monastery</div>
+    </div>
+<div class="place-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Magnetic_Hill_Ladakh.jpg/800px-Magnetic_Hill_Ladakh.jpg" alt="Magnetic Hill" loading="lazy">
+      <div class="place-card-label"><div class="place-card-num">05</div>Magnetic Hill</div>
+    </div>
+  </div>
+</section>
+
+<!-- MAP -->
+<section class="section-map fade-up">
+  <div class="map-text">
+    <div class="section-label" style="color:var(--gold)">Getting There</div>
+    <h2>Reaching Ladakh</h2>
+    <p>Fly into Leh Kushok Bakula Rimpochee Airport (direct from Delhi, Mumbai, Srinagar). Road trips via Manali-Leh Highway or Srinagar-Leh Highway are legendary but require acclimatisation stops.</p>
+  </div>
+  <div class="map-visual">
+    <iframe src="https://maps.google.com/maps?q=Leh, Ladakh, India&output=embed" allowfullscreen loading="lazy"></iframe>
+  </div>
+</section>
+
+<!-- PLANNER -->
+<section class="section-plan fade-up">
+  <div class="section-label">Trip Planner</div>
+  <div class="plan-grid">
+    <div class="plan-form">
+      <div class="field-group"><label>Your Name</label><input type="text" id="name" placeholder="Enter your name"></div>
+      <div class="field-group"><label>Age</label><input type="number" id="age" placeholder="Your age"></div>
+      <div class="field-group"><label>Number of Days</label><input type="number" id="days" placeholder="How many days?" oninput="calcBudget()"></div>
+      <div class="field-group"><label>Travel Date</label><input type="date" id="tdate"></div>
+      <button class="btn-primary" onclick="saveDetails()">Save My Trip →</button>
+    </div>
+    <div class="budget-display">
+      <div class="budget-label">Estimated Budget</div>
+      <div class="budget-num" id="budgetNum">₹0</div>
+      <div class="budget-sub">Based on ₹4000/day average</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOD + STAY -->
+<section class="section-essentials fade-up">
+  <div class="essentials-col">
+    <div class="section-label">Local Flavours</div>
+    <h3>What to Eat</h3>
+    <div class="essential-item">
+      <img class="essential-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Momos.jpg/640px-Momos.jpg" alt="Momos">
+      <div class="essential-text"><h4>Momos</h4><p>Steamed Tibetan dumplings — the ultimate Ladakhi comfort food.</p></div>
+    </div>
+<div class="essential-item">
+      <img class="essential-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Thukpa.jpg/640px-Thukpa.jpg" alt="Thukpa">
+      <div class="essential-text"><h4>Thukpa</h4><p>Hearty noodle soup that warms your soul at 3500m altitude.</p></div>
+    </div>
+<div class="essential-item">
+      <img class="essential-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Butter_tea.jpg/640px-Butter_tea.jpg" alt="Butter Tea (Po Cha)">
+      <div class="essential-text"><h4>Butter Tea (Po Cha)</h4><p>Salty, yak-butter tea — an acquired taste and a local tradition.</p></div>
+    </div>
+  </div>
+  <div class="essentials-col">
+    <div class="section-label">Where to Rest</div>
+    <h3>Places to Stay</h3>
+    <div class="essential-item">
+      <img class="essential-img" src="https://cdn.zostel.com/media/photos/Leh/zostel_leh_1.jpg" alt="Zostel Leh">
+      <div class="essential-text"><h4>Zostel Leh</h4><p>The most popular backpacker base in Ladakh with stunning views.</p></div>
+    </div>
+<div class="essential-item">
+      <img class="essential-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Leh_Hotel.jpg/640px-Leh_Hotel.jpg" alt="Hotel Dreamland">
+      <div class="essential-text"><h4>Hotel Dreamland</h4><p>Centrally located budget hotel with warm hospitality.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO -->
+<section class="section-video fade-up">
+  <div class="video-inner">
+    <img src="https://i.ytimg.com/vi/zLPh5AWH2Kk/maxresdefault.jpg" alt="Leh Ladakh">
+    <div class="video-overlay">
+      <h3>Experience Leh Ladakh</h3>
+      <a href="https://youtu.be/zLPh5AWH2Kk" target="_blank" class="video-btn">▶ Watch the Film</a>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="section-reviews fade-up">
+  <div class="section-label">Traveller Stories</div>
+  <div class="reviews-grid">
+    <div class="review-form-wrap">
+      <h3 style="font-family:'Playfair Display',serif;font-size:1.8rem;margin-bottom:8px;">Share Your Story</h3>
+      <textarea id="reviewInput" placeholder="What was your Leh Ladakh experience like?"></textarea>
+      <button class="btn-primary" onclick="submitReview()">Post Review →</button>
+    </div>
+    <div class="reviews-list" id="reviewsList">
+      <div class="review-item"><p>"The silence of Pangong Lake at 5am is something I will carry forever. Ladakh does something to your soul."</p><div class="review-meta">Aman S. · August 2024</div></div>
+<div class="review-item"><p>"Hardest trip I've ever done, most beautiful thing I've ever seen. Acclimatise properly!"</p><div class="review-meta">Shreya P. · July 2024</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SAFETY -->
+<section class="section-safety fade-up">
+  <div class="section-label" style="color:var(--gold)">Stay Safe, Travel Smart</div>
+  <div class="safety-grid">
+    <div class="safety-card">
+      <div class="safety-icon">🚨</div>
+      <h4>Emergency Contacts</h4>
+      <ul><li>Ladakh Police: 112</li><li>Ambulance: 108</li><li>Tourist Helpline: 1800-11-1363</li></ul>
+    </div>
+<div class="safety-card">
+      <div class="safety-icon">⛰️</div>
+      <h4>Altitude Safety</h4>
+      <ul><li>Spend 2 days in Leh before going higher</li><li>Carry altitude sickness tablets (Diamox)</li><li>Drink 3+ litres of water daily</li></ul>
+    </div>
+<div class="safety-card">
+      <div class="safety-icon">🌡️</div>
+      <h4>Weather Tips</h4>
+      <ul><li>Dress in layers — temperature swings wildly</li><li>UV protection essential at high altitude</li><li>Inform someone of your route always</li></ul>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<footer class="dest-footer">
+  <a href="homepage.html" class="dest-footer-logo">SoloSafar</a>
+  <div class="dest-footer-links">
+    <a href="homepage.html">All Destinations</a>
+    <a href="feedback.html">Feedback</a>
+    <a href="mailto:bolotohsolo@gmail.com">Contact</a>
+  </div>
+</footer>
+
+<script>
+const DAILY = 4000;
+function calcBudget() {
+  const d = parseInt(document.getElementById('days').value) || 0;
+  document.getElementById('budgetNum').textContent = '₹' + (d * DAILY).toLocaleString('en-IN');
+}
+function saveDetails() {
+  const n = document.getElementById('name').value;
+  const d = document.getElementById('days').value;
+  if (!n || !d) { alert('Please fill in your name and number of days.'); return; }
+  alert('Trip saved! Have an amazing time in Leh Ladakh, ' + n + '!');
+}
+function submitReview() {
+  const txt = document.getElementById('reviewInput').value.trim();
+  if (!txt) { alert('Please write something first!'); return; }
+  const list = document.getElementById('reviewsList');
+  const item = document.createElement('div');
+  item.className = 'review-item';
+  item.innerHTML = '<p>' + txt + '</p><div class="review-meta">Just now · Verified Traveller</div>';
+  list.prepend(item);
+  document.getElementById('reviewInput').value = '';
+}
+
+// Scroll nav
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// Fade-up on scroll
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

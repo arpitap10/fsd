@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kutch — SoloSafar</title>
+  <link rel="stylesheet" href="dest-style.css">
+  <style>:root { --accent: #b5892a; }</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="homepage.html" class="nav-back">
+    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    Back to Home
+  </a>
+  <a href="homepage.html" class="nav-logo">SoloSafar</a>
+</nav>
+
+<!-- HERO -->
+<section class="dest-hero">
+  <div class="hero-bg" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Rann_of_Kutch_2018.jpg/1600px-Rann_of_Kutch_2018.jpg')"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow"><span>Salt Desert · Gujarat</span></div>
+    <h1 class="hero-destination"><em>White</em><br>Horizon</h1>
+    <p class="hero-tagline">A salt desert that stretches to forever, tribal artisans, and the most vivid festival in India.</p>
+    <div class="hero-meta">
+      <div class="hero-stat"><span class="hero-stat-num">23000km²</span><span class="hero-stat-label">Rann Area</span></div>
+      <div class="hero-stat"><span class="hero-stat-num">₹2K</span><span class="hero-stat-label">Per Day</span></div>
+      <div class="hero-stat"><span class="hero-stat-num">Nov–Feb</span><span class="hero-stat-label">Best Season</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="watercolour-break"></div>
+
+<div class="dest-body">
+
+<!-- INTRO -->
+<section class="section-intro fade-up">
+  <div>
+    <div class="section-intro-label">The Great White Desert</div>
+    <h2>Kutch: Earth's Most <em>Surreal</em> Canvas</h2>
+  </div>
+  <div class="section-intro-text">
+    <p>The Rann of Kutch is a phenomenon. When the salt crust shimmers under a full moon and stretches to a horizon that doesn't exist — you understand why travellers return here again and again.</p>
+    <p>But Kutch is more than the Rann. The tribal villages of Bhirandiyara, the flamingo-flocked Chhari Dhand, Dholavira's ancient Indus Valley ruins — this is a civilisation unto itself.</p>
+  </div>
+</section>
+
+<!-- PLACES SCROLL -->
+<section class="section-places fade-up">
+  <div class="section-label">Places to Discover</div>
+  <div class="places-scroll">
+    <div class="place-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Rann_of_Kutch_2018.jpg/800px-Rann_of_Kutch_2018.jpg" alt="Great Rann of Kutch" loading="lazy">
+      <div class="place-card-label"><div class="place-card-num">01</div>Great Rann of Kutch</div>
+    </div>
+<div class="place-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Dholavira_Archaeological_site.jpg/800px-Dholavira_Archaeological_site.jpg" alt="Dholavira Ruins" loading="lazy">
+      <div class="place-card-label"><div class="place-card-num">02</div>Dholavira Ruins</div>
+    </div>
+<div class="place-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Kalo_Dungar_Kutch.jpg/800px-Kalo_Dungar_Kutch.jpg" alt="Kalo Dungar" loading="lazy">
+      <div class="place-card-label"><div class="place-card-num">03</div>Kalo Dungar</div>
+    </div>
+<div class="place-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Mandvi_beach_Gujarat.jpg/800px-Mandvi_beach_Gujarat.jpg" alt="Mandvi Beach" loading="lazy">
+      <div class="place-card-label"><div class="place-card-num">04</div>Mandvi Beach</div>
+    </div>
+<div class="place-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Kutch_artisan.jpg/800px-Kutch_artisan.jpg" alt="Tribal Villages" loading="lazy">
+      <div class="place-card-label"><div class="place-card-num">05</div>Tribal Villages</div>
+    </div>
+  </div>
+</section>
+
+<!-- MAP -->
+<section class="section-map fade-up">
+  <div class="map-text">
+    <div class="section-label" style="color:var(--gold)">Getting There</div>
+    <h2>Reaching Kutch</h2>
+    <p>Fly into Bhuj Airport from Mumbai or Ahmedabad. Trains from Ahmedabad to Bhuj run regularly (overnight journey). The Rann Utsav season (Nov-Feb) has special camp packages.</p>
+  </div>
+  <div class="map-visual">
+    <iframe src="https://maps.google.com/maps?q=Bhuj, Kutch, Gujarat, India&output=embed" allowfullscreen loading="lazy"></iframe>
+  </div>
+</section>
+
+<!-- PLANNER -->
+<section class="section-plan fade-up">
+  <div class="section-label">Trip Planner</div>
+  <div class="plan-grid">
+    <div class="plan-form">
+      <div class="field-group"><label>Your Name</label><input type="text" id="name" placeholder="Enter your name"></div>
+      <div class="field-group"><label>Age</label><input type="number" id="age" placeholder="Your age"></div>
+      <div class="field-group"><label>Number of Days</label><input type="number" id="days" placeholder="How many days?" oninput="calcBudget()"></div>
+      <div class="field-group"><label>Travel Date</label><input type="date" id="tdate"></div>
+      <button class="btn-primary" onclick="saveDetails()">Save My Trip →</button>
+    </div>
+    <div class="budget-display">
+      <div class="budget-label">Estimated Budget</div>
+      <div class="budget-num" id="budgetNum">₹0</div>
+      <div class="budget-sub">Based on ₹2000/day average</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOD + STAY -->
+<section class="section-essentials fade-up">
+  <div class="essentials-col">
+    <div class="section-label">Local Flavours</div>
+    <h3>What to Eat</h3>
+    <div class="essential-item">
+      <img class="essential-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Dabeli.jpg/640px-Dabeli.jpg" alt="Kutchi Dabeli">
+      <div class="essential-text"><h4>Kutchi Dabeli</h4><p>Spiced potato filling in a bun with chutneys and pomegranate — India's best street snack.</p></div>
+    </div>
+<div class="essential-item">
+      <img class="essential-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Gujarati_thali.jpg/640px-Gujarati_thali.jpg" alt="Khichdi & Kadhi">
+      <div class="essential-text"><h4>Khichdi & Kadhi</h4><p>Comforting Gujarati staple — mung lentil rice with spiced buttermilk curry.</p></div>
+    </div>
+<div class="essential-item">
+      <img class="essential-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Gur_papdi.jpg/640px-Gur_papdi.jpg" alt="Gur Papdi">
+      <div class="essential-text"><h4>Gur Papdi</h4><p>Traditional Gujarati sweet made with wheat flour, ghee, and jaggery.</p></div>
+    </div>
+  </div>
+  <div class="essentials-col">
+    <div class="section-label">Where to Rest</div>
+    <h3>Places to Stay</h3>
+    <div class="essential-item">
+      <img class="essential-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Rann_utsav_tent.jpg/640px-Rann_utsav_tent.jpg" alt="Rann Utsav Tent City">
+      <div class="essential-text"><h4>Rann Utsav Tent City</h4><p>Government-run luxury tent city at the edge of the Rann — magical.</p></div>
+    </div>
+<div class="essential-item">
+      <img class="essential-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Bhuj_hotel.jpg/640px-Bhuj_hotel.jpg" alt="Hotel Nilam, Bhuj">
+      <div class="essential-text"><h4>Hotel Nilam, Bhuj</h4><p>Budget city hotel — clean, central, solo-traveller friendly.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO -->
+<section class="section-video fade-up">
+  <div class="video-inner">
+    <img src="https://i.ytimg.com/vi/D08a_2zqiXM/maxresdefault.jpg" alt="Kutch">
+    <div class="video-overlay">
+      <h3>Experience Kutch</h3>
+      <a href="https://youtu.be/D08a_2zqiXM" target="_blank" class="video-btn">▶ Watch the Film</a>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="section-reviews fade-up">
+  <div class="section-label">Traveller Stories</div>
+  <div class="reviews-grid">
+    <div class="review-form-wrap">
+      <h3 style="font-family:'Playfair Display',serif;font-size:1.8rem;margin-bottom:8px;">Share Your Story</h3>
+      <textarea id="reviewInput" placeholder="What was your Kutch experience like?"></textarea>
+      <button class="btn-primary" onclick="submitReview()">Post Review →</button>
+    </div>
+    <div class="reviews-list" id="reviewsList">
+      <div class="review-item"><p>"Full moon night on the Rann. Just me, the white salt, and the Milky Way. I am still not over it."</p><div class="review-meta">Pooja L. · January 2024</div></div>
+<div class="review-item"><p>"Rann Utsav was incredible — the folk musicians, the camel rides, the embroidery workshops. Pure India."</p><div class="review-meta">Vikas S. · December 2023</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SAFETY -->
+<section class="section-safety fade-up">
+  <div class="section-label" style="color:var(--gold)">Stay Safe, Travel Smart</div>
+  <div class="safety-grid">
+    <div class="safety-card">
+      <div class="safety-icon">🚨</div>
+      <h4>Emergency Contacts</h4>
+      <ul><li>Bhuj Police: 02832-250060</li><li>Ambulance: 108</li><li>Gujarat Tourism: 1800-200-5090</li></ul>
+    </div>
+<div class="safety-card">
+      <div class="safety-icon">🌵</div>
+      <h4>Desert Safety</h4>
+      <ul><li>Always carry 2-3 litres of water</li><li>Don't enter restricted border areas</li><li>Go with local guides for Rann night visits</li></ul>
+    </div>
+<div class="safety-card">
+      <div class="safety-icon">🌡️</div>
+      <h4>Weather Tips</h4>
+      <ul><li>Winters can be cold at night (5°C)</li><li>Summers are extreme (45°C+) — avoid Apr–Jun</li><li>Sandstorms possible in summer months</li></ul>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<footer class="dest-footer">
+  <a href="homepage.html" class="dest-footer-logo">SoloSafar</a>
+  <div class="dest-footer-links">
+    <a href="homepage.html">All Destinations</a>
+    <a href="feedback.html">Feedback</a>
+    <a href="mailto:bolotohsolo@gmail.com">Contact</a>
+  </div>
+</footer>
+
+<script>
+const DAILY = 2000;
+function calcBudget() {
+  const d = parseInt(document.getElementById('days').value) || 0;
+  document.getElementById('budgetNum').textContent = '₹' + (d * DAILY).toLocaleString('en-IN');
+}
+function saveDetails() {
+  const n = document.getElementById('name').value;
+  const d = document.getElementById('days').value;
+  if (!n || !d) { alert('Please fill in your name and number of days.'); return; }
+  alert('Trip saved! Have an amazing time in Kutch, ' + n + '!');
+}
+function submitReview() {
+  const txt = document.getElementById('reviewInput').value.trim();
+  if (!txt) { alert('Please write something first!'); return; }
+  const list = document.getElementById('reviewsList');
+  const item = document.createElement('div');
+  item.className = 'review-item';
+  item.innerHTML = '<p>' + txt + '</p><div class="review-meta">Just now · Verified Traveller</div>';
+  list.prepend(item);
+  document.getElementById('reviewInput').value = '';
+}
+
+// Scroll nav
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// Fade-up on scroll
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

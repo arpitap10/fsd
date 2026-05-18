@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sikkim — SoloSafar</title>
+  <link rel="stylesheet" href="dest-style.css">
+  <style>:root { --accent: #2a6fa8; }</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="homepage.html" class="nav-back">
+    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    Back to Home
+  </a>
+  <a href="homepage.html" class="nav-logo">SoloSafar</a>
+</nav>
+
+<!-- HERO -->
+<section class="dest-hero">
+  <div class="hero-bg" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Gurudongmar_Lake.jpg/1600px-Gurudongmar_Lake.jpg')"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow"><span>Buddhist Kingdom · Northeast India</span></div>
+    <h1 class="hero-destination"><em>Mystic</em><br>Sikkim</h1>
+    <p class="hero-tagline">Kanchenjunga watches over glacial lakes, ancient monasteries, and valleys of impossible flowers.</p>
+    <div class="hero-meta">
+      <div class="hero-stat"><span class="hero-stat-num">8586m</span><span class="hero-stat-label">Kanchenjunga</span></div>
+      <div class="hero-stat"><span class="hero-stat-num">₹2.5K</span><span class="hero-stat-label">Per Day</span></div>
+      <div class="hero-stat"><span class="hero-stat-num">Mar–Jun & Sep–Dec</span><span class="hero-stat-label">Best Season</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="watercolour-break"></div>
+
+<div class="dest-body">
+
+<!-- INTRO -->
+<section class="section-intro fade-up">
+  <div>
+    <div class="section-intro-label">Hidden Himalayan Kingdom</div>
+    <h2>Sikkim: Sacred, Silent, <em>Sublime</em></h2>
+  </div>
+  <div class="section-intro-text">
+    <p>India's smallest state hides some of its most staggering landscapes. Gurudongmar Lake — one of the world's highest — reflects a sky so blue it seems painted. Kanchenjunga looms like a guardian god.</p>
+    <p>Ancient Rumtek and Pemayangtse monasteries echo with butter-lamp prayers. The Yumthang Valley explodes with rhododendrons every spring. Sikkim is sacred India at its most pure.</p>
+  </div>
+</section>
+
+<!-- PLACES SCROLL -->
+<section class="section-places fade-up">
+  <div class="section-label">Places to Discover</div>
+  <div class="places-scroll">
+    <div class="place-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Gurudongmar_Lake.jpg/800px-Gurudongmar_Lake.jpg" alt="Gurudongmar Lake" loading="lazy">
+      <div class="place-card-label"><div class="place-card-num">01</div>Gurudongmar Lake</div>
+    </div>
+<div class="place-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Changu_Lake_Sikkim.jpg/800px-Changu_Lake_Sikkim.jpg" alt="Tsomgo Lake" loading="lazy">
+      <div class="place-card-label"><div class="place-card-num">02</div>Tsomgo Lake</div>
+    </div>
+<div class="place-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Yumthang_Valley_Sikkim.jpg/800px-Yumthang_Valley_Sikkim.jpg" alt="Yumthang Valley" loading="lazy">
+      <div class="place-card-label"><div class="place-card-num">03</div>Yumthang Valley</div>
+    </div>
+<div class="place-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Rumtek_Monastery_Sikkim.jpg/800px-Rumtek_Monastery_Sikkim.jpg" alt="Rumtek Monastery" loading="lazy">
+      <div class="place-card-label"><div class="place-card-num">04</div>Rumtek Monastery</div>
+    </div>
+<div class="place-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Nathula_Pass_Sikkim.jpg/800px-Nathula_Pass_Sikkim.jpg" alt="Nathula Pass" loading="lazy">
+      <div class="place-card-label"><div class="place-card-num">05</div>Nathula Pass</div>
+    </div>
+  </div>
+</section>
+
+<!-- MAP -->
+<section class="section-map fade-up">
+  <div class="map-text">
+    <div class="section-label" style="color:var(--gold)">Getting There</div>
+    <h2>Reaching Sikkim</h2>
+    <p>Fly into Bagdogra Airport (IXB), then take a shared jeep or taxi to Gangtok (4 hrs). Pakyong Airport near Gangtok also has limited connectivity. Inner Line Permits required for North Sikkim.</p>
+  </div>
+  <div class="map-visual">
+    <iframe src="https://maps.google.com/maps?q=Gangtok, Sikkim, India&output=embed" allowfullscreen loading="lazy"></iframe>
+  </div>
+</section>
+
+<!-- PLANNER -->
+<section class="section-plan fade-up">
+  <div class="section-label">Trip Planner</div>
+  <div class="plan-grid">
+    <div class="plan-form">
+      <div class="field-group"><label>Your Name</label><input type="text" id="name" placeholder="Enter your name"></div>
+      <div class="field-group"><label>Age</label><input type="number" id="age" placeholder="Your age"></div>
+      <div class="field-group"><label>Number of Days</label><input type="number" id="days" placeholder="How many days?" oninput="calcBudget()"></div>
+      <div class="field-group"><label>Travel Date</label><input type="date" id="tdate"></div>
+      <button class="btn-primary" onclick="saveDetails()">Save My Trip →</button>
+    </div>
+    <div class="budget-display">
+      <div class="budget-label">Estimated Budget</div>
+      <div class="budget-num" id="budgetNum">₹0</div>
+      <div class="budget-sub">Based on ₹2500/day average</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOD + STAY -->
+<section class="section-essentials fade-up">
+  <div class="essentials-col">
+    <div class="section-label">Local Flavours</div>
+    <h3>What to Eat</h3>
+    <div class="essential-item">
+      <img class="essential-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Sikkimese_food.jpg/640px-Sikkimese_food.jpg" alt="Phagshapa">
+      <div class="essential-text"><h4>Phagshapa</h4><p>Strips of dried pork cooked with dry red chilies and radish — Sikkim's signature.</p></div>
+    </div>
+<div class="essential-item">
+      <img class="essential-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Gundruk_soup.jpg/640px-Gundruk_soup.jpg" alt="Gundruk Soup">
+      <div class="essential-text"><h4>Gundruk Soup</h4><p>Fermented leafy greens soup — tangy, nourishing, unique to the northeast.</p></div>
+    </div>
+<div class="essential-item">
+      <img class="essential-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Sel_roti.jpg/640px-Sel_roti.jpg" alt="Sel Roti">
+      <div class="essential-text"><h4>Sel Roti</h4><p>Traditional ring-shaped sweet fried bread made during Tihar and Dashain.</p></div>
+    </div>
+  </div>
+  <div class="essentials-col">
+    <div class="section-label">Where to Rest</div>
+    <h3>Places to Stay</h3>
+    <div class="essential-item">
+      <img class="essential-img" src="https://cdn.zostel.com/media/photos/Gangtok/zostel_gangtok.jpg" alt="Zostel Gangtok">
+      <div class="essential-text"><h4>Zostel Gangtok</h4><p>Budget hostel in Gangtok with mountain views and friendly dorm vibes.</p></div>
+    </div>
+<div class="essential-item">
+      <img class="essential-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Gangtok_hotel.jpg/640px-Gangtok_hotel.jpg" alt="Modern Central Lodge">
+      <div class="essential-text"><h4>Modern Central Lodge</h4><p>Simple, clean, central budget stay in Gangtok — solo-traveller approved.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO -->
+<section class="section-video fade-up">
+  <div class="video-inner">
+    <img src="https://i.ytimg.com/vi/xEG2yGLJH_4/maxresdefault.jpg" alt="Sikkim">
+    <div class="video-overlay">
+      <h3>Experience Sikkim</h3>
+      <a href="https://youtu.be/xEG2yGLJH_4" target="_blank" class="video-btn">▶ Watch the Film</a>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="section-reviews fade-up">
+  <div class="section-label">Traveller Stories</div>
+  <div class="reviews-grid">
+    <div class="review-form-wrap">
+      <h3 style="font-family:'Playfair Display',serif;font-size:1.8rem;margin-bottom:8px;">Share Your Story</h3>
+      <textarea id="reviewInput" placeholder="What was your Sikkim experience like?"></textarea>
+      <button class="btn-primary" onclick="submitReview()">Post Review →</button>
+    </div>
+    <div class="reviews-list" id="reviewsList">
+      <div class="review-item"><p>"Gurudongmar at sunrise with no one else around — I cried. Most spiritual moment of my life."</p><div class="review-meta">Rhea G. · April 2024</div></div>
+<div class="review-item"><p>"Yumthang in rhododendron season is another planet. Sikkim is criminally underrated."</p><div class="review-meta">Siddharth N. · May 2024</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SAFETY -->
+<section class="section-safety fade-up">
+  <div class="section-label" style="color:var(--gold)">Stay Safe, Travel Smart</div>
+  <div class="safety-grid">
+    <div class="safety-card">
+      <div class="safety-icon">🚨</div>
+      <h4>Emergency Contacts</h4>
+      <ul><li>Sikkim Police: 100</li><li>Ambulance: 108</li><li>Gangtok HQ: 03592-201033</li></ul>
+    </div>
+<div class="safety-card">
+      <div class="safety-icon">📋</div>
+      <h4>Permit Tips</h4>
+      <ul><li>ILP required for North Sikkim, Nathula, Gurudongmar</li><li>Arrange permits through Gangtok travel agents</li><li>Carry extra passport photos and ID copies</li></ul>
+    </div>
+<div class="safety-card">
+      <div class="safety-icon">❄️</div>
+      <h4>Mountain Safety</h4>
+      <ul><li>Weather changes rapidly — carry rain gear</li><li>Altitude sickness above 4000m is real</li><li>Road closures in monsoon are common</li></ul>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<footer class="dest-footer">
+  <a href="homepage.html" class="dest-footer-logo">SoloSafar</a>
+  <div class="dest-footer-links">
+    <a href="homepage.html">All Destinations</a>
+    <a href="feedback.html">Feedback</a>
+    <a href="mailto:bolotohsolo@gmail.com">Contact</a>
+  </div>
+</footer>
+
+<script>
+const DAILY = 2500;
+function calcBudget() {
+  const d = parseInt(document.getElementById('days').value) || 0;
+  document.getElementById('budgetNum').textContent = '₹' + (d * DAILY).toLocaleString('en-IN');
+}
+function saveDetails() {
+  const n = document.getElementById('name').value;
+  const d = document.getElementById('days').value;
+  if (!n || !d) { alert('Please fill in your name and number of days.'); return; }
+  alert('Trip saved! Have an amazing time in Sikkim, ' + n + '!');
+}
+function submitReview() {
+  const txt = document.getElementById('reviewInput').value.trim();
+  if (!txt) { alert('Please write something first!'); return; }
+  const list = document.getElementById('reviewsList');
+  const item = document.createElement('div');
+  item.className = 'review-item';
+  item.innerHTML = '<p>' + txt + '</p><div class="review-meta">Just now · Verified Traveller</div>';
+  list.prepend(item);
+  document.getElementById('reviewInput').value = '';
+}
+
+// Scroll nav
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// Fade-up on scroll
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

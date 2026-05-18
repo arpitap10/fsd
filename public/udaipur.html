@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Udaipur — SoloSafar</title>
+  <link rel="stylesheet" href="dest-style.css">
+  <style>:root { --accent: #8b3a62; }</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="homepage.html" class="nav-back">
+    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    Back to Home
+  </a>
+  <a href="homepage.html" class="nav-logo">SoloSafar</a>
+</nav>
+
+<!-- HERO -->
+<section class="dest-hero">
+  <div class="hero-bg" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Lake_Pichola_with_City_Palace%2C_Udaipur.jpg/1600px-Lake_Pichola_with_City_Palace%2C_Udaipur.jpg')"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow"><span>City of Lakes · Rajasthan</span></div>
+    <h1 class="hero-destination"><em>Royal</em><br>Udaipur</h1>
+    <p class="hero-tagline">Palaces that float on lakes, history carved in marble, and sunsets that paint the city gold.</p>
+    <div class="hero-meta">
+      <div class="hero-stat"><span class="hero-stat-num">5</span><span class="hero-stat-label">Sacred Lakes</span></div>
+      <div class="hero-stat"><span class="hero-stat-num">₹2.2K</span><span class="hero-stat-label">Per Day</span></div>
+      <div class="hero-stat"><span class="hero-stat-num">Oct–Mar</span><span class="hero-stat-label">Best Season</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="watercolour-break"></div>
+
+<div class="dest-body">
+
+<!-- INTRO -->
+<section class="section-intro fade-up">
+  <div>
+    <div class="section-intro-label">Venice of the East</div>
+    <h2>Udaipur: A City <em>Frozen</em> in Time</h2>
+  </div>
+  <div class="section-intro-text">
+    <p>Built around shimmering lakes and crowned by the Aravalli Hills, Udaipur is the most romantic city in India. The City Palace — a 400-year-old architectural marvel — commands Lake Pichola like a king.</p>
+    <p>Wander narrow bazaars selling miniature paintings, take a shikara across Jag Mandir, watch traditional Rajasthani folk performers under a full moon. Udaipur is pure theatre.</p>
+  </div>
+</section>
+
+<!-- PLACES SCROLL -->
+<section class="section-places fade-up">
+  <div class="section-label">Places to Discover</div>
+  <div class="places-scroll">
+    <div class="place-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Lake_Pichola_with_City_Palace%2C_Udaipur.jpg/800px-Lake_Pichola_with_City_Palace%2C_Udaipur.jpg" alt="City Palace" loading="lazy">
+      <div class="place-card-label"><div class="place-card-num">01</div>City Palace</div>
+    </div>
+<div class="place-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Pichola_Lake_Udaipur.jpg/800px-Pichola_Lake_Udaipur.jpg" alt="Lake Pichola" loading="lazy">
+      <div class="place-card-label"><div class="place-card-num">02</div>Lake Pichola</div>
+    </div>
+<div class="place-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Jag_Mandir_Udaipur.jpg/800px-Jag_Mandir_Udaipur.jpg" alt="Jag Mandir" loading="lazy">
+      <div class="place-card-label"><div class="place-card-num">03</div>Jag Mandir</div>
+    </div>
+<div class="place-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Saheliyon_ki_bari_Udaipur.jpg/800px-Saheliyon_ki_bari_Udaipur.jpg" alt="Saheliyon Ki Bari" loading="lazy">
+      <div class="place-card-label"><div class="place-card-num">04</div>Saheliyon Ki Bari</div>
+    </div>
+<div class="place-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Fateh_Sagar_Lake.jpg/800px-Fateh_Sagar_Lake.jpg" alt="Fateh Sagar Lake" loading="lazy">
+      <div class="place-card-label"><div class="place-card-num">05</div>Fateh Sagar Lake</div>
+    </div>
+  </div>
+</section>
+
+<!-- MAP -->
+<section class="section-map fade-up">
+  <div class="map-text">
+    <div class="section-label" style="color:var(--gold)">Getting There</div>
+    <h2>Reaching Udaipur</h2>
+    <p>Maharana Pratap Airport (UDR) connects to Delhi, Mumbai, and Jaipur. Well served by trains from Delhi (Chetak Express) and Mumbai (Mewar Express). Udaipur city is best explored by auto-rickshaw or cycle.</p>
+  </div>
+  <div class="map-visual">
+    <iframe src="https://maps.google.com/maps?q=Udaipur, Rajasthan, India&output=embed" allowfullscreen loading="lazy"></iframe>
+  </div>
+</section>
+
+<!-- PLANNER -->
+<section class="section-plan fade-up">
+  <div class="section-label">Trip Planner</div>
+  <div class="plan-grid">
+    <div class="plan-form">
+      <div class="field-group"><label>Your Name</label><input type="text" id="name" placeholder="Enter your name"></div>
+      <div class="field-group"><label>Age</label><input type="number" id="age" placeholder="Your age"></div>
+      <div class="field-group"><label>Number of Days</label><input type="number" id="days" placeholder="How many days?" oninput="calcBudget()"></div>
+      <div class="field-group"><label>Travel Date</label><input type="date" id="tdate"></div>
+      <button class="btn-primary" onclick="saveDetails()">Save My Trip →</button>
+    </div>
+    <div class="budget-display">
+      <div class="budget-label">Estimated Budget</div>
+      <div class="budget-num" id="budgetNum">₹0</div>
+      <div class="budget-sub">Based on ₹2200/day average</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOD + STAY -->
+<section class="section-essentials fade-up">
+  <div class="essentials-col">
+    <div class="section-label">Local Flavours</div>
+    <h3>What to Eat</h3>
+    <div class="essential-item">
+      <img class="essential-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Dal_Baati_Churma.jpg/640px-Dal_Baati_Churma.jpg" alt="Dal Baati Churma">
+      <div class="essential-text"><h4>Dal Baati Churma</h4><p>Rajasthani royal dish — baked wheat balls with spiced lentils and sweet crumble.</p></div>
+    </div>
+<div class="essential-item">
+      <img class="essential-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Laal_Maas.jpg/640px-Laal_Maas.jpg" alt="Laal Maas">
+      <div class="essential-text"><h4>Laal Maas</h4><p>Fiery red mutton curry made with dried Mathania chilies — legendary.</p></div>
+    </div>
+<div class="essential-item">
+      <img class="essential-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Mawa_kachori.jpg/640px-Mawa_kachori.jpg" alt="Mawa Kachori">
+      <div class="essential-text"><h4>Mawa Kachori</h4><p>Sweet deep-fried pastry filled with khoya and dry fruits — Jodhpur's gift to Rajasthan.</p></div>
+    </div>
+  </div>
+  <div class="essentials-col">
+    <div class="section-label">Where to Rest</div>
+    <h3>Places to Stay</h3>
+    <div class="essential-item">
+      <img class="essential-img" src="https://cdn.zostel.com/media/photos/Udaipur/zostel_udaipur.jpg" alt="Zostel Udaipur">
+      <div class="essential-text"><h4>Zostel Udaipur</h4><p>Heritage-style hostel with lake views and rooftop hangout.</p></div>
+    </div>
+<div class="essential-item">
+      <img class="essential-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Udaipur_hostel.jpg/640px-Udaipur_hostel.jpg" alt="Nukkad Hostel">
+      <div class="essential-text"><h4>Nukkad Hostel</h4><p>Charming budget stay near City Palace in the old city heart.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO -->
+<section class="section-video fade-up">
+  <div class="video-inner">
+    <img src="https://i.ytimg.com/vi/1fXU85JDABU/maxresdefault.jpg" alt="Udaipur">
+    <div class="video-overlay">
+      <h3>Experience Udaipur</h3>
+      <a href="https://youtu.be/1fXU85JDABU" target="_blank" class="video-btn">▶ Watch the Film</a>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="section-reviews fade-up">
+  <div class="section-label">Traveller Stories</div>
+  <div class="reviews-grid">
+    <div class="review-form-wrap">
+      <h3 style="font-family:'Playfair Display',serif;font-size:1.8rem;margin-bottom:8px;">Share Your Story</h3>
+      <textarea id="reviewInput" placeholder="What was your Udaipur experience like?"></textarea>
+      <button class="btn-primary" onclick="submitReview()">Post Review →</button>
+    </div>
+    <div class="reviews-list" id="reviewsList">
+      <div class="review-item"><p>"Rented a cycle and went around all 5 lakes at sunrise. The reflection of City Palace in Pichola is unreal."</p><div class="review-meta">Meera V. · March 2024</div></div>
+<div class="review-item"><p>"The Bagore Ki Haveli folk show at night, sipping chai on a rooftop. Udaipur is a dream."</p><div class="review-meta">Arjun D. · February 2024</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SAFETY -->
+<section class="section-safety fade-up">
+  <div class="section-label" style="color:var(--gold)">Stay Safe, Travel Smart</div>
+  <div class="safety-grid">
+    <div class="safety-card">
+      <div class="safety-icon">🚨</div>
+      <h4>Emergency Contacts</h4>
+      <ul><li>Udaipur Police: 0294-2419220</li><li>Ambulance: 108</li><li>Tourist Police: 1800-180-6405</li></ul>
+    </div>
+<div class="safety-card">
+      <div class="safety-icon">🎭</div>
+      <h4>Scam Awareness</h4>
+      <ul><li>Fixed price autos exist — negotiate before boarding</li><li>Buy handicrafts from government emporiums</li><li>Be wary of 'carpet shop' tours</li></ul>
+    </div>
+<div class="safety-card">
+      <div class="safety-icon">☀️</div>
+      <h4>Weather Tips</h4>
+      <ul><li>Summers are extreme (45°C+) — travel Oct–Mar</li><li>Carry sunscreen and water at all times</li><li>Wear light cotton in warm months</li></ul>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<footer class="dest-footer">
+  <a href="homepage.html" class="dest-footer-logo">SoloSafar</a>
+  <div class="dest-footer-links">
+    <a href="homepage.html">All Destinations</a>
+    <a href="feedback.html">Feedback</a>
+    <a href="mailto:bolotohsolo@gmail.com">Contact</a>
+  </div>
+</footer>
+
+<script>
+const DAILY = 2200;
+function calcBudget() {
+  const d = parseInt(document.getElementById('days').value) || 0;
+  document.getElementById('budgetNum').textContent = '₹' + (d * DAILY).toLocaleString('en-IN');
+}
+function saveDetails() {
+  const n = document.getElementById('name').value;
+  const d = document.getElementById('days').value;
+  if (!n || !d) { alert('Please fill in your name and number of days.'); return; }
+  alert('Trip saved! Have an amazing time in Udaipur, ' + n + '!');
+}
+function submitReview() {
+  const txt = document.getElementById('reviewInput').value.trim();
+  if (!txt) { alert('Please write something first!'); return; }
+  const list = document.getElementById('reviewsList');
+  const item = document.createElement('div');
+  item.className = 'review-item';
+  item.innerHTML = '<p>' + txt + '</p><div class="review-meta">Just now · Verified Traveller</div>';
+  list.prepend(item);
+  document.getElementById('reviewInput').value = '';
+}
+
+// Scroll nav
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// Fade-up on scroll
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

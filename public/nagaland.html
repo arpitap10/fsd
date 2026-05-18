@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nagaland — SoloSafar</title>
+  <link rel="stylesheet" href="dest-style.css">
+  <style>:root { --accent: #6b3a2a; }</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="homepage.html" class="nav-back">
+    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    Back to Home
+  </a>
+  <a href="homepage.html" class="nav-logo">SoloSafar</a>
+</nav>
+
+<!-- HERO -->
+<section class="dest-hero">
+  <div class="hero-bg" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Dzukou_Valley_5.jpg/1600px-Dzukou_Valley_5.jpg')"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow"><span>Tribal Northeast · India's Hidden Gem</span></div>
+    <h1 class="hero-destination"><em>Wild</em><br>Nagaland</h1>
+    <p class="hero-tagline">Warrior tribes, the Hornbill Festival, and a valley of flowers that blooms in secret.</p>
+    <div class="hero-meta">
+      <div class="hero-stat"><span class="hero-stat-num">16+</span><span class="hero-stat-label">Tribal Groups</span></div>
+      <div class="hero-stat"><span class="hero-stat-num">₹1.8K</span><span class="hero-stat-label">Per Day</span></div>
+      <div class="hero-stat"><span class="hero-stat-num">Oct–Mar</span><span class="hero-stat-label">Best Season</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="watercolour-break"></div>
+
+<div class="dest-body">
+
+<!-- INTRO -->
+<section class="section-intro fade-up">
+  <div>
+    <div class="section-intro-label">The Land of Festivals</div>
+    <h2>Nagaland: Ancient Tribes,<em> Living</em> Culture</h2>
+  </div>
+  <div class="section-intro-text">
+    <p>Nagaland is India's most authentic cultural frontier. Sixteen distinct Naga tribes, each with their own language, costume, and warrior traditions, have preserved their heritage with fierce pride.</p>
+    <p>The Hornbill Festival in December transforms Kisama Village into the most colourful spectacle in the subcontinent. And then there is Dzukou — a secret valley of seasonal flowers that rewards only those willing to walk for it.</p>
+  </div>
+</section>
+
+<!-- PLACES SCROLL -->
+<section class="section-places fade-up">
+  <div class="section-label">Places to Discover</div>
+  <div class="places-scroll">
+    <div class="place-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Dzukou_Valley_5.jpg/800px-Dzukou_Valley_5.jpg" alt="Dzukou Valley" loading="lazy">
+      <div class="place-card-label"><div class="place-card-num">01</div>Dzukou Valley</div>
+    </div>
+<div class="place-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Kohima_War_Cemetery.jpg/800px-Kohima_War_Cemetery.jpg" alt="Kohima War Cemetery" loading="lazy">
+      <div class="place-card-label"><div class="place-card-num">02</div>Kohima War Cemetery</div>
+    </div>
+<div class="place-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Hornbill_festival_Nagaland.jpg/800px-Hornbill_festival_Nagaland.jpg" alt="Kisama Heritage Village" loading="lazy">
+      <div class="place-card-label"><div class="place-card-num">03</div>Kisama Heritage Village</div>
+    </div>
+<div class="place-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Japfu_peak_Nagaland.jpg/800px-Japfu_peak_Nagaland.jpg" alt="Japfü Peak" loading="lazy">
+      <div class="place-card-label"><div class="place-card-num">04</div>Japfü Peak</div>
+    </div>
+<div class="place-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Dimapur_Nagaland.jpg/800px-Dimapur_Nagaland.jpg" alt="Dimapur Ruins" loading="lazy">
+      <div class="place-card-label"><div class="place-card-num">05</div>Dimapur Ruins</div>
+    </div>
+  </div>
+</section>
+
+<!-- MAP -->
+<section class="section-map fade-up">
+  <div class="map-text">
+    <div class="section-label" style="color:var(--gold)">Getting There</div>
+    <h2>Reaching Nagaland</h2>
+    <p>Fly into Dimapur Airport from Kolkata, Delhi, or Guwahati. Then drive to Kohima (3 hrs). Inner Line Permit (ILP) required for all non-residents — get it in Delhi, Kolkata, or at Dimapur.</p>
+  </div>
+  <div class="map-visual">
+    <iframe src="https://maps.google.com/maps?q=Kohima, Nagaland, India&output=embed" allowfullscreen loading="lazy"></iframe>
+  </div>
+</section>
+
+<!-- PLANNER -->
+<section class="section-plan fade-up">
+  <div class="section-label">Trip Planner</div>
+  <div class="plan-grid">
+    <div class="plan-form">
+      <div class="field-group"><label>Your Name</label><input type="text" id="name" placeholder="Enter your name"></div>
+      <div class="field-group"><label>Age</label><input type="number" id="age" placeholder="Your age"></div>
+      <div class="field-group"><label>Number of Days</label><input type="number" id="days" placeholder="How many days?" oninput="calcBudget()"></div>
+      <div class="field-group"><label>Travel Date</label><input type="date" id="tdate"></div>
+      <button class="btn-primary" onclick="saveDetails()">Save My Trip →</button>
+    </div>
+    <div class="budget-display">
+      <div class="budget-label">Estimated Budget</div>
+      <div class="budget-num" id="budgetNum">₹0</div>
+      <div class="budget-sub">Based on ₹1800/day average</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOD + STAY -->
+<section class="section-essentials fade-up">
+  <div class="essentials-col">
+    <div class="section-label">Local Flavours</div>
+    <h3>What to Eat</h3>
+    <div class="essential-item">
+      <img class="essential-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Naga_pork_dish.jpg/640px-Naga_pork_dish.jpg" alt="Smoked Pork with Akhuni">
+      <div class="essential-text"><h4>Smoked Pork with Akhuni</h4><p>Fermented soybean with smoky pork — the soul dish of Naga cuisine.</p></div>
+    </div>
+<div class="essential-item">
+      <img class="essential-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Bamboo_shoot_curry.jpg/640px-Bamboo_shoot_curry.jpg" alt="Bamboo Shoot Curry">
+      <div class="essential-text"><h4>Bamboo Shoot Curry</h4><p>Young bamboo shoots cooked with dried fish and chili — tangy and earthy.</p></div>
+    </div>
+<div class="essential-item">
+      <img class="essential-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Rice_beer_Nagaland.jpg/640px-Rice_beer_Nagaland.jpg" alt="Rice Beer (Zutho)">
+      <div class="essential-text"><h4>Rice Beer (Zutho)</h4><p>Traditional Naga millet beer — offered at every tribal gathering.</p></div>
+    </div>
+  </div>
+  <div class="essentials-col">
+    <div class="section-label">Where to Rest</div>
+    <h3>Places to Stay</h3>
+    <div class="essential-item">
+      <img class="essential-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Kohima_hotel.jpg/640px-Kohima_hotel.jpg" alt="Hotel Japfü, Kohima">
+      <div class="essential-text"><h4>Hotel Japfü, Kohima</h4><p>Comfortable budget hotel in the heart of Kohima city.</p></div>
+    </div>
+<div class="essential-item">
+      <img class="essential-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Naga_village_home.jpg/640px-Naga_village_home.jpg" alt="Tribal Homestays">
+      <div class="essential-text"><h4>Tribal Homestays</h4><p>Stay in a Naga village home — the most authentic travel experience possible.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO -->
+<section class="section-video fade-up">
+  <div class="video-inner">
+    <img src="https://enfozone.com/wp-content/uploads/2020/10/a-land-with-spellbinding-culture-and-its-preserver-nagaland.jpg" alt="Nagaland">
+    <div class="video-overlay">
+      <h3>Experience Nagaland</h3>
+      <a href="https://youtu.be/bT5X8KLDv1g" target="_blank" class="video-btn">▶ Watch the Film</a>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="section-reviews fade-up">
+  <div class="section-label">Traveller Stories</div>
+  <div class="reviews-grid">
+    <div class="review-form-wrap">
+      <h3 style="font-family:'Playfair Display',serif;font-size:1.8rem;margin-bottom:8px;">Share Your Story</h3>
+      <textarea id="reviewInput" placeholder="What was your Nagaland experience like?"></textarea>
+      <button class="btn-primary" onclick="submitReview()">Post Review →</button>
+    </div>
+    <div class="reviews-list" id="reviewsList">
+      <div class="review-item"><p>"Hornbill Festival is like nothing on Earth. 16 tribes, 10 days. I danced with warriors around a fire."</p><div class="review-meta">Tara K. · December 2023</div></div>
+<div class="review-item"><p>"Dzukou Valley trek was brutal and beautiful. Slept in the valley shelter — woke up in a cloud."</p><div class="review-meta">Ishaan R. · October 2023</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SAFETY -->
+<section class="section-safety fade-up">
+  <div class="section-label" style="color:var(--gold)">Stay Safe, Travel Smart</div>
+  <div class="safety-grid">
+    <div class="safety-card">
+      <div class="safety-icon">🚨</div>
+      <h4>Emergency Contacts</h4>
+      <ul><li>Nagaland Police: 100</li><li>Ambulance: 108</li><li>Kohima: 0370-2225830</li></ul>
+    </div>
+<div class="safety-card">
+      <div class="safety-icon">📋</div>
+      <h4>Permit Requirements</h4>
+      <ul><li>ILP mandatory — apply online nagalandilp.in</li><li>Carry physical + digital copies</li><li>Some areas need special restricted permits</li></ul>
+    </div>
+<div class="safety-card">
+      <div class="safety-icon">🌿</div>
+      <h4>Trek Safety</h4>
+      <ul><li>Dzukou trek needs guide for first-timers</li><li>Start early — clouds cover the valley by noon</li><li>No network in Dzukou — inform someone</li></ul>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<footer class="dest-footer">
+  <a href="homepage.html" class="dest-footer-logo">SoloSafar</a>
+  <div class="dest-footer-links">
+    <a href="homepage.html">All Destinations</a>
+    <a href="feedback.html">Feedback</a>
+    <a href="mailto:bolotohsolo@gmail.com">Contact</a>
+  </div>
+</footer>
+
+<script>
+const DAILY = 1800;
+function calcBudget() {
+  const d = parseInt(document.getElementById('days').value) || 0;
+  document.getElementById('budgetNum').textContent = '₹' + (d * DAILY).toLocaleString('en-IN');
+}
+function saveDetails() {
+  const n = document.getElementById('name').value;
+  const d = document.getElementById('days').value;
+  if (!n || !d) { alert('Please fill in your name and number of days.'); return; }
+  alert('Trip saved! Have an amazing time in Nagaland, ' + n + '!');
+}
+function submitReview() {
+  const txt = document.getElementById('reviewInput').value.trim();
+  if (!txt) { alert('Please write something first!'); return; }
+  const list = document.getElementById('reviewsList');
+  const item = document.createElement('div');
+  item.className = 'review-item';
+  item.innerHTML = '<p>' + txt + '</p><div class="review-meta">Just now · Verified Traveller</div>';
+  list.prepend(item);
+  document.getElementById('reviewInput').value = '';
+}
+
+// Scroll nav
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// Fade-up on scroll
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

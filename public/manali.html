@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manali — SoloSafar</title>
+  <link rel="stylesheet" href="dest-style.css">
+  <style>:root { --accent: #2e7d5a; }</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="homepage.html" class="nav-back">
+    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    Back to Home
+  </a>
+  <a href="homepage.html" class="nav-logo">SoloSafar</a>
+</nav>
+
+<!-- HERO -->
+<section class="dest-hero">
+  <div class="hero-bg" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Solang_Valley%2C_Himachal_Pradesh.jpg/1600px-Solang_Valley%2C_Himachal_Pradesh.jpg')"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow"><span>Snow Peaks · Himachal Pradesh</span></div>
+    <h1 class="hero-destination"><em>Snow</em> &<br>Adventure</h1>
+    <p class="hero-tagline">Rohtang Pass, apple orchards, paragliding — Manali is where mountains meet magic.</p>
+    <div class="hero-meta">
+      <div class="hero-stat"><span class="hero-stat-num">2050m</span><span class="hero-stat-label">Altitude</span></div>
+      <div class="hero-stat"><span class="hero-stat-num">₹2.5K</span><span class="hero-stat-label">Per Day</span></div>
+      <div class="hero-stat"><span class="hero-stat-num">Dec–Mar & Jun–Sep</span><span class="hero-stat-label">Best Season</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="watercolour-break"></div>
+
+<div class="dest-body">
+
+<!-- INTRO -->
+<section class="section-intro fade-up">
+  <div>
+    <div class="section-intro-label">The Gateway to the Himalayas</div>
+    <h2>Manali: Snow, Speed &<em> Silence</em></h2>
+  </div>
+  <div class="section-intro-text">
+    <p>Nestled in the Kullu Valley, Manali is Himachal Pradesh's crown jewel. Ringed by peaks draped in snow and pine forests that seem to touch the sky, it's a year-round playground.</p>
+    <p>From skiing in Solang Valley to the sacred Hadimba Temple's cedar forest, from roaring Beas River to hidden Naggar Castle — Manali has more layers than its mountains.</p>
+  </div>
+</section>
+
+<!-- PLACES SCROLL -->
+<section class="section-places fade-up">
+  <div class="section-label">Places to Discover</div>
+  <div class="places-scroll">
+    <div class="place-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Solang_Valley%2C_Himachal_Pradesh.jpg/800px-Solang_Valley%2C_Himachal_Pradesh.jpg" alt="Solang Valley" loading="lazy">
+      <div class="place-card-label"><div class="place-card-num">01</div>Solang Valley</div>
+    </div>
+<div class="place-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Rohtang_Pass.jpg/800px-Rohtang_Pass.jpg" alt="Rohtang Pass" loading="lazy">
+      <div class="place-card-label"><div class="place-card-num">02</div>Rohtang Pass</div>
+    </div>
+<div class="place-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Hidimba_Devi_Temple.jpg/800px-Hidimba_Devi_Temple.jpg" alt="Hadimba Temple" loading="lazy">
+      <div class="place-card-label"><div class="place-card-num">03</div>Hadimba Temple</div>
+    </div>
+<div class="place-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Beas_Kund_trek.jpg/800px-Beas_Kund_trek.jpg" alt="Beas River Kund" loading="lazy">
+      <div class="place-card-label"><div class="place-card-num">04</div>Beas River Kund</div>
+    </div>
+<div class="place-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Old_Manali_Streets.jpg/800px-Old_Manali_Streets.jpg" alt="Old Manali" loading="lazy">
+      <div class="place-card-label"><div class="place-card-num">05</div>Old Manali</div>
+    </div>
+  </div>
+</section>
+
+<!-- MAP -->
+<section class="section-map fade-up">
+  <div class="map-text">
+    <div class="section-label" style="color:var(--gold)">Getting There</div>
+    <h2>Reaching Manali</h2>
+    <p>Manali is best reached by overnight Volvo bus from Delhi (13-14 hrs). The nearest airport is Kullu-Manali Airport (Bhuntar), 50km away. Rohtang permit required for passes.</p>
+  </div>
+  <div class="map-visual">
+    <iframe src="https://maps.google.com/maps?q=Manali, Himachal Pradesh, India&output=embed" allowfullscreen loading="lazy"></iframe>
+  </div>
+</section>
+
+<!-- PLANNER -->
+<section class="section-plan fade-up">
+  <div class="section-label">Trip Planner</div>
+  <div class="plan-grid">
+    <div class="plan-form">
+      <div class="field-group"><label>Your Name</label><input type="text" id="name" placeholder="Enter your name"></div>
+      <div class="field-group"><label>Age</label><input type="number" id="age" placeholder="Your age"></div>
+      <div class="field-group"><label>Number of Days</label><input type="number" id="days" placeholder="How many days?" oninput="calcBudget()"></div>
+      <div class="field-group"><label>Travel Date</label><input type="date" id="tdate"></div>
+      <button class="btn-primary" onclick="saveDetails()">Save My Trip →</button>
+    </div>
+    <div class="budget-display">
+      <div class="budget-label">Estimated Budget</div>
+      <div class="budget-num" id="budgetNum">₹0</div>
+      <div class="budget-sub">Based on ₹2500/day average</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOD + STAY -->
+<section class="section-essentials fade-up">
+  <div class="essentials-col">
+    <div class="section-label">Local Flavours</div>
+    <h3>What to Eat</h3>
+    <div class="essential-item">
+      <img class="essential-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Siddu_Himachali.jpg/640px-Siddu_Himachali.jpg" alt="Siddu">
+      <div class="essential-text"><h4>Siddu</h4><p>Himachali steamed bread stuffed with walnuts and poppy seeds — a mountain delicacy.</p></div>
+    </div>
+<div class="essential-item">
+      <img class="essential-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Trout_fish_curry.jpg/640px-Trout_fish_curry.jpg" alt="Trout Fish Curry">
+      <div class="essential-text"><h4>Trout Fish Curry</h4><p>Fresh Himalayan trout from Beas River, lightly spiced and unforgettable.</p></div>
+    </div>
+<div class="essential-item">
+      <img class="essential-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Dham_food_himachal.jpg/640px-Dham_food_himachal.jpg" alt="Dham">
+      <div class="essential-text"><h4>Dham</h4><p>Traditional Himachali feast served on leaf plates — rice, lentils, curd, and rajma.</p></div>
+    </div>
+  </div>
+  <div class="essentials-col">
+    <div class="section-label">Where to Rest</div>
+    <h3>Places to Stay</h3>
+    <div class="essential-item">
+      <img class="essential-img" src="https://cdn.zostel.com/media/photos/Manali/zostel-manali.jpg" alt="Zostel Manali">
+      <div class="essential-text"><h4>Zostel Manali</h4><p>Cosy hostel in Old Manali with mountain views and great community vibe.</p></div>
+    </div>
+<div class="essential-item">
+      <img class="essential-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Manali_resort.jpg/640px-Manali_resort.jpg" alt="Snow Valley Resorts">
+      <div class="essential-text"><h4>Snow Valley Resorts</h4><p>Budget riverside resort with stunning Beas views.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO -->
+<section class="section-video fade-up">
+  <div class="video-inner">
+    <img src="https://i.ytimg.com/vi/CzjB_SRHqjo/maxresdefault.jpg" alt="Manali">
+    <div class="video-overlay">
+      <h3>Experience Manali</h3>
+      <a href="https://youtu.be/CzjB_SRHqjo" target="_blank" class="video-btn">▶ Watch the Film</a>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="section-reviews fade-up">
+  <div class="section-label">Traveller Stories</div>
+  <div class="reviews-grid">
+    <div class="review-form-wrap">
+      <h3 style="font-family:'Playfair Display',serif;font-size:1.8rem;margin-bottom:8px;">Share Your Story</h3>
+      <textarea id="reviewInput" placeholder="What was your Manali experience like?"></textarea>
+      <button class="btn-primary" onclick="submitReview()">Post Review →</button>
+    </div>
+    <div class="reviews-list" id="reviewsList">
+      <div class="review-item"><p>"Paraglided over Solang Valley on my first solo trip. My heart was in my throat but my soul was flying."</p><div class="review-meta">Nisha R. · February 2024</div></div>
+<div class="review-item"><p>"Old Manali cafes, snowfall at night, Hidimba temple at dawn. This place is pure poetry."</p><div class="review-meta">Dev T. · December 2023</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SAFETY -->
+<section class="section-safety fade-up">
+  <div class="section-label" style="color:var(--gold)">Stay Safe, Travel Smart</div>
+  <div class="safety-grid">
+    <div class="safety-card">
+      <div class="safety-icon">🚨</div>
+      <h4>Emergency Contacts</h4>
+      <ul><li>Manali Police: 01902-252341</li><li>Ambulance: 108</li><li>Himachal Tourism: 1800-180-8080</li></ul>
+    </div>
+<div class="safety-card">
+      <div class="safety-icon">🏔️</div>
+      <h4>Mountain Safety</h4>
+      <ul><li>Check weather before heading to Rohtang</li><li>Carry warm layers even in summer</li><li>Rohtang Pass requires advance permit</li></ul>
+    </div>
+<div class="safety-card">
+      <div class="safety-icon">🛡️</div>
+      <h4>Solo Tips</h4>
+      <ul><li>Register at the police post before remote treks</li><li>Download offline maps</li><li>Carry basic first aid and medicines</li></ul>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<footer class="dest-footer">
+  <a href="homepage.html" class="dest-footer-logo">SoloSafar</a>
+  <div class="dest-footer-links">
+    <a href="homepage.html">All Destinations</a>
+    <a href="feedback.html">Feedback</a>
+    <a href="mailto:bolotohsolo@gmail.com">Contact</a>
+  </div>
+</footer>
+
+<script>
+const DAILY = 2500;
+function calcBudget() {
+  const d = parseInt(document.getElementById('days').value) || 0;
+  document.getElementById('budgetNum').textContent = '₹' + (d * DAILY).toLocaleString('en-IN');
+}
+function saveDetails() {
+  const n = document.getElementById('name').value;
+  const d = document.getElementById('days').value;
+  if (!n || !d) { alert('Please fill in your name and number of days.'); return; }
+  alert('Trip saved! Have an amazing time in Manali, ' + n + '!');
+}
+function submitReview() {
+  const txt = document.getElementById('reviewInput').value.trim();
+  if (!txt) { alert('Please write something first!'); return; }
+  const list = document.getElementById('reviewsList');
+  const item = document.createElement('div');
+  item.className = 'review-item';
+  item.innerHTML = '<p>' + txt + '</p><div class="review-meta">Just now · Verified Traveller</div>';
+  list.prepend(item);
+  document.getElementById('reviewInput').value = '';
+}
+
+// Scroll nav
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// Fade-up on scroll
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

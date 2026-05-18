@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feedback</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background: url('images/goa.jpg') center/cover no-repeat;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+}
+
+.box {
+  position: relative;
+  z-index: 2;
+  width: 90%;
+  max-width: 500px;
+  margin: 120px auto;
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+}
+
+h2 {
+  text-align: center;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="overlay"></div>
+
+<div class="box">
+  <h2>Feedback</h2>
+  <input type="text" placeholder="Your Name">
+  <textarea placeholder="Your feedback"></textarea>
+  <button>Submit</button>
+</div>
+
+</body>
+</html>

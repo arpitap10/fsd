@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kerala — SoloSafar</title>
+  <link rel="stylesheet" href="dest-style.css">
+  <style>:root { --accent: #1a6b4a; }</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="homepage.html" class="nav-back">
+    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    Back to Home
+  </a>
+  <a href="homepage.html" class="nav-logo">SoloSafar</a>
+</nav>
+
+<!-- HERO -->
+<section class="dest-hero">
+  <div class="hero-bg" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Kerala_backwater.jpg/1600px-Kerala_backwater.jpg')"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow"><span>God's Own Country · Southwest India</span></div>
+    <h1 class="hero-destination"><em>Green</em><br>Eternal</h1>
+    <p class="hero-tagline">Emerald backwaters, misty tea hills, ancient temples, and the gentlest rhythms on Earth.</p>
+    <div class="hero-meta">
+      <div class="hero-stat"><span class="hero-stat-num">580km</span><span class="hero-stat-label">Coastline</span></div>
+      <div class="hero-stat"><span class="hero-stat-num">₹2.8K</span><span class="hero-stat-label">Per Day</span></div>
+      <div class="hero-stat"><span class="hero-stat-num">Oct–Feb</span><span class="hero-stat-label">Best Season</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="watercolour-break"></div>
+
+<div class="dest-body">
+
+<!-- INTRO -->
+<section class="section-intro fade-up">
+  <div>
+    <div class="section-intro-label">God's Own Country</div>
+    <h2>Kerala: Where Nature <em>Breathes</em></h2>
+  </div>
+  <div class="section-intro-text">
+    <p>From the emerald backwaters of Alleppey to the mist-wrapped tea gardens of Munnar, Kerala is a land of extraordinary, quiet beauty. Every shade of green you can imagine.</p>
+    <p>Houseboat dreams on mirrored lagoons. Kathakali dancers with painted faces. Spice traders in Fort Kochi. Kerala is not just a destination — it's a feeling.</p>
+  </div>
+</section>
+
+<!-- PLACES SCROLL -->
+<section class="section-places fade-up">
+  <div class="section-label">Places to Discover</div>
+  <div class="places-scroll">
+    <div class="place-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Kerala_backwater.jpg/800px-Kerala_backwater.jpg" alt="Alleppey Backwaters" loading="lazy">
+      <div class="place-card-label"><div class="place-card-num">01</div>Alleppey Backwaters</div>
+    </div>
+<div class="place-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Munnar_tea_estate.jpg/800px-Munnar_tea_estate.jpg" alt="Munnar Tea Gardens" loading="lazy">
+      <div class="place-card-label"><div class="place-card-num">02</div>Munnar Tea Gardens</div>
+    </div>
+<div class="place-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Chinese_fishing_nets_-_Cochin.jpg/800px-Chinese_fishing_nets_-_Cochin.jpg" alt="Fort Kochi" loading="lazy">
+      <div class="place-card-label"><div class="place-card-num">03</div>Fort Kochi</div>
+    </div>
+<div class="place-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Wayanad_hills.jpg/800px-Wayanad_hills.jpg" alt="Wayanad Wildlife" loading="lazy">
+      <div class="place-card-label"><div class="place-card-num">04</div>Wayanad Wildlife</div>
+    </div>
+<div class="place-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Varkala_beach_Kerala.jpg/800px-Varkala_beach_Kerala.jpg" alt="Varkala Cliff Beach" loading="lazy">
+      <div class="place-card-label"><div class="place-card-num">05</div>Varkala Cliff Beach</div>
+    </div>
+  </div>
+</section>
+
+<!-- MAP -->
+<section class="section-map fade-up">
+  <div class="map-text">
+    <div class="section-label" style="color:var(--gold)">Getting There</div>
+    <h2>Reaching Kerala</h2>
+    <p>Kerala has 3 international airports: Thiruvananthapuram, Kochi (Cochin), and Calicut. Indian Railways covers the coast beautifully. The scenic train from Shoranur to Nilambur is unmissable.</p>
+  </div>
+  <div class="map-visual">
+    <iframe src="https://maps.google.com/maps?q=Kerala, India&output=embed" allowfullscreen loading="lazy"></iframe>
+  </div>
+</section>
+
+<!-- PLANNER -->
+<section class="section-plan fade-up">
+  <div class="section-label">Trip Planner</div>
+  <div class="plan-grid">
+    <div class="plan-form">
+      <div class="field-group"><label>Your Name</label><input type="text" id="name" placeholder="Enter your name"></div>
+      <div class="field-group"><label>Age</label><input type="number" id="age" placeholder="Your age"></div>
+      <div class="field-group"><label>Number of Days</label><input type="number" id="days" placeholder="How many days?" oninput="calcBudget()"></div>
+      <div class="field-group"><label>Travel Date</label><input type="date" id="tdate"></div>
+      <button class="btn-primary" onclick="saveDetails()">Save My Trip →</button>
+    </div>
+    <div class="budget-display">
+      <div class="budget-label">Estimated Budget</div>
+      <div class="budget-num" id="budgetNum">₹0</div>
+      <div class="budget-sub">Based on ₹2800/day average</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOD + STAY -->
+<section class="section-essentials fade-up">
+  <div class="essentials-col">
+    <div class="section-label">Local Flavours</div>
+    <h3>What to Eat</h3>
+    <div class="essential-item">
+      <img class="essential-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Kerala_sadya.jpg/640px-Kerala_sadya.jpg" alt="Kerala Sadya">
+      <div class="essential-text"><h4>Kerala Sadya</h4><p>Grand vegetarian feast on banana leaf — 26 dishes served for Onam.</p></div>
+    </div>
+<div class="essential-item">
+      <img class="essential-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Karimeen_pollichathu.jpg/640px-Karimeen_pollichathu.jpg" alt="Karimeen Pollichathu">
+      <div class="essential-text"><h4>Karimeen Pollichathu</h4><p>Pearl spot fish marinated in spices and roasted in banana leaf.</p></div>
+    </div>
+<div class="essential-item">
+      <img class="essential-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Appam_and_stew.jpg/640px-Appam_and_stew.jpg" alt="Appam & Stew">
+      <div class="essential-text"><h4>Appam & Stew</h4><p>Lacey rice pancakes with aromatic coconut milk vegetable stew.</p></div>
+    </div>
+  </div>
+  <div class="essentials-col">
+    <div class="section-label">Where to Rest</div>
+    <h3>Places to Stay</h3>
+    <div class="essential-item">
+      <img class="essential-img" src="https://cdn.zostel.com/media/photos/Kochi/zostel_kochi.jpg" alt="Zostel Kochi">
+      <div class="essential-text"><h4>Zostel Kochi</h4><p>Heritage-house hostel in Fort Kochi — art, culture, community.</p></div>
+    </div>
+<div class="essential-item">
+      <img class="essential-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Houseboat_Kerala.jpg/640px-Houseboat_Kerala.jpg" alt="Alleppey Houseboat">
+      <div class="essential-text"><h4>Alleppey Houseboat</h4><p>Overnight houseboat on the backwaters — a bucket-list experience.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO -->
+<section class="section-video fade-up">
+  <div class="video-inner">
+    <img src="https://i.ytimg.com/vi/yLE5bDX7M3Y/maxresdefault.jpg" alt="Kerala">
+    <div class="video-overlay">
+      <h3>Experience Kerala</h3>
+      <a href="https://youtu.be/yLE5bDX7M3Y" target="_blank" class="video-btn">▶ Watch the Film</a>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="section-reviews fade-up">
+  <div class="section-label">Traveller Stories</div>
+  <div class="reviews-grid">
+    <div class="review-form-wrap">
+      <h3 style="font-family:'Playfair Display',serif;font-size:1.8rem;margin-bottom:8px;">Share Your Story</h3>
+      <textarea id="reviewInput" placeholder="What was your Kerala experience like?"></textarea>
+      <button class="btn-primary" onclick="submitReview()">Post Review →</button>
+    </div>
+    <div class="reviews-list" id="reviewsList">
+      <div class="review-item"><p>"An overnight houseboat on the backwaters alone with the stars. I have never felt so at peace in my life."</p><div class="review-meta">Ananya B. · November 2023</div></div>
+<div class="review-item"><p>"Munnar at dawn with mist over the tea gardens is the most beautiful thing I have ever witnessed."</p><div class="review-meta">Kabir M. · January 2024</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SAFETY -->
+<section class="section-safety fade-up">
+  <div class="section-label" style="color:var(--gold)">Stay Safe, Travel Smart</div>
+  <div class="safety-grid">
+    <div class="safety-card">
+      <div class="safety-icon">🚨</div>
+      <h4>Emergency Contacts</h4>
+      <ul><li>Kerala Police: 100</li><li>Ambulance: 108</li><li>Tourist Helpline: 1800-425-4747</li></ul>
+    </div>
+<div class="safety-card">
+      <div class="safety-icon">🌿</div>
+      <h4>Nature Tips</h4>
+      <ul><li>Leeches in forests — tuck trousers in socks</li><li>Monsoon (Jun-Sep) makes roads slippery</li><li>Wildlife sanctuaries need permits</li></ul>
+    </div>
+<div class="safety-card">
+      <div class="safety-icon">🚢</div>
+      <h4>Water Safety</h4>
+      <ul><li>Life jackets on all boat rides</li><li>Check houseboat safety ratings</li><li>Avoid swimming in backwaters alone</li></ul>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<footer class="dest-footer">
+  <a href="homepage.html" class="dest-footer-logo">SoloSafar</a>
+  <div class="dest-footer-links">
+    <a href="homepage.html">All Destinations</a>
+    <a href="feedback.html">Feedback</a>
+    <a href="mailto:bolotohsolo@gmail.com">Contact</a>
+  </div>
+</footer>
+
+<script>
+const DAILY = 2800;
+function calcBudget() {
+  const d = parseInt(document.getElementById('days').value) || 0;
+  document.getElementById('budgetNum').textContent = '₹' + (d * DAILY).toLocaleString('en-IN');
+}
+function saveDetails() {
+  const n = document.getElementById('name').value;
+  const d = document.getElementById('days').value;
+  if (!n || !d) { alert('Please fill in your name and number of days.'); return; }
+  alert('Trip saved! Have an amazing time in Kerala, ' + n + '!');
+}
+function submitReview() {
+  const txt = document.getElementById('reviewInput').value.trim();
+  if (!txt) { alert('Please write something first!'); return; }
+  const list = document.getElementById('reviewsList');
+  const item = document.createElement('div');
+  item.className = 'review-item';
+  item.innerHTML = '<p>' + txt + '</p><div class="review-meta">Just now · Verified Traveller</div>';
+  list.prepend(item);
+  document.getElementById('reviewInput').value = '';
+}
+
+// Scroll nav
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// Fade-up on scroll
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

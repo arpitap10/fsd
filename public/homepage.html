@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SoloSafar — India Awaits</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Space+Grotesk:wght@300;400;500;600&family=Bebas+Neue&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #f4efe6;
+      --warm-black: #1a1208;
+      --rust: #c44b2a;
+      --gold: #d4a853;
+      --paper: #e8e0d0;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Space Grotesk', sans-serif; background: var(--cream); color: var(--warm-black); overflow-x: hidden; }
+
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 100;
+      padding: 20px 48px; display: flex; justify-content: space-between; align-items: center;
+      background: rgba(244,239,230,0.92); backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(26,18,8,0.08);
+    }
+    .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 4px; color: var(--warm-black); }
+    .nav-links { display: flex; gap: 32px; align-items: center; }
+    .nav-links a { text-decoration: none; font-size: 0.85rem; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: var(--warm-black); transition: color 0.3s; }
+    .nav-links a:hover { color: var(--rust); }
+    .nav-btn { border: 1.5px solid var(--warm-black); padding: 8px 20px; border-radius: 2px; }
+
+    /* ── HERO: CAMERA + FAN (Image 2 style) ── */
+    .hero {
+      min-height: 100vh;
+      background: #f0ebe0;
+      /* crumpled paper texture via SVG filter + radial gradients */
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding-top: 80px;
+    }
+
+    /* Paper texture overlay */
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E");
+      background-size: 200px 200px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Light crinkle lines */
+    .hero::after {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse at 15% 60%, rgba(180,160,120,0.18) 0%, transparent 50%),
+        radial-gradient(ellipse at 85% 30%, rgba(180,160,120,0.12) 0%, transparent 45%),
+        radial-gradient(ellipse at 50% 90%, rgba(200,180,140,0.15) 0%, transparent 40%);
+      pointer-events: none; z-index: 0;
+    }
+
+    /* ── GALLERY TITLE ── */
+    .gallery-meta {
+      position: absolute;
+      bottom: 32px; left: 40px;
+      z-index: 10;
+      font-size: 0.75rem;
+      color: rgba(26,18,8,0.45);
+      letter-spacing: 1px;
+      line-height: 1.9;
+    }
+    .gallery-meta strong { display: block; font-size: 0.8rem; color: rgba(26,18,8,0.6); font-weight: 600; }
+
+    .designer-credit {
+      position: absolute;
+      bottom: 32px; right: 40px;
+      z-index: 10;
+      text-align: right;
+      font-size: 0.7rem;
+      color: rgba(26,18,8,0.4);
+      letter-spacing: 1px;
+      font-style: italic;
+    }
+
+    /* ── CAMERA SCENE ── */
+    .camera-scene {
+      position: relative;
+      width: min(700px, 95vw);
+      height: min(560px, 80vw);
+      z-index: 2;
+      margin: 0 auto;
+    }
+
+    /* ── FAN OF PHOTO STRIPS ── */
+    .photo-fan {
+      position: absolute;
+      bottom: 110px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      height: 420px;
+    }
+
+    .photo-strip {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform-origin: bottom center;
+      width: 115px;
+      border-radius: 6px 6px 0 0;
+      overflow: hidden;
+      box-shadow: 2px -4px 24px rgba(0,0,0,0.22), 0 0 0 1px rgba(0,0,0,0.06);
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.35s cubic-bezier(.25,.8,.25,1), box-shadow 0.3s;
+    }
+    .photo-strip img {
+      width: 100%;
+      height: 290px;
+      object-fit: cover;
+      display: block;
+    }
+    .photo-strip .strip-label {
+      background: #fff;
+      color: var(--warm-black);
+      text-align: center;
+      padding: 5px 4px 4px;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+    }
+
+    /* Fan rotations — match Image 2: spread from ~-38deg to +38deg */
+    .photo-strip:nth-child(1) { transform: translateX(-50%) rotate(-36deg); z-index: 1; }
+    .photo-strip:nth-child(2) { transform: translateX(-50%) rotate(-22deg); z-index: 2; }
+    .photo-strip:nth-child(3) { transform: translateX(-50%) rotate(-9deg);  z-index: 3; }
+    .photo-strip:nth-child(4) { transform: translateX(-50%) rotate(4deg);   z-index: 4; }
+    .photo-strip:nth-child(5) { transform: translateX(-50%) rotate(17deg);  z-index: 3; }
+    .photo-strip:nth-child(6) { transform: translateX(-50%) rotate(32deg);  z-index: 2; }
+
+    .photo-strip:nth-child(1):hover { transform: translateX(-50%) rotate(-36deg) translateY(-28px); z-index: 20; box-shadow: 4px -8px 36px rgba(0,0,0,0.3); }
+    .photo-strip:nth-child(2):hover { transform: translateX(-50%) rotate(-22deg) translateY(-28px); z-index: 20; box-shadow: 4px -8px 36px rgba(0,0,0,0.3); }
+    .photo-strip:nth-child(3):hover { transform: translateX(-50%) rotate(-9deg) translateY(-28px);  z-index: 20; box-shadow: 4px -8px 36px rgba(0,0,0,0.3); }
+    .photo-strip:nth-child(4):hover { transform: translateX(-50%) rotate(4deg) translateY(-28px);   z-index: 20; box-shadow: 4px -8px 36px rgba(0,0,0,0.3); }
+    .photo-strip:nth-child(5):hover { transform: translateX(-50%) rotate(17deg) translateY(-28px);  z-index: 20; box-shadow: 4px -8px 36px rgba(0,0,0,0.3); }
+    .photo-strip:nth-child(6):hover { transform: translateX(-50%) rotate(32deg) translateY(-28px);  z-index: 20; box-shadow: 4px -8px 36px rgba(0,0,0,0.3); }
+
+    /* ── CAMERA BODY ── */
+    .camera-body {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 260px;
+      z-index: 10;
+      filter: drop-shadow(0 16px 40px rgba(26,18,8,0.35));
+    }
+    .camera-body svg { width: 100%; height: auto; }
+
+    /* ── HINDI MARQUEE (curved path text) ── */
+    .hindi-marquee-wrap {
+      position: absolute;
+      bottom: 96px;
+      left: 0; right: 0;
+      z-index: 5;
+      overflow: hidden;
+      pointer-events: none;
+    }
+    .hindi-track {
+      display: inline-flex;
+      white-space: nowrap;
+      animation: scrollLeft 22s linear infinite;
+      gap: 0;
+    }
+    .hindi-track span {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1rem;
+      color: rgba(26,18,8,0.55);
+      padding: 0 18px;
+      letter-spacing: 0.5px;
+    }
+    @keyframes scrollLeft {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* ── MARQUEE BAR ── */
+    .manifesto { background: var(--rust); padding: 36px 0; overflow: hidden; white-space: nowrap; }
+    .manifesto-track { display: inline-flex; gap: 48px; animation: marquee 25s linear infinite; }
+    .manifesto span { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 4px; color: rgba(244,239,230,0.9); }
+    .manifesto .dot { color: var(--cream); }
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    /* ── DESTINATIONS SECTION ── */
+    .section-destinations {
+      padding: 100px 48px;
+      background: var(--warm-black);
+      color: var(--cream);
+      max-width: 1700px;
+      margin: 0 auto;
+    }
+    .section-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 60px; gap: 24px; }
+    .section-title { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 900; line-height: 1; }
+    .section-title span { color: var(--gold); font-style: italic; }
+    .section-count { font-size: 0.75rem; letter-spacing: 3px; text-transform: uppercase; color: rgba(244,239,230,0.5); padding-bottom: 8px; }
+
+    .dest-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 28px;
+      grid-auto-flow: dense;
+    }
+    .dest-card { position: relative; overflow: hidden; aspect-ratio: 3 / 4; cursor: pointer; text-decoration: none; display: block; }
+    .dest-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s cubic-bezier(.25,.8,.25,1), filter 0.5s; filter: saturate(0.8) brightness(0.85); }
+    .dest-card:hover img { transform: scale(1.08); filter: saturate(1.1) brightness(0.7); }
+    .dest-card-overlay { position: absolute; bottom: 0; left: 0; right: 0; padding: 40px 24px 24px; background: linear-gradient(to top, rgba(26,18,8,0.92), transparent); transform: translateY(20px); transition: transform 0.4s; }
+    .dest-card:hover .dest-card-overlay { transform: translateY(0); }
+    .dest-card-num { font-size: 0.65rem; letter-spacing: 3px; color: var(--gold); margin-bottom: 6px; }
+    .dest-card-name { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 700; color: var(--cream); line-height: 1.1; }
+    .dest-card-tag { font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; color: rgba(244,239,230,0.6); margin-top: 6px; }
+    .dest-card-arrow { position: absolute; top: 20px; right: 20px; width: 40px; height: 40px; border-radius: 50%; border: 1.5px solid rgba(244,239,230,0.4); display: flex; align-items: center; justify-content: center; color: var(--cream); opacity: 0; transition: opacity 0.3s; font-size: 1.1rem; }
+    .dest-card:hover .dest-card-arrow { opacity: 1; }
+    .dest-card.large { grid-column: span 1; }
+    .dest-card.large .dest-card-name { font-size: 2.2rem; }
+    @media (max-width: 900px) {
+      .dest-card.large { grid-column: span 1; }
+    }
+
+    /* FEATURES */
+    .features { padding: 100px 48px; background: var(--paper); display: grid; grid-template-columns: repeat(3, 1fr); gap: 60px; }
+    .feature-num { font-family: 'Bebas Neue', sans-serif; font-size: 4rem; color: rgba(26,18,8,0.1); line-height: 1; }
+    .feature-title { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; margin: 10px 0 14px; }
+    .feature-text { font-size: 0.9rem; color: rgba(26,18,8,0.6); line-height: 1.7; }
+
+    /* FOOTER */
+    footer { background: var(--warm-black); color: var(--cream); padding: 60px 48px 30px; }
+    .footer-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 60px; }
+    .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 3.5rem; letter-spacing: 6px; color: var(--gold); }
+    .footer-tagline { font-style: italic; color: rgba(244,239,230,0.5); margin-top: 8px; font-family: 'Playfair Display', serif; }
+    .footer-links { display: flex; gap: 48px; }
+    .footer-col h4 { font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+    .footer-col a { display: block; color: rgba(244,239,230,0.6); text-decoration: none; font-size: 0.9rem; margin-bottom: 10px; transition: color 0.3s; }
+    .footer-col a:hover { color: var(--cream); }
+    .footer-bottom { border-top: 1px solid rgba(244,239,230,0.1); padding-top: 24px; display: flex; justify-content: space-between; font-size: 0.75rem; color: rgba(244,239,230,0.3); }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-logo">SoloSafar</div>
+    <div class="nav-links">
+      <a href="#destinations">Destinations</a>
+      <a href="feedback.html">Feedback</a>
+      <a href="signintravel.html" class="nav-btn">Sign Out</a>
+    </div>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <section class="hero">
+
+    <!-- Hindi scrolling marquee text (like image 2) -->
+    <div class="hindi-marquee-wrap">
+      <div class="hindi-track">
+        <span>सोलो सफ़र हर नज़ारा कहानी ऐ।</span>
+        <span>सोलो सफ़र हर नज़ारा कहानी ऐ।</span>
+        <span>सोलो सफ़र हर नज़ारा कहानी ऐ।</span>
+        <span>सोलो सफ़र हर नज़ारा कहानी ऐ।</span>
+        <span>सोलो सफ़र हर नज़ारा कहानी ऐ।</span>
+        <span>सोलो सफ़र हर नज़ारा कहानी ऐ।</span>
+        <span>सोलो सफ़र हर नज़ारा कहानी ऐ।</span>
+        <span>सोलो सफ़र हर नज़ारा कहानी ऐ।</span>
+        <span>सोलो सफ़र हर नज़ारा कहानी ऐ।</span>
+        <span>सोलो सफ़र हर नज़ारा कहानी ऐ।</span>
+      </div>
+    </div>
+
+    <!-- Camera + fan scene -->
+    <div class="camera-scene">
+
+      <!-- Photo fan -->
+      <div class="photo-fan">
+
+        <a href="sikkim.html" class="photo-strip">
+          <!-- REPLACE src with your Sikkim photo -->
+          <img src="images/sikkim.jpg" alt="Sikkim">
+          <div class="strip-label">Sikkim</div>
+        </a>
+
+        <a href="nagaland.html" class="photo-strip">
+          <!-- REPLACE src with your Nagaland photo -->
+          <img src="images/nagaland.jpg" alt="Nagaland">
+          <div class="strip-label">Nagaland</div>
+        </a>
+
+        <a href="manali.html" class="photo-strip">
+          <!-- REPLACE src with your Manali photo -->
+          <img src="images/manali.jpg" alt="Manali">
+          <div class="strip-label">Manali</div>
+        </a>
+
+        <a href="goa.html" class="photo-strip">
+          <!-- REPLACE src with your Goa photo -->
+          <img src="images/goa.jpg" alt="Goa">
+          <div class="strip-label">Goa</div>
+        </a>
+
+        <a href="kerala.html" class="photo-strip">
+          <!-- REPLACE src with your Kerala photo -->
+          <img src="images/kerala.jpg" alt="Kerala">
+          <div class="strip-label">Kerala</div>
+        </a>
+
+        <a href="leh.html" class="photo-strip">
+          <!-- REPLACE src with your Ladakh photo -->
+          <img src="images/leh.jpg" alt="Ladakh">
+          <div class="strip-label">Ladakh</div>
+        </a>
+
+      </div><!-- /photo-fan -->
+
+      <!-- Camera body SVG (hands holding camera like image 2) -->
+      <div class="camera-body">
+        <svg viewBox="0 0 260 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Camera body -->
+          <rect x="20" y="28" width="220" height="118" rx="14" fill="#2a2218"/>
+          <rect x="20" y="28" width="220" height="118" rx="14" fill="url(#camGrad)"/>
+          <!-- Top hump -->
+          <rect x="36" y="14" width="68" height="24" rx="7" fill="#2a2218"/>
+          <!-- Lens ring outer -->
+          <circle cx="128" cy="92" r="44" fill="#1a1410"/>
+          <circle cx="128" cy="92" r="36" fill="#222"/>
+          <circle cx="128" cy="92" r="28" fill="#111"/>
+          <circle cx="128" cy="92" r="18" fill="#1a1410"/>
+          <!-- Lens glare -->
+          <circle cx="120" cy="84" r="5" fill="rgba(255,255,255,0.13)"/>
+          <circle cx="133" cy="99" r="2" fill="rgba(255,255,255,0.07)"/>
+          <!-- Shutter button -->
+          <circle cx="192" cy="46" r="9" fill="#c44b2a"/>
+          <circle cx="192" cy="46" r="6" fill="#d4a853"/>
+          <!-- Mode dial -->
+          <circle cx="60" cy="46" r="12" fill="#333"/>
+          <circle cx="60" cy="46" r="8" fill="#444"/>
+          <!-- Grip texture lines -->
+          <rect x="22" y="60" width="6" height="60" rx="3" fill="rgba(0,0,0,0.3)"/>
+          <!-- Flash -->
+          <rect x="46" y="18" width="28" height="10" rx="3" fill="#555"/>
+          <!-- Viewfinder -->
+          <rect x="148" y="18" width="36" height="16" rx="3" fill="#333"/>
+          <!-- Brand text area -->
+          <rect x="36" y="48" width="34" height="6" rx="2" fill="rgba(255,255,255,0.12)"/>
+          <rect x="36" y="58" width="22" height="4" rx="2" fill="rgba(255,255,255,0.07)"/>
+          <!-- Hands -->
+          <!-- Left hand -->
+          <ellipse cx="54" cy="152" rx="42" ry="22" fill="#c8a882"/>
+          <rect x="14" y="138" width="80" height="28" rx="12" fill="#c8a882"/>
+          <!-- Thumb left -->
+          <ellipse cx="28" cy="128" rx="12" ry="8" fill="#c8a882" transform="rotate(-20 28 128)"/>
+          <!-- Right hand -->
+          <ellipse cx="206" cy="152" rx="42" ry="22" fill="#c8a882"/>
+          <rect x="166" y="138" width="80" height="28" rx="12" fill="#c8a882"/>
+          <!-- Thumb right -->
+          <ellipse cx="232" cy="128" rx="12" ry="8" fill="#c8a882" transform="rotate(20 232 128)"/>
+          <!-- Finger knuckle details -->
+          <path d="M30 146 Q40 140 54 143 Q68 140 78 146" stroke="rgba(160,120,70,0.4)" stroke-width="1.5" fill="none"/>
+          <path d="M182 146 Q196 140 210 143 Q224 140 234 146" stroke="rgba(160,120,70,0.4)" stroke-width="1.5" fill="none"/>
+          <defs>
+            <linearGradient id="camGrad" x1="20" y1="28" x2="240" y2="146" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="rgba(255,255,255,0.08)"/>
+              <stop offset="100%" stop-color="rgba(0,0,0,0.3)"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+
+    </div><!-- /camera-scene -->
+
+    <!-- Bottom-left stamp -->
+    <div class="gallery-meta">
+      <strong>SoloSafar Gallery</strong>
+      No. 01 · India Vol. 1
+    </div>
+
+    <!-- Bottom-right credit -->
+    <div class="designer-credit">
+      Designed by<br>@solosafar.in
+    </div>
+
+  </section>
+
+  <!-- ── MARQUEE BAR ── -->
+  <div class="manifesto">
+    <div class="manifesto-track">
+      <span>Go Offbeat</span><span class="dot">✦</span><span>Travel Fearless</span><span class="dot">✦</span><span>Discover India</span><span class="dot">✦</span><span>Solo but Never Alone</span><span class="dot">✦</span><span>8 Destinations</span><span class="dot">✦</span><span>Bolo Toh Solo</span><span class="dot">✦</span><span>Go Offbeat</span><span class="dot">✦</span><span>Travel Fearless</span><span class="dot">✦</span><span>Discover India</span><span class="dot">✦</span><span>Solo but Never Alone</span><span class="dot">✦</span><span>8 Destinations</span><span class="dot">✦</span><span>Bolo Toh Solo</span><span class="dot">✦</span>
+    </div>
+  </div>
+
+  <!-- ── DESTINATIONS ── -->
+  <section class="section-destinations" id="destinations">
+    <div class="section-header">
+      <h2 class="section-title">Where Will<br>You <span>Go?</span></h2>
+      <span class="section-count">08 destinations</span>
+    </div>
+    <div class="dest-grid">
+
+      <a href="goa.html" class="dest-card large">
+        <!-- REPLACE with your Goa image -->
+        <img src="images/goa.jpg" alt="Goa">
+        <div class="dest-card-arrow">→</div>
+        <div class="dest-card-overlay">
+          <div class="dest-card-num">01</div>
+          <div class="dest-card-name">Goa</div>
+          <div class="dest-card-tag">Sun · Sand · Sea</div>
+        </div>
+      </a>
+
+      <a href="leh.html" class="dest-card">
+        <!-- REPLACE with your Leh image -->
+        <img src="images/leh.jpg" alt="Leh Ladakh">
+        <div class="dest-card-arrow">→</div>
+        <div class="dest-card-overlay">
+          <div class="dest-card-num">02</div>
+          <div class="dest-card-name">Leh Ladakh</div>
+          <div class="dest-card-tag">High Altitude · Monasteries</div>
+        </div>
+      </a>
+
+      <a href="manali.html" class="dest-card">
+        <!-- REPLACE with your Manali image -->
+        <img src="images/manali.jpg" alt="Manali">
+        <div class="dest-card-arrow">→</div>
+        <div class="dest-card-overlay">
+          <div class="dest-card-num">03</div>
+          <div class="dest-card-name">Manali</div>
+          <div class="dest-card-tag">Snow · Adventure · Valleys</div>
+        </div>
+      </a>
+
+      <a href="kerala.html" class="dest-card">
+        <!-- REPLACE with your Kerala image -->
+        <img src="images/kerala.jpg" alt="Kerala">
+        <div class="dest-card-arrow">→</div>
+        <div class="dest-card-overlay">
+          <div class="dest-card-num">04</div>
+          <div class="dest-card-name">Kerala</div>
+          <div class="dest-card-tag">Backwaters · Spice · Serenity</div>
+        </div>
+      </a>
+
+      <a href="udaipur.html" class="dest-card">
+        <!-- REPLACE with your Udaipur image -->
+        <img src="images/udaipur.jpg" alt="Udaipur">
+        <div class="dest-card-arrow">→</div>
+        <div class="dest-card-overlay">
+          <div class="dest-card-num">05</div>
+          <div class="dest-card-name">Udaipur</div>
+          <div class="dest-card-tag">Palaces · Lakes · Royalty</div>
+        </div>
+      </a>
+
+      <a href="sikkim.html" class="dest-card">
+        <!-- REPLACE with your Sikkim image -->
+        <img src="images/sikkim.jpg" alt="Sikkim">
+        <div class="dest-card-arrow">→</div>
+        <div class="dest-card-overlay">
+          <div class="dest-card-num">06</div>
+          <div class="dest-card-name">Sikkim</div>
+          <div class="dest-card-tag">Mountains · Monasteries · Mist</div>
+        </div>
+      </a>
+
+      <a href="kutch.html" class="dest-card large">
+        <!-- REPLACE with your Kutch image -->
+        <img src="images/kutch.jpg" alt="Kutch">
+        <div class="dest-card-arrow">→</div>
+        <div class="dest-card-overlay">
+          <div class="dest-card-num">07</div>
+          <div class="dest-card-name">Kutch</div>
+          <div class="dest-card-tag">Salt Desert · Folk Art · Festivals</div>
+        </div>
+      </a>
+
+      <a href="nagaland.html" class="dest-card">
+        <!-- REPLACE with your Nagaland image -->
+        <img src="images/nagaland.jpg" alt="Nagaland">
+        <div class="dest-card-arrow">→</div>
+        <div class="dest-card-overlay">
+          <div class="dest-card-num">08</div>
+          <div class="dest-card-name">Nagaland</div>
+          <div class="dest-card-tag">Tribes · Valleys · Hornbill</div>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <section class="features">
+    <div>
+      <div class="feature-num">01</div>
+      <div class="feature-title">Tailored for Solo Travelers</div>
+      <p class="feature-text">Budget calculators, safety tips, and emergency contacts curated specifically for solo travel in India.</p>
+    </div>
+    <div>
+      <div class="feature-num">02</div>
+      <div class="feature-title">Real Local Experiences</div>
+      <p class="feature-text">Authentic food, hidden stays, and cultural experiences beyond the tourist trail. Real India.</p>
+    </div>
+    <div>
+      <div class="feature-num">03</div>
+      <div class="feature-title">Plan, Save & Go</div>
+      <p class="feature-text">Enter your travel dates, get an instant budget estimate, and save your trip details.</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo">SoloSafar</div>
+        <div class="footer-tagline">"Discover, plan, and travel solo — effortlessly."</div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Destinations</h4>
+          <a href="goa.html">Goa</a>
+          <a href="leh.html">Leh Ladakh</a>
+          <a href="manali.html">Manali</a>
+          <a href="kerala.html">Kerala</a>
+          <a href="udaipur.html">Udaipur</a>
+          <a href="sikkim.html">Sikkim</a>
+          <a href="kutch.html">Kutch</a>
+          <a href="nagaland.html">Nagaland</a>
+        </div>
+        <div class="footer-col">
+          <h4>Info</h4>
+          <a href="feedback.html">Feedback</a>
+          <a href="signintravel.html">Sign In</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="mailto:bolotohsolo@gmail.com">bolotohsolo@gmail.com</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2024 SoloSafar. All rights reserved.</span>
+      <span>Made with ♥ for solo explorers of India</span>
+    </div>
+  </footer>
+
+</body>
+</html>
