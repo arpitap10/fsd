@@ -18,6 +18,28 @@ nav {
   background: rgba(244,239,230,0.92); backdrop-filter: blur(8px);
 }
 
+.lang-form {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.lang-label {
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  color: var(--warm-black);
+  white-space: nowrap;
+}
+
+.lang-select {
+  border: 1px solid rgba(26,18,8,0.15);
+  border-radius: 999px;
+  padding: 8px 12px;
+  font-size: 0.85rem;
+  background: #fff;
+  color: var(--warm-black);
+}
+
 /* HERO */
 .hero {
   min-height: 100vh;
@@ -403,6 +425,53 @@ nav {
 }
 
 .budget-sub {
+  color: rgba(26,18,8,0.65);
+}
+
+.section-weather {
+  display: grid;
+  gap: 24px;
+}
+
+.weather-summary {
+  padding: 28px;
+  border-radius: 32px;
+  background: #fff;
+  box-shadow: 0 30px 70px rgba(26,18,8,0.08);
+  color: rgba(26,18,8,0.78);
+  line-height: 1.8;
+}
+
+.weather-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 18px;
+}
+
+.weather-card {
+  padding: 24px;
+  border-radius: 28px;
+  background: #fff;
+  box-shadow: 0 24px 50px rgba(26,18,8,0.08);
+  min-height: 160px;
+  display: grid;
+  gap: 12px;
+}
+
+.weather-day {
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.weather-icon {
+  font-size: 2rem;
+}
+
+.weather-temp {
+  font-size: 1.05rem;
+}
+
+.weather-note {
   color: rgba(26,18,8,0.65);
 }
 

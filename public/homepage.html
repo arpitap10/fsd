@@ -26,6 +26,9 @@
     .nav-links { display: flex; gap: 32px; align-items: center; }
     .nav-links a { text-decoration: none; font-size: 0.85rem; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: var(--warm-black); transition: color 0.3s; }
     .nav-links a:hover { color: var(--rust); }
+    .lang-form { display: flex; align-items: center; gap: 8px; }
+    .lang-label { font-size: 0.75rem; letter-spacing: 1px; color: var(--warm-black); white-space: nowrap; }
+    .lang-select { border: 1.5px solid rgba(26,18,8,0.15); border-radius: 999px; padding: 8px 12px; font-size: 0.85rem; background: #fff; color: var(--warm-black); }
     .nav-btn { border: 1.5px solid var(--warm-black); padding: 8px 20px; border-radius: 2px; }
 
     /* ── HERO: CAMERA + FAN (Image 2 style) ── */
@@ -254,9 +257,23 @@
   <nav>
     <div class="nav-logo">SoloSafar</div>
     <div class="nav-links">
-      <a href="#destinations">Destinations</a>
-      <a href="feedback.html">Feedback</a>
-      <a href="signintravel.html" class="nav-btn">Sign Out</a>
+      <a href="#destinations" data-i18n="nav.destinations">Destinations</a>
+      <a href="feedback.html" data-i18n="nav.feedback">Feedback</a>
+      <div class="lang-form">
+        <label for="languageSelect" class="lang-label" data-i18n="nav.languageLabel">Language</label>
+        <select id="languageSelect" class="lang-select">
+          <option value="en">English</option>
+          <option value="hi">हिन्दी</option>
+          <option value="kn">ಕನ್ನಡ</option>
+          <option value="ta">தமிழ்</option>
+          <option value="te">తెలుగు</option>
+          <option value="ml">മലയാളം</option>
+          <option value="mr">मराठी</option>
+          <option value="bn">বাংলা</option>
+        </select>
+      </div>
+      <a href="chat.html" data-i18n="nav.chat">Chat</a>
+      <a href="signintravel.html" class="nav-btn" data-i18n="nav.signOut">Sign Out</a>
     </div>
   </nav>
 
@@ -381,13 +398,13 @@
 
     <!-- Bottom-left stamp -->
     <div class="gallery-meta">
-      <strong>SoloSafar Gallery</strong>
-      No. 01 · India Vol. 1
+      <strong data-i18n="gallery.title">SoloSafar Gallery</strong>
+      <span data-i18n="gallery.meta">No. 01 · India Vol. 1</span>
     </div>
 
     <!-- Bottom-right credit -->
     <div class="designer-credit">
-      Designed by<br>@solosafar.in
+      <span data-i18n="gallery.credit">Designed by</span><br>@solosafar.in
     </div>
 
   </section>
@@ -395,15 +412,15 @@
   <!-- ── MARQUEE BAR ── -->
   <div class="manifesto">
     <div class="manifesto-track">
-      <span>Go Offbeat</span><span class="dot">✦</span><span>Travel Fearless</span><span class="dot">✦</span><span>Discover India</span><span class="dot">✦</span><span>Solo but Never Alone</span><span class="dot">✦</span><span>8 Destinations</span><span class="dot">✦</span><span>Bolo Toh Solo</span><span class="dot">✦</span><span>Go Offbeat</span><span class="dot">✦</span><span>Travel Fearless</span><span class="dot">✦</span><span>Discover India</span><span class="dot">✦</span><span>Solo but Never Alone</span><span class="dot">✦</span><span>8 Destinations</span><span class="dot">✦</span><span>Bolo Toh Solo</span><span class="dot">✦</span>
+      <span data-i18n="manifesto.one">Go Offbeat</span><span class="dot">✦</span><span data-i18n="manifesto.two">Travel Fearless</span><span class="dot">✦</span><span data-i18n="manifesto.three">Discover India</span><span class="dot">✦</span><span data-i18n="manifesto.four">Solo but Never Alone</span><span class="dot">✦</span><span data-i18n="manifesto.five">8 Destinations</span><span class="dot">✦</span><span data-i18n="manifesto.six">Bolo Toh Solo</span><span class="dot">✦</span><span data-i18n="manifesto.one">Go Offbeat</span><span class="dot">✦</span><span data-i18n="manifesto.two">Travel Fearless</span><span class="dot">✦</span><span data-i18n="manifesto.three">Discover India</span><span class="dot">✦</span><span data-i18n="manifesto.four">Solo but Never Alone</span><span class="dot">✦</span><span data-i18n="manifesto.five">8 Destinations</span><span class="dot">✦</span><span data-i18n="manifesto.six">Bolo Toh Solo</span><span class="dot">✦</span>
     </div>
   </div>
 
   <!-- ── DESTINATIONS ── -->
   <section class="section-destinations" id="destinations">
     <div class="section-header">
-      <h2 class="section-title">Where Will<br>You <span>Go?</span></h2>
-      <span class="section-count">08 destinations</span>
+      <h2 class="section-title" data-i18n="hero.title">Where Will<br>You <span>Go?</span></h2>
+      <span class="section-count" data-i18n="section.count">08 destinations</span>
     </div>
     <div class="dest-grid">
 
@@ -414,7 +431,7 @@
         <div class="dest-card-overlay">
           <div class="dest-card-num">01</div>
           <div class="dest-card-name">Goa</div>
-          <div class="dest-card-tag">Sun · Sand · Sea</div>
+          <div class="dest-card-tag" data-i18n="dest.tag.1">Sun · Sand · Sea</div>
         </div>
       </a>
 
@@ -425,7 +442,7 @@
         <div class="dest-card-overlay">
           <div class="dest-card-num">02</div>
           <div class="dest-card-name">Leh Ladakh</div>
-          <div class="dest-card-tag">High Altitude · Monasteries</div>
+          <div class="dest-card-tag" data-i18n="dest.tag.2">High Altitude · Monasteries</div>
         </div>
       </a>
 
@@ -436,7 +453,7 @@
         <div class="dest-card-overlay">
           <div class="dest-card-num">03</div>
           <div class="dest-card-name">Manali</div>
-          <div class="dest-card-tag">Snow · Adventure · Valleys</div>
+          <div class="dest-card-tag" data-i18n="dest.tag.3">Snow · Adventure · Valleys</div>
         </div>
       </a>
 
@@ -447,7 +464,7 @@
         <div class="dest-card-overlay">
           <div class="dest-card-num">04</div>
           <div class="dest-card-name">Kerala</div>
-          <div class="dest-card-tag">Backwaters · Spice · Serenity</div>
+          <div class="dest-card-tag" data-i18n="dest.tag.4">Backwaters · Spice · Serenity</div>
         </div>
       </a>
 
@@ -458,7 +475,7 @@
         <div class="dest-card-overlay">
           <div class="dest-card-num">05</div>
           <div class="dest-card-name">Udaipur</div>
-          <div class="dest-card-tag">Palaces · Lakes · Royalty</div>
+          <div class="dest-card-tag" data-i18n="dest.tag.5">Palaces · Lakes · Royalty</div>
         </div>
       </a>
 
@@ -469,7 +486,7 @@
         <div class="dest-card-overlay">
           <div class="dest-card-num">06</div>
           <div class="dest-card-name">Sikkim</div>
-          <div class="dest-card-tag">Mountains · Monasteries · Mist</div>
+          <div class="dest-card-tag" data-i18n="dest.tag.6">Mountains · Monasteries · Mist</div>
         </div>
       </a>
 
@@ -480,7 +497,7 @@
         <div class="dest-card-overlay">
           <div class="dest-card-num">07</div>
           <div class="dest-card-name">Kutch</div>
-          <div class="dest-card-tag">Salt Desert · Folk Art · Festivals</div>
+          <div class="dest-card-tag" data-i18n="dest.tag.7">Salt Desert · Folk Art · Festivals</div>
         </div>
       </a>
 
@@ -491,7 +508,7 @@
         <div class="dest-card-overlay">
           <div class="dest-card-num">08</div>
           <div class="dest-card-name">Nagaland</div>
-          <div class="dest-card-tag">Tribes · Valleys · Hornbill</div>
+          <div class="dest-card-tag" data-i18n="dest.tag.8">Tribes · Valleys · Hornbill</div>
         </div>
       </a>
 
@@ -501,18 +518,18 @@
   <section class="features">
     <div>
       <div class="feature-num">01</div>
-      <div class="feature-title">Tailored for Solo Travelers</div>
-      <p class="feature-text">Budget calculators, safety tips, and emergency contacts curated specifically for solo travel in India.</p>
+      <div class="feature-title" data-i18n="feature1.title">Tailored for Solo Travelers</div>
+      <p class="feature-text" data-i18n="feature1.text">Budget calculators, safety tips, and emergency contacts curated specifically for solo travel in India.</p>
     </div>
     <div>
       <div class="feature-num">02</div>
-      <div class="feature-title">Real Local Experiences</div>
-      <p class="feature-text">Authentic food, hidden stays, and cultural experiences beyond the tourist trail. Real India.</p>
+      <div class="feature-title" data-i18n="feature2.title">Real Local Experiences</div>
+      <p class="feature-text" data-i18n="feature2.text">Authentic food, hidden stays, and cultural experiences beyond the tourist trail. Real India.</p>
     </div>
     <div>
       <div class="feature-num">03</div>
-      <div class="feature-title">Plan, Save & Go</div>
-      <p class="feature-text">Enter your travel dates, get an instant budget estimate, and save your trip details.</p>
+      <div class="feature-title" data-i18n="feature3.title">Plan, Save & Go</div>
+      <p class="feature-text" data-i18n="feature3.text">Enter your travel dates, get an instant budget estimate, and save your trip details.</p>
     </div>
   </section>
 
@@ -520,11 +537,11 @@
     <div class="footer-top">
       <div>
         <div class="footer-logo">SoloSafar</div>
-        <div class="footer-tagline">"Discover, plan, and travel solo — effortlessly."</div>
+        <div class="footer-tagline" data-i18n="footer.tagline">"Discover, plan, and travel solo — effortlessly."</div>
       </div>
       <div class="footer-links">
-        <div class="footer-col">
-          <h4>Destinations</h4>
+            <div class="footer-col">
+          <h4 data-i18n="footer.destinations">Destinations</h4>
           <a href="goa.html">Goa</a>
           <a href="leh.html">Leh Ladakh</a>
           <a href="manali.html">Manali</a>
@@ -535,21 +552,22 @@
           <a href="nagaland.html">Nagaland</a>
         </div>
         <div class="footer-col">
-          <h4>Info</h4>
-          <a href="feedback.html">Feedback</a>
-          <a href="signintravel.html">Sign In</a>
+          <h4 data-i18n="footer.info">Info</h4>
+          <a href="feedback.html" data-i18n="nav.feedback">Feedback</a>
+          <a href="chat.html" data-i18n="nav.chat">Chat</a>
+          <a href="signintravel.html" data-i18n="nav.signOut">Sign In</a>
         </div>
         <div class="footer-col">
-          <h4>Contact</h4>
+          <h4 data-i18n="footer.contact">Contact</h4>
           <a href="mailto:bolotohsolo@gmail.com">bolotohsolo@gmail.com</a>
         </div>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2024 SoloSafar. All rights reserved.</span>
-      <span>Made with ♥ for solo explorers of India</span>
+      <span data-i18n="footer.copyright">© 2024 SoloSafar. All rights reserved.</span>
+      <span data-i18n="footer.soloNote">Made with ♥ for solo explorers of India</span>
     </div>
   </footer>
-
+  <script src="lang.js"></script>
 </body>
 </html>

@@ -10,16 +10,26 @@
 <body>
 
 <nav id="nav">
-  <a href="homepage.html" class="nav-back">
-    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
-    Back to Home
-  </a>
+  <a href="homepage.html" class="nav-back" data-i18n="nav.back">Back to Home</a>
+  <div class="lang-form">
+    <label for="languageSelect" class="lang-label" data-i18n="nav.languageLabel">Language</label>
+    <select id="languageSelect" class="lang-select">
+      <option value="en">English</option>
+      <option value="hi">हिन्दी</option>
+      <option value="kn">ಕನ್ನಡ</option>
+      <option value="ta">தமிழ்</option>
+      <option value="te">తెలుగు</option>
+      <option value="ml">മലയാളം</option>
+      <option value="mr">मराठी</option>
+      <option value="bn">বাংলা</option>
+    </select>
+  </div>
   <a href="homepage.html" class="nav-logo">SoloSafar</a>
 </nav>
 
 <!-- HERO -->
 <section class="dest-hero">
-  <div class="hero-bg" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Dzukou_Valley_5.jpg/1600px-Dzukou_Valley_5.jpg')"></div>
+  <div class="hero-bg" style="background-image: url('images/nagaland/main.jpg')"></div>
   <div class="hero-content">
     <div class="hero-eyebrow"><span>Tribal Northeast · India's Hidden Gem</span></div>
     <h1 class="hero-destination"><em>Wild</em><br>Nagaland</h1>
@@ -53,23 +63,23 @@
   <div class="section-label">Places to Discover</div>
   <div class="places-scroll">
     <div class="place-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Dzukou_Valley_5.jpg/800px-Dzukou_Valley_5.jpg" alt="Dzukou Valley" loading="lazy">
+      <img src="images/nagaland/dzukou.jpg" alt="Dzukou Valley" loading="lazy">
       <div class="place-card-label"><div class="place-card-num">01</div>Dzukou Valley</div>
     </div>
 <div class="place-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Kohima_War_Cemetery.jpg/800px-Kohima_War_Cemetery.jpg" alt="Kohima War Cemetery" loading="lazy">
+      <img src="images/nagaland/cemetery.jpg" alt="Kohima War Cemetery" loading="lazy">
       <div class="place-card-label"><div class="place-card-num">02</div>Kohima War Cemetery</div>
     </div>
 <div class="place-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Hornbill_festival_Nagaland.jpg/800px-Hornbill_festival_Nagaland.jpg" alt="Kisama Heritage Village" loading="lazy">
+      <img src="images/nagaland/kisama.jpg" alt="Kisama Heritage Village" loading="lazy">
       <div class="place-card-label"><div class="place-card-num">03</div>Kisama Heritage Village</div>
     </div>
 <div class="place-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Japfu_peak_Nagaland.jpg/800px-Japfu_peak_Nagaland.jpg" alt="Japfü Peak" loading="lazy">
+      <img src="images/nagaland/japfu.jpg" alt="Japfü Peak" loading="lazy">
       <div class="place-card-label"><div class="place-card-num">04</div>Japfü Peak</div>
     </div>
 <div class="place-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Dimapur_Nagaland.jpg/800px-Dimapur_Nagaland.jpg" alt="Dimapur Ruins" loading="lazy">
+      <img src="images/nagaland/dimapur.jpg" alt="Dimapur Ruins" loading="lazy">
       <div class="place-card-label"><div class="place-card-num">05</div>Dimapur Ruins</div>
     </div>
   </div>
@@ -85,6 +95,15 @@
   <div class="map-visual">
     <iframe src="https://maps.google.com/maps?q=Kohima, Nagaland, India&output=embed" allowfullscreen loading="lazy"></iframe>
   </div>
+</section>
+
+<section class="section-weather fade-up" id="weekly-weather">
+  <div>
+    <div class="section-label">Weather Report</div>
+    <h2>This week in <span id="weatherLocation"></span></h2>
+  </div>
+  <div class="weather-summary" id="weatherSummary"></div>
+  <div class="weather-grid" id="weatherGrid"></div>
 </section>
 
 <!-- PLANNER -->
@@ -112,15 +131,15 @@
     <div class="section-label">Local Flavours</div>
     <h3>What to Eat</h3>
     <div class="essential-item">
-      <img class="essential-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Naga_pork_dish.jpg/640px-Naga_pork_dish.jpg" alt="Smoked Pork with Akhuni">
+      <img class="essential-img" src="images/nagaland/akhuni.jpg" alt="Smoked Pork with Akhuni">
       <div class="essential-text"><h4>Smoked Pork with Akhuni</h4><p>Fermented soybean with smoky pork — the soul dish of Naga cuisine.</p></div>
     </div>
 <div class="essential-item">
-      <img class="essential-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Bamboo_shoot_curry.jpg/640px-Bamboo_shoot_curry.jpg" alt="Bamboo Shoot Curry">
+      <img class="essential-img" src="images/nagaland/bamboo.jpg" alt="Bamboo Shoot Curry">
       <div class="essential-text"><h4>Bamboo Shoot Curry</h4><p>Young bamboo shoots cooked with dried fish and chili — tangy and earthy.</p></div>
     </div>
 <div class="essential-item">
-      <img class="essential-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Rice_beer_Nagaland.jpg/640px-Rice_beer_Nagaland.jpg" alt="Rice Beer (Zutho)">
+      <img class="essential-img" src="images/nagaland/ricebeer.jpg" alt="Rice Beer (Zutho)">
       <div class="essential-text"><h4>Rice Beer (Zutho)</h4><p>Traditional Naga millet beer — offered at every tribal gathering.</p></div>
     </div>
   </div>
@@ -128,11 +147,11 @@
     <div class="section-label">Where to Rest</div>
     <h3>Places to Stay</h3>
     <div class="essential-item">
-      <img class="essential-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Kohima_hotel.jpg/640px-Kohima_hotel.jpg" alt="Hotel Japfü, Kohima">
+      <img class="essential-img" src="images/nagaland/zostel.jpg" alt="Hotel Japfü, Kohima">
       <div class="essential-text"><h4>Hotel Japfü, Kohima</h4><p>Comfortable budget hotel in the heart of Kohima city.</p></div>
     </div>
 <div class="essential-item">
-      <img class="essential-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Naga_village_home.jpg/640px-Naga_village_home.jpg" alt="Tribal Homestays">
+      <img class="essential-img" src="images/nagaland/hotel.jpg" alt="Tribal Homestays">
       <div class="essential-text"><h4>Tribal Homestays</h4><p>Stay in a Naga village home — the most authentic travel experience possible.</p></div>
     </div>
   </div>
@@ -233,5 +252,7 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.1 });
 document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 </script>
+<script src="weather.js"></script>
+<script src="lang.js"></script>
 </body>
 </html>

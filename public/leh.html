@@ -10,24 +10,34 @@
 <body>
 
 <nav id="nav">
-  <a href="homepage.html" class="nav-back">
-    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
-    Back to Home
-  </a>
+  <a href="homepage.html" class="nav-back" data-i18n="nav.back">Back to Home</a>
+  <div class="lang-form">
+    <label for="languageSelect" class="lang-label" data-i18n="nav.languageLabel">Language</label>
+    <select id="languageSelect" class="lang-select">
+      <option value="en">English</option>
+      <option value="hi">हिन्दी</option>
+      <option value="kn">ಕನ್ನಡ</option>
+      <option value="ta">தமிழ்</option>
+      <option value="te">తెలుగు</option>
+      <option value="ml">മലയാളം</option>
+      <option value="mr">मराठी</option>
+      <option value="bn">বাংলা</option>
+    </select>
+  </div>
   <a href="homepage.html" class="nav-logo">SoloSafar</a>
 </nav>
 
 <!-- HERO -->
 <section class="dest-hero">
-  <div class="hero-bg" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Pangong_tso_lake.jpg/1600px-Pangong_tso_lake.jpg')"></div>
+  <div class="hero-bg" style="background-image: url('images/ladakh/main.jpg')"></div>
   <div class="hero-content">
-    <div class="hero-eyebrow"><span>High Altitude · J&K · 3500m+</span></div>
-    <h1 class="hero-destination"><em>Roof</em> of<br>the World</h1>
-    <p class="hero-tagline">Ancient monasteries, crystalline lakes, and mountain passes that steal your breath — literally.</p>
+    <div class="hero-eyebrow" data-i18n="leh.hero.eyebrow"><span>High Altitude · J&K · 3500m+</span></div>
+    <h1 class="hero-destination" data-i18n="leh.hero.title"><em>Roof</em> of<br>the World</h1>
+    <p class="hero-tagline" data-i18n="leh.hero.tagline">Ancient monasteries, crystalline lakes, and mountain passes that steal your breath — literally.</p>
     <div class="hero-meta">
-      <div class="hero-stat"><span class="hero-stat-num">5359m</span><span class="hero-stat-label">Khardung La Pass</span></div>
-      <div class="hero-stat"><span class="hero-stat-num">₹4K</span><span class="hero-stat-label">Per Day</span></div>
-      <div class="hero-stat"><span class="hero-stat-num">Jun–Sep</span><span class="hero-stat-label">Best Season</span></div>
+      <div class="hero-stat"><span class="hero-stat-num">5359m</span><span class="hero-stat-label" data-i18n="leh.hero.stat1">Khardung La Pass</span></div>
+      <div class="hero-stat"><span class="hero-stat-num">₹4K</span><span class="hero-stat-label" data-i18n="leh.hero.stat2">Per Day</span></div>
+      <div class="hero-stat"><span class="hero-stat-num">Jun–Sep</span><span class="hero-stat-label" data-i18n="leh.hero.stat3">Best Season</span></div>
     </div>
   </div>
 </section>
@@ -39,37 +49,37 @@
 <!-- INTRO -->
 <section class="section-intro fade-up">
   <div>
-    <div class="section-intro-label">The Last Frontier</div>
-    <h2>Ladakh: Where Earth Meets <em>Sky</em></h2>
+    <div class="section-intro-label" data-i18n="leh.intro.subtitle">The Last Frontier</div>
+    <h2 data-i18n="leh.intro.heading">Ladakh: Where Earth Meets <em>Sky</em></h2>
   </div>
   <div class="section-intro-text">
-    <p>A high-altitude cold desert in the northernmost reaches of India, Leh-Ladakh is a landscape unlike anywhere else on Earth. Barren mountains shimmer in impossible colours at dawn.</p>
-    <p>Buddhist monasteries cling to cliffsides. Pangong Lake shifts from blue to turquoise to green. For solo travellers who want to be truly alone with the universe — this is it.</p>
+    <p data-i18n="leh.intro.p1">A high-altitude cold desert in the northernmost reaches of India, Leh-Ladakh is a landscape unlike anywhere else on Earth. Barren mountains shimmer in impossible colours at dawn.</p>
+    <p data-i18n="leh.intro.p2">Buddhist monasteries cling to cliffsides. Pangong Lake shifts from blue to turquoise to green. For solo travellers who want to be truly alone with the universe — this is it.</p>
   </div>
 </section>
 
 <!-- PLACES SCROLL -->
 <section class="section-places fade-up">
-  <div class="section-label">Places to Discover</div>
+  <div class="section-label" data-i18n="leh.places.label">Places to Discover</div>
   <div class="places-scroll">
     <div class="place-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Pangong_tso_lake.jpg/800px-Pangong_tso_lake.jpg" alt="Pangong Lake" loading="lazy">
+      <img src="images/ladakh/pangong.jpg" alt="Pangong Lake" loading="lazy">
       <div class="place-card-label"><div class="place-card-num">01</div>Pangong Lake</div>
     </div>
 <div class="place-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Khardung_La_pass.jpg/800px-Khardung_La_pass.jpg" alt="Khardung La Pass" loading="lazy">
+      <img src="images/ladakh/khardung.jpg" alt="Khardung La Pass" loading="lazy">
       <div class="place-card-label"><div class="place-card-num">02</div>Khardung La Pass</div>
     </div>
 <div class="place-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Nubra_Valley_Ladakh.jpg/800px-Nubra_Valley_Ladakh.jpg" alt="Nubra Valley" loading="lazy">
+      <img src="images/ladakh/nubra.jpg" alt="Nubra Valley" loading="lazy">
       <div class="place-card-label"><div class="place-card-num">03</div>Nubra Valley</div>
     </div>
 <div class="place-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Thiksey_Monastery_Ladakh.jpg/800px-Thiksey_Monastery_Ladakh.jpg" alt="Thiksey Monastery" loading="lazy">
+      <img src="images/ladakh/thiksey.jpg" alt="Thiksey Monastery" loading="lazy">
       <div class="place-card-label"><div class="place-card-num">04</div>Thiksey Monastery</div>
     </div>
 <div class="place-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Magnetic_Hill_Ladakh.jpg/800px-Magnetic_Hill_Ladakh.jpg" alt="Magnetic Hill" loading="lazy">
+      <img src="images/ladakh/magnetic.jpg" alt="Magnetic Hill" loading="lazy">
       <div class="place-card-label"><div class="place-card-num">05</div>Magnetic Hill</div>
     </div>
   </div>
@@ -78,30 +88,39 @@
 <!-- MAP -->
 <section class="section-map fade-up">
   <div class="map-text">
-    <div class="section-label" style="color:var(--gold)">Getting There</div>
-    <h2>Reaching Ladakh</h2>
-    <p>Fly into Leh Kushok Bakula Rimpochee Airport (direct from Delhi, Mumbai, Srinagar). Road trips via Manali-Leh Highway or Srinagar-Leh Highway are legendary but require acclimatisation stops.</p>
+    <div class="section-label" style="color:var(--gold)" data-i18n="leh.map.label">Getting There</div>
+    <h2 data-i18n="leh.map.heading">Reaching Ladakh</h2>
+    <p data-i18n="leh.map.p">Fly into Leh Kushok Bakula Rimpochee Airport (direct from Delhi, Mumbai, Srinagar). Road trips via Manali-Leh Highway or Srinagar-Leh Highway are legendary but require acclimatisation stops.</p>
   </div>
   <div class="map-visual">
     <iframe src="https://maps.google.com/maps?q=Leh, Ladakh, India&output=embed" allowfullscreen loading="lazy"></iframe>
   </div>
 </section>
 
+<section class="section-weather fade-up" id="weekly-weather">
+  <div>
+    <div class="section-label" data-i18n="weather.label">Weather Report</div>
+    <h2 data-i18n="weather.title">This week in <span id="weatherLocation"></span></h2>
+  </div>
+  <div class="weather-summary" id="weatherSummary"></div>
+  <div class="weather-grid" id="weatherGrid"></div>
+</section>
+
 <!-- PLANNER -->
 <section class="section-plan fade-up">
-  <div class="section-label">Trip Planner</div>
+  <div class="section-label" data-i18n="planner.title">Trip Planner</div>
   <div class="plan-grid">
     <div class="plan-form">
-      <div class="field-group"><label>Your Name</label><input type="text" id="name" placeholder="Enter your name"></div>
-      <div class="field-group"><label>Age</label><input type="number" id="age" placeholder="Your age"></div>
-      <div class="field-group"><label>Number of Days</label><input type="number" id="days" placeholder="How many days?" oninput="calcBudget()"></div>
-      <div class="field-group"><label>Travel Date</label><input type="date" id="tdate"></div>
-      <button class="btn-primary" onclick="saveDetails()">Save My Trip →</button>
+      <div class="field-group"><label data-i18n="planner.name">Your Name</label><input type="text" id="name" data-i18n-placeholder="planner.namePlaceholder" placeholder="Enter your name"></div>
+      <div class="field-group"><label data-i18n="planner.age">Age</label><input type="number" id="age" data-i18n-placeholder="planner.agePlaceholder" placeholder="Your age"></div>
+      <div class="field-group"><label data-i18n="planner.days">Number of Days</label><input type="number" id="days" data-i18n-placeholder="planner.daysPlaceholder" placeholder="How many days?" oninput="calcBudget()"></div>
+      <div class="field-group"><label data-i18n="planner.date">Travel Date</label><input type="date" id="tdate"></div>
+      <button class="btn-primary" onclick="saveDetails()" data-i18n="planner.saveBtn">Save My Trip →</button>
     </div>
     <div class="budget-display">
-      <div class="budget-label">Estimated Budget</div>
+      <div class="budget-label" data-i18n="Estimated Budget">Estimated Budget</div>
       <div class="budget-num" id="budgetNum">₹0</div>
-      <div class="budget-sub">Based on ₹4000/day average</div>
+      <div class="budget-sub" data-i18n="leh.budget.note">Based on ₹4000/day average</div>
     </div>
   </div>
 </section>
@@ -109,31 +128,31 @@
 <!-- FOOD + STAY -->
 <section class="section-essentials fade-up">
   <div class="essentials-col">
-    <div class="section-label">Local Flavours</div>
-    <h3>What to Eat</h3>
+    <div class="section-label" data-i18n="leh.essentials.flavours">Local Flavours</div>
+    <h3 data-i18n="leh.essentials.whatToEat">What to Eat</h3>
     <div class="essential-item">
-      <img class="essential-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Momos.jpg/640px-Momos.jpg" alt="Momos">
-      <div class="essential-text"><h4>Momos</h4><p>Steamed Tibetan dumplings — the ultimate Ladakhi comfort food.</p></div>
+      <img class="essential-img" src="images/ladakh/momos.jpg" alt="Momos">
+      <div class="essential-text"><h4 data-i18n="leh.food.momos.title">Momos</h4><p data-i18n="leh.food.momos.desc">Steamed Tibetan dumplings — the ultimate Ladakhi comfort food.</p></div>
     </div>
 <div class="essential-item">
-      <img class="essential-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Thukpa.jpg/640px-Thukpa.jpg" alt="Thukpa">
-      <div class="essential-text"><h4>Thukpa</h4><p>Hearty noodle soup that warms your soul at 3500m altitude.</p></div>
+      <img class="essential-img" src="images/ladakh/thukpa.jpg" alt="Thukpa">
+      <div class="essential-text"><h4 data-i18n="leh.food.thukpa.title">Thukpa</h4><p data-i18n="leh.food.thukpa.desc">Hearty noodle soup that warms your soul at 3500m altitude.</p></div>
     </div>
 <div class="essential-item">
-      <img class="essential-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Butter_tea.jpg/640px-Butter_tea.jpg" alt="Butter Tea (Po Cha)">
-      <div class="essential-text"><h4>Butter Tea (Po Cha)</h4><p>Salty, yak-butter tea — an acquired taste and a local tradition.</p></div>
+      <img class="essential-img" src="images/ladakh/tea.jpg" alt="Butter Tea (Po Cha)">
+      <div class="essential-text"><h4 data-i18n="leh.food.tea.title">Butter Tea (Po Cha)</h4><p data-i18n="leh.food.tea.desc">Salty, yak-butter tea — an acquired taste and a local tradition.</p></div>
     </div>
   </div>
   <div class="essentials-col">
-    <div class="section-label">Where to Rest</div>
-    <h3>Places to Stay</h3>
+    <div class="section-label" data-i18n="leh.essentials.restLabel">Where to Rest</div>
+    <h3 data-i18n="leh.essentials.placesToStay">Places to Stay</h3>
     <div class="essential-item">
-      <img class="essential-img" src="https://cdn.zostel.com/media/photos/Leh/zostel_leh_1.jpg" alt="Zostel Leh">
-      <div class="essential-text"><h4>Zostel Leh</h4><p>The most popular backpacker base in Ladakh with stunning views.</p></div>
+      <img class="essential-img" src="images/ladakh/zostel.jpg" alt="Zostel Leh">
+      <div class="essential-text"><h4 data-i18n="leh.stay.zostel.title">Zostel Leh</h4><p data-i18n="leh.stay.zostel.desc">The most popular backpacker base in Ladakh with stunning views.</p></div>
     </div>
 <div class="essential-item">
-      <img class="essential-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Leh_Hotel.jpg/640px-Leh_Hotel.jpg" alt="Hotel Dreamland">
-      <div class="essential-text"><h4>Hotel Dreamland</h4><p>Centrally located budget hotel with warm hospitality.</p></div>
+      <img class="essential-img" src="images/ladakh/hotel.jpg" alt="Hotel Dreamland">
+      <div class="essential-text"><h4 data-i18n="leh.stay.hotel.title">Hotel Dreamland</h4><p data-i18n="leh.stay.hotel.desc">Centrally located budget hotel with warm hospitality.</p></div>
     </div>
   </div>
 </section>
@@ -143,20 +162,20 @@
   <div class="video-inner">
     <img src="https://i.ytimg.com/vi/zLPh5AWH2Kk/maxresdefault.jpg" alt="Leh Ladakh">
     <div class="video-overlay">
-      <h3>Experience Leh Ladakh</h3>
-      <a href="https://youtu.be/zLPh5AWH2Kk" target="_blank" class="video-btn">▶ Watch the Film</a>
+      <h3 data-i18n="leh.video.heading">Experience Leh Ladakh</h3>
+      <a href="https://youtu.be/RIho0_cTN6k?si=miUD6VU9pKnoGx52" target="_blank" class="video-btn" data-i18n="leh.video.watch">▶ Watch the Film</a>
     </div>
   </div>
 </section>
 
 <!-- REVIEWS -->
 <section class="section-reviews fade-up">
-  <div class="section-label">Traveller Stories</div>
+  <div class="section-label" data-i18n="review.shareHeading">Traveller Stories</div>
   <div class="reviews-grid">
     <div class="review-form-wrap">
-      <h3 style="font-family:'Playfair Display',serif;font-size:1.8rem;margin-bottom:8px;">Share Your Story</h3>
-      <textarea id="reviewInput" placeholder="What was your Leh Ladakh experience like?"></textarea>
-      <button class="btn-primary" onclick="submitReview()">Post Review →</button>
+      <h3 style="font-family:'Playfair Display',serif;font-size:1.8rem;margin-bottom:8px;" data-i18n="review.shareHeading">Share Your Story</h3>
+      <textarea id="reviewInput" data-i18n-placeholder="leh.review.placeholder" placeholder="What was your Leh Ladakh experience like?"></textarea>
+      <button class="btn-primary" onclick="submitReview()" data-i18n="review.button">Post Review →</button>
     </div>
     <div class="reviews-list" id="reviewsList">
       <div class="review-item"><p>"The silence of Pangong Lake at 5am is something I will carry forever. Ladakh does something to your soul."</p><div class="review-meta">Aman S. · August 2024</div></div>
@@ -167,22 +186,22 @@
 
 <!-- SAFETY -->
 <section class="section-safety fade-up">
-  <div class="section-label" style="color:var(--gold)">Stay Safe, Travel Smart</div>
+  <div class="section-label" style="color:var(--gold)" data-i18n="safety.label">Stay Safe, Travel Smart</div>
   <div class="safety-grid">
     <div class="safety-card">
       <div class="safety-icon">🚨</div>
-      <h4>Emergency Contacts</h4>
-      <ul><li>Ladakh Police: 112</li><li>Ambulance: 108</li><li>Tourist Helpline: 1800-11-1363</li></ul>
+      <h4 data-i18n="leh.safety.emergencyTitle">Emergency Contacts</h4>
+      <ul><li data-i18n="leh.safety.police">Ladakh Police: 112</li><li data-i18n="leh.safety.ambulance">Ambulance: 108</li><li data-i18n="leh.safety.helpline">Tourist Helpline: 1800-11-1363</li></ul>
     </div>
 <div class="safety-card">
       <div class="safety-icon">⛰️</div>
-      <h4>Altitude Safety</h4>
-      <ul><li>Spend 2 days in Leh before going higher</li><li>Carry altitude sickness tablets (Diamox)</li><li>Drink 3+ litres of water daily</li></ul>
+      <h4 data-i18n="leh.safety.altitudeTitle">Altitude Safety</h4>
+      <ul><li data-i18n="leh.safety.altitude.tip1">Spend 2 days in Leh before going higher</li><li data-i18n="leh.safety.altitude.tip2">Carry altitude sickness tablets (Diamox)</li><li data-i18n="leh.safety.altitude.tip3">Drink 3+ litres of water daily</li></ul>
     </div>
 <div class="safety-card">
       <div class="safety-icon">🌡️</div>
-      <h4>Weather Tips</h4>
-      <ul><li>Dress in layers — temperature swings wildly</li><li>UV protection essential at high altitude</li><li>Inform someone of your route always</li></ul>
+      <h4 data-i18n="weather.label">Weather Tips</h4>
+      <ul><li data-i18n="leh.safety.weather.tip1">Dress in layers — temperature swings wildly</li><li data-i18n="leh.safety.weather.tip2">UV protection essential at high altitude</li><li data-i18n="leh.safety.weather.tip3">Inform someone of your route always</li></ul>
     </div>
   </div>
 </section>
@@ -192,9 +211,9 @@
 <footer class="dest-footer">
   <a href="homepage.html" class="dest-footer-logo">SoloSafar</a>
   <div class="dest-footer-links">
-    <a href="homepage.html">All Destinations</a>
-    <a href="feedback.html">Feedback</a>
-    <a href="mailto:bolotohsolo@gmail.com">Contact</a>
+    <a href="homepage.html" data-i18n="footer.allDestinations">All Destinations</a>
+    <a href="feedback.html" data-i18n="nav.feedback">Feedback</a>
+    <a href="mailto:bolotohsolo@gmail.com" data-i18n="footer.contact">Contact</a>
   </div>
 </footer>
 
@@ -233,5 +252,7 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.1 });
 document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 </script>
+<script src="weather.js"></script>
+<script src="lang.js"></script>
 </body>
 </html>

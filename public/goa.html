@@ -10,16 +10,26 @@
 <body>
 
 <nav id="nav">
-  <a href="homepage.html" class="nav-back">
-    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
-    Back to Home
-  </a>
+  <a href="homepage.html" class="nav-back" data-i18n="nav.back">Back to Home</a>
+  <div class="lang-form">
+    <label for="languageSelect" class="lang-label" data-i18n="nav.languageLabel">Language</label>
+    <select id="languageSelect" class="lang-select">
+      <option value="en">English</option>
+      <option value="hi">हिन्दी</option>
+      <option value="kn">ಕನ್ನಡ</option>
+      <option value="ta">தமிழ்</option>
+      <option value="te">తెలుగు</option>
+      <option value="ml">മലയാളം</option>
+      <option value="mr">मराठी</option>
+      <option value="bn">বাংলা</option>
+    </select>
+  </div>
   <a href="homepage.html" class="nav-logo">SoloSafar</a>
 </nav>
 
 <!-- HERO -->
 <section class="dest-hero">
-  <div class="hero-bg" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Baga_Beach%2C_North_Goa.jpg/1600px-Baga_Beach%2C_North_Goa.jpg')"></div>
+  <div class="hero-bg" style="background-image: url('images/goa/main.jpg')"></div>
   <div class="hero-content">
     <div class="hero-eyebrow"><span>Sun & Sand · Western Coast</span></div>
     <h1 class="hero-destination"><em>Sun-Kissed</em><br>Goa</h1>
@@ -53,23 +63,23 @@
   <div class="section-label">Places to Discover</div>
   <div class="places-scroll">
     <div class="place-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Baga_Beach%2C_North_Goa.jpg/800px-Baga_Beach%2C_North_Goa.jpg" alt="Baga Beach" loading="lazy">
+      <img src="images/goa/baga.jpg" alt="Baga Beach" loading="lazy">
       <div class="place-card-label"><div class="place-card-num">01</div>Baga Beach</div>
     </div>
 <div class="place-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Anjuna_Beach_Goa.jpg/800px-Anjuna_Beach_Goa.jpg" alt="Anjuna Beach" loading="lazy">
+      <img src="images/goa/anjuna.jpg" alt="Anjuna Beach" loading="lazy">
       <div class="place-card-label"><div class="place-card-num">02</div>Anjuna Beach</div>
     </div>
 <div class="place-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Dudhsagar_Falls%2C_Goa.jpg/800px-Dudhsagar_Falls%2C_Goa.jpg" alt="Dudhsagar Falls" loading="lazy">
+      <img src="images/goa/falls.jpg" alt="Dudhsagar Falls" loading="lazy">
       <div class="place-card-label"><div class="place-card-num">03</div>Dudhsagar Falls</div>
     </div>
 <div class="place-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Basilica_of_Bom_Jesus_frontal.jpg/800px-Basilica_of_Bom_Jesus_frontal.jpg" alt="Basilica of Bom Jesus" loading="lazy">
+      <img src="images/goa/basilica.jpg" alt="Basilica of Bom Jesus" loading="lazy">
       <div class="place-card-label"><div class="place-card-num">04</div>Basilica of Bom Jesus</div>
     </div>
 <div class="place-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Fort_Aguada_2.jpg/800px-Fort_Aguada_2.jpg" alt="Fort Aguada" loading="lazy">
+      <img src="images/goa/fort.jpg" alt="Fort Aguada" loading="lazy">
       <div class="place-card-label"><div class="place-card-num">05</div>Fort Aguada</div>
     </div>
   </div>
@@ -87,16 +97,25 @@
   </div>
 </section>
 
+<section class="section-weather fade-up" id="weekly-weather">
+  <div>
+    <div class="section-label" data-i18n="weather.label">Weather Report</div>
+    <h2 data-i18n="weather.title">This week in</h2>
+  </div>
+  <div class="weather-summary" id="weatherSummary"></div>
+  <div class="weather-grid" id="weatherGrid"></div>
+</section>
+
 <!-- PLANNER -->
 <section class="section-plan fade-up">
   <div class="section-label">Trip Planner</div>
   <div class="plan-grid">
     <div class="plan-form">
-      <div class="field-group"><label>Your Name</label><input type="text" id="name" placeholder="Enter your name"></div>
-      <div class="field-group"><label>Age</label><input type="number" id="age" placeholder="Your age"></div>
-      <div class="field-group"><label>Number of Days</label><input type="number" id="days" placeholder="How many days?" oninput="calcBudget()"></div>
-      <div class="field-group"><label>Travel Date</label><input type="date" id="tdate"></div>
-      <button class="btn-primary" onclick="saveDetails()">Save My Trip →</button>
+      <div class="field-group"><label data-i18n="planner.name">Your Name</label><input type="text" id="name" data-i18n-placeholder="planner.name" placeholder="Enter your name"></div>
+      <div class="field-group"><label data-i18n="planner.age">Age</label><input type="number" id="age" data-i18n-placeholder="planner.age" placeholder="Your age"></div>
+      <div class="field-group"><label data-i18n="planner.days">Number of Days</label><input type="number" id="days" data-i18n-placeholder="planner.days" placeholder="How many days?" oninput="calcBudget()"></div>
+      <div class="field-group"><label data-i18n="planner.date">Travel Date</label><input type="date" id="tdate"></div>
+      <button class="btn-primary" onclick="saveDetails()" data-i18n="planner.saveBtn">Save My Trip →</button>
     </div>
     <div class="budget-display">
       <div class="budget-label">Estimated Budget</div>
@@ -112,15 +131,15 @@
     <div class="section-label">Local Flavours</div>
     <h3>What to Eat</h3>
     <div class="essential-item">
-      <img class="essential-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Fish_curry_%28Flickr_-_pandaexplorer%29.jpg/640px-Fish_curry_%28Flickr_-_pandaexplorer%29.jpg" alt="Goan Fish Curry">
+      <img class="essential-img" src="images/goa/fish.jpg" alt="Goan Fish Curry">
       <div class="essential-text"><h4>Goan Fish Curry</h4><p>Coconut milk curry with local spices — the soul of Goan cuisine.</p></div>
     </div>
 <div class="essential-item">
-      <img class="essential-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Prawn_Balchao.jpg/640px-Prawn_Balchao.jpg" alt="Prawn Balchão">
+      <img class="essential-img" src="images/goa/prawn.jpg" alt="Prawn Balchão">
       <div class="essential-text"><h4>Prawn Balchão</h4><p>Fiery, tangy prawn pickle unique to Goan kitchens.</p></div>
     </div>
 <div class="essential-item">
-      <img class="essential-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Bebinca_Goa.jpg/640px-Bebinca_Goa.jpg" alt="Bebinca">
+      <img class="essential-img" src="images/goa/bebinca.jpg" alt="Bebinca">
       <div class="essential-text"><h4>Bebinca</h4><p>Classic Goan layered dessert — rich, golden, irresistible.</p></div>
     </div>
   </div>
@@ -128,11 +147,11 @@
     <div class="section-label">Where to Rest</div>
     <h3>Places to Stay</h3>
     <div class="essential-item">
-      <img class="essential-img" src="https://cdn.zostel.com/media/photos/Goa/DSC00219-min.jpg" alt="Zostel Goa">
+      <img class="essential-img" src="images/goa/zostel.jpg" alt="Zostel Goa">
       <div class="essential-text"><h4>Zostel Goa</h4><p>Vibrant backpacker hostel with pool, great for meeting fellow solo travelers.</p></div>
     </div>
 <div class="essential-item">
-      <img class="essential-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Goa_hotel.jpg/640px-Goa_hotel.jpg" alt="Beachside Inn (Calangute)">
+      <img class="essential-img" src="images/goa/beachside_inn.jpg" alt="Beachside Inn (Calangute)">
       <div class="essential-text"><h4>Beachside Inn (Calangute)</h4><p>Budget stay steps from the beach with all essential amenities.</p></div>
     </div>
   </div>
@@ -154,9 +173,9 @@
   <div class="section-label">Traveller Stories</div>
   <div class="reviews-grid">
     <div class="review-form-wrap">
-      <h3 style="font-family:'Playfair Display',serif;font-size:1.8rem;margin-bottom:8px;">Share Your Story</h3>
-      <textarea id="reviewInput" placeholder="What was your Goa experience like?"></textarea>
-      <button class="btn-primary" onclick="submitReview()">Post Review →</button>
+      <h3 style="font-family:'Playfair Display',serif;font-size:1.8rem;margin-bottom:8px;" data-i18n="review.shareHeading">Share Your Story</h3>
+      <textarea id="reviewInput" data-i18n-placeholder="review.placeholder" placeholder="What was your Goa experience like?"></textarea>
+      <button class="btn-primary" onclick="submitReview()" data-i18n="review.button">Post Review →</button>
     </div>
     <div class="reviews-list" id="reviewsList">
       <div class="review-item"><p>"Goa solo was life-changing. The sunsets at Vagator are something else — met so many amazing people!"</p><div class="review-meta">Priya M. · March 2024</div></div>
@@ -233,5 +252,7 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.1 });
 document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 </script>
+  <script src="lang.js"></script>
+  <script src="weather.js"></script>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign In - SoloSafar</title>
+    <title data-i18n="signin.pageTitle">Sign In - SoloSafar</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -88,19 +88,19 @@
 </head>
 <body>
     <div class="signin-container">
-        <h2>Sign In to SoloSafar</h2>
+        <h2 data-i18n="signin.heading">Sign In to SoloSafar</h2>
         <form action="/signin" method="POST">
             <div class="form-group">
-                <label for="username">Email</label>
+                <label for="username" data-i18n="signin.emailLabel">Email</label>
                 <input type="email" id="email" name="email" required>
             </div>
             <div class="form-group">
-                <label for="password">Password</label>
+                <label for="password" data-i18n="signin.passwordLabel">Password</label>
                 <input type="password" id="password" name="password" required>
             </div>
-            <input type="submit" value="Sign In">
+            <input type="submit" data-i18n-value="signin.submit" value="Sign In">
         </form>
-        <a href="signuptravel.html" class="signup-link">Don't have an account? Sign up here</a>
+        <a href="signuptravel.html" class="signup-link" data-i18n="signin.signupLink">Don't have an account? Sign up here</a>
     </div>
 </body>
 </html>

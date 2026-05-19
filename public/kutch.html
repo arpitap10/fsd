@@ -10,16 +10,27 @@
 <body>
 
 <nav id="nav">
-  <a href="homepage.html" class="nav-back">
-    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
-    Back to Home
-  </a>
+  <a href="homepage.html" class="nav-back" data-i18n="nav.back">Back to Home</a>
+  <div class="lang-form">
+    <label for="languageSelect" class="lang-label" data-i18n="nav.languageLabel">Language</label>
+    <select id="languageSelect" class="lang-select">
+      <option value="en">English</option>
+      <option value="hi">हिन्दी</option>
+      <option value="kn">ಕನ್ನಡ</option>
+      <option value="ta">தமிழ்</option>
+      <option value="te">తెలుగు</option>
+      <option value="ml">മലയാളം</option>
+      <option value="mr">मराठी</option>
+      <option value="bn">বাংলা</option>
+    </select>
+  </div>
   <a href="homepage.html" class="nav-logo">SoloSafar</a>
 </nav>
 
 <!-- HERO -->
 <section class="dest-hero">
-  <div class="hero-bg" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Rann_of_Kutch_2018.jpg/1600px-Rann_of_Kutch_2018.jpg')"></div>
+  <div class="hero-bg" style="background-image: url('images/kutch/main.jpg')">
+  </div>
   <div class="hero-content">
     <div class="hero-eyebrow"><span>Salt Desert · Gujarat</span></div>
     <h1 class="hero-destination"><em>White</em><br>Horizon</h1>
@@ -53,23 +64,23 @@
   <div class="section-label">Places to Discover</div>
   <div class="places-scroll">
     <div class="place-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Rann_of_Kutch_2018.jpg/800px-Rann_of_Kutch_2018.jpg" alt="Great Rann of Kutch" loading="lazy">
+      <img src="images/kutch/rann.jpg" alt="Great Rann of Kutch" loading="lazy">
       <div class="place-card-label"><div class="place-card-num">01</div>Great Rann of Kutch</div>
     </div>
 <div class="place-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Dholavira_Archaeological_site.jpg/800px-Dholavira_Archaeological_site.jpg" alt="Dholavira Ruins" loading="lazy">
+      <img src="images/kutch/dholavira.jpg" alt="Dholavira Ruins" loading="lazy">
       <div class="place-card-label"><div class="place-card-num">02</div>Dholavira Ruins</div>
     </div>
 <div class="place-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Kalo_Dungar_Kutch.jpg/800px-Kalo_Dungar_Kutch.jpg" alt="Kalo Dungar" loading="lazy">
+      <img src="images/kutch/dungar.jpg" alt="Kalo Dungar" loading="lazy">
       <div class="place-card-label"><div class="place-card-num">03</div>Kalo Dungar</div>
     </div>
 <div class="place-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Mandvi_beach_Gujarat.jpg/800px-Mandvi_beach_Gujarat.jpg" alt="Mandvi Beach" loading="lazy">
+      <img src="images/kutch/mandvi.jpg" alt="Mandvi Beach" loading="lazy">
       <div class="place-card-label"><div class="place-card-num">04</div>Mandvi Beach</div>
     </div>
 <div class="place-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Kutch_artisan.jpg/800px-Kutch_artisan.jpg" alt="Tribal Villages" loading="lazy">
+      <img src="images/kutch/tribal.jpg" alt="Tribal Villages" loading="lazy">
       <div class="place-card-label"><div class="place-card-num">05</div>Tribal Villages</div>
     </div>
   </div>
@@ -85,6 +96,15 @@
   <div class="map-visual">
     <iframe src="https://maps.google.com/maps?q=Bhuj, Kutch, Gujarat, India&output=embed" allowfullscreen loading="lazy"></iframe>
   </div>
+</section>
+
+<section class="section-weather fade-up" id="weekly-weather">
+  <div>
+    <div class="section-label">Weather Report</div>
+    <h2>This week in <span id="weatherLocation"></span></h2>
+  </div>
+  <div class="weather-summary" id="weatherSummary"></div>
+  <div class="weather-grid" id="weatherGrid"></div>
 </section>
 
 <!-- PLANNER -->
@@ -112,15 +132,15 @@
     <div class="section-label">Local Flavours</div>
     <h3>What to Eat</h3>
     <div class="essential-item">
-      <img class="essential-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Dabeli.jpg/640px-Dabeli.jpg" alt="Kutchi Dabeli">
+      <img class="essential-img" src="images/kutch/dabeli.jpg" alt="Kutchi Dabeli">
       <div class="essential-text"><h4>Kutchi Dabeli</h4><p>Spiced potato filling in a bun with chutneys and pomegranate — India's best street snack.</p></div>
     </div>
 <div class="essential-item">
-      <img class="essential-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Gujarati_thali.jpg/640px-Gujarati_thali.jpg" alt="Khichdi & Kadhi">
+      <img class="essential-img" src="images/kutch/kadhi.jpg" alt="Khichdi & Kadhi">
       <div class="essential-text"><h4>Khichdi & Kadhi</h4><p>Comforting Gujarati staple — mung lentil rice with spiced buttermilk curry.</p></div>
     </div>
 <div class="essential-item">
-      <img class="essential-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Gur_papdi.jpg/640px-Gur_papdi.jpg" alt="Gur Papdi">
+      <img class="essential-img" src="images/kutch/gudpapdi.jpg" alt="Gur Papdi">
       <div class="essential-text"><h4>Gur Papdi</h4><p>Traditional Gujarati sweet made with wheat flour, ghee, and jaggery.</p></div>
     </div>
   </div>
@@ -128,11 +148,11 @@
     <div class="section-label">Where to Rest</div>
     <h3>Places to Stay</h3>
     <div class="essential-item">
-      <img class="essential-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Rann_utsav_tent.jpg/640px-Rann_utsav_tent.jpg" alt="Rann Utsav Tent City">
+      <img class="essential-img" src="images/kutch/tent.jpg" alt="Rann Utsav Tent City">
       <div class="essential-text"><h4>Rann Utsav Tent City</h4><p>Government-run luxury tent city at the edge of the Rann — magical.</p></div>
     </div>
 <div class="essential-item">
-      <img class="essential-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Bhuj_hotel.jpg/640px-Bhuj_hotel.jpg" alt="Hotel Nilam, Bhuj">
+      <img class="essential-img" src="images/kutch/hotel.jpg" alt="Hotel Nilam, Bhuj">
       <div class="essential-text"><h4>Hotel Nilam, Bhuj</h4><p>Budget city hotel — clean, central, solo-traveller friendly.</p></div>
     </div>
   </div>
@@ -144,7 +164,7 @@
     <img src="https://i.ytimg.com/vi/D08a_2zqiXM/maxresdefault.jpg" alt="Kutch">
     <div class="video-overlay">
       <h3>Experience Kutch</h3>
-      <a href="https://youtu.be/D08a_2zqiXM" target="_blank" class="video-btn">▶ Watch the Film</a>
+      <a href="https://youtu.be/ROgPMyNEIMI?si=Rv70nyDUbJ_qMC7A" target="_blank" class="video-btn">▶ Watch the Film</a>
     </div>
   </div>
 </section>
@@ -233,5 +253,7 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.1 });
 document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 </script>
+<script src="weather.js"></script>
+<script src="lang.js"></script>
 </body>
 </html>

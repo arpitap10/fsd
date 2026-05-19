@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat — SoloSafar</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Space+Grotesk:wght@300;400;500;600&family=Bebas+Neue&display=swap" rel="stylesheet">
+  <style>
+    :root { --cream:#f4efe6; --warm-black:#1a1208; --rust:#c44b2a; --gold:#d4a853; --paper:#e8e0d0; }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Space Grotesk',sans-serif; background:var(--cream); color:var(--warm-black); }
+    nav { position:fixed; top:0; width:100%; padding:18px 32px; display:flex; justify-content:space-between; align-items:center; background:rgba(244,239,230,0.95); backdrop-filter:blur(8px); z-index:100; }
+    .nav-logo, .nav-back { text-decoration:none; color:var(--warm-black); font-weight:700; letter-spacing:1px; }
+    .lang-form { display: flex; align-items: center; gap: 8px; }
+    .lang-label { font-size: 0.75rem; letter-spacing: 1px; color: var(--warm-black); white-space: nowrap; }
+    .lang-select { border: 1.5px solid rgba(26,18,8,0.15); border-radius: 999px; padding: 8px 12px; font-size: 0.85rem; background: #fff; color: var(--warm-black); }
+    .page-wrap { padding: 110px 32px 48px; max-width: 1100px; margin:0 auto; }
+    .chat-header { display:grid; gap:18px; margin-bottom:32px; }
+    .chat-header h1 { font-family:'Playfair Display',serif; font-size:clamp(2.75rem,5vw,4.5rem); line-height:1.05; }
+    .chat-header p { max-width:760px; color:rgba(26,18,8,0.72); line-height:1.9; }
+    .chat-panel { display:grid; gap:24px; }
+    .chat-log { min-height:420px; padding:28px; border-radius:32px; background:#fff; box-shadow:0 30px 70px rgba(26,18,8,0.08); display:grid; gap:18px; overflow:auto; }
+    .chat-message { padding:18px 22px; border-radius:28px; background:var(--paper); max-width:min(85%,560px); line-height:1.7; }
+    .chat-message.self { background:var(--rust); color:#fff; justify-self:flex-end; }
+    .message-meta { margin-top:10px; font-size:0.82rem; color:rgba(26,18,8,0.55); }
+    .chat-input-bar { display:grid; gap:16px; }
+    .chat-input-bar textarea { width:100%; min-height:140px; border-radius:24px; border:1px solid rgba(26,18,8,0.14); padding:18px; resize:vertical; font-family:'Space Grotesk',sans-serif; }
+    .chat-actions { display:flex; justify-content:flex-end; gap:14px; flex-wrap:wrap; }
+    .btn { border:none; border-radius:999px; padding:16px 26px; font-weight:700; cursor:pointer; transition:transform .2s ease; }
+    .btn-primary { background:var(--warm-black); color:var(--cream); }
+    .btn-primary:hover { transform:translateY(-2px); }
+    .chat-note { color:rgba(26,18,8,0.65); font-size:0.92rem; }
+    @media (max-width:760px) { .page-wrap { padding: 110px 18px 32px; } .chat-message { max-width:100%; } }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="homepage.html" class="nav-back" data-i18n="nav.back">← Back to Home</a>
+    <div class="lang-form">
+      <label for="languageSelect" class="lang-label" data-i18n="nav.languageLabel">Language</label>
+      <select id="languageSelect" class="lang-select">
+        <option value="en" data-i18n="language.en">English</option>
+        <option value="hi" data-i18n="language.hi">हिन्दी</option>
+        <option value="kn" data-i18n="language.kn">ಕನ್ನಡ</option>
+        <option value="ta" data-i18n="language.ta">தமிழ்</option>
+        <option value="te" data-i18n="language.te">తెలుగు</option>
+        <option value="ml" data-i18n="language.ml">മലയാളം</option>
+        <option value="mr" data-i18n="language.mr">मराठी</option>
+        <option value="bn" data-i18n="language.bn">বাংলা</option>
+      </select>
+    </div>
+    <a href="homepage.html" class="nav-logo">SoloSafar</a>
+  </nav>
+  <main class="page-wrap">
+    <section class="chat-header">
+      <div class="section-label" style="text-transform:uppercase;letter-spacing:3px;color:var(--gold);font-size:0.75rem;" data-i18n="chat.label">Traveller Chat</div>
+      <h1 data-i18n="chat.header">Chat with other travellers</h1>
+      <p data-i18n="chat.text">Share local tips, ask about weather, routes, or accommodation, and connect with solo explorers across India.</p>
+    </section>
+    <section class="chat-panel">
+      <div class="chat-log" id="chatLog"></div>
+      <div class="chat-input-bar">
+        <textarea id="chatInput" data-i18n-placeholder="chat.placeholder" placeholder="Write your message here..."></textarea>
+        <div class="chat-actions">
+          <button class="btn btn-primary" id="sendBtn" data-i18n="chat.sendButton">Send message</button>
+          <span class="chat-note" data-i18n="chat.note">Messages are saved locally in your browser so you can continue the conversation on this device.</span>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="lang.js"></script>
+  <script>
+    const STORAGE_KEY = 'soloSafarChatMessages';
+    const defaultMessages = [
+      { author: 'SoloSafar Community', text: 'Welcome to the chat! Ask about the best time to visit any destination.', time: 'Just now' },
+      { author: 'Aanya', text: 'I loved the peaceful mornings in Udaipur — the lakes are magical before sunrise.', time: '2 hours ago' },
+      { author: 'Ravi', text: 'If you are going to Goa, rent a scooter and explore the quieter north beaches.', time: '5 hours ago' }
+    ];
+
+    function getStoredMessages() {
+      try {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (!saved) return defaultMessages;
+        const parsed = JSON.parse(saved);
+        return Array.isArray(parsed) && parsed.length ? parsed : defaultMessages;
+      } catch (error) {
+        return defaultMessages;
+      }
+    }
+
+    function saveMessages(messages) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(messages));
+    }
+
+    function getCurrentTranslations() {
+      const currentLang = localStorage.getItem(LANGUAGE_KEY) || DEFAULT_LANGUAGE;
+      return TRANSLATIONS[currentLang] || TRANSLATIONS[DEFAULT_LANGUAGE];
+    }
+
+    function translateText(text) {
+      const translations = getCurrentTranslations();
+      return getTranslationForText(text, translations);
+    }
+
+    function formatMessage(message) {
+      const classes = message.author === 'You' ? 'chat-message self' : 'chat-message';
+      return `
+        <article class="${classes}">
+          <div>${translateText(message.text)}</div>
+          <div class="message-meta">${message.author} · ${translateText(message.time)}</div>
+        </article>
+      `;
+    }
+
+    function renderChat() {
+      const messages = getStoredMessages();
+      const chatLog = document.getElementById('chatLog');
+      chatLog.innerHTML = messages.map(formatMessage).join('');
+      chatLog.scrollTop = chatLog.scrollHeight;
+    }
+
+    function addMessage() {
+      const input = document.getElementById('chatInput');
+      const text = input.value.trim();
+      if (!text) return;
+      const messages = getStoredMessages();
+      messages.push({ author: 'You', text, time: 'Just now' });
+      saveMessages(messages);
+      renderChat();
+      input.value = '';
+      input.focus();
+    }
+
+    document.getElementById('sendBtn').addEventListener('click', addMessage);
+    document.getElementById('chatInput').addEventListener('keydown', event => {
+      if (event.key === 'Enter' && !event.shiftKey) {
+        event.preventDefault();
+        addMessage();
+      }
+    });
+
+    renderChat();
+  </script>
+</body>
+</html>

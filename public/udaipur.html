@@ -10,16 +10,26 @@
 <body>
 
 <nav id="nav">
-  <a href="homepage.html" class="nav-back">
-    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
-    Back to Home
-  </a>
+  <a href="homepage.html" class="nav-back" data-i18n="nav.back">Back to Home</a>
+  <div class="lang-form">
+    <label for="languageSelect" class="lang-label" data-i18n="nav.languageLabel">Language</label>
+    <select id="languageSelect" class="lang-select">
+      <option value="en">English</option>
+      <option value="hi">हिन्दी</option>
+      <option value="kn">ಕನ್ನಡ</option>
+      <option value="ta">தமிழ்</option>
+      <option value="te">తెలుగు</option>
+      <option value="ml">മലയാളം</option>
+      <option value="mr">मराठी</option>
+      <option value="bn">বাংলা</option>
+    </select>
+  </div>
   <a href="homepage.html" class="nav-logo">SoloSafar</a>
 </nav>
 
 <!-- HERO -->
 <section class="dest-hero">
-  <div class="hero-bg" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Lake_Pichola_with_City_Palace%2C_Udaipur.jpg/1600px-Lake_Pichola_with_City_Palace%2C_Udaipur.jpg')"></div>
+  <div class="hero-bg" style="background-image: url('images/udaipur/main.jpg')"></div>
   <div class="hero-content">
     <div class="hero-eyebrow"><span>City of Lakes · Rajasthan</span></div>
     <h1 class="hero-destination"><em>Royal</em><br>Udaipur</h1>
@@ -53,23 +63,23 @@
   <div class="section-label">Places to Discover</div>
   <div class="places-scroll">
     <div class="place-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Lake_Pichola_with_City_Palace%2C_Udaipur.jpg/800px-Lake_Pichola_with_City_Palace%2C_Udaipur.jpg" alt="City Palace" loading="lazy">
+      <img src="images/udaipur/palace.jpg" alt="City Palace" loading="lazy">
       <div class="place-card-label"><div class="place-card-num">01</div>City Palace</div>
     </div>
 <div class="place-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Pichola_Lake_Udaipur.jpg/800px-Pichola_Lake_Udaipur.jpg" alt="Lake Pichola" loading="lazy">
+      <img src="images/udaipur/picholalake.jpg" alt="Lake Pichola" loading="lazy">
       <div class="place-card-label"><div class="place-card-num">02</div>Lake Pichola</div>
     </div>
 <div class="place-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Jag_Mandir_Udaipur.jpg/800px-Jag_Mandir_Udaipur.jpg" alt="Jag Mandir" loading="lazy">
+      <img src="images/udaipur/jagmandir.jpg" alt="Jag Mandir" loading="lazy">
       <div class="place-card-label"><div class="place-card-num">03</div>Jag Mandir</div>
     </div>
 <div class="place-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Saheliyon_ki_bari_Udaipur.jpg/800px-Saheliyon_ki_bari_Udaipur.jpg" alt="Saheliyon Ki Bari" loading="lazy">
+      <img src="images/udaipur/saheliyon.jpg" alt="Saheliyon Ki Bari" loading="lazy">
       <div class="place-card-label"><div class="place-card-num">04</div>Saheliyon Ki Bari</div>
     </div>
 <div class="place-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Fateh_Sagar_Lake.jpg/800px-Fateh_Sagar_Lake.jpg" alt="Fateh Sagar Lake" loading="lazy">
+      <img src="images/udaipur/fatehlake.jpg" alt="Fateh Sagar Lake" loading="lazy">
       <div class="place-card-label"><div class="place-card-num">05</div>Fateh Sagar Lake</div>
     </div>
   </div>
@@ -85,6 +95,15 @@
   <div class="map-visual">
     <iframe src="https://maps.google.com/maps?q=Udaipur, Rajasthan, India&output=embed" allowfullscreen loading="lazy"></iframe>
   </div>
+</section>
+
+<section class="section-weather fade-up" id="weekly-weather">
+  <div>
+    <div class="section-label">Weather Report</div>
+    <h2>This week in <span id="weatherLocation"></span></h2>
+  </div>
+  <div class="weather-summary" id="weatherSummary"></div>
+  <div class="weather-grid" id="weatherGrid"></div>
 </section>
 
 <!-- PLANNER -->
@@ -112,15 +131,15 @@
     <div class="section-label">Local Flavours</div>
     <h3>What to Eat</h3>
     <div class="essential-item">
-      <img class="essential-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Dal_Baati_Churma.jpg/640px-Dal_Baati_Churma.jpg" alt="Dal Baati Churma">
+      <img class="essential-img" src="images/udaipur/dal.jpg" alt="Dal Baati Churma">
       <div class="essential-text"><h4>Dal Baati Churma</h4><p>Rajasthani royal dish — baked wheat balls with spiced lentils and sweet crumble.</p></div>
     </div>
 <div class="essential-item">
-      <img class="essential-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Laal_Maas.jpg/640px-Laal_Maas.jpg" alt="Laal Maas">
+      <img class="essential-img" src="images/udaipur/laal.jpg" alt="Laal Maas">
       <div class="essential-text"><h4>Laal Maas</h4><p>Fiery red mutton curry made with dried Mathania chilies — legendary.</p></div>
     </div>
 <div class="essential-item">
-      <img class="essential-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Mawa_kachori.jpg/640px-Mawa_kachori.jpg" alt="Mawa Kachori">
+      <img class="essential-img" src="images/udaipur/mawa.jpg" alt="Mawa Kachori">
       <div class="essential-text"><h4>Mawa Kachori</h4><p>Sweet deep-fried pastry filled with khoya and dry fruits — Jodhpur's gift to Rajasthan.</p></div>
     </div>
   </div>
@@ -128,11 +147,11 @@
     <div class="section-label">Where to Rest</div>
     <h3>Places to Stay</h3>
     <div class="essential-item">
-      <img class="essential-img" src="https://cdn.zostel.com/media/photos/Udaipur/zostel_udaipur.jpg" alt="Zostel Udaipur">
+      <img class="essential-img" src="images/udaipur/zostel.jpg" alt="Zostel Udaipur">
       <div class="essential-text"><h4>Zostel Udaipur</h4><p>Heritage-style hostel with lake views and rooftop hangout.</p></div>
     </div>
 <div class="essential-item">
-      <img class="essential-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Udaipur_hostel.jpg/640px-Udaipur_hostel.jpg" alt="Nukkad Hostel">
+      <img class="essential-img" src="images/udaipur/hotel.jpg" alt="Nukkad Hostel">
       <div class="essential-text"><h4>Nukkad Hostel</h4><p>Charming budget stay near City Palace in the old city heart.</p></div>
     </div>
   </div>
@@ -144,7 +163,7 @@
     <img src="https://i.ytimg.com/vi/1fXU85JDABU/maxresdefault.jpg" alt="Udaipur">
     <div class="video-overlay">
       <h3>Experience Udaipur</h3>
-      <a href="https://youtu.be/1fXU85JDABU" target="_blank" class="video-btn">▶ Watch the Film</a>
+      <a href="https://youtu.be/gw-wlgMyj24?si=BxzKuimzsKZhVH_8" target="_blank" class="video-btn">▶ Watch the Film</a>
     </div>
   </div>
 </section>
@@ -233,5 +252,7 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.1 });
 document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 </script>
+<script src="weather.js"></script>
+<script src="lang.js"></script>
 </body>
 </html>

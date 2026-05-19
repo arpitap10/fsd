@@ -10,16 +10,26 @@
 <body>
 
 <nav id="nav">
-  <a href="homepage.html" class="nav-back">
-    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
-    Back to Home
-  </a>
+  <a href="homepage.html" class="nav-back" data-i18n="nav.back">Back to Home</a>
+  <div class="lang-form">
+    <label for="languageSelect" class="lang-label" data-i18n="nav.languageLabel">Language</label>
+    <select id="languageSelect" class="lang-select">
+      <option value="en">English</option>
+      <option value="hi">हिन्दी</option>
+      <option value="kn">ಕನ್ನಡ</option>
+      <option value="ta">தமிழ்</option>
+      <option value="te">తెలుగు</option>
+      <option value="ml">മലയാളം</option>
+      <option value="mr">मराठी</option>
+      <option value="bn">বাংলা</option>
+    </select>
+  </div>
   <a href="homepage.html" class="nav-logo">SoloSafar</a>
 </nav>
 
 <!-- HERO -->
 <section class="dest-hero">
-  <div class="hero-bg" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Solang_Valley%2C_Himachal_Pradesh.jpg/1600px-Solang_Valley%2C_Himachal_Pradesh.jpg')"></div>
+  <div class="hero-bg" style="background-image: url('images/manali/main.jpg')"></div>
   <div class="hero-content">
     <div class="hero-eyebrow"><span>Snow Peaks · Himachal Pradesh</span></div>
     <h1 class="hero-destination"><em>Snow</em> &<br>Adventure</h1>
@@ -53,23 +63,23 @@
   <div class="section-label">Places to Discover</div>
   <div class="places-scroll">
     <div class="place-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Solang_Valley%2C_Himachal_Pradesh.jpg/800px-Solang_Valley%2C_Himachal_Pradesh.jpg" alt="Solang Valley" loading="lazy">
+      <img src="images/manali/solang.jpg" alt="Solang Valley" loading="lazy">
       <div class="place-card-label"><div class="place-card-num">01</div>Solang Valley</div>
     </div>
 <div class="place-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Rohtang_Pass.jpg/800px-Rohtang_Pass.jpg" alt="Rohtang Pass" loading="lazy">
+      <img src="images/manali/rohtang.jpg" alt="Rohtang Pass" loading="lazy">
       <div class="place-card-label"><div class="place-card-num">02</div>Rohtang Pass</div>
     </div>
 <div class="place-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Hidimba_Devi_Temple.jpg/800px-Hidimba_Devi_Temple.jpg" alt="Hadimba Temple" loading="lazy">
+      <img src="images/manali/hidimba.jpg" alt="Hadimba Temple" loading="lazy">
       <div class="place-card-label"><div class="place-card-num">03</div>Hadimba Temple</div>
     </div>
 <div class="place-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Beas_Kund_trek.jpg/800px-Beas_Kund_trek.jpg" alt="Beas River Kund" loading="lazy">
+      <img src="images/manali/beas.jpg" alt="Beas River Kund" loading="lazy">
       <div class="place-card-label"><div class="place-card-num">04</div>Beas River Kund</div>
     </div>
 <div class="place-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Old_Manali_Streets.jpg/800px-Old_Manali_Streets.jpg" alt="Old Manali" loading="lazy">
+      <img src="images/manali/old.jpg" alt="Old Manali" loading="lazy">
       <div class="place-card-label"><div class="place-card-num">05</div>Old Manali</div>
     </div>
   </div>
@@ -85,6 +95,15 @@
   <div class="map-visual">
     <iframe src="https://maps.google.com/maps?q=Manali, Himachal Pradesh, India&output=embed" allowfullscreen loading="lazy"></iframe>
   </div>
+</section>
+
+<section class="section-weather fade-up" id="weekly-weather">
+  <div>
+    <div class="section-label">Weather Report</div>
+    <h2>This week in <span id="weatherLocation"></span></h2>
+  </div>
+  <div class="weather-summary" id="weatherSummary"></div>
+  <div class="weather-grid" id="weatherGrid"></div>
 </section>
 
 <!-- PLANNER -->
@@ -112,15 +131,15 @@
     <div class="section-label">Local Flavours</div>
     <h3>What to Eat</h3>
     <div class="essential-item">
-      <img class="essential-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Siddu_Himachali.jpg/640px-Siddu_Himachali.jpg" alt="Siddu">
+      <img class="essential-img" src="images/manali/siddu.jpg" alt="Siddu">
       <div class="essential-text"><h4>Siddu</h4><p>Himachali steamed bread stuffed with walnuts and poppy seeds — a mountain delicacy.</p></div>
     </div>
 <div class="essential-item">
-      <img class="essential-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Trout_fish_curry.jpg/640px-Trout_fish_curry.jpg" alt="Trout Fish Curry">
+      <img class="essential-img" src="images/manali/fish.jpg" alt="Trout Fish Curry">
       <div class="essential-text"><h4>Trout Fish Curry</h4><p>Fresh Himalayan trout from Beas River, lightly spiced and unforgettable.</p></div>
     </div>
 <div class="essential-item">
-      <img class="essential-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Dham_food_himachal.jpg/640px-Dham_food_himachal.jpg" alt="Dham">
+      <img class="essential-img" src="images/manali/dham.jpg" alt="Dham">
       <div class="essential-text"><h4>Dham</h4><p>Traditional Himachali feast served on leaf plates — rice, lentils, curd, and rajma.</p></div>
     </div>
   </div>
@@ -128,11 +147,11 @@
     <div class="section-label">Where to Rest</div>
     <h3>Places to Stay</h3>
     <div class="essential-item">
-      <img class="essential-img" src="https://cdn.zostel.com/media/photos/Manali/zostel-manali.jpg" alt="Zostel Manali">
+      <img class="essential-img" src="images/manali/zostel.jpg" alt="Zostel Manali">
       <div class="essential-text"><h4>Zostel Manali</h4><p>Cosy hostel in Old Manali with mountain views and great community vibe.</p></div>
     </div>
 <div class="essential-item">
-      <img class="essential-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Manali_resort.jpg/640px-Manali_resort.jpg" alt="Snow Valley Resorts">
+      <img class="essential-img" src="images/manali/hotel.jpg" alt="Snow Valley Resorts">
       <div class="essential-text"><h4>Snow Valley Resorts</h4><p>Budget riverside resort with stunning Beas views.</p></div>
     </div>
   </div>
@@ -144,7 +163,7 @@
     <img src="https://i.ytimg.com/vi/CzjB_SRHqjo/maxresdefault.jpg" alt="Manali">
     <div class="video-overlay">
       <h3>Experience Manali</h3>
-      <a href="https://youtu.be/CzjB_SRHqjo" target="_blank" class="video-btn">▶ Watch the Film</a>
+      <a href="https://youtu.be/IQcsbyCW-5w?si=DETzzaUY8oPNJJWN" target="_blank" class="video-btn">▶ Watch the Film</a>
     </div>
   </div>
 </section>
@@ -233,5 +252,7 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.1 });
 document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 </script>
+<script src="weather.js"></script>
+<script src="lang.js"></script>
 </body>
 </html>
