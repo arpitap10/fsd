@@ -112,24 +112,13 @@ function renderWeatherPanel() {
     weekly: []
   };
 
-  const sectionHtml = `
-    <section class="section-weather fade-up" id="weekly-weather">
-      <div>
-        <div class="section-label">Weather Report</div>
-        <h2>This week in <span id="weatherLocation">${destination}</span></h2>
-      </div>
-      <div class="weather-summary" id="weatherSummary"></div>
-      <div class="weather-grid" id="weatherGrid"></div>
-    </section>
-  `;
-
-  const planSection = document.querySelector('.section-plan');
-  if (planSection) {
-    planSection.insertAdjacentHTML('beforebegin', sectionHtml);
-  }
+  // Just populate the existing section — do NOT inject a new one
+  const locationEl = document.getElementById('weatherLocation');
+  if (locationEl) locationEl.textContent = destination;
 
   const summaryEl = document.getElementById('weatherSummary');
   const gridEl = document.getElementById('weatherGrid');
+
   if (summaryEl) {
     summaryEl.textContent = data.description;
   }
