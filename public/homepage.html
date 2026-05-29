@@ -14,7 +14,8 @@
       --paper: #e8e0d0;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Space Grotesk', sans-serif; background: var(--cream); color: var(--warm-black); overflow-x: hidden; }
+    html, body { min-height: 100%; }
+    body { font-family: 'Space Grotesk', sans-serif; background: var(--cream); color: var(--warm-black); overflow-x: hidden; overflow-y: scroll; }
 
     nav {
       position: fixed; top: 0; width: 100%; z-index: 100;
@@ -65,6 +66,37 @@
         radial-gradient(ellipse at 85% 30%, rgba(180,160,120,0.12) 0%, transparent 45%),
         radial-gradient(ellipse at 50% 90%, rgba(200,180,140,0.15) 0%, transparent 40%);
       pointer-events: none; z-index: 0;
+    }
+
+    .hero-quote {
+      position: absolute;
+      top: 22%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: min(68vw, 700px);
+      padding: 20px 22px;
+      background: rgba(255, 250, 242, 0.94);
+      border: 1px solid rgba(26,18,8,0.08);
+      border-radius: 26px;
+      box-shadow: 0 16px 34px rgba(26,18,8,0.12);
+      z-index: 5;
+      text-align: center;
+      backdrop-filter: blur(10px);
+    }
+    .hero-quote p {
+      margin: 0;
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.5rem, 1.8vw, 2rem);
+      line-height: 1.1;
+      font-weight: 700;
+      color: rgba(26,18,8,0.9);
+      letter-spacing: -0.02em;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .hero-quote .quote-author {
+      display: none;
     }
 
     /* ── GALLERY TITLE ── */
@@ -235,6 +267,199 @@
     }
 
     /* FEATURES */
+    .dashboard { padding: 100px 48px; background: #fff; max-width: 1700px; margin: 0 auto; }
+    .dashboard-intro { display: flex; flex-direction: column; gap: 14px; max-width: 640px; margin-bottom: 32px; }
+    .dashboard-label { font-size: 0.75rem; letter-spacing: 2.5px; text-transform: uppercase; color: var(--rust); font-weight: 800; }
+    .dashboard-title { font-family: 'Playfair Display', serif; font-size: clamp(2.4rem, 4vw, 3.5rem); line-height: 1.08; margin: 0; font-weight: 700; }
+    .dashboard-copy { max-width: 580px; color: rgba(26,18,8,0.65); font-size: 1rem; line-height: 1.85; font-weight: 400; }
+    .dashboard-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; align-items: start; }
+    @media (min-width: 1300px) {
+      .dashboard-grid { grid-template-columns: repeat(5, 1fr); gap: 32px; }
+    }
+    @media (min-width: 1000px) and (max-width:1299px) {
+      .dashboard-grid { grid-template-columns: repeat(3, 1fr); gap: 28px; }
+    }
+    @media (max-width: 999px) {
+      .dashboard-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    }
+    .dash-card {
+      position: relative;
+      background: linear-gradient(180deg, #fffdf8 0%, #f7eee2 100%);
+      border: 1px solid rgba(196,75,42,0.14);
+      border-radius: 28px;
+      padding: 36px 28px 28px;
+      min-height: 280px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      transition: transform 0.32s cubic-bezier(0.4,0,0.2,1), box-shadow 0.32s cubic-bezier(0.4,0,0.2,1), border-color 0.32s ease, background 0.32s ease;
+      cursor: pointer;
+      box-shadow: 0 18px 38px rgba(26,18,8,0.08);
+      overflow: hidden;
+    }
+    .dash-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 5.5rem;
+      height: 6px;
+      background: linear-gradient(90deg, rgba(196,75,42,0.95), rgba(212,168,83,0.95));
+      border-radius: 0 0 12px 0;
+    }
+    .dash-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 26px 60px rgba(26,18,8,0.15), 0 12px 30px rgba(26,18,8,0.06);
+      border-color: rgba(196,75,42,0.25);
+      background: linear-gradient(180deg, #fff8f3 0%, #f4e4d7 100%);
+    }
+    .dash-card:focus { outline: none; box-shadow: 0 0 0 3px rgba(196,75,42,0.16), 0 26px 60px rgba(26,18,8,0.15); }
+    .dash-icon {
+      width: 72px;
+      height: 72px;
+      border-radius: 22px;
+      display: grid;
+      place-items: center;
+      color: var(--rust);
+      font-size: 2.3rem;
+      background: linear-gradient(145deg, rgba(212,168,83,0.16), rgba(196,75,42,0.12));
+      border: 1px solid rgba(196,75,42,0.14);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.55), 0 10px 24px rgba(26,18,8,0.06);
+      transition: transform 0.32s cubic-bezier(0.4,0,0.2,1), box-shadow 0.32s ease, background 0.32s ease;
+    }
+    .dash-card:hover .dash-icon { transform: translateY(-2px) scale(1.05); }
+    .dash-card[data-feature="plan"] .dash-icon { background: radial-gradient(circle at top left, rgba(196,75,42,0.18), rgba(244,239,230,0.05)); }
+    .dash-card[data-feature="find"] .dash-icon { background: radial-gradient(circle at top left, rgba(66,103,137,0.18), rgba(244,239,230,0.05)); color: #264763; }
+    .dash-card[data-feature="journal"] .dash-icon { background: radial-gradient(circle at top left, rgba(138,93,112,0.18), rgba(244,239,230,0.05)); color: #7b3451; }
+    .dash-card[data-feature="budget"] .dash-icon { background: radial-gradient(circle at top left, rgba(101,128,63,0.18), rgba(244,239,230,0.05)); color: #55612c; }
+    .dash-card[data-feature="safety"] .dash-icon { background: radial-gradient(circle at top left, rgba(64,95,105,0.18), rgba(244,239,230,0.05)); color: #2d4f5f; }
+    .dash-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; line-height: 1.2; margin: 0; font-weight: 700; letter-spacing: -0.6px; color: var(--warm-black); }
+    .dash-text { font-size: 1rem; color: rgba(26,18,8,0.7); line-height: 1.85; flex-grow: 1; margin-top: 8px; font-weight: 400; }
+    .dash-action { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 8px; font-weight: 700; font-size: 0.95rem; color: var(--warm-black); text-transform: uppercase; letter-spacing: 1px; }
+    .dash-action span:first-child { color: #8b3a28; }
+    .dash-action span:last-child { font-size: 1.1rem; }
+    .dash-btn { border: none; background: var(--rust); color: #fff; padding: 10px 18px; border-radius: 999px; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; transition: background 0.3s; }
+    .dash-btn:hover { background: #a63b1d; }
+    .dashboard-note { margin-top: 18px; display: inline-block; color: rgba(26,18,8,0.7); font-size: 0.95rem; opacity: 0; transition: opacity 0.25s ease; }
+    .dashboard-note.visible { opacity: 1; }
+
+    .planner-overlay {
+      position: fixed; inset: 0; z-index: 200; display: none; align-items: center; justify-content: center;
+      background: rgba(10, 8, 6, 0.72); backdrop-filter: blur(8px);
+      padding: 24px;
+      overflow-y: auto;
+    }
+    .planner-overlay.open { display: flex; }
+    .planner-modal {
+      width: min(100%, 950px); max-width: 950px; background: #fff; border-radius: 28px; box-shadow: 0 30px 70px rgba(10,8,6,0.32);
+      overflow: hidden; position: relative; color: #1a1208;
+      max-height: calc(100vh - 48px);
+    }
+    .planner-body {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 24px; padding: 24px 36px 36px;
+      max-height: calc(100vh - 220px);
+      overflow-y: auto;
+    }
+    .planner-header { padding: 36px 36px 24px; border-bottom: 1px solid rgba(26,18,8,0.08); }
+    .planner-badge { display: inline-flex; align-items: center; gap: 10px; font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; color: #b75938; margin-bottom: 12px; }
+    .planner-badge::before { content: '✦'; }
+    .planner-header h2 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 2.8vw, 2.8rem); margin-bottom: 12px; }
+    .planner-header p { color: rgba(26,18,8,0.66); line-height: 1.75; max-width: 660px; }
+    .planner-close { position: absolute; top: 18px; right: 18px; border: none; background: transparent; color: rgba(26,18,8,0.68); font-size: 2.2rem; line-height: 1; cursor: pointer; }
+    .planner-body { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; padding: 24px 36px 36px; }
+    .planner-form { display: grid; gap: 18px; }
+    .planner-row { display: grid; gap: 8px; }
+    .planner-row label { font-size: 0.9rem; color: rgba(26,18,8,0.75); font-weight: 600; }
+    .planner-row input,
+    .planner-row select,
+    .planner-row textarea { width: 100%; border: 1px solid rgba(26,18,8,0.16); border-radius: 16px; padding: 14px 16px; font-size: 0.95rem; color: #1a1208; outline: none; }
+    .planner-row textarea { min-height: 120px; resize: vertical; }
+    .planner-actions { display: grid; gap: 12px; margin-top: 12px; }
+    .planner-actions button { width: 100%; border: none; border-radius: 999px; padding: 14px 16px; font-weight: 700; letter-spacing: 0.9px; cursor: pointer; transition: transform 0.25s ease, background 0.25s ease; }
+    .planner-actions button:hover { transform: translateY(-1px); }
+    .btn-primary { background: #c44b2a; color: #fff; }
+    .btn-secondary { background: #f4efe6; color: #1a1208; border: 1px solid rgba(26,18,8,0.12); }
+    .planner-feedback { font-size: 0.9rem; color: rgba(26,18,8,0.8); min-height: 24px; }
+    .planner-summary { padding: 20px; border-radius: 20px; background: #f8f3ed; border: 1px solid rgba(26,18,8,0.08); margin-bottom: 18px; }
+    .planner-summary strong { display: block; margin-bottom: 12px; font-size: 1rem; }
+    .planner-results { max-height: 480px; overflow: auto; display: grid; gap: 18px; }
+    .planner-card { background: #fff; border: 1px solid rgba(26,18,8,0.1); border-radius: 20px; padding: 20px; box-shadow: 0 10px 20px rgba(26,18,8,0.05); }
+    .planner-card h4 { margin-bottom: 10px; font-size: 1.05rem; }
+    .planner-card ul { list-style: none; padding-left: 0; margin: 0; }
+    .planner-card li { margin-bottom: 10px; line-height: 1.6; }
+    .planner-card li span { font-weight: 700; }
+    .saved-list { margin-top: 18px; display: grid; gap: 14px; }
+    .saved-item { border: 1px solid rgba(26,18,8,0.1); border-radius: 18px; padding: 16px; background: #fff; display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: start; }
+    .saved-item strong { display: block; margin-bottom: 6px; }
+    .saved-item small { color: rgba(26,18,8,0.64); }
+    .saved-actions { display: flex; gap: 8px; }
+    .saved-actions button { padding: 10px 14px; border-radius: 999px; border: 1px solid rgba(26,18,8,0.12); background: #f7f1e7; cursor: pointer; font-size: 0.8rem; }
+    .saved-actions button:hover { background: #ece3d8; }
+
+    .find-overlay {
+      position: fixed; inset: 0; z-index: 200; display: none; align-items: center; justify-content: center;
+      background: rgba(10, 8, 6, 0.72); backdrop-filter: blur(8px);
+      padding: 24px;
+      overflow-y: auto;
+    }
+    .find-overlay.open { display: flex; }
+    .find-modal { width: min(100%, 1020px); max-width: 1020px; background: #fff; border-radius: 28px; box-shadow: 0 30px 70px rgba(10,8,6,0.32); overflow: hidden; position: relative; color: #1a1208; max-height: calc(100vh - 48px); }
+    .find-header { padding: 36px 36px 24px; border-bottom: 1px solid rgba(26,18,8,0.08); }
+    .find-body { display: grid; gap: 24px; padding: 24px 36px 36px; max-height: calc(100vh - 220px); overflow-y: auto; }
+    .find-filters { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; }
+    .find-results { display: grid; gap: 18px; }
+    .find-card { background: #fff; border: 1px solid rgba(26,18,8,0.1); border-radius: 24px; padding: 20px; box-shadow: 0 15px 30px rgba(26,18,8,0.05); display: grid; gap: 14px; }
+    .find-card-header { display: flex; align-items: center; gap: 14px; }
+    .find-avatar { width: 56px; height: 56px; border-radius: 18px; background: #f4efe6; display: grid; place-items: center; font-size: 1.6rem; color: #c44b2a; }
+    .find-card-title { font-size: 1.1rem; font-weight: 700; margin: 0; }
+    .find-card-meta { color: rgba(26,18,8,0.65); font-size: 0.88rem; }
+    .find-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .find-tag { background: rgba(196,75,42,0.08); color: #c44b2a; border-radius: 999px; padding: 7px 12px; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.8px; }
+    .find-actions { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+    .find-actions button { border: none; border-radius: 999px; padding: 12px 14px; background: #f7f1e7; color: #1a1208; font-weight: 700; cursor: pointer; transition: background 0.25s ease; }
+    .find-actions button:hover { background: #ece3d8; }
+    .find-status { font-size: 0.9rem; color: rgba(26,18,8,0.7); min-height: 24px; }
+    .find-feedback { font-size: 0.9rem; color: rgba(26,18,8,0.8); margin: 12px 0 0; min-height: 24px; }
+    .find-card strong { display: block; }
+
+    .tool-overlay {
+      position: fixed; inset: 0; z-index: 200; display: none; align-items: center; justify-content: center;
+      background: rgba(10, 8, 6, 0.72); backdrop-filter: blur(8px);
+      padding: 24px; overflow-y: auto;
+    }
+    .tool-overlay.open { display: flex; }
+    .tool-modal {
+      width: min(100%, 950px); max-width: 950px; background: #fff; border-radius: 28px; box-shadow: 0 30px 70px rgba(10,8,6,0.32);
+      overflow: hidden; position: relative; color: #1a1208; max-height: calc(100vh - 48px);
+    }
+    .tool-header { padding: 36px 36px 24px; border-bottom: 1px solid rgba(26,18,8,0.08); }
+    .tool-body { display: grid; gap: 24px; padding: 24px 36px 36px; max-height: calc(100vh - 220px); overflow-y: auto; }
+    .tool-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .tool-form { display: grid; gap: 18px; }
+    .tool-row { display: grid; gap: 8px; }
+    .tool-row label { font-size: 0.9rem; color: rgba(26,18,8,0.75); font-weight: 600; }
+    .tool-row input,
+    .tool-row select,
+    .tool-row textarea { width: 100%; border: 1px solid rgba(26,18,8,0.16); border-radius: 16px; padding: 14px 16px; font-size: 0.95rem; color: #1a1208; outline: none; }
+    .tool-row textarea { min-height: 140px; resize: vertical; }
+    .tool-actions { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin-top: 12px; }
+    .tool-summary { padding: 20px; border-radius: 20px; background: #f8f3ed; border: 1px solid rgba(26,18,8,0.08); margin-bottom: 18px; }
+    .tool-summary strong { display: block; margin-bottom: 10px; font-size: 1rem; }
+    .tool-item-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 10px; }
+    .tool-delete-btn { border: none; background: #f7d2c3; color: #9f2e1c; border-radius: 999px; padding: 8px 12px; cursor: pointer; transition: background 0.2s ease; }
+    .tool-delete-btn:hover { background: #e9b9a3; }
+    .tool-list { display: grid; gap: 14px; }
+    .tool-item { border: 1px solid rgba(26,18,8,0.1); border-radius: 18px; padding: 18px; background: #fff; box-shadow: 0 10px 20px rgba(26,18,8,0.05); }
+    .tool-item h4 { margin: 0 0 10px; font-size: 1rem; }
+    .tool-item small { color: rgba(26,18,8,0.65); }
+    .tool-feedback { font-size: 0.9rem; color: rgba(26,18,8,0.8); min-height: 24px; }
+    .tool-table { width: 100%; border-collapse: collapse; }
+    .tool-table th, .tool-table td { text-align: left; padding: 10px 12px; border-bottom: 1px solid rgba(26,18,8,0.08); }
+    .tool-table th { color: rgba(26,18,8,0.7); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.7px; }
+    .tool-tip-list { list-style: none; padding-left: 0; margin: 0; display: grid; gap: 10px; }
+    .tool-tip-list li { padding-left: 16px; position: relative; color: rgba(26,18,8,0.75); }
+    .tool-tip-list li::before { content: '•'; position: absolute; left: 0; color: var(--rust); }
+
     .features { padding: 100px 48px; background: var(--paper); display: grid; grid-template-columns: repeat(3, 1fr); gap: 60px; }
     .feature-num { font-family: 'Bebas Neue', sans-serif; font-size: 4rem; color: rgba(26,18,8,0.1); line-height: 1; }
     .feature-title { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; margin: 10px 0 14px; }
@@ -258,6 +483,7 @@
     <div class="nav-logo">SoloSafar</div>
     <div class="nav-links">
       <a href="#destinations" data-i18n="nav.destinations">Destinations</a>
+      <a href="homepage.html#tools">Tools</a>
       <a href="feedback.html" data-i18n="nav.feedback">Feedback</a>
       <div class="lang-form">
         <label for="languageSelect" class="lang-label" data-i18n="nav.languageLabel">Language</label>
@@ -273,6 +499,7 @@
         </select>
       </div>
       <a href="chat.html" data-i18n="nav.chat">Chat</a>
+      <a href="blog.html">Blog</a>
       <a href="signintravel.html" class="nav-btn" data-i18n="nav.signOut">Sign Out</a>
     </div>
   </nav>
@@ -339,6 +566,11 @@
         </a>
 
       </div><!-- /photo-fan -->
+
+      <div class="hero-quote" aria-label="Travel quote">
+        <p>“Travel far enough to meet yourself.”</p>
+        <div class="quote-author">SoloSafar</div>
+      </div>
 
       <!-- Camera body SVG (hands holding camera like image 2) -->
       <div class="camera-body">
@@ -515,6 +747,381 @@
     </div>
   </section>
 
+  <section id="tools" class="dashboard">
+    <div class="dashboard-intro">
+      <span class="dashboard-label">Your Solo Dashboard</span>
+      <h2 class="dashboard-title" data-i18n="dashboard.title">Tools for your solo travel journey</h2>
+      <p class="dashboard-copy" data-i18n="dashboard.copy">Everything you need to plan, connect and stay safe on the road.</p>
+    </div>
+    <div class="dashboard-grid">
+      <button class="dash-card" type="button" data-feature="plan">
+        <div class="dash-icon">🗺️</div>
+        <h3 class="dash-title" data-i18n="dashboard.plan.title">Plan a Trip</h3>
+        <p class="dash-text" data-i18n="dashboard.plan.text">Create your next itinerary</p>
+        <div class="dash-action">
+          <span data-i18n="dashboard.card.action">Explore</span>
+          <span>→</span>
+        </div>
+      </button>
+      <button class="dash-card" type="button" data-feature="find">
+        <div class="dash-icon">👥</div>
+        <h3 class="dash-title" data-i18n="dashboard.find.title">Find Travelers</h3>
+        <p class="dash-text" data-i18n="dashboard.find.text">Connect with fellow adventurers</p>
+        <div class="dash-action">
+          <span data-i18n="dashboard.card.action">Explore</span>
+          <span>→</span>
+        </div>
+      </button>
+      <button class="dash-card" type="button" data-feature="journal">
+        <div class="dash-icon">📓</div>
+        <h3 class="dash-title" data-i18n="dashboard.journal.title">Travel Journal</h3>
+        <p class="dash-text" data-i18n="dashboard.journal.text">Document your adventures</p>
+        <div class="dash-action">
+          <span data-i18n="dashboard.card.action">Explore</span>
+          <span>→</span>
+        </div>
+      </button>
+      <button class="dash-card" type="button" data-feature="budget">
+        <div class="dash-icon">💰</div>
+        <h3 class="dash-title" data-i18n="dashboard.budget.title">Track Budget</h3>
+        <p class="dash-text" data-i18n="dashboard.budget.text">Monitor your expenses</p>
+        <div class="dash-action">
+          <span data-i18n="dashboard.card.action">Explore</span>
+          <span>→</span>
+        </div>
+      </button>
+      <button class="dash-card" type="button" data-feature="safety">
+        <div class="dash-icon">🛡️</div>
+        <h3 class="dash-title" data-i18n="dashboard.safety.title">Safety Tools</h3>
+        <p class="dash-text" data-i18n="dashboard.safety.text">Manage emergency contacts</p>
+        <div class="dash-action">
+          <span data-i18n="dashboard.card.action">Explore</span>
+          <span>→</span>
+        </div>
+      </button>
+    </div>
+    <div class="dashboard-note" data-i18n="dashboard.note">Tap a card to preview the tool.</div>
+  </section>
+
+  <div class="planner-overlay" id="plannerOverlay" aria-hidden="true">
+    <div class="planner-modal" role="dialog" aria-modal="true" aria-labelledby="plannerTitle">
+      <button class="planner-close" id="plannerClose" aria-label="Close planner">×</button>
+      <div class="planner-header">
+        <span class="planner-badge" data-i18n="planner.badge">Trip Planner</span>
+        <h2 id="plannerTitle" data-i18n="planner.modalTitle">Build your next itinerary</h2>
+        <p data-i18n="planner.intro">Choose your destination, travel dates and style. Get an instant day plan, budget estimate and save it for later.</p>
+      </div>
+      <div class="planner-body">
+        <div class="planner-form">
+          <div class="planner-row">
+            <label for="plannerDestination" data-i18n="planner.destinationLabel">Destination</label>
+            <select id="plannerDestination" required>
+              <option value="Goa">Goa</option>
+              <option value="Leh Ladakh">Leh Ladakh</option>
+              <option value="Manali">Manali</option>
+              <option value="Kerala">Kerala</option>
+              <option value="Udaipur">Udaipur</option>
+              <option value="Sikkim">Sikkim</option>
+              <option value="Kutch">Kutch</option>
+              <option value="Nagaland">Nagaland</option>
+            </select>
+          </div>
+          <div class="planner-row">
+            <label for="plannerStartDate" data-i18n="planner.startDateLabel">Start Date</label>
+            <input id="plannerStartDate" type="date" required>
+          </div>
+          <div class="planner-row">
+            <label for="plannerEndDate" data-i18n="planner.endDateLabel">End Date</label>
+            <input id="plannerEndDate" type="date" required>
+          </div>
+          <div class="planner-row">
+            <label for="plannerStyle" data-i18n="planner.styleLabel">Travel Style</label>
+            <select id="plannerStyle" required>
+              <option value="Budget">Budget</option>
+              <option value="Comfort">Comfort</option>
+              <option value="Luxury">Luxury</option>
+            </select>
+          </div>
+          <div class="planner-row">
+            <label for="plannerNotes" data-i18n="planner.notesLabel">Notes</label>
+            <textarea id="plannerNotes" placeholder="Add preferences, must-see spots, or special notes"></textarea>
+          </div>
+          <div class="planner-actions">
+            <button type="button" class="btn-primary" id="generatePlanBtn" data-i18n="planner.generateBtn">Generate Plan</button>
+            <button type="button" class="btn-secondary" id="savePlanBtn" data-i18n="planner.saveBtn">Save My Trip</button>
+            <button type="button" class="btn-secondary" id="viewTripsBtn" data-i18n="planner.viewSavedBtn">View Saved Trips</button>
+            <button type="button" class="btn-secondary" id="sharePlanBtn" data-i18n="planner.shareBtn">Share</button>
+          </div>
+          <div class="planner-feedback" id="plannerFeedback"></div>
+        </div>
+        <div>
+          <div class="planner-summary" id="plannerSummary">
+            <strong data-i18n="planner.summaryTitle">Your trip preview will appear here.</strong>
+            <p data-i18n="planner.summaryHint">Generate a plan to see your destination highlights, budget estimate, and day-by-day itinerary.</p>
+          </div>
+          <div class="planner-results" id="plannerResults"></div>
+          <div class="saved-list" id="savedTripsList"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="find-overlay" id="findOverlay" aria-hidden="true">
+    <div class="find-modal" role="dialog" aria-modal="true" aria-labelledby="findTitle">
+      <button class="planner-close" id="findClose" aria-label="Close Find Travelers">×</button>
+      <div class="find-header">
+        <span class="planner-badge" data-i18n="find.badge">Find Travelers</span>
+        <h2 id="findTitle" data-i18n="find.modalTitle">Connect with fellow adventurers</h2>
+        <p data-i18n="find.intro">Filter by destination, dates, and interests. Discover travelers ready to meet, share plans, or explore together.</p>
+      </div>
+      <div class="find-body">
+        <div class="find-filters">
+          <div class="planner-row">
+            <label for="findDestination" data-i18n="find.destinationLabel">Destination</label>
+            <select id="findDestination">
+              <option value="All">All</option>
+              <option value="Goa">Goa</option>
+              <option value="Leh Ladakh">Leh Ladakh</option>
+              <option value="Manali">Manali</option>
+              <option value="Kerala">Kerala</option>
+              <option value="Udaipur">Udaipur</option>
+              <option value="Sikkim">Sikkim</option>
+              <option value="Kutch">Kutch</option>
+              <option value="Nagaland">Nagaland</option>
+            </select>
+          </div>
+          <div class="planner-row">
+            <label for="findStartDate" data-i18n="find.startDateLabel">Travel from</label>
+            <input id="findStartDate" type="date">
+          </div>
+          <div class="planner-row">
+            <label for="findEndDate" data-i18n="find.endDateLabel">Travel to</label>
+            <input id="findEndDate" type="date">
+          </div>
+          <div class="planner-row">
+            <label for="findInterest" data-i18n="find.interestLabel">Interest</label>
+            <select id="findInterest">
+              <option value="All">All</option>
+              <option value="Adventure">Adventure</option>
+              <option value="Culture">Culture</option>
+              <option value="Food">Food</option>
+              <option value="Photography">Photography</option>
+              <option value="Relaxation">Relaxation</option>
+            </select>
+          </div>
+        </div>
+        <div>
+          <div class="find-status" id="findStatus" data-i18n="find.status">Showing travelers matching your filters.</div>
+          <div class="find-feedback" id="findFeedback"></div>
+          <div class="find-results" id="findResults"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tool-overlay" id="journalOverlay" aria-hidden="true">
+    <div class="tool-modal" role="dialog" aria-modal="true" aria-labelledby="journalTitle">
+      <button class="planner-close" id="journalClose" aria-label="Close Travel Journal">×</button>
+      <div class="tool-header">
+        <span class="planner-badge">Travel Journal</span>
+        <h2 id="journalTitle">Document your adventures</h2>
+        <p>Capture your journey notes, moods, and memories in one place.</p>
+      </div>
+      <div class="tool-body">
+        <div class="tool-grid">
+          <div class="tool-form">
+            <div class="tool-row">
+              <label for="journalDate">Date</label>
+              <input id="journalDate" type="date">
+            </div>
+            <div class="tool-row">
+              <label for="journalTitleInput">Entry title</label>
+              <input id="journalTitleInput" type="text" placeholder="A special moment, a new friend, a food memory">
+            </div>
+            <div class="tool-row">
+              <label for="journalMood">Mood</label>
+              <select id="journalMood">
+                <option value="Inspired">Inspired</option>
+                <option value="Refreshed">Refreshed</option>
+                <option value="Curious">Curious</option>
+                <option value="Grateful">Grateful</option>
+              </select>
+            </div>
+            <div class="tool-row">
+              <label for="journalEntry">Entry</label>
+              <textarea id="journalEntry" placeholder="Write about your day, the people you met, and what you discovered."></textarea>
+            </div>
+            <div class="tool-row">
+              <label for="journalVisibility">Visibility</label>
+              <select id="journalVisibility">
+                <option value="Private">Private</option>
+                <option value="Blog">Post as blog</option>
+              </select>
+            </div>
+            <div class="tool-row" id="journalAuthorRow" style="display:none;">
+              <label for="journalAuthor">Author name</label>
+              <input id="journalAuthor" type="text" placeholder="Your name (visible on blog)">
+            </div>
+            <div class="tool-row" id="journalLocationRow" style="display:none;">
+              <label for="journalLocation">Location</label>
+              <input id="journalLocation" type="text" placeholder="City or place (optional)">
+            </div>
+            <div class="tool-row">
+              <label for="journalSearch">Search entries</label>
+              <input id="journalSearch" type="search" placeholder="Search by title or mood">
+            </div>
+            <div class="tool-actions">
+              <button type="button" class="btn-primary" id="journalSaveBtn">Save Entry</button>
+              <button type="button" class="btn-secondary" id="journalViewBtn">View Entries</button>
+            </div>
+            <div class="tool-actions">
+              <button type="button" class="btn-secondary" id="journalExportBtn">Export</button>
+              <button type="button" class="btn-secondary" id="journalClearBtn">Clear All</button>
+            </div>
+            <div class="tool-feedback" id="journalFeedback"></div>
+          </div>
+          <div>
+            <div class="tool-summary">
+              <strong>Journal at a glance</strong>
+              <p>Save your reflections and browse your latest entries here. Everything syncs locally so your travel story stays with you.</p>
+            </div>
+            <div class="tool-list" id="journalEntriesList"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tool-overlay" id="budgetOverlay" aria-hidden="true">
+    <div class="tool-modal" role="dialog" aria-modal="true" aria-labelledby="budgetTitle">
+      <button class="planner-close" id="budgetClose" aria-label="Close Budget Tracker">×</button>
+      <div class="tool-header">
+        <span class="planner-badge">Track Budget</span>
+        <h2 id="budgetTitle">Monitor your expenses</h2>
+        <p>Log costs, compare categories, and keep the budget on track while you travel.</p>
+      </div>
+      <div class="tool-body">
+        <div class="tool-grid">
+          <div class="tool-form">
+            <div class="tool-row">
+              <label for="expenseDate">Expense date</label>
+              <input id="expenseDate" type="date">
+            </div>
+            <div class="tool-row">
+              <label for="expenseCategory">Category</label>
+              <select id="expenseCategory">
+                <option value="Transport">Transport</option>
+                <option value="Food">Food</option>
+                <option value="Stay">Stay</option>
+                <option value="Activities">Activities</option>
+                <option value="Shopping">Shopping</option>
+              </select>
+            </div>
+            <div class="tool-row">
+              <label for="expenseAmount">Amount (INR)</label>
+              <input id="expenseAmount" type="number" min="1" placeholder="Enter amount">
+            </div>
+            <div class="tool-row">
+              <label for="budgetGoal">Trip budget goal (INR)</label>
+              <input id="budgetGoal" type="number" min="0" placeholder="Set your target budget">
+            </div>
+            <div class="tool-actions">
+              <button type="button" class="btn-secondary" id="budgetSetGoalBtn">Set Goal</button>
+            </div>
+            <div class="tool-row">
+              <label for="expenseCategoryFilter">Filter by category</label>
+              <select id="expenseCategoryFilter">
+                <option value="All">All</option>
+                <option value="Transport">Transport</option>
+                <option value="Food">Food</option>
+                <option value="Stay">Stay</option>
+                <option value="Activities">Activities</option>
+                <option value="Shopping">Shopping</option>
+              </select>
+            </div>
+            <div class="tool-row">
+              <label for="expenseNote">Note</label>
+              <input id="expenseNote" type="text" placeholder="Taxi, meal, souvenir, etc.">
+            </div>
+            <div class="tool-actions">
+              <button type="button" class="btn-primary" id="expenseAddBtn">Add Expense</button>
+              <button type="button" class="btn-secondary" id="expenseExportBtn">Export CSV</button>
+            </div>
+            <div class="tool-actions">
+              <button type="button" class="btn-secondary" id="expenseResetBtn">Reset</button>
+              <button type="button" class="btn-secondary" id="expenseClearAllBtn">Clear All</button>
+            </div>
+            <div class="tool-feedback" id="budgetFeedback"></div>
+          </div>
+          <div>
+            <div class="tool-summary" id="budgetGoalSummary"></div>
+            <div class="tool-summary">
+              <strong>Budget summary</strong>
+              <p>Total spending, category breakdown, and expenses saved in local storage for instant review.</p>
+            </div>
+            <div class="tool-summary" id="budgetTotals"></div>
+            <div class="tool-list" id="expenseList"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tool-overlay" id="safetyOverlay" aria-hidden="true">
+    <div class="tool-modal" role="dialog" aria-modal="true" aria-labelledby="safetyTitle">
+      <button class="planner-close" id="safetyClose" aria-label="Close Safety Tools">×</button>
+      <div class="tool-header">
+        <span class="planner-badge">Safety Tools</span>
+        <h2 id="safetyTitle">Manage emergency contacts</h2>
+        <p>Keep your vital contacts close and review key safety checks for your trip.</p>
+      </div>
+      <div class="tool-body">
+        <div class="tool-grid">
+          <div class="tool-form">
+            <div class="tool-row">
+              <label for="contactName">Contact name</label>
+              <input id="contactName" type="text" placeholder="Friend, family, local contact">
+            </div>
+            <div class="tool-row">
+              <label for="contactPhone">Phone number</label>
+              <input id="contactPhone" type="tel" placeholder="+91xxxxxxxxxx">
+            </div>
+            <div class="tool-row">
+              <label for="contactRelation">Relation</label>
+              <input id="contactRelation" type="text" placeholder="Relation or role">
+            </div>
+            <div class="tool-actions">
+              <button type="button" class="btn-primary" id="contactSaveBtn">Save Contact</button>
+              <button type="button" class="btn-secondary" id="safetyTipsBtn">View Tips</button>
+            </div>
+            <div class="tool-actions">
+              <button type="button" class="btn-secondary" id="safetyCallPoliceBtn">Call Police</button>
+              <button type="button" class="btn-secondary" id="safetyCallAmbulanceBtn">Call Ambulance</button>
+              <button type="button" class="btn-secondary" id="safetyCopyMsgBtn">Copy SOS</button>
+            </div>
+            <div class="tool-feedback" id="safetyFeedback"></div>
+          </div>
+          <div>
+            <div class="tool-summary">
+              <strong>Emergency contacts</strong>
+              <p>Easy access to your saved contacts and common safety reminders for solo travel.</p>
+            </div>
+            <div class="tool-list" id="contactList"></div>
+            <div class="tool-summary">
+              <strong>Safety checklist</strong>
+              <ul class="tool-tip-list">
+                <li>Share your route with someone trusted.</li>
+                <li>Keep local emergency numbers saved.</li>
+                <li>Carry a small first-aid kit and cash.</li>
+                <li>Use verified local guides and transport.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <section class="features">
     <div>
       <div class="feature-num">01</div>
@@ -568,6 +1175,826 @@
       <span data-i18n="footer.soloNote">Made with ♥ for solo explorers of India</span>
     </div>
   </footer>
+  <script>
+    const overlay = document.getElementById('plannerOverlay');
+    const closeBtn = document.getElementById('plannerClose');
+    const generateBtn = document.getElementById('generatePlanBtn');
+    const saveBtn = document.getElementById('savePlanBtn');
+    const shareBtn = document.getElementById('sharePlanBtn');
+    const viewTripsBtn = document.getElementById('viewTripsBtn');
+    const plannerFeedback = document.getElementById('plannerFeedback');
+    const plannerSummary = document.getElementById('plannerSummary');
+    const plannerResults = document.getElementById('plannerResults');
+    const savedTripsList = document.getElementById('savedTripsList');
+    const planCard = document.querySelector('[data-feature="plan"]');
+    const dashboardNote = document.querySelector('.dashboard-note');
+
+    const destinationHighlights = {
+      'Goa': ['Beach hopping', 'Sunset shack dinners', 'Water sports and Portuguese heritage'],
+      'Leh Ladakh': ['Pangong Lake sunrise', 'Thiksey monastery', 'High-altitude road adventure'],
+      'Manali': ['Solang Valley adventure', 'Old Manali cafes', 'Rohtang pass day trip'],
+      'Kerala': ['Houseboat backwaters', 'Spice village tour', 'Tea gardens in Munnar'],
+      'Udaipur': ['City Palace boat ride', 'Jag Mandir sunset', 'Lake Pichola promenade'],
+      'Sikkim': ['Yumthang Valley blooms', 'Rumtek monastery', 'Gangtok food walk'],
+      'Kutch': ['Rann desert sunset', 'Craft village tour', 'Blackbuck safari'],
+      'Nagaland': ['Hornbill festival vibes', 'Tribal markets', 'Village homestays']
+    };
+
+    function openPlanner() {
+      overlay.classList.add('open');
+      overlay.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      plannerFeedback.textContent = '';
+      plannerResults.innerHTML = '';
+      savedTripsList.innerHTML = '';
+    }
+
+    function closePlanner() {
+      overlay.classList.remove('open');
+      overlay.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    function getDuration(start, end) {
+      const startDate = new Date(start);
+      const endDate = new Date(end);
+      if (isNaN(startDate) || isNaN(endDate) || endDate < startDate) return 0;
+      return Math.max(1, Math.round((endDate - startDate) / (1000 * 60 * 60 * 24)) + 1);
+    }
+
+    function estimateBudget(days, style) {
+      const base = 2500 * days;
+      const styleFactor = { Budget: 0.8, Comfort: 1, Luxury: 1.5 }[style] || 1;
+      const minAmount = Math.round(base * styleFactor * 0.85);
+      const maxAmount = Math.round(base * styleFactor * 1.15);
+      return { label: `${style} travel`, amount: `${minAmount.toLocaleString()} - ${maxAmount.toLocaleString()} INR`, days };
+    }
+
+    function createItinerary(destination, days, style, notes) {
+      const highlights = destinationHighlights[destination] || [];
+      const plan = [];
+      for (let i = 1; i <= days; i += 1) {
+        plan.push({
+          day: i,
+          activity: highlights[(i - 1) % highlights.length] || 'Explore local sights',
+          detail: `Day ${i} in ${destination} with ${style.toLowerCase()} pace. ${notes ? notes + ' ' : ''}Suggested highlight: ${highlights[(i - 1) % highlights.length] || 'local culture and food.'}`
+        });
+      }
+      return plan;
+    }
+
+    function renderPlan(destination, startDate, endDate, style, notes) {
+      const days = getDuration(startDate, endDate);
+      if (!days) {
+        plannerSummary.innerHTML = '<strong>Please select valid travel dates.</strong>';
+        plannerResults.innerHTML = '';
+        return null;
+      }
+      const budget = estimateBudget(days, style);
+      const plan = createItinerary(destination, days, style, notes);
+      plannerSummary.innerHTML = `
+        <strong>${destination} · ${days} day${days > 1 ? 's' : ''} · ${style}</strong>
+        <p>Budget estimate: <strong>${budget.amount}</strong></p>
+      `;
+      plannerResults.innerHTML = plan.map(item => `
+        <div class="planner-card">
+          <h4>Day ${item.day}</h4>
+          <p>${item.activity}</p>
+          <p>${item.detail}</p>
+        </div>
+      `).join('');
+      return { destination, startDate, endDate, style, notes, days, budget: budget.amount, plan, savedId: `${destination}-${Date.now()}` };
+    }
+
+    async function saveTrip(trip) {
+      try {
+        const response = await fetch('/save-trip', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(trip)
+        });
+        const result = await response.json();
+        if (result.success) {
+          setPlannerFeedback('Trip saved successfully. You can view it in Saved Trips.');
+          return;
+        }
+        throw new Error('Save failed');
+      } catch (err) {
+        const fallback = JSON.parse(localStorage.getItem('soloSafarSavedTrips') || '[]');
+        fallback.push(trip);
+        localStorage.setItem('soloSafarSavedTrips', JSON.stringify(fallback));
+        setPlannerFeedback('Trip saved locally. Server unavailable, using local storage.');
+      }
+    }
+
+    async function loadSavedTrips() {
+      savedTripsList.innerHTML = '<div class="planner-card"><p>Loading saved trips...</p></div>';
+      try {
+        const response = await fetch('/saved-trips');
+        const data = await response.json();
+        if (Array.isArray(data) && data.length) {
+          renderSavedTrips(data.reverse().slice(0, 6));
+          return;
+        }
+      } catch (err) {
+        const local = JSON.parse(localStorage.getItem('soloSafarSavedTrips') || '[]');
+        if (local.length) {
+          renderSavedTrips(local.reverse().slice(0, 6));
+          return;
+        }
+      }
+      savedTripsList.innerHTML = '<div class="planner-card"><p>No saved trips found yet. Save a plan to see it here.</p></div>';
+    }
+
+    function populateTripForm(trip) {
+      document.getElementById('plannerDestination').value = trip.destination || 'Goa';
+      document.getElementById('plannerStartDate').value = trip.startDate ? trip.startDate.split('T')[0] : '';
+      document.getElementById('plannerEndDate').value = trip.endDate ? trip.endDate.split('T')[0] : '';
+      document.getElementById('plannerStyle').value = trip.style || 'Budget';
+      document.getElementById('plannerNotes').value = trip.notes || '';
+      const result = renderPlan(trip.destination, trip.startDate, trip.endDate, trip.style, trip.notes || '');
+      if (result) {
+        overlay.dataset.currentTrip = JSON.stringify(trip);
+        setPlannerFeedback('Saved plan reopened. You can edit, save again, or share it.');
+      }
+    }
+
+    function renderSavedTrips(trips) {
+      savedTripsList.innerHTML = trips.map(trip => `
+        <div class="saved-item" data-action="load" data-id="${trip._id || trip.savedId || ''}" data-trip='${JSON.stringify(trip).replace(/'/g, '&#39;')}'>
+          <div>
+            <strong>${trip.destination} · ${trip.style}</strong>
+            <small>${new Date(trip.startDate).toLocaleDateString()} → ${new Date(trip.endDate).toLocaleDateString()} (${trip.days} days)</small>
+          </div>
+          <div class="saved-actions">
+            <button type="button" class="load-trip-btn" data-action="load">Open</button>
+            <button type="button" class="copy-trip-btn" data-action="copy" data-destination="${trip.destination}" data-style="${trip.style}" data-days="${trip.days}">Copy</button>
+            <button type="button" class="delete-trip-btn" data-id="${trip._id || trip.savedId || ''}">Delete</button>
+          </div>
+        </div>
+      `).join('');
+
+      savedTripsList.querySelectorAll('.saved-item[data-action="load"]').forEach(item => {
+        item.addEventListener('click', event => {
+          if (event.target.dataset.action === 'copy') return;
+          const tripData = JSON.parse(item.getAttribute('data-trip'));
+          populateTripForm(tripData);
+        });
+      });
+
+      savedTripsList.querySelectorAll('button.copy-trip-btn').forEach(btn => {
+        btn.addEventListener('click', async () => {
+          const text = `Trip to ${btn.dataset.destination}, ${btn.dataset.days} days, style: ${btn.dataset.style}`;
+          await navigator.clipboard.writeText(text);
+          setPlannerFeedback('Trip summary copied to clipboard.');
+        });
+      });
+      // attach delete handlers
+      savedTripsList.querySelectorAll('button.delete-trip-btn').forEach(btn => btn.addEventListener('click', () => deleteSavedTrip(btn.dataset.id)));
+    }
+
+    async function deleteSavedTrip(id) {
+      if (!id) {
+        // no id, try to remove by matching trip payload — fallback to clearing all
+        setPlannerFeedback('Unable to identify trip to delete.');
+        return;
+      }
+      if (!confirm('Delete this saved trip?')) return;
+      // try server delete first (server may not support it)
+      try {
+        const res = await fetch(`/saved-trips/${id}`, { method: 'DELETE' });
+        if (res.ok) {
+          setPlannerFeedback('Trip deleted from server.');
+          loadSavedTrips();
+          return;
+        }
+      } catch (err) {
+        // ignore server errors
+      }
+      // fallback: remove from localStorage
+      const local = JSON.parse(localStorage.getItem('soloSafarSavedTrips') || '[]');
+      const updated = local.filter(t => (t._id && t._id !== id) && (t.savedId && t.savedId !== id) ? true : (t._id === id || t.savedId === id) ? false : true);
+      // safer filter: keep items where id doesn't match
+      const filtered = local.filter(t => !( (t._id && t._id === id) || (t.savedId && t.savedId === id) ));
+      localStorage.setItem('soloSafarSavedTrips', JSON.stringify(filtered));
+      setPlannerFeedback('Saved trip removed.');
+      loadSavedTrips();
+    }
+
+    function setPlannerFeedback(message) {
+      plannerFeedback.textContent = message;
+      setTimeout(() => {
+        if (plannerFeedback.textContent === message) plannerFeedback.textContent = '';
+      }, 3000);
+    }
+
+    async function sharePlan(tripData) {
+      const shareText = `Plan to ${tripData.destination} from ${tripData.startDate} to ${tripData.endDate} (${tripData.days} days). Estimated budget: ${tripData.budget}.`;
+      if (navigator.share) {
+        try {
+          await navigator.share({ title: 'SoloSafar Trip Plan', text: shareText });
+          setPlannerFeedback('Plan shared successfully.');
+          return;
+        } catch (err) {
+          // ignore share errors
+        }
+      }
+      await navigator.clipboard.writeText(shareText);
+      setPlannerFeedback('Trip details copied to clipboard for sharing.');
+    }
+
+    planCard.addEventListener('click', openPlanner);
+    closeBtn.addEventListener('click', closePlanner);
+    overlay.addEventListener('click', event => { if (event.target === overlay) closePlanner(); });
+
+    generateBtn.addEventListener('click', () => {
+      const destination = document.getElementById('plannerDestination').value;
+      const startDate = document.getElementById('plannerStartDate').value;
+      const endDate = document.getElementById('plannerEndDate').value;
+      const style = document.getElementById('plannerStyle').value;
+      const notes = document.getElementById('plannerNotes').value.trim();
+      const result = renderPlan(destination, startDate, endDate, style, notes);
+      if (result) {
+        overlay.dataset.currentTrip = JSON.stringify(result);
+        setPlannerFeedback('Trip plan generated. Save it or share it when ready.');
+      }
+    });
+
+    saveBtn.addEventListener('click', async () => {
+      const currentTrip = overlay.dataset.currentTrip ? JSON.parse(overlay.dataset.currentTrip) : null;
+      if (!currentTrip) {
+        setPlannerFeedback('Generate the trip first before saving.');
+        return;
+      }
+      await saveTrip(currentTrip);
+    });
+
+    viewTripsBtn.addEventListener('click', loadSavedTrips);
+    shareBtn.addEventListener('click', async () => {
+      const currentTrip = overlay.dataset.currentTrip ? JSON.parse(overlay.dataset.currentTrip) : null;
+      if (!currentTrip) {
+        setPlannerFeedback('Generate the trip first before sharing.');
+        return;
+      }
+      await sharePlan(currentTrip);
+    });
+
+    const findOverlay = document.getElementById('findOverlay');
+    const closeFindBtn = document.getElementById('findClose');
+    const findDestination = document.getElementById('findDestination');
+    const findStartDate = document.getElementById('findStartDate');
+    const findEndDate = document.getElementById('findEndDate');
+    const findInterest = document.getElementById('findInterest');
+    const findResults = document.getElementById('findResults');
+    const findStatus = document.getElementById('findStatus');
+    const findFeedback = document.getElementById('findFeedback');
+
+    const travelerProfiles = [
+      { id: 't1', name: 'Aisha', destination: 'Goa', dates: ['2024-07-18','2024-07-24'], interests: ['Beach', 'Food'], bio: 'Solo adventurer seeking sunset shacks and spice market walks.', match: 'Chill beach trip' },
+      { id: 't2', name: 'Rohit', destination: 'Leh Ladakh', dates: ['2024-09-01','2024-09-08'], interests: ['Photography', 'Adventure'], bio: 'Photographer looking for high-altitude buddies and sunrise lakes.', match: 'Road trip + camping' },
+      { id: 't3', name: 'Meera', destination: 'Kerala', dates: ['2024-08-05','2024-08-12'], interests: ['Culture', 'Food'], bio: 'Culture lover planning a houseboat stay with Ayurvedic vibes.', match: 'Slow travel + tea gardens' },
+      { id: 't4', name: 'Aditya', destination: 'Manali', dates: ['2024-07-22','2024-07-29'], interests: ['Adventure', 'Snow'], bio: 'Looking for a trek partner and local cafe recommendations.', match: 'Solang Valley action' },
+      { id: 't5', name: 'Neha', destination: 'Udaipur', dates: ['2024-09-15','2024-09-19'], interests: ['Photography', 'Relaxation'], bio: 'Dreaming of palaces, lakes, and rooftop chai with new friends.', match: 'City palace strolls' },
+      { id: 't6', name: 'Kabir', destination: 'Nagaland', dates: ['2024-12-03','2024-12-10'], interests: ['Culture', 'Festival'], bio: 'Hornbill festival enthusiast seeking local connections and tribe stories.', match: 'Festival meet-ups' }
+    ];
+
+    function openFinders() {
+      findOverlay.classList.add('open');
+      findOverlay.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      updateFindResults();
+    }
+
+    function closeFinders() {
+      findOverlay.classList.remove('open');
+      findOverlay.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    function dateInRange(travelerDates, start, end) {
+      if (!start && !end) return true;
+      const [travelerStart, travelerEnd] = travelerDates.map(d => new Date(d));
+      if (start && new Date(start) > travelerEnd) return false;
+      if (end && new Date(end) < travelerStart) return false;
+      return true;
+    }
+
+    function matchesFilter(profile) {
+      const destinationMatch = findDestination.value === 'All' || profile.destination === findDestination.value;
+      const interestMatch = findInterest.value === 'All' || profile.interests.includes(findInterest.value);
+      const dateMatch = dateInRange(profile.dates, findStartDate.value, findEndDate.value);
+      return destinationMatch && interestMatch && dateMatch;
+    }
+
+    function updateFindResults() {
+      const matches = travelerProfiles.filter(matchesFilter);
+      findStatus.textContent = `${matches.length} traveler${matches.length === 1 ? '' : 's'} found`;
+      if (!matches.length) {
+        findResults.innerHTML = '<div class="planner-card"><p>No travelers match these filters yet. Try removing a filter or changing the dates.</p></div>';
+        return;
+      }
+      findResults.innerHTML = matches.map(profile => `
+        <div class="find-card">
+          <div class="find-card-header">
+            <div class="find-avatar">${profile.name[0]}</div>
+            <div>
+              <h3 class="find-card-title">${profile.name}</h3>
+              <div class="find-card-meta">${profile.destination} · ${profile.dates[0]} to ${profile.dates[1]}</div>
+            </div>
+          </div>
+          <p>${profile.bio}</p>
+          <div class="find-tags">
+            <span class="find-tag">${profile.match}</span>
+            ${profile.interests.map(tag => `<span class="find-tag">${tag}</span>`).join('')}
+          </div>
+          <div class="find-actions">
+            <button type="button" data-action="message" data-id="${profile.id}">Message</button>
+            <button type="button" data-action="join" data-id="${profile.id}">Join</button>
+            <button type="button" data-action="save" data-id="${profile.id}">Save</button>
+          </div>
+        </div>
+      `).join('');
+      findResults.querySelectorAll('button').forEach(btn => btn.addEventListener('click', handleFindAction));
+    }
+
+    function setFindFeedback(message) {
+      findFeedback.textContent = message;
+      setTimeout(() => {
+        if (findFeedback.textContent === message) findFeedback.textContent = '';
+      }, 3500);
+    }
+
+    function handleFindAction(event) {
+      const action = event.target.dataset.action;
+      const id = event.target.dataset.id;
+      const profile = travelerProfiles.find(item => item.id === id);
+      if (!profile) return;
+      if (action === 'message') {
+        setFindFeedback(`Opening chat for ${profile.name}...`);
+        setTimeout(() => {
+          window.location.href = `chat.html?traveler=${encodeURIComponent(profile.name)}`;
+        }, 250);
+      }
+      if (action === 'join') {
+        const joined = JSON.parse(localStorage.getItem('soloSafarJoinedTravelers') || '[]');
+        if (!joined.some(item => item.id === id)) {
+          joined.push(profile);
+          localStorage.setItem('soloSafarJoinedTravelers', JSON.stringify(joined));
+        }
+        setFindFeedback(`Join request sent to ${profile.name}.`);
+      }
+      if (action === 'save') {
+        const saved = JSON.parse(localStorage.getItem('soloSafarSavedTravelers') || '[]');
+        if (!saved.some(item => item.id === id)) {
+          saved.push(profile);
+          localStorage.setItem('soloSafarSavedTravelers', JSON.stringify(saved));
+        }
+        setFindFeedback(`${profile.name} saved to your traveler list.`);
+      }
+    }
+
+    closeFindBtn.addEventListener('click', closeFinders);
+    findDestination.addEventListener('change', updateFindResults);
+    findStartDate.addEventListener('change', updateFindResults);
+    findEndDate.addEventListener('change', updateFindResults);
+    findInterest.addEventListener('change', updateFindResults);
+
+    const journalOverlay = document.getElementById('journalOverlay');
+    const closeJournalBtn = document.getElementById('journalClose');
+    const journalDate = document.getElementById('journalDate');
+    const journalTitleInput = document.getElementById('journalTitleInput');
+    const journalMood = document.getElementById('journalMood');
+    const journalEntry = document.getElementById('journalEntry');
+    const journalSearch = document.getElementById('journalSearch');
+    const journalFeedback = document.getElementById('journalFeedback');
+    const journalVisibility = document.getElementById('journalVisibility');
+    const journalAuthor = document.getElementById('journalAuthor');
+    const journalLocation = document.getElementById('journalLocation');
+    const journalEntriesList = document.getElementById('journalEntriesList');
+    const journalSaveBtn = document.getElementById('journalSaveBtn');
+    const journalViewBtn = document.getElementById('journalViewBtn');
+    const journalExportBtn = document.getElementById('journalExportBtn');
+    const journalClearBtn = document.getElementById('journalClearBtn');
+
+    const budgetOverlay = document.getElementById('budgetOverlay');
+    const closeBudgetBtn = document.getElementById('budgetClose');
+    const expenseDate = document.getElementById('expenseDate');
+    const expenseCategory = document.getElementById('expenseCategory');
+    const expenseAmount = document.getElementById('expenseAmount');
+    const expenseNote = document.getElementById('expenseNote');
+    const expenseAddBtn = document.getElementById('expenseAddBtn');
+    const expenseResetBtn = document.getElementById('expenseResetBtn');
+    const expenseExportBtn = document.getElementById('expenseExportBtn');
+    const expenseClearAllBtn = document.getElementById('expenseClearAllBtn');
+    const budgetSetGoalBtn = document.getElementById('budgetSetGoalBtn');
+    const budgetGoal = document.getElementById('budgetGoal');
+    const expenseCategoryFilter = document.getElementById('expenseCategoryFilter');
+    const budgetFeedback = document.getElementById('budgetFeedback');
+    const budgetGoalSummary = document.getElementById('budgetGoalSummary');
+    const budgetTotals = document.getElementById('budgetTotals');
+    const expenseList = document.getElementById('expenseList');
+
+    const safetyOverlay = document.getElementById('safetyOverlay');
+    const safetyTipsBtn = document.getElementById('safetyTipsBtn');
+    const safetyCallPoliceBtn = document.getElementById('safetyCallPoliceBtn');
+    const safetyCallAmbulanceBtn = document.getElementById('safetyCallAmbulanceBtn');
+    const safetyCopyMsgBtn = document.getElementById('safetyCopyMsgBtn');
+    const closeSafetyBtn = document.getElementById('safetyClose');
+    const contactName = document.getElementById('contactName');
+    const contactPhone = document.getElementById('contactPhone');
+    const contactRelation = document.getElementById('contactRelation');
+    const contactSaveBtn = document.getElementById('contactSaveBtn');
+    const safetyFeedback = document.getElementById('safetyFeedback');
+    const contactList = document.getElementById('contactList');
+
+    function openJournal() {
+      journalOverlay.classList.add('open');
+      journalOverlay.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      loadJournalEntries();
+      journalFeedback.textContent = '';
+    }
+    function closeJournal() {
+      journalOverlay.classList.remove('open');
+      journalOverlay.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+    function setJournalFeedback(message) {
+      journalFeedback.textContent = message;
+      setTimeout(() => { if (journalFeedback.textContent === message) journalFeedback.textContent = ''; }, 3000);
+    }
+    function loadJournalEntries(searchTerm = '') {
+      const entries = JSON.parse(localStorage.getItem('soloSafarJournal') || '[]');
+      const filter = (searchTerm || journalSearch.value || '').trim().toLowerCase();
+      const filtered = filter
+        ? entries.filter(entry => (`${entry.title} ${entry.mood} ${entry.text}`).toLowerCase().includes(filter))
+        : entries;
+      if (!entries.length) {
+        journalEntriesList.innerHTML = '<div class="tool-item"><p>No journal entries yet. Save your first entry to begin.</p></div>';
+        return;
+      }
+      if (!filtered.length) {
+        journalEntriesList.innerHTML = `<div class="tool-item"><p>No journal entries match "${filter}". Try another search.</p></div>`;
+        return;
+      }
+      journalEntriesList.innerHTML = filtered.slice().reverse().map(entry => `
+        <div class="tool-item">
+          <div class="tool-item-head">
+            <h4>${entry.title || 'Untitled entry'}</h4>
+            <span>${entry.date || 'No date'}</span>
+          </div>
+          <small>${entry.mood}</small>
+          <p>${entry.text}</p>
+        </div>
+      `).join('');
+    }
+    function saveJournalEntry() {
+      const date = journalDate.value || new Date().toISOString().slice(0, 10);
+      const title = journalTitleInput.value.trim();
+      const mood = journalMood.value;
+      const text = journalEntry.value.trim();
+      const visibility = journalVisibility ? journalVisibility.value : 'Private';
+      const author = journalAuthor ? journalAuthor.value.trim() : '';
+      const location = journalLocation ? journalLocation.value.trim() : '';
+      if (!text) {
+        setJournalFeedback('Write something before saving your journal entry.');
+        return;
+      }
+
+      if (visibility === 'Blog') {
+        const blog = { id: `b${Date.now()}`, date, title, mood, text, author: author || 'Anonymous', location: location || '', publishedAt: new Date().toISOString() };
+        const blogs = JSON.parse(localStorage.getItem('soloSafarBlogs') || '[]');
+        blogs.push(blog);
+        localStorage.setItem('soloSafarBlogs', JSON.stringify(blogs));
+        // Optionally keep a copy in personal journal as well
+        const entries = JSON.parse(localStorage.getItem('soloSafarJournal') || '[]');
+        entries.push({ id: `j${Date.now()}`, date, title, mood, text });
+        localStorage.setItem('soloSafarJournal', JSON.stringify(entries));
+        journalTitleInput.value = '';
+        journalEntry.value = '';
+        journalAuthor.value = '';
+        journalLocation.value = '';
+        setJournalFeedback('Entry posted as blog. Visit the Blog page to view it.');
+        loadJournalEntries();
+      } else {
+        const entry = { id: `j${Date.now()}`, date, title, mood, text };
+        const entries = JSON.parse(localStorage.getItem('soloSafarJournal') || '[]');
+        entries.push(entry);
+        localStorage.setItem('soloSafarJournal', JSON.stringify(entries));
+        journalTitleInput.value = '';
+        journalEntry.value = '';
+        setJournalFeedback('Journal entry saved.');
+        loadJournalEntries();
+      }
+    }
+    function exportJournal() {
+      const entries = JSON.parse(localStorage.getItem('soloSafarJournal') || '[]');
+      if (!entries.length) {
+        setJournalFeedback('No entries to export yet.');
+        return;
+      }
+      const text = entries.map(e => `${e.date} - ${e.title || 'Entry'}\nMood: ${e.mood}\n${e.text}\n`).join('\n---\n');
+      navigator.clipboard.writeText(text);
+      setJournalFeedback('Journal exported to clipboard.');
+    }
+    function clearJournalEntries() {
+      if (!confirm('Clear all journal entries?')) return;
+      localStorage.removeItem('soloSafarJournal');
+      journalSearch.value = '';
+      loadJournalEntries();
+      setJournalFeedback('All journal entries cleared.');
+    }
+
+    // Show/hide blog-specific fields when visibility changes
+    if (journalVisibility) {
+      const authorRow = document.getElementById('journalAuthorRow');
+      const locationRow = document.getElementById('journalLocationRow');
+      journalVisibility.addEventListener('change', () => {
+        const v = journalVisibility.value;
+        if (v === 'Blog') {
+          if (authorRow) authorRow.style.display = '';
+          if (locationRow) locationRow.style.display = '';
+        } else {
+          if (authorRow) authorRow.style.display = 'none';
+          if (locationRow) locationRow.style.display = 'none';
+        }
+      });
+    }
+
+    function openBudget() {
+      budgetOverlay.classList.add('open');
+      budgetOverlay.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      budgetGoal.value = localStorage.getItem('soloSafarBudgetGoal') || '';
+      renderBudgetSummary();
+      budgetFeedback.textContent = '';
+    }
+    function closeBudget() {
+      budgetOverlay.classList.remove('open');
+      budgetOverlay.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+    function setBudgetFeedback(message) {
+      budgetFeedback.textContent = message;
+      setTimeout(() => { if (budgetFeedback.textContent === message) budgetFeedback.textContent = ''; }, 3000);
+    }
+    function renderBudgetSummary() {
+      const allExpenses = JSON.parse(localStorage.getItem('soloSafarExpenses') || '[]');
+      const filterCategory = expenseCategoryFilter.value;
+      const expenses = filterCategory === 'All' ? allExpenses : allExpenses.filter(item => item.category === filterCategory);
+      const goal = Number(localStorage.getItem('soloSafarBudgetGoal') || 0);
+      const total = expenses.reduce((sum, item) => sum + Number(item.amount), 0);
+      const categoryTotals = expenses.reduce((acc, item) => {
+        acc[item.category] = (acc[item.category] || 0) + Number(item.amount);
+        return acc;
+      }, {});
+
+      if (!allExpenses.length) {
+        budgetGoalSummary.innerHTML = goal ? `<p><strong>Budget goal:</strong> ₹${goal.toLocaleString()}</p><p><strong>Remaining:</strong> ₹${goal.toLocaleString()}</p>` : '<p>No expense data yet. Add expenses and set a goal to track progress.</p>';
+        budgetTotals.innerHTML = '<p>No expenses logged yet. Add your first cost to start tracking.</p>';
+        expenseList.innerHTML = '<div class="tool-item"><p>Your expense list is empty.</p></div>';
+        return;
+      }
+
+      const remaining = goal ? goal - total : 0;
+      budgetGoalSummary.innerHTML = goal ? `
+        <p><strong>Budget goal:</strong> ₹${goal.toLocaleString()}</p>
+        <p><strong>${remaining >= 0 ? 'Remaining' : 'Over budget'}:</strong> ₹${Math.abs(remaining).toLocaleString()}</p>
+      ` : '<p>Set a trip budget goal to measure progress against your total spend.</p>';
+
+      budgetTotals.innerHTML = `
+        <p><strong>Total spent${filterCategory === 'All' ? '' : ` (${filterCategory})`}:</strong> ₹${total.toLocaleString()}</p>
+        <p><strong>Average expense:</strong> ₹${expenses.length ? Math.round(total / expenses.length).toLocaleString() : 0}</p>
+        <table class="tool-table">
+          <thead><tr><th>Category</th><th>Amount</th></tr></thead>
+          <tbody>${Object.entries(categoryTotals).map(([cat, amount]) => `<tr><td>${cat}</td><td>₹${amount.toLocaleString()}</td></tr>`).join('')}</tbody>
+        </table>
+      `;
+
+      if (!expenses.length) {
+        expenseList.innerHTML = '<div class="tool-item"><p>No expenses match the selected filter.</p></div>';
+      } else {
+        expenseList.innerHTML = expenses.slice().reverse().map(item => `
+          <div class="tool-item">
+            <div class="tool-item-head">
+              <h4>₹${Number(item.amount).toLocaleString()} · ${item.category}</h4>
+              <button type="button" class="tool-delete-btn" data-id="${item.id}">Delete</button>
+            </div>
+            <small>${item.date || 'No date'} · ${item.note || 'No note'}</small>
+          </div>
+        `).join('');
+        expenseList.querySelectorAll('.tool-delete-btn').forEach(btn => btn.addEventListener('click', () => deleteExpense(btn.dataset.id)));
+      }
+    }
+    function setBudgetGoal() {
+      const value = Number(budgetGoal.value);
+      if (isNaN(value) || value < 0) {
+        setBudgetFeedback('Enter a valid budget goal.');
+        return;
+      }
+      localStorage.setItem('soloSafarBudgetGoal', value);
+      setBudgetFeedback('Budget goal saved.');
+      renderBudgetSummary();
+    }
+    function deleteExpense(id) {
+      const expenses = JSON.parse(localStorage.getItem('soloSafarExpenses') || '[]');
+      const updated = expenses.filter(item => item.id !== id);
+      localStorage.setItem('soloSafarExpenses', JSON.stringify(updated));
+      setBudgetFeedback('Expense removed.');
+      renderBudgetSummary();
+    }
+    function exportBudgetCSV() {
+      const expenses = JSON.parse(localStorage.getItem('soloSafarExpenses') || '[]');
+      if (!expenses.length) {
+        setBudgetFeedback('No expenses to export.');
+        return;
+      }
+      const rows = [['Date', 'Category', 'Amount', 'Note'], ...expenses.map(item => [item.date, item.category, item.amount, item.note || ''])];
+      const csv = rows.map(row => row.map(value => `"${String(value).replace(/"/g, '""')}"`).join(',')).join('\n');
+      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'SoloSafar-expenses.csv';
+      link.click();
+      URL.revokeObjectURL(url);
+      setBudgetFeedback('Expense data exported as CSV.');
+    }
+    function clearAllExpenses() {
+      if (!confirm('Clear all expenses? This cannot be undone.')) return;
+      localStorage.removeItem('soloSafarExpenses');
+      setBudgetFeedback('All expenses cleared.');
+      renderBudgetSummary();
+    }
+    function addExpense() {
+      const date = expenseDate.value || new Date().toISOString().slice(0, 10);
+      const category = expenseCategory.value;
+      const amount = Number(expenseAmount.value);
+      const note = expenseNote.value.trim();
+      if (!amount || amount <= 0) {
+        setBudgetFeedback('Enter a valid expense amount.');
+        return;
+      }
+      const expense = { id: `e${Date.now()}`, date, category, amount, note };
+      const expenses = JSON.parse(localStorage.getItem('soloSafarExpenses') || '[]');
+      expenses.push(expense);
+      localStorage.setItem('soloSafarExpenses', JSON.stringify(expenses));
+      expenseDate.value = '';
+      expenseAmount.value = '';
+      expenseNote.value = '';
+      setBudgetFeedback('Expense logged successfully.');
+      renderBudgetSummary();
+    }
+    function resetExpenseForm() {
+      expenseDate.value = '';
+      expenseAmount.value = '';
+      expenseNote.value = '';
+      setBudgetFeedback('Expense form cleared.');
+    }
+
+    function openSafety() {
+      safetyOverlay.classList.add('open');
+      safetyOverlay.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      renderSafetyContacts();
+      safetyFeedback.textContent = '';
+    }
+    function closeSafety() {
+      safetyOverlay.classList.remove('open');
+      safetyOverlay.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+    function setSafetyFeedback(message) {
+      safetyFeedback.textContent = message;
+      setTimeout(() => { if (safetyFeedback.textContent === message) safetyFeedback.textContent = ''; }, 3000);
+    }
+    function renderSafetyContacts() {
+      const contacts = JSON.parse(localStorage.getItem('soloSafarSafetyContacts') || '[]');
+      if (!contacts.length) {
+        contactList.innerHTML = '<div class="tool-item"><p>No emergency contacts saved yet.</p></div>';
+        return;
+      }
+      contactList.innerHTML = contacts.slice().reverse().map(contact => `
+        <div class="tool-item">
+          <div class="tool-item-head">
+            <h4>${contact.name}</h4>
+            <button type="button" class="tool-delete-btn" data-id="${contact.id}">Delete</button>
+          </div>
+          <small>${contact.relation} · <a href="tel:+91${contact.phone}">+91 ${contact.phone}</a></small>
+        </div>
+      `).join('');
+      // attach delete handlers
+      contactList.querySelectorAll('.tool-delete-btn').forEach(btn => btn.addEventListener('click', () => deleteSafetyContact(btn.dataset.id)));
+    }
+    function saveSafetyContact() {
+      const name = contactName.value.trim();
+      const phoneRaw = contactPhone.value.trim();
+      const relation = contactRelation.value.trim();
+      if (!name || !phoneRaw) {
+        setSafetyFeedback('Add at least a contact name and phone number.');
+        return;
+      }
+      // Accept only digits; require exactly 10 digits
+      const digits = phoneRaw.replace(/\D/g, '');
+      if (digits.length !== 10) {
+        setSafetyFeedback('Phone number must be exactly 10 digits (no country code).');
+        return;
+      }
+      const phone = digits;
+      const contacts = JSON.parse(localStorage.getItem('soloSafarSafetyContacts') || '[]');
+      contacts.push({ id: `c${Date.now()}`, name, phone, relation });
+      localStorage.setItem('soloSafarSafetyContacts', JSON.stringify(contacts));
+      contactName.value = '';
+      contactPhone.value = '';
+      contactRelation.value = '';
+      setSafetyFeedback('Emergency contact saved.');
+      renderSafetyContacts();
+    }
+
+    function deleteSafetyContact(id) {
+      if (!confirm('Delete this contact?')) return;
+      const contacts = JSON.parse(localStorage.getItem('soloSafarSafetyContacts') || '[]');
+      const updated = contacts.filter(c => c.id !== id);
+      localStorage.setItem('soloSafarSafetyContacts', JSON.stringify(updated));
+      setSafetyFeedback('Contact deleted.');
+      renderSafetyContacts();
+    }
+
+    function copySafetyMessage() {
+      const text = 'SOS: I may need help. Please check on me. Location: [insert area]. Contact my emergency number.';
+      navigator.clipboard.writeText(text);
+      setSafetyFeedback('SOS message copied to clipboard.');
+    }
+
+    function showSafetyTips() {
+      const tips = `Share your live location with a trusted contact; pre-save local emergency numbers; keep ID and insurance copies; use verified transport and avoid isolated areas after dark; carry a small first-aid kit and extra cash; trust your instincts and move to public places if uncomfortable.`;
+      safetyFeedback.textContent = tips;
+      setTimeout(() => { if (safetyFeedback.textContent === tips) safetyFeedback.textContent = ''; }, 10000);
+    }
+
+    journalSaveBtn.addEventListener('click', saveJournalEntry);
+    journalViewBtn.addEventListener('click', () => loadJournalEntries(journalSearch.value));
+    journalExportBtn.addEventListener('click', exportJournal);
+    journalClearBtn.addEventListener('click', clearJournalEntries);
+    journalSearch.addEventListener('input', () => loadJournalEntries(journalSearch.value));
+    closeJournalBtn.addEventListener('click', closeJournal);
+    journalOverlay.addEventListener('click', event => { if (event.target === journalOverlay) closeJournal(); });
+
+    expenseAddBtn.addEventListener('click', addExpense);
+    expenseResetBtn.addEventListener('click', resetExpenseForm);
+    expenseExportBtn.addEventListener('click', exportBudgetCSV);
+    expenseClearAllBtn.addEventListener('click', clearAllExpenses);
+    budgetSetGoalBtn.addEventListener('click', setBudgetGoal);
+    expenseCategoryFilter.addEventListener('change', renderBudgetSummary);
+    closeBudgetBtn.addEventListener('click', closeBudget);
+    budgetOverlay.addEventListener('click', event => { if (event.target === budgetOverlay) closeBudget(); });
+
+    contactSaveBtn.addEventListener('click', saveSafetyContact);
+    safetyTipsBtn.addEventListener('click', showSafetyTips);
+    safetyCallPoliceBtn.addEventListener('click', () => {
+      const num = '100';
+      setSafetyFeedback(`Police: ${num}`);
+      if (confirm(`Call Police (${num}) now?`)) window.location.href = `tel:${num}`;
+    });
+    safetyCallAmbulanceBtn.addEventListener('click', () => {
+      const num = '108';
+      setSafetyFeedback(`Ambulance: ${num}`);
+      if (confirm(`Call Ambulance (${num}) now?`)) window.location.href = `tel:${num}`;
+    });
+    safetyCopyMsgBtn.addEventListener('click', copySafetyMessage);
+    closeSafetyBtn.addEventListener('click', closeSafety);
+    safetyOverlay.addEventListener('click', event => { if (event.target === safetyOverlay) closeSafety(); });
+
+    document.querySelectorAll('.dash-card').forEach(card => {
+      const feature = card.dataset.feature;
+      card.addEventListener('click', () => {
+        if (feature === 'plan') {
+          openPlanner();
+          return;
+        }
+        if (feature === 'find') {
+          openFinders();
+          return;
+        }
+        if (feature === 'journal') {
+          openJournal();
+          return;
+        }
+        if (feature === 'budget') {
+          openBudget();
+          return;
+        }
+        if (feature === 'safety') {
+          openSafety();
+          return;
+        }
+        const title = card.querySelector('.dash-title').textContent;
+        dashboardNote.textContent = `${title} selected — coming soon on SoloSafar.`;
+        dashboardNote.classList.add('visible');
+        setTimeout(() => dashboardNote.classList.remove('visible'), 2800);
+      });
+    });
+  </script>
   <script src="lang.js"></script>
 </body>
 </html>
