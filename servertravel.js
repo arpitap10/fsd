@@ -117,8 +117,22 @@ app.post("/signup", async (req, res) => {
   try {
     const { username, email, password, confirmPassword } = req.body;
 
+    if (!username || !email || !password) {
+      return res.status(400).send("All fields are required");
+    }
+
     if (password !== confirmPassword) {
       return res.status(400).send("Passwords do not match");
+    }
+
+    if (useMemoryStore) {
+      // Memory store signup
+      const memUsers = memoryStores['users'] || [];
+      const exists = memUsers.find(u => u.email === email);
+      if (exists) return res.status(400).send("Email already in use");
+      memoryStores['users'] = memUsers;
+      memUsers.push({ username, email, password });
+      return res.status(200).send("Account created successfully");
     }
 
     const existingUser = await User.findOne({ email });
@@ -129,180 +143,7 @@ app.post("/signup", async (req, res) => {
     const newUser = new User({ username, email, password });
     await newUser.save();
 
-    res.send(`
-      <!DOCTYPE html>
-      <html>
-      <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Welcome to SoloSafar</title>
-        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Space+Grotesk:wght@300;400;500;600&family=Bebas+Neue&display=swap" rel="stylesheet">
-        <style>
-          :root {
-            --cream: #f4efe6;
-            --warm-black: #1a1208;
-            --rust: #c44b2a;
-            --gold: #d4a853;
-          }
-
-          * { margin: 0; padding: 0; box-sizing: border-box; }
-          html, body { height: 100%; }
-
-          body {
-            font-family: 'Space Grotesk', sans-serif;
-            background: linear-gradient(135deg, rgba(196, 75, 42, 0.16) 0%, rgba(212, 168, 83, 0.16) 100%),
-                        url('/india-background.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            overflow: hidden;
-            padding: 20px;
-          }
-
-          .container {
-            text-align: center;
-            max-width: 460px;
-            background: rgba(244, 239, 230, 0.96);
-            padding: 46px 36px;
-            border-radius: 30px;
-            box-shadow: 0 24px 80px rgba(26, 18, 8, 0.24);
-            backdrop-filter: blur(14px);
-            border: 1px solid rgba(196, 75, 42, 0.12);
-            animation: slideUp 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
-          }
-
-          @keyframes slideUp {
-            from {
-              opacity: 0;
-              transform: translateY(35px);
-            }
-            to {
-              opacity: 1;
-              transform: translateY(0);
-            }
-          }
-
-          .success-icon {
-            width: 96px;
-            height: 96px;
-            margin: 0 auto 24px;
-            background: linear-gradient(135deg, var(--rust), #d4a853);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 48px;
-            box-shadow: 0 14px 34px rgba(196, 75, 42, 0.24);
-            animation: bounce 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-          }
-
-          @keyframes bounce {
-            0% { transform: scale(0.3); opacity: 0; }
-            60% { transform: scale(1.08); }
-            100% { transform: scale(1); opacity: 1; }
-          }
-
-          h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.3rem;
-            font-weight: 900;
-            color: var(--warm-black);
-            margin-bottom: 16px;
-            line-height: 1.15;
-          }
-
-          .subtitle {
-            font-size: 1rem;
-            color: rgba(26, 18, 8, 0.75);
-            margin-bottom: 14px;
-            line-height: 1.6;
-          }
-
-          .welcome-text {
-            font-size: 0.95rem;
-            color: rgba(26, 18, 8, 0.6);
-            margin-bottom: 32px;
-            line-height: 1.7;
-          }
-
-          .status {
-            font-size: 0.85rem;
-            letter-spacing: 1.8px;
-            text-transform: uppercase;
-            color: var(--rust);
-            font-weight: 700;
-            margin-bottom: 28px;
-            animation: pulse 2.2s ease-in-out infinite;
-          }
-
-          @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.65; }
-          }
-
-          .btn {
-            display: inline-block;
-            padding: 16px 46px;
-            background: linear-gradient(135deg, var(--rust), #b83d1f);
-            color: var(--cream);
-            text-decoration: none;
-            border-radius: 14px;
-            font-weight: 700;
-            font-size: 1rem;
-            letter-spacing: 1.2px;
-            text-transform: uppercase;
-            transition: transform 0.28s ease, box-shadow 0.28s ease;
-            box-shadow: 0 10px 28px rgba(196, 75, 42, 0.28);
-            cursor: pointer;
-          }
-
-          .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 16px 38px rgba(196, 75, 42, 0.36);
-          }
-
-          .timer-wrap {
-            font-size: 0.88rem;
-            color: rgba(26, 18, 8, 0.5);
-            margin-top: 24px;
-            letter-spacing: 0.3px;
-          }
-
-          .timer {
-            color: var(--rust);
-            font-weight: 800;
-          }
-        </style>
-      </head>
-      <body>
-        <div class="container">
-          <div class="success-icon">✓</div>
-          <h1>Registration Complete</h1>
-          <p class="subtitle">Your SoloSafar account is ready.</p>
-          <p class="welcome-text">Thank you for signing up — we’re taking you to the sign in page so you can start exploring travel options.</p>
-          <div class="status">Redirecting in <span class="timer" id="timer">10</span>s</div>
-          <a href="/signintravel.html" class="btn">Continue to Sign In</a>
-          <p class="timer-wrap">If the redirect does not happen automatically, tap the button above.</p>
-        </div>
-        <script>
-          let count = 10;
-          const timerEl = document.getElementById('timer');
-          const interval = setInterval(() => {
-            count--;
-            timerEl.textContent = count;
-            if (count === 0) {
-              clearInterval(interval);
-              window.location.href = '/signintravel.html';
-            }
-          }, 1000);
-        </script>
-      </body>
-      </html>
-    `);
+    return res.status(200).send("Account created successfully");
   } catch (err) {
     res.status(500).send("Error during registration");
   }
@@ -313,13 +154,25 @@ app.post("/signin", async (req, res) => {
   try {
     const { email, password } = req.body;
 
-    const user = await User.findOne({ email });
-    if (!user || user.password !== password) {
-      return res.status(401).send("Invalid credentials");
+    if (!email || !password) {
+      return res.status(400).send("Email and password are required");
     }
 
-    res.redirect("/homepage.html");
+    if (useMemoryStore) {
+      const memUsers = memoryStores['users'] || [];
+      const user = memUsers.find(u => u.email === email && u.password === password);
+      if (!user) return res.status(401).send("Invalid email or password");
+      return res.status(200).send("Login successful");
+    }
+
+    const user = await User.findOne({ email });
+    if (!user || user.password !== password) {
+      return res.status(401).send("Invalid email or password");
+    }
+
+    res.status(200).send("Login successful");
   } catch (err) {
+    console.error(err);
     res.status(500).send("Error during login");
   }
 });
