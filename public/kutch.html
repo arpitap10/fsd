@@ -7,39 +7,47 @@
   <link rel="stylesheet" href="dest-style.css">
   <style>:root { --accent: #b5892a; }</style>
 </head>
-<body>
+<body class="has-site-chrome">
 
-<nav id="nav">
-  <a href="homepage.html" class="nav-back" data-i18n="nav.back">Back to Home</a>
-  <div class="lang-form">
-    <label for="languageSelect" class="lang-label" data-i18n="nav.languageLabel">Language</label>
-    <select id="languageSelect" class="lang-select">
-      <option value="en">English</option>
-      <option value="hi">हिन्दी</option>
-      <option value="kn">ಕನ್ನಡ</option>
-      <option value="ta">தமிழ்</option>
-      <option value="te">తెలుగు</option>
-      <option value="ml">മലയാളം</option>
-      <option value="mr">मराठी</option>
-      <option value="bn">বাংলা</option>
-    </select>
-  </div>
-  <a href="homepage.html#tools" class="nav-link">Tools</a>
-  <a href="homepage.html" class="nav-logo">SoloSafar</a>
-</nav>
+<header class="site-chrome">
+  <nav class="site-nav" id="nav">
+    <a href="homepage.html" class="nav-logo">SoloSafar</a>
+    <div class="nav-links">
+      <a href="homepage.html#destinations" data-i18n="nav.destinations">Destinations</a>
+      <a href="homepage.html#tools" data-i18n="nav.tools">Tools</a>
+      <a href="feedback.html" data-i18n="nav.feedback">Feedback</a>
+      <div class="lang-form">
+        <label for="languageSelect" class="lang-label" data-i18n="nav.languageLabel">Language</label>
+        <select id="languageSelect" class="lang-select">
+          <option value="en">English</option>
+          <option value="hi">हिन्दी</option>
+          <option value="kn">ಕನ್ನಡ</option>
+          <option value="ta">தமிழ்</option>
+          <option value="te">తెలుగు</option>
+          <option value="ml">മലയാളം</option>
+          <option value="mr">मराठी</option>
+          <option value="bn">বাংলা</option>
+        </select>
+      </div>
+      <a href="chat.html" data-i18n="nav.chat">Chat</a>
+      <a href="blog.html">Blog</a>
+      <a href="signintravel.html" class="nav-btn" data-i18n="nav.signOut">Sign Out</a>
+    </div>
+  </nav>
+</header>
 
 <!-- HERO -->
 <section class="dest-hero">
   <div class="hero-bg" style="background-image: url('images/kutch/main.jpg')">
   </div>
   <div class="hero-content">
-    <div class="hero-eyebrow"><span>Salt Desert · Gujarat</span></div>
+    <div class="hero-eyebrow"><span data-i18n="Salt Desert · Gujarat">Salt Desert · Gujarat</span></div>
     <h1 class="hero-destination"><em>White</em><br>Horizon</h1>
-    <p class="hero-tagline">A salt desert that stretches to forever, tribal artisans, and the most vivid festival in India.</p>
+    <p class="hero-tagline" data-i18n="A salt desert that stretches to forever, tribal artisans, and the most vivid festival in India.">A salt desert that stretches to forever, tribal artisans, and the most vivid festival in India.</p>
     <div class="hero-meta">
-      <div class="hero-stat"><span class="hero-stat-num">23000km²</span><span class="hero-stat-label">Rann Area</span></div>
-      <div class="hero-stat"><span class="hero-stat-num">₹2K</span><span class="hero-stat-label">Per Day</span></div>
-      <div class="hero-stat"><span class="hero-stat-num">Nov–Feb</span><span class="hero-stat-label">Best Season</span></div>
+      <div class="hero-stat"><span class="hero-stat-num">23000km²</span><span class="hero-stat-label" data-i18n="Rann Area">Rann Area</span></div>
+      <div class="hero-stat"><span class="hero-stat-num">₹2K</span><span class="hero-stat-label" data-i18n="Per Day">Per Day</span></div>
+      <div class="hero-stat"><span class="hero-stat-num">Nov–Feb</span><span class="hero-stat-label" data-i18n="Best Season">Best Season</span></div>
     </div>
   </div>
 </section>
@@ -213,12 +221,14 @@
 <footer class="dest-footer">
   <a href="homepage.html" class="dest-footer-logo">SoloSafar</a>
   <div class="dest-footer-links">
-    <a href="homepage.html">All Destinations</a>
-    <a href="feedback.html">Feedback</a>
-    <a href="mailto:bolotohsolo@gmail.com">Contact</a>
+    <a href="homepage.html" data-i18n="footer.allDestinations">All Destinations</a>
+    <a href="feedback.html" data-i18n="nav.feedback">Feedback</a>
+    <a href="mailto:bolotohsolo@gmail.com" data-i18n="footer.contact">Contact</a>
   </div>
 </footer>
 
+<script src="destination-translations-bundle.js"></script>
+<script src="lang.js"></script>
 <script>
 const DAILY = 2000;
 function calcBudget() {
@@ -255,6 +265,5 @@ const observer = new IntersectionObserver(entries => {
 document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 </script>
 <script src="weather.js"></script>
-<script src="lang.js"></script>
 </body>
 </html>

@@ -7,26 +7,34 @@
   <link rel="stylesheet" href="dest-style.css">
   <style>:root { --accent: #4a7fa5; }</style>
 </head>
-<body>
+<body class="has-site-chrome">
 
-<nav id="nav">
-  <a href="homepage.html" class="nav-back" data-i18n="nav.back">Back to Home</a>
-  <div class="lang-form">
-    <label for="languageSelect" class="lang-label" data-i18n="nav.languageLabel">Language</label>
-    <select id="languageSelect" class="lang-select">
-      <option value="en">English</option>
-      <option value="hi">हिन्दी</option>
-      <option value="kn">ಕನ್ನಡ</option>
-      <option value="ta">தமிழ்</option>
-      <option value="te">తెలుగు</option>
-      <option value="ml">മലയാളം</option>
-      <option value="mr">मराठी</option>
-      <option value="bn">বাংলা</option>
-    </select>
-  </div>
-  <a href="homepage.html#tools" class="nav-link">Tools</a>
-  <a href="homepage.html" class="nav-logo">SoloSafar</a>
-</nav>
+<header class="site-chrome">
+  <nav class="site-nav" id="nav">
+    <a href="homepage.html" class="nav-logo">SoloSafar</a>
+    <div class="nav-links">
+      <a href="homepage.html#destinations" data-i18n="nav.destinations">Destinations</a>
+      <a href="homepage.html#tools" data-i18n="nav.tools">Tools</a>
+      <a href="feedback.html" data-i18n="nav.feedback">Feedback</a>
+      <div class="lang-form">
+        <label for="languageSelect" class="lang-label" data-i18n="nav.languageLabel">Language</label>
+        <select id="languageSelect" class="lang-select">
+          <option value="en">English</option>
+          <option value="hi">हिन्दी</option>
+          <option value="kn">ಕನ್ನಡ</option>
+          <option value="ta">தமிழ்</option>
+          <option value="te">తెలుగు</option>
+          <option value="ml">മലയാളം</option>
+          <option value="mr">मराठी</option>
+          <option value="bn">বাংলা</option>
+        </select>
+      </div>
+      <a href="chat.html" data-i18n="nav.chat">Chat</a>
+      <a href="blog.html">Blog</a>
+      <a href="signintravel.html" class="nav-btn" data-i18n="nav.signOut">Sign Out</a>
+    </div>
+  </nav>
+</header>
 
 <!-- HERO -->
 <section class="dest-hero">
@@ -218,6 +226,8 @@
   </div>
 </footer>
 
+<script src="destination-translations-bundle.js"></script>
+<script src="lang.js"></script>
 <script>
 const DAILY = 4000;
 function calcBudget() {
@@ -254,6 +264,5 @@ const observer = new IntersectionObserver(entries => {
 document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 </script>
 <script src="weather.js"></script>
-<script src="lang.js"></script>
 </body>
 </html>

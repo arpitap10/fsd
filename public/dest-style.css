@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Space+Grotesk:wght@300;400;500;600;700&family=Bebas+Neue&display=swap');
+@import url('site-chrome.css');
 
 :root {
   --cream: #f4efe6;
@@ -10,13 +11,6 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: 'Space Grotesk', sans-serif; background: var(--cream); color: var(--warm-black); overflow-x: hidden; }
-
-/* NAV */
-nav {
-  position: fixed; top: 0; width: 100%; z-index: 100;
-  padding: 20px 48px; display: flex; justify-content: space-between; align-items: center;
-  background: rgba(244,239,230,0.92); backdrop-filter: blur(8px);
-}
 
 .lang-form {
   display: flex;
@@ -190,7 +184,7 @@ nav {
 /* DESTINATION PAGE STYLES */
 .dest-hero {
   position: relative;
-  padding-top: 90px;
+  padding-top: 24px;
   min-height: 100vh;
   display: grid;
   grid-template-columns: 1.05fr 0.95fr;
@@ -676,4 +670,45 @@ nav {
   .hero-destination {
     font-size: clamp(2.5rem, 8vw, 3.6rem);
   }
+}
+
+.postcard-review{
+background:white;
+border-radius:28px;
+padding:28px;
+margin-bottom:20px;
+box-shadow:0 24px 50px rgba(26,18,8,.08);
+transition:.35s ease;
+position:relative;
+overflow:hidden;
+}
+
+.postcard-review:hover{
+transform:translateY(-8px);
+}
+
+.postcard-stamp{
+display:inline-block;
+margin-bottom:16px;
+padding:8px 14px;
+border-radius:999px;
+background:rgba(212,168,83,.12);
+color:var(--gold);
+font-size:.75rem;
+letter-spacing:2px;
+font-weight:700;
+}
+
+.postcard-review p{
+line-height:1.9;
+margin-bottom:16px;
+}
+
+.postcard-review::after{
+content:'✈';
+position:absolute;
+right:22px;
+top:18px;
+opacity:.15;
+font-size:2rem;
 }

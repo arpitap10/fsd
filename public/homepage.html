@@ -68,46 +68,6 @@
       pointer-events: none; z-index: 0;
     }
 
-    .hero-quote {
-      position: absolute;
-      top: 3.5%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: min(82vw, 780px);
-      padding: 24px 28px;
-      background: rgba(255, 250, 242, 0.96);
-      border: 1px solid rgba(26,18,8,0.08);
-      border-radius: 26px;
-      box-shadow: 0 18px 40px rgba(26,18,8,0.14);
-      z-index: 5;
-      text-align: center;
-      backdrop-filter: blur(12px);
-    }
-    .hero-quote p {
-      margin: 0;
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2rem, 2.6vw, 2.5rem);
-      line-height: 1.05;
-      font-weight: 700;
-      color: rgba(26,18,8,0.95);
-      letter-spacing: -0.02em;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-    .hero-quote .quote-brand {
-      display: block;
-      margin-bottom: 10px;
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1rem;
-      letter-spacing: 0.35em;
-      text-transform: uppercase;
-      color: rgba(26,18,8,0.6);
-    }
-    .hero-quote .quote-author {
-      display: none;
-    }
-
     /* ── GALLERY TITLE ── */
     .gallery-meta {
       position: absolute;
@@ -136,14 +96,15 @@
       position: relative;
       width: min(700px, 95vw);
       height: min(560px, 80vw);
-      z-index: 2;
+      z-index: 3;
       margin: 0 auto;
+      transform: translateY(-56px);
     }
 
     /* ── FAN OF PHOTO STRIPS ── */
     .photo-fan {
       position: absolute;
-      bottom: 110px;
+      bottom: 130px;
       left: 50%;
       transform: translateX(-50%);
       width: 100%;
@@ -197,7 +158,7 @@
     /* ── CAMERA BODY ── */
     .camera-body {
       position: absolute;
-      bottom: 0;
+      bottom: 36px;
       left: 50%;
       transform: translateX(-50%);
       width: 260px;
@@ -209,9 +170,9 @@
     /* ── HINDI MARQUEE (curved path text) ── */
     .hindi-marquee-wrap {
       position: absolute;
-      bottom: 96px;
+      bottom: 68px;
       left: 0; right: 0;
-      z-index: 5;
+      z-index: 1;
       overflow: hidden;
       pointer-events: none;
     }
@@ -275,81 +236,156 @@
       .dest-card.large { grid-column: span 1; }
     }
 
-    /* FEATURES */
-    .dashboard { padding: 100px 48px; background: #fff; max-width: 1700px; margin: 0 auto; }
-    .dashboard-intro { display: flex; flex-direction: column; gap: 14px; max-width: 640px; margin-bottom: 32px; }
+    /* ── TOOLS SECTION ── */
+    .dashboard {
+      padding: 100px 48px 110px;
+      background: var(--cream);
+      max-width: 1700px;
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+    }
+    .dashboard::before {
+      content: '';
+      position: absolute;
+      top: -120px; right: -80px;
+      width: 320px; height: 320px;
+      border: 2px dashed rgba(196, 75, 42, 0.12);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .dashboard-intro { display: flex; flex-direction: column; gap: 14px; max-width: 640px; margin-bottom: 48px; position: relative; z-index: 1; }
     .dashboard-label { font-size: 0.75rem; letter-spacing: 2.5px; text-transform: uppercase; color: var(--rust); font-weight: 800; }
     .dashboard-title { font-family: 'Playfair Display', serif; font-size: clamp(2.4rem, 4vw, 3.5rem); line-height: 1.08; margin: 0; font-weight: 700; }
     .dashboard-copy { max-width: 580px; color: rgba(26,18,8,0.65); font-size: 1rem; line-height: 1.85; font-weight: 400; }
-    .dashboard-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; align-items: start; }
-    @media (min-width: 1300px) {
-      .dashboard-grid { grid-template-columns: repeat(5, 1fr); gap: 32px; }
-    }
-    @media (min-width: 1000px) and (max-width:1299px) {
-      .dashboard-grid { grid-template-columns: repeat(3, 1fr); gap: 28px; }
-    }
-    @media (max-width: 999px) {
-      .dashboard-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
-    }
-    .dash-card {
+
+    .tools-mosaic { display: none; } /* unused, kept for safety */
+
+    /* ── TOOLS MAP — matches reference image exactly ── */
+    .tools-map {
       position: relative;
-      background: linear-gradient(180deg, #fffdf8 0%, #f7eee2 100%);
-      border: 1px solid rgba(196,75,42,0.14);
-      border-radius: 28px;
-      padding: 36px 28px 28px;
-      min-height: 280px;
+      width: 100%;
+      height: 500px;
+      margin-top: 40px;
+      overflow: visible;
+    }
+    @media (max-width: 860px) {
+      .tools-map { height: auto; display: flex; flex-direction: column; gap: 24px; }
+    }
+
+    .tools-map-svg {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      overflow: visible;
+    }
+    @media (max-width: 860px) { .tools-map-svg { display: none; } }
+
+    /* Each node is absolutely positioned, centred on its anchor point */
+    .tool-node {
+      position: absolute;
       display: flex;
       flex-direction: column;
-      gap: 20px;
-      transition: transform 0.32s cubic-bezier(0.4,0,0.2,1), box-shadow 0.32s cubic-bezier(0.4,0,0.2,1), border-color 0.32s ease, background 0.32s ease;
+      align-items: center;
+      gap: 0;
       cursor: pointer;
-      box-shadow: 0 18px 38px rgba(26,18,8,0.08);
-      overflow: hidden;
+      z-index: 2;
+      /* anchor = centre of circle; translate back so the circle is centred */
+      transform: translateX(-50%);
+      text-align: center;
+      width: 160px;
+      transition: opacity 0.2s;
     }
-    .dash-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 5.5rem;
-      height: 6px;
-      background: linear-gradient(90deg, rgba(196,75,42,0.95), rgba(212,168,83,0.95));
-      border-radius: 0 0 12px 0;
+    .tool-node:hover { opacity: 0.85; }
+    @media (max-width: 860px) {
+      .tool-node {
+        position: static;
+        transform: none;
+        width: 100%;
+        flex-direction: row;
+        align-items: center;
+        gap: 14px;
+        text-align: left;
+        background: #fff;
+        border: 1.5px solid rgba(26,18,8,0.1);
+        border-radius: 18px;
+        padding: 16px 20px;
+        box-shadow: 0 4px 14px rgba(26,18,8,0.07);
+      }
     }
-    .dash-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 26px 60px rgba(26,18,8,0.15), 0 12px 30px rgba(26,18,8,0.06);
-      border-color: rgba(196,75,42,0.25);
-      background: linear-gradient(180deg, #fff8f3 0%, #f4e4d7 100%);
-    }
-    .dash-card:focus { outline: none; box-shadow: 0 0 0 3px rgba(196,75,42,0.16), 0 26px 60px rgba(26,18,8,0.15); }
-    .dash-icon {
+
+    .tool-node__circle {
       width: 72px;
       height: 72px;
-      border-radius: 22px;
-      display: grid;
-      place-items: center;
-      color: var(--rust);
-      font-size: 2.3rem;
-      background: linear-gradient(145deg, rgba(212,168,83,0.16), rgba(196,75,42,0.12));
-      border: 1px solid rgba(196,75,42,0.14);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.55), 0 10px 24px rgba(26,18,8,0.06);
-      transition: transform 0.32s cubic-bezier(0.4,0,0.2,1), box-shadow 0.32s ease, background 0.32s ease;
+      border-radius: 50%;
+      background: #fff;
+      border: 2px solid rgba(26,18,8,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.7rem;
+      /* double-ring effect matching the image */
+      box-shadow: 0 0 0 7px var(--cream), 0 6px 20px rgba(26,18,8,0.10);
+      transition: transform 0.28s cubic-bezier(0.34,1.4,0.64,1);
+      flex-shrink: 0;
+      position: relative;
+      z-index: 2;
     }
-    .dash-card:hover .dash-icon { transform: translateY(-2px) scale(1.05); }
-    .dash-card[data-feature="plan"] .dash-icon { background: radial-gradient(circle at top left, rgba(196,75,42,0.18), rgba(244,239,230,0.05)); }
-    .dash-card[data-feature="find"] .dash-icon { background: radial-gradient(circle at top left, rgba(66,103,137,0.18), rgba(244,239,230,0.05)); color: #264763; }
-    .dash-card[data-feature="journal"] .dash-icon { background: radial-gradient(circle at top left, rgba(138,93,112,0.18), rgba(244,239,230,0.05)); color: #7b3451; }
-    .dash-card[data-feature="budget"] .dash-icon { background: radial-gradient(circle at top left, rgba(101,128,63,0.18), rgba(244,239,230,0.05)); color: #55612c; }
-    .dash-card[data-feature="safety"] .dash-icon { background: radial-gradient(circle at top left, rgba(64,95,105,0.18), rgba(244,239,230,0.05)); color: #2d4f5f; }
+    .tool-node:hover .tool-node__circle { transform: scale(1.1); }
+
+    /* Per-tool accent colours matching image */
+    .tool-node--plan .tool-node__circle   { border: 2.5px solid #b84c38; }
+    .tool-node--find .tool-node__circle   { border: 2.5px solid #3d5c82; }
+    .tool-node--budget .tool-node__circle { border: 3px solid #5a7a34; box-shadow: 0 0 0 9px var(--cream), 0 6px 20px rgba(26,18,8,0.12); }
+    .tool-node--journal .tool-node__circle{ border: 2.5px solid #7a4e65; }
+    .tool-node--safety .tool-node__circle { border: 2.5px solid #2f5f78; }
+
+    .tool-node__num {
+      font-size: 0.68rem;
+      letter-spacing: 3px;
+      color: rgba(26,18,8,0.38);
+      font-weight: 500;
+      margin-top: 14px;
+      margin-bottom: 3px;
+    }
+    @media (max-width: 860px) { .tool-node__num { margin: 0; } }
+
+    .tool-node__label {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--warm-black);
+      line-height: 1.2;
+    }
+    .tool-node__desc {
+      font-size: 0.78rem;
+      color: rgba(26,18,8,0.52);
+      line-height: 1.55;
+      margin-top: 5px;
+      max-width: 130px;
+    }
+    @media (max-width: 860px) { .tool-node__desc { max-width: 100%; } }
+
+    .tool-node__arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(26,18,8,0.2);
+      font-size: 0.8rem;
+      color: rgba(26,18,8,0.45);
+      margin-top: 10px;
+      transition: transform 0.22s ease;
+    }
+    .tool-node:hover .tool-node__arrow { transform: translateX(3px); }
+    @media (max-width: 860px) { .tool-node__arrow { margin: 0 0 0 auto; flex-shrink: 0; } }
+
     .dash-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; line-height: 1.2; margin: 0; font-weight: 700; letter-spacing: -0.6px; color: var(--warm-black); }
-    .dash-text { font-size: 1rem; color: rgba(26,18,8,0.7); line-height: 1.85; flex-grow: 1; margin-top: 8px; font-weight: 400; }
-    .dash-action { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 8px; font-weight: 700; font-size: 0.95rem; color: var(--warm-black); text-transform: uppercase; letter-spacing: 1px; }
-    .dash-action span:first-child { color: #8b3a28; }
-    .dash-action span:last-child { font-size: 1.1rem; }
-    .dash-btn { border: none; background: var(--rust); color: #fff; padding: 10px 18px; border-radius: 999px; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; transition: background 0.3s; }
-    .dash-btn:hover { background: #a63b1d; }
-    .dashboard-note { margin-top: 18px; display: inline-block; color: rgba(26,18,8,0.7); font-size: 0.95rem; opacity: 0; transition: opacity 0.25s ease; }
+    .dashboard-note { margin-top: 24px; display: inline-block; color: rgba(26,18,8,0.5); font-size: 0.88rem; opacity: 0; transition: opacity 0.25s ease; position: relative; z-index: 1; }
     .dashboard-note.visible { opacity: 1; }
 
     .planner-overlay {
@@ -576,12 +612,6 @@
 
       </div><!-- /photo-fan -->
 
-      <div class="hero-quote" aria-label="Travel quote">
-        <span class="quote-brand">SOLOSAFAR</span>
-        <p>“Travel far enough to meet yourself.”</p>
-        <div class="quote-author">SoloSafar</div>
-      </div>
-
       <!-- Camera body SVG (hands holding camera like image 2) -->
       <div class="camera-body">
         <svg viewBox="0 0 260 160" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -638,16 +668,7 @@
 
     </div><!-- /camera-scene -->
 
-    <!-- Bottom-left stamp -->
-    <div class="gallery-meta">
-      <strong data-i18n="gallery.title">SoloSafar Gallery</strong>
-      <span data-i18n="gallery.meta">No. 01 · India Vol. 1</span>
-    </div>
 
-    <!-- Bottom-right credit -->
-    <div class="designer-credit">
-      <span data-i18n="gallery.credit">Designed by</span><br>@solosafar.in
-    </div>
 
   </section>
 
@@ -661,7 +682,7 @@
   <!-- ── DESTINATIONS ── -->
   <section class="section-destinations" id="destinations">
     <div class="section-header">
-      <h2 class="section-title" data-i18n="hero.title">Where Will<br>You <span>Go?</span></h2>
+      <h2 class="section-title" data-i18n-html="hero.title">Where Will<br>You <span>Go?</span></h2>
       <span class="section-count" data-i18n="section.count">08 destinations</span>
     </div>
     <div class="dest-grid">
@@ -672,7 +693,7 @@
         <div class="dest-card-arrow">→</div>
         <div class="dest-card-overlay">
           <div class="dest-card-num">01</div>
-          <div class="dest-card-name">Goa</div>
+          <div class="dest-card-name" data-i18n="dest.name.1">Goa</div>
           <div class="dest-card-tag" data-i18n="dest.tag.1">Sun · Sand · Sea</div>
         </div>
       </a>
@@ -683,7 +704,7 @@
         <div class="dest-card-arrow">→</div>
         <div class="dest-card-overlay">
           <div class="dest-card-num">02</div>
-          <div class="dest-card-name">Leh Ladakh</div>
+          <div class="dest-card-name" data-i18n="dest.name.2">Leh Ladakh</div>
           <div class="dest-card-tag" data-i18n="dest.tag.2">High Altitude · Monasteries</div>
         </div>
       </a>
@@ -694,7 +715,7 @@
         <div class="dest-card-arrow">→</div>
         <div class="dest-card-overlay">
           <div class="dest-card-num">03</div>
-          <div class="dest-card-name">Manali</div>
+          <div class="dest-card-name" data-i18n="dest.name.3">Manali</div>
           <div class="dest-card-tag" data-i18n="dest.tag.3">Snow · Adventure · Valleys</div>
         </div>
       </a>
@@ -705,7 +726,7 @@
         <div class="dest-card-arrow">→</div>
         <div class="dest-card-overlay">
           <div class="dest-card-num">04</div>
-          <div class="dest-card-name">Kerala</div>
+          <div class="dest-card-name" data-i18n="dest.name.4">Kerala</div>
           <div class="dest-card-tag" data-i18n="dest.tag.4">Backwaters · Spice · Serenity</div>
         </div>
       </a>
@@ -716,7 +737,7 @@
         <div class="dest-card-arrow">→</div>
         <div class="dest-card-overlay">
           <div class="dest-card-num">05</div>
-          <div class="dest-card-name">Udaipur</div>
+          <div class="dest-card-name" data-i18n="dest.name.5">Udaipur</div>
           <div class="dest-card-tag" data-i18n="dest.tag.5">Palaces · Lakes · Royalty</div>
         </div>
       </a>
@@ -727,7 +748,7 @@
         <div class="dest-card-arrow">→</div>
         <div class="dest-card-overlay">
           <div class="dest-card-num">06</div>
-          <div class="dest-card-name">Sikkim</div>
+          <div class="dest-card-name" data-i18n="dest.name.6">Sikkim</div>
           <div class="dest-card-tag" data-i18n="dest.tag.6">Mountains · Monasteries · Mist</div>
         </div>
       </a>
@@ -738,7 +759,7 @@
         <div class="dest-card-arrow">→</div>
         <div class="dest-card-overlay">
           <div class="dest-card-num">07</div>
-          <div class="dest-card-name">Kutch</div>
+          <div class="dest-card-name" data-i18n="dest.name.7">Kutch</div>
           <div class="dest-card-tag" data-i18n="dest.tag.7">Salt Desert · Folk Art · Festivals</div>
         </div>
       </a>
@@ -749,7 +770,7 @@
         <div class="dest-card-arrow">→</div>
         <div class="dest-card-overlay">
           <div class="dest-card-num">08</div>
-          <div class="dest-card-name">Nagaland</div>
+          <div class="dest-card-name" data-i18n="dest.name.8">Nagaland</div>
           <div class="dest-card-tag" data-i18n="dest.tag.8">Tribes · Valleys · Hornbill</div>
         </div>
       </a>
@@ -759,58 +780,90 @@
 
   <section id="tools" class="dashboard">
     <div class="dashboard-intro">
-      <span class="dashboard-label">Your Solo Dashboard</span>
-      <h2 class="dashboard-title" data-i18n="dashboard.title">Tools for your solo travel journey</h2>
-      <p class="dashboard-copy" data-i18n="dashboard.copy">Everything you need to plan, connect and stay safe on the road.</p>
+      <span class="dashboard-label" data-i18n="dashboard.label">Tools for your journey</span>
+      <h2 class="dashboard-title" data-i18n="dashboard.title">Everything you need. All in one place.</h2>
+      <p class="dashboard-copy" data-i18n="dashboard.copy">Interactive tools designed for the modern traveler.</p>
     </div>
-    <div class="dashboard-grid">
-      <button class="dash-card" type="button" data-feature="plan">
-        <div class="dash-icon">🗺️</div>
-        <h3 class="dash-title" data-i18n="dashboard.plan.title">Plan a Trip</h3>
-        <p class="dash-text" data-i18n="dashboard.plan.text">Create your next itinerary</p>
-        <div class="dash-action">
-          <span data-i18n="dashboard.card.action">Explore</span>
-          <span>→</span>
-        </div>
-      </button>
-      <button class="dash-card" type="button" data-feature="find">
-        <div class="dash-icon">👥</div>
-        <h3 class="dash-title" data-i18n="dashboard.find.title">Find Travelers</h3>
-        <p class="dash-text" data-i18n="dashboard.find.text">Connect with fellow adventurers</p>
-        <div class="dash-action">
-          <span data-i18n="dashboard.card.action">Explore</span>
-          <span>→</span>
-        </div>
-      </button>
-      <button class="dash-card" type="button" data-feature="journal">
-        <div class="dash-icon">📓</div>
-        <h3 class="dash-title" data-i18n="dashboard.journal.title">Travel Journal</h3>
-        <p class="dash-text" data-i18n="dashboard.journal.text">Document your adventures</p>
-        <div class="dash-action">
-          <span data-i18n="dashboard.card.action">Explore</span>
-          <span>→</span>
-        </div>
-      </button>
-      <button class="dash-card" type="button" data-feature="budget">
-        <div class="dash-icon">💰</div>
-        <h3 class="dash-title" data-i18n="dashboard.budget.title">Track Budget</h3>
-        <p class="dash-text" data-i18n="dashboard.budget.text">Monitor your expenses</p>
-        <div class="dash-action">
-          <span data-i18n="dashboard.card.action">Explore</span>
-          <span>→</span>
-        </div>
-      </button>
-      <button class="dash-card" type="button" data-feature="safety">
-        <div class="dash-icon">🛡️</div>
-        <h3 class="dash-title" data-i18n="dashboard.safety.title">Safety Tools</h3>
-        <p class="dash-text" data-i18n="dashboard.safety.text">Manage emergency contacts</p>
-        <div class="dash-action">
-          <span data-i18n="dashboard.card.action">Explore</span>
-          <span>→</span>
-        </div>
-      </button>
-    </div>
-    <div class="dashboard-note" data-i18n="dashboard.note">Tap a card to preview the tool.</div>
+
+    <!-- Connected-node map — matches reference image -->
+    <div class="tools-map" id="toolsMap">
+
+      <!--
+        SVG coordinate system: 1000 × 500
+        Node anchor X positions (centre of circle):
+          Plan   = 10%  → x=100   y=210  (mid-left, slightly above mid)
+          Find   = 28%  → x=280   y=370  (lower left)
+          Budget = 50%  → x=500   y=130  (top centre)
+          Journal= 72%  → x=720   y=370  (lower right)
+          Safety = 90%  → x=900   y=210  (mid-right)
+      -->
+      <svg class="tools-map-svg" viewBox="0 0 1000 500" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Plan → Budget: red-brown curve arcing up to centre top -->
+        <path d="M 100 210 C 200 210 380 130 500 130"
+              stroke="#b84c38" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+        <!-- Find → Budget: blue curve arcing up -->
+        <path d="M 280 370 C 360 370 420 130 500 130"
+              stroke="#3d5c82" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+        <!-- Budget → Journal: olive/green curve arcing down right -->
+        <path d="M 500 130 C 580 130 640 370 720 370"
+              stroke="#5a7a34" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+        <!-- Budget → Safety: teal curve arcing down right to far right -->
+        <path d="M 500 130 C 680 130 800 210 900 210"
+              stroke="#2f5f78" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+      </svg>
+
+      <!-- 01 Plan a Trip — left, mid height -->
+      <div class="tool-node tool-node--plan" data-feature="plan" tabindex="0" role="button"
+           style="left:10%; top:30px;">
+        <div class="tool-node__circle">📍</div>
+        <div class="tool-node__num">0 1</div>
+        <div class="tool-node__label" data-i18n="dashboard.plan.title">Plan a Trip</div>
+        <div class="tool-node__desc" data-i18n="tools.plan.desc">Plan routes, build itineraries and discover amazing destinations.</div>
+        <span class="tool-node__arrow">→</span>
+      </div>
+
+      <!-- 02 Find Travelers — left, lower -->
+      <div class="tool-node tool-node--find" data-feature="find" tabindex="0" role="button"
+           style="left:28%; top:190px;">
+        <div class="tool-node__circle">👥</div>
+        <div class="tool-node__num">0 2</div>
+        <div class="tool-node__label" data-i18n="dashboard.find.title">Find Travelers</div>
+        <div class="tool-node__desc" data-i18n="tools.find.desc">Connect with solo travelers and find travel buddies.</div>
+        <span class="tool-node__arrow">→</span>
+      </div>
+
+      <!-- 03 Track Budget — top centre -->
+      <div class="tool-node tool-node--budget" data-feature="budget" tabindex="0" role="button"
+           style="left:50%; top:0px;">
+        <div class="tool-node__circle">💰</div>
+        <div class="tool-node__num">0 3</div>
+        <div class="tool-node__label" data-i18n="dashboard.budget.title">Track Budget</div>
+        <div class="tool-node__desc" data-i18n="tools.budget.desc">Keep track of your expenses and travel smartly.</div>
+        <span class="tool-node__arrow">→</span>
+      </div>
+
+      <!-- 04 Travel Journal — right, lower -->
+      <div class="tool-node tool-node--journal" data-feature="journal" tabindex="0" role="button"
+           style="left:72%; top:190px;">
+        <div class="tool-node__circle">📓</div>
+        <div class="tool-node__num">0 4</div>
+        <div class="tool-node__label" data-i18n="dashboard.journal.title">Travel Journal</div>
+        <div class="tool-node__desc" data-i18n="tools.journal.desc">Write your stories, save moments and relive your journey.</div>
+        <span class="tool-node__arrow">→</span>
+      </div>
+
+      <!-- 05 Safety Tools — far right, mid height -->
+      <div class="tool-node tool-node--safety" data-feature="safety" tabindex="0" role="button"
+           style="left:90%; top:30px;">
+        <div class="tool-node__circle">🛡️</div>
+        <div class="tool-node__num">0 5</div>
+        <div class="tool-node__label" data-i18n="dashboard.safety.title">Safety Tools</div>
+        <div class="tool-node__desc" data-i18n="tools.safety.desc">Stay safe with verified tips, emergency contacts and travel alerts.</div>
+        <span class="tool-node__arrow">→</span>
+      </div>
+
+    </div><!-- /tools-map -->
+    <p class="dashboard-note" data-i18n="dashboard.note">Tap a card to preview the tool.</p>
   </section>
 
   <div class="planner-overlay" id="plannerOverlay" aria-hidden="true">
@@ -847,14 +900,14 @@
           <div class="planner-row">
             <label for="plannerStyle" data-i18n="planner.styleLabel">Travel Style</label>
             <select id="plannerStyle" required>
-              <option value="Budget">Budget</option>
-              <option value="Comfort">Comfort</option>
-              <option value="Luxury">Luxury</option>
+              <option value="Budget" data-i18n="ui.budget">Budget</option>
+              <option value="Comfort" data-i18n="ui.comfort">Comfort</option>
+              <option value="Luxury" data-i18n="ui.luxury">Luxury</option>
             </select>
           </div>
           <div class="planner-row">
             <label for="plannerNotes" data-i18n="planner.notesLabel">Notes</label>
-            <textarea id="plannerNotes" placeholder="Add preferences, must-see spots, or special notes"></textarea>
+            <textarea id="plannerNotes" data-i18n-placeholder="planner.notesPlaceholder" placeholder="Add preferences, must-see spots, or special notes"></textarea>
           </div>
           <div class="planner-actions">
             <button type="button" class="btn-primary" id="generatePlanBtn" data-i18n="planner.generateBtn">Generate Plan</button>
@@ -933,67 +986,67 @@
     <div class="tool-modal" role="dialog" aria-modal="true" aria-labelledby="journalTitle">
       <button class="planner-close" id="journalClose" aria-label="Close Travel Journal">×</button>
       <div class="tool-header">
-        <span class="planner-badge">Travel Journal</span>
-        <h2 id="journalTitle">Document your adventures</h2>
-        <p>Capture your journey notes, moods, and memories in one place.</p>
+        <span class="planner-badge" data-i18n="journal.badge">Travel Journal</span>
+        <h2 id="journalTitle" data-i18n="journal.modalTitle">Document your adventures</h2>
+        <p data-i18n="journal.intro">Capture your journey notes, moods, and memories in one place.</p>
       </div>
       <div class="tool-body">
         <div class="tool-grid">
           <div class="tool-form">
             <div class="tool-row">
-              <label for="journalDate">Date</label>
+              <label for="journalDate" data-i18n="journal.dateLabel">Date</label>
               <input id="journalDate" type="date">
             </div>
             <div class="tool-row">
-              <label for="journalTitleInput">Entry title</label>
+              <label for="journalTitleInput" data-i18n="journal.titleLabel">Entry title</label>
               <input id="journalTitleInput" type="text" placeholder="A special moment, a new friend, a food memory">
             </div>
             <div class="tool-row">
-              <label for="journalMood">Mood</label>
+              <label for="journalMood" data-i18n="journal.moodLabel">Mood</label>
               <select id="journalMood">
-                <option value="Inspired">Inspired</option>
-                <option value="Refreshed">Refreshed</option>
-                <option value="Curious">Curious</option>
-                <option value="Grateful">Grateful</option>
+                <option value="Inspired" data-i18n="journal.inspired">Inspired</option>
+                <option value="Refreshed" data-i18n="journal.refreshed">Refreshed</option>
+                <option value="Curious" data-i18n="journal.curious">Curious</option>
+                <option value="Grateful" data-i18n="journal.grateful">Grateful</option>
               </select>
             </div>
             <div class="tool-row">
-              <label for="journalEntry">Entry</label>
+              <label for="journalEntry" data-i18n="journal.entryLabel">Entry</label>
               <textarea id="journalEntry" placeholder="Write about your day, the people you met, and what you discovered."></textarea>
             </div>
             <div class="tool-row">
-              <label for="journalVisibility">Visibility</label>
+              <label for="journalVisibility" data-i18n="journal.visibilityLabel">Visibility</label>
               <select id="journalVisibility">
-                <option value="Private">Private</option>
-                <option value="Blog">Post as blog</option>
+                <option value="Private" data-i18n="journal.private">Private</option>
+                <option value="Blog" data-i18n="journal.blog">Post as blog</option>
               </select>
             </div>
             <div class="tool-row" id="journalAuthorRow" style="display:none;">
-              <label for="journalAuthor">Author name</label>
+              <label for="journalAuthor" data-i18n="journal.authorLabel">Author name</label>
               <input id="journalAuthor" type="text" placeholder="Your name (visible on blog)">
             </div>
             <div class="tool-row" id="journalLocationRow" style="display:none;">
-              <label for="journalLocation">Location</label>
+              <label for="journalLocation" data-i18n="journal.locationLabel">Location</label>
               <input id="journalLocation" type="text" placeholder="City or place (optional)">
             </div>
             <div class="tool-row">
-              <label for="journalSearch">Search entries</label>
+              <label for="journalSearch" data-i18n="journal.searchLabel">Search entries</label>
               <input id="journalSearch" type="search" placeholder="Search by title or mood">
             </div>
             <div class="tool-actions">
-              <button type="button" class="btn-primary" id="journalSaveBtn">Save Entry</button>
-              <button type="button" class="btn-secondary" id="journalViewBtn">View Entries</button>
+              <button type="button" class="btn-primary" id="journalSaveBtn" data-i18n="journal.saveBtn">Save Entry</button>
+              <button type="button" class="btn-secondary" id="journalViewBtn" data-i18n="journal.viewBtn">View Entries</button>
             </div>
             <div class="tool-actions">
-              <button type="button" class="btn-secondary" id="journalExportBtn">Export</button>
-              <button type="button" class="btn-secondary" id="journalClearBtn">Clear All</button>
+              <button type="button" class="btn-secondary" id="journalExportBtn" data-i18n="journal.exportBtn">Export</button>
+              <button type="button" class="btn-secondary" id="journalClearBtn" data-i18n="journal.clearBtn">Clear All</button>
             </div>
             <div class="tool-feedback" id="journalFeedback"></div>
           </div>
           <div>
             <div class="tool-summary">
-              <strong>Journal at a glance</strong>
-              <p>Save your reflections and browse your latest entries here. Everything syncs locally so your travel story stays with you.</p>
+              <strong data-i18n="journal.summaryTitle">Journal at a glance</strong>
+              <p data-i18n="journal.summaryHint">Save your reflections and browse your latest entries here. Everything syncs locally so your travel story stays with you.</p>
             </div>
             <div class="tool-list" id="journalEntriesList"></div>
           </div>
@@ -1006,68 +1059,68 @@
     <div class="tool-modal" role="dialog" aria-modal="true" aria-labelledby="budgetTitle">
       <button class="planner-close" id="budgetClose" aria-label="Close Budget Tracker">×</button>
       <div class="tool-header">
-        <span class="planner-badge">Track Budget</span>
-        <h2 id="budgetTitle">Monitor your expenses</h2>
-        <p>Log costs, compare categories, and keep the budget on track while you travel.</p>
+        <span class="planner-badge" data-i18n="budget.badge">Track Budget</span>
+        <h2 id="budgetTitle" data-i18n="budget.modalTitle">Monitor your expenses</h2>
+        <p data-i18n="budget.intro">Log costs, compare categories, and keep the budget on track while you travel.</p>
       </div>
       <div class="tool-body">
         <div class="tool-grid">
           <div class="tool-form">
             <div class="tool-row">
-              <label for="expenseDate">Expense date</label>
+              <label for="expenseDate" data-i18n="budget.expenseDateLabel">Expense date</label>
               <input id="expenseDate" type="date">
             </div>
             <div class="tool-row">
-              <label for="expenseCategory">Category</label>
+              <label for="expenseCategory" data-i18n="budget.categoryLabel">Category</label>
               <select id="expenseCategory">
-                <option value="Transport">Transport</option>
-                <option value="Food">Food</option>
-                <option value="Stay">Stay</option>
-                <option value="Activities">Activities</option>
-                <option value="Shopping">Shopping</option>
+                <option value="Transport" data-i18n="ui.transport">Transport</option>
+                <option value="Food" data-i18n="ui.food">Food</option>
+                <option value="Stay" data-i18n="ui.stay">Stay</option>
+                <option value="Activities" data-i18n="ui.activities">Activities</option>
+                <option value="Shopping" data-i18n="ui.shopping">Shopping</option>
               </select>
             </div>
             <div class="tool-row">
-              <label for="expenseAmount">Amount (INR)</label>
-              <input id="expenseAmount" type="number" min="1" placeholder="Enter amount">
+              <label for="expenseAmount" data-i18n="budget.amountInrLabel">Amount (INR)</label>
+              <input id="expenseAmount" type="number" min="1" data-i18n-placeholder="budget.amountPlaceholder" placeholder="Enter amount">
             </div>
             <div class="tool-row">
-              <label for="budgetGoal">Trip budget goal (INR)</label>
-              <input id="budgetGoal" type="number" min="0" placeholder="Set your target budget">
+              <label for="budgetGoal" data-i18n="budget.tripGoalLabel">Trip budget goal (INR)</label>
+              <input id="budgetGoal" type="number" min="0" data-i18n-placeholder="budget.goalPlaceholder" placeholder="Set your target budget">
             </div>
             <div class="tool-actions">
-              <button type="button" class="btn-secondary" id="budgetSetGoalBtn">Set Goal</button>
+              <button type="button" class="btn-secondary" id="budgetSetGoalBtn" data-i18n="budget.setGoalBtn">Set Goal</button>
             </div>
             <div class="tool-row">
-              <label for="expenseCategoryFilter">Filter by category</label>
+              <label for="expenseCategoryFilter" data-i18n="budget.filterCategoryLabel">Filter by category</label>
               <select id="expenseCategoryFilter">
-                <option value="All">All</option>
-                <option value="Transport">Transport</option>
-                <option value="Food">Food</option>
-                <option value="Stay">Stay</option>
-                <option value="Activities">Activities</option>
-                <option value="Shopping">Shopping</option>
+                <option value="All" data-i18n="ui.all">All</option>
+                <option value="Transport" data-i18n="ui.transport">Transport</option>
+                <option value="Food" data-i18n="ui.food">Food</option>
+                <option value="Stay" data-i18n="ui.stay">Stay</option>
+                <option value="Activities" data-i18n="ui.activities">Activities</option>
+                <option value="Shopping" data-i18n="ui.shopping">Shopping</option>
               </select>
             </div>
             <div class="tool-row">
-              <label for="expenseNote">Note</label>
-              <input id="expenseNote" type="text" placeholder="Taxi, meal, souvenir, etc.">
+              <label for="expenseNote" data-i18n="budget.noteLabel">Note</label>
+              <input id="expenseNote" type="text" data-i18n-placeholder="budget.notePlaceholder" placeholder="Taxi, meal, souvenir, etc.">
             </div>
             <div class="tool-actions">
-              <button type="button" class="btn-primary" id="expenseAddBtn">Add Expense</button>
-              <button type="button" class="btn-secondary" id="expenseExportBtn">Export CSV</button>
+              <button type="button" class="btn-primary" id="expenseAddBtn" data-i18n="budget.addBtn">Add Expense</button>
+              <button type="button" class="btn-secondary" id="expenseExportBtn" data-i18n="budget.exportCsvBtn">Export CSV</button>
             </div>
             <div class="tool-actions">
-              <button type="button" class="btn-secondary" id="expenseResetBtn">Reset</button>
-              <button type="button" class="btn-secondary" id="expenseClearAllBtn">Clear All</button>
+              <button type="button" class="btn-secondary" id="expenseResetBtn" data-i18n="budget.resetBtn">Reset</button>
+              <button type="button" class="btn-secondary" id="expenseClearAllBtn" data-i18n="budget.clearBtn">Clear All</button>
             </div>
             <div class="tool-feedback" id="budgetFeedback"></div>
           </div>
           <div>
             <div class="tool-summary" id="budgetGoalSummary"></div>
             <div class="tool-summary">
-              <strong>Budget summary</strong>
-              <p>Total spending, category breakdown, and expenses saved in local storage for instant review.</p>
+              <strong data-i18n="budget.summaryTitle">Budget summary</strong>
+              <p data-i18n="budget.summaryHint">Total spending, category breakdown, and expenses saved in local storage for instant review.</p>
             </div>
             <div class="tool-summary" id="budgetTotals"></div>
             <div class="tool-list" id="expenseList"></div>
@@ -1081,49 +1134,49 @@
     <div class="tool-modal" role="dialog" aria-modal="true" aria-labelledby="safetyTitle">
       <button class="planner-close" id="safetyClose" aria-label="Close Safety Tools">×</button>
       <div class="tool-header">
-        <span class="planner-badge">Safety Tools</span>
-        <h2 id="safetyTitle">Manage emergency contacts</h2>
-        <p>Keep your vital contacts close and review key safety checks for your trip.</p>
+        <span class="planner-badge" data-i18n="safety.badge">Safety Tools</span>
+        <h2 id="safetyTitle" data-i18n="safety.modalTitle">Manage emergency contacts</h2>
+        <p data-i18n="safety.intro">Keep your vital contacts close and review key safety checks for your trip.</p>
       </div>
       <div class="tool-body">
         <div class="tool-grid">
           <div class="tool-form">
             <div class="tool-row">
-              <label for="contactName">Contact name</label>
-              <input id="contactName" type="text" placeholder="Friend, family, local contact">
+              <label for="contactName" data-i18n="safety.nameLabel">Contact name</label>
+              <input id="contactName" type="text" data-i18n-placeholder="safety.namePlaceholder" placeholder="Friend, family, local contact">
             </div>
             <div class="tool-row">
-              <label for="contactPhone">Phone number</label>
+              <label for="contactPhone" data-i18n="safety.phoneLabel">Phone number</label>
               <input id="contactPhone" type="tel" placeholder="+91xxxxxxxxxx">
             </div>
             <div class="tool-row">
-              <label for="contactRelation">Relation</label>
-              <input id="contactRelation" type="text" placeholder="Relation or role">
+              <label for="contactRelation" data-i18n="safety.relationLabel">Relation</label>
+              <input id="contactRelation" type="text" data-i18n-placeholder="safety.relationPlaceholder" placeholder="Relation or role">
             </div>
             <div class="tool-actions">
-              <button type="button" class="btn-primary" id="contactSaveBtn">Save Contact</button>
-              <button type="button" class="btn-secondary" id="safetyTipsBtn">View Tips</button>
+              <button type="button" class="btn-primary" id="contactSaveBtn" data-i18n="safety.saveBtn">Save Contact</button>
+              <button type="button" class="btn-secondary" id="safetyTipsBtn" data-i18n="safety.tipsBtn">View Tips</button>
             </div>
             <div class="tool-actions">
-              <button type="button" class="btn-secondary" id="safetyCallPoliceBtn">Call Police</button>
-              <button type="button" class="btn-secondary" id="safetyCallAmbulanceBtn">Call Ambulance</button>
-              <button type="button" class="btn-secondary" id="safetyCopyMsgBtn">Copy SOS</button>
+              <button type="button" class="btn-secondary" id="safetyCallPoliceBtn" data-i18n="safety.callPoliceBtn">Call Police</button>
+              <button type="button" class="btn-secondary" id="safetyCallAmbulanceBtn" data-i18n="safety.callAmbulanceBtn">Call Ambulance</button>
+              <button type="button" class="btn-secondary" id="safetyCopyMsgBtn" data-i18n="safety.sosBtn">Copy SOS</button>
             </div>
             <div class="tool-feedback" id="safetyFeedback"></div>
           </div>
           <div>
             <div class="tool-summary">
-              <strong>Emergency contacts</strong>
-              <p>Easy access to your saved contacts and common safety reminders for solo travel.</p>
+              <strong data-i18n="safety.summaryTitle">Emergency contacts</strong>
+              <p data-i18n="safety.summaryHint">Easy access to your saved contacts and common safety reminders for solo travel.</p>
             </div>
             <div class="tool-list" id="contactList"></div>
             <div class="tool-summary">
-              <strong>Safety checklist</strong>
+              <strong data-i18n="safety.checklistTitle">Safety checklist</strong>
               <ul class="tool-tip-list">
-                <li>Share your route with someone trusted.</li>
-                <li>Keep local emergency numbers saved.</li>
-                <li>Carry a small first-aid kit and cash.</li>
-                <li>Use verified local guides and transport.</li>
+                <li data-i18n="safety.check1">Share your route with someone trusted.</li>
+                <li data-i18n="safety.check2">Keep local emergency numbers saved.</li>
+                <li data-i18n="safety.check3">Carry a small first-aid kit and cash.</li>
+                <li data-i18n="safety.check4">Use verified local guides and transport.</li>
               </ul>
             </div>
           </div>
@@ -1181,11 +1234,20 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <span data-i18n="footer.copyright">© 2024 SoloSafar. All rights reserved.</span>
+      <span>© 2026 SoloSafar. All rights reserved.</span>
       <span data-i18n="footer.soloNote">Made with ♥ for solo explorers of India</span>
     </div>
   </footer>
+  <script src="destination-translations-bundle.js"></script>
+  <script src="lang.js"></script>
   <script>
+    function T(text) {
+      return typeof window.tt === 'function' ? window.tt(text) : text;
+    }
+    function rerunTranslation() {
+      if (typeof window.refreshI18n === 'function') window.refreshI18n();
+    }
+
     const overlay = document.getElementById('plannerOverlay');
     const closeBtn = document.getElementById('plannerClose');
     const generateBtn = document.getElementById('generatePlanBtn');
@@ -1196,8 +1258,88 @@
     const plannerSummary = document.getElementById('plannerSummary');
     const plannerResults = document.getElementById('plannerResults');
     const savedTripsList = document.getElementById('savedTripsList');
-    const planCard = document.querySelector('[data-feature="plan"]');
     const dashboardNote = document.querySelector('.dashboard-note');
+
+    function activateToolFeature(feature, card) {
+      if (feature === 'plan') { openPlanner(); return; }
+      if (feature === 'find') { openFinders(); return; }
+      if (feature === 'journal') { openJournal(); return; }
+      if (feature === 'budget') { openBudget(); return; }
+      if (feature === 'safety') { openSafety(); return; }
+      if (card && dashboardNote) {
+        const title = card.querySelector('.dash-title')?.textContent || '';
+        dashboardNote.textContent = `${title} ${T('selected — coming soon on SoloSafar.')}`;
+        dashboardNote.classList.add('visible');
+        setTimeout(() => dashboardNote.classList.remove('visible'), 2800);
+      }
+    }
+    window.activateToolFeature = activateToolFeature;
+
+    function bindToolCards() {
+      const toolsEl = document.getElementById('tools');
+      if (!toolsEl || toolsEl.dataset.bound === '1') return;
+      toolsEl.dataset.bound = '1';
+      toolsEl.addEventListener('click', event => {
+        const card = event.target.closest('[data-feature]');
+        if (!card || !toolsEl.contains(card)) return;
+        activateToolFeature(card.dataset.feature, card);
+      });
+      toolsEl.addEventListener('keydown', event => {
+        if (event.key !== 'Enter' && event.key !== ' ') return;
+        const card = event.target.closest('[data-feature]');
+        if (!card || !toolsEl.contains(card)) return;
+        event.preventDefault();
+        activateToolFeature(card.dataset.feature, card);
+      });
+    }
+    bindToolCards();
+
+    /* ── Draw SVG connector paths using real node positions ── */
+    function drawMapPaths() {
+      const map = document.getElementById('toolsMap');
+      const svg = map && map.querySelector('.tools-map-svg');
+      if (!svg || window.innerWidth <= 860) return;
+
+      const mapRect = map.getBoundingClientRect();
+
+      function centre(selector) {
+        const el = map.querySelector(selector);
+        if (!el) return null;
+        const r = el.querySelector('.tool-node__circle').getBoundingClientRect();
+        return {
+          x: r.left + r.width / 2 - mapRect.left,
+          y: r.top  + r.height / 2 - mapRect.top
+        };
+      }
+
+      const plan    = centre('.tool-node--plan');
+      const find    = centre('.tool-node--find');
+      const budget  = centre('.tool-node--budget');
+      const journal = centre('.tool-node--journal');
+      const safety  = centre('.tool-node--safety');
+      if (!plan || !budget) return;
+
+      const W = mapRect.width;
+      const H = mapRect.height || 500;
+
+      svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+      svg.setAttribute('preserveAspectRatio', 'xMidYMid meet');
+
+      function bezier(a, b, color) {
+        const mx = (a.x + b.x) / 2;
+        return `<path d="M ${a.x} ${a.y} C ${mx} ${a.y} ${mx} ${b.y} ${b.x} ${b.y}"
+          stroke="${color}" stroke-width="2.4" fill="none" stroke-linecap="round"/>`;
+      }
+
+      svg.innerHTML =
+        bezier(plan,   budget, '#b84c38') +
+        bezier(find,   budget, '#3d5c82') +
+        bezier(budget, journal,'#5a7a34') +
+        bezier(budget, safety, '#2f5f78');
+    }
+
+    window.addEventListener('load',   drawMapPaths);
+    window.addEventListener('resize', drawMapPaths);
 
     const destinationHighlights = {
       'Goa': ['Beach hopping', 'Sunset shack dinners', 'Water sports and Portuguese heritage'],
@@ -1217,6 +1359,7 @@
       plannerFeedback.textContent = '';
       plannerResults.innerHTML = '';
       savedTripsList.innerHTML = '';
+      rerunTranslation();
     }
 
     function closePlanner() {
@@ -1256,23 +1399,25 @@
     function renderPlan(destination, startDate, endDate, style, notes) {
       const days = getDuration(startDate, endDate);
       if (!days) {
-        plannerSummary.innerHTML = '<strong>Please select valid travel dates.</strong>';
+        plannerSummary.innerHTML = `<strong>${T('Please select valid travel dates.')}</strong>`;
         plannerResults.innerHTML = '';
+        rerunTranslation();
         return null;
       }
       const budget = estimateBudget(days, style);
       const plan = createItinerary(destination, days, style, notes);
       plannerSummary.innerHTML = `
-        <strong>${destination} · ${days} day${days > 1 ? 's' : ''} · ${style}</strong>
-        <p>Budget estimate: <strong>${budget.amount}</strong></p>
+        <strong>${destination} · ${days} ${days > 1 ? T('days') : T('Day').toLowerCase()} · ${T(style)}</strong>
+        <p>${T('Budget estimate:')} <strong>${budget.amount}</strong></p>
       `;
       plannerResults.innerHTML = plan.map(item => `
         <div class="planner-card">
-          <h4>Day ${item.day}</h4>
-          <p>${item.activity}</p>
-          <p>${item.detail}</p>
+          <h4>${T('Day')} ${item.day}</h4>
+          <p>${T(item.activity)}</p>
+          <p>${T(item.detail)}</p>
         </div>
       `).join('');
+      rerunTranslation();
       return { destination, startDate, endDate, style, notes, days, budget: budget.amount, plan, savedId: `${destination}-${Date.now()}` };
     }
 
@@ -1298,7 +1443,7 @@
     }
 
     async function loadSavedTrips() {
-      savedTripsList.innerHTML = '<div class="planner-card"><p>Loading saved trips...</p></div>';
+      savedTripsList.innerHTML = `<div class="planner-card"><p>${T('Loading saved trips...')}</p></div>`;
       try {
         const response = await fetch('/saved-trips');
         const data = await response.json();
@@ -1313,7 +1458,8 @@
           return;
         }
       }
-      savedTripsList.innerHTML = '<div class="planner-card"><p>No saved trips found yet. Save a plan to see it here.</p></div>';
+      savedTripsList.innerHTML = `<div class="planner-card"><p>${T('No saved trips found yet. Save a plan to see it here.')}</p></div>`;
+      rerunTranslation();
     }
 
     function populateTripForm(trip) {
@@ -1337,9 +1483,9 @@
             <small>${new Date(trip.startDate).toLocaleDateString()} → ${new Date(trip.endDate).toLocaleDateString()} (${trip.days} days)</small>
           </div>
           <div class="saved-actions">
-            <button type="button" class="load-trip-btn" data-action="load">Open</button>
-            <button type="button" class="copy-trip-btn" data-action="copy" data-destination="${trip.destination}" data-style="${trip.style}" data-days="${trip.days}">Copy</button>
-            <button type="button" class="delete-trip-btn" data-id="${trip._id || trip.savedId || ''}">Delete</button>
+            <button type="button" class="load-trip-btn" data-action="load">${T('Open')}</button>
+            <button type="button" class="copy-trip-btn" data-action="copy" data-destination="${trip.destination}" data-style="${trip.style}" data-days="${trip.days}">${T('Copy')}</button>
+            <button type="button" class="delete-trip-btn" data-id="${trip._id || trip.savedId || ''}">${T('Delete')}</button>
           </div>
         </div>
       `).join('');
@@ -1361,6 +1507,7 @@
       });
       // attach delete handlers
       savedTripsList.querySelectorAll('button.delete-trip-btn').forEach(btn => btn.addEventListener('click', () => deleteSavedTrip(btn.dataset.id)));
+      rerunTranslation();
     }
 
     async function deleteSavedTrip(id) {
@@ -1392,9 +1539,10 @@
     }
 
     function setPlannerFeedback(message) {
-      plannerFeedback.textContent = message;
+      const translated = T(message);
+      plannerFeedback.textContent = translated;
       setTimeout(() => {
-        if (plannerFeedback.textContent === message) plannerFeedback.textContent = '';
+        if (plannerFeedback.textContent === translated) plannerFeedback.textContent = '';
       }, 3000);
     }
 
@@ -1413,9 +1561,8 @@
       setPlannerFeedback('Trip details copied to clipboard for sharing.');
     }
 
-    planCard.addEventListener('click', openPlanner);
-    closeBtn.addEventListener('click', closePlanner);
-    overlay.addEventListener('click', event => { if (event.target === overlay) closePlanner(); });
+    if (closeBtn) closeBtn.addEventListener('click', closePlanner);
+    if (overlay) overlay.addEventListener('click', event => { if (event.target === overlay) closePlanner(); });
 
     generateBtn.addEventListener('click', () => {
       const destination = document.getElementById('plannerDestination').value;
@@ -1473,6 +1620,7 @@
       findOverlay.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
       updateFindResults();
+      rerunTranslation();
     }
 
     function closeFinders() {
@@ -1498,9 +1646,10 @@
 
     function updateFindResults() {
       const matches = travelerProfiles.filter(matchesFilter);
-      findStatus.textContent = `${matches.length} traveler${matches.length === 1 ? '' : 's'} found`;
+      findStatus.textContent = `${matches.length} ${matches.length === 1 ? T('traveler found') : T('travelers found')}`;
       if (!matches.length) {
-        findResults.innerHTML = '<div class="planner-card"><p>No travelers match these filters yet. Try removing a filter or changing the dates.</p></div>';
+        findResults.innerHTML = `<div class="planner-card"><p>${T('No travelers match these filters yet. Try removing a filter or changing the dates.')}</p></div>`;
+        rerunTranslation();
         return;
       }
       findResults.innerHTML = matches.map(profile => `
@@ -1518,19 +1667,21 @@
             ${profile.interests.map(tag => `<span class="find-tag">${tag}</span>`).join('')}
           </div>
           <div class="find-actions">
-            <button type="button" data-action="message" data-id="${profile.id}">Message</button>
-            <button type="button" data-action="join" data-id="${profile.id}">Join</button>
-            <button type="button" data-action="save" data-id="${profile.id}">Save</button>
+            <button type="button" data-action="message" data-id="${profile.id}">${T('Message')}</button>
+            <button type="button" data-action="join" data-id="${profile.id}">${T('Join')}</button>
+            <button type="button" data-action="save" data-id="${profile.id}">${T('Save')}</button>
           </div>
         </div>
       `).join('');
       findResults.querySelectorAll('button').forEach(btn => btn.addEventListener('click', handleFindAction));
+      rerunTranslation();
     }
 
     function setFindFeedback(message) {
-      findFeedback.textContent = message;
+      const translated = T(message);
+      findFeedback.textContent = translated;
       setTimeout(() => {
-        if (findFeedback.textContent === message) findFeedback.textContent = '';
+        if (findFeedback.textContent === translated) findFeedback.textContent = '';
       }, 3500);
     }
 
@@ -1623,6 +1774,7 @@
       document.body.style.overflow = 'hidden';
       loadJournalEntries();
       journalFeedback.textContent = '';
+      rerunTranslation();
     }
     function closeJournal() {
       journalOverlay.classList.remove('open');
@@ -1630,8 +1782,9 @@
       document.body.style.overflow = '';
     }
     function setJournalFeedback(message) {
-      journalFeedback.textContent = message;
-      setTimeout(() => { if (journalFeedback.textContent === message) journalFeedback.textContent = ''; }, 3000);
+      const translated = T(message);
+      journalFeedback.textContent = translated;
+      setTimeout(() => { if (journalFeedback.textContent === translated) journalFeedback.textContent = ''; }, 3000);
     }
     function loadJournalEntries(searchTerm = '') {
       const entries = JSON.parse(localStorage.getItem('soloSafarJournal') || '[]');
@@ -1640,23 +1793,26 @@
         ? entries.filter(entry => (`${entry.title} ${entry.mood} ${entry.text}`).toLowerCase().includes(filter))
         : entries;
       if (!entries.length) {
-        journalEntriesList.innerHTML = '<div class="tool-item"><p>No journal entries yet. Save your first entry to begin.</p></div>';
+        journalEntriesList.innerHTML = `<div class="tool-item"><p>${T('No journal entries yet. Save your first entry to begin.')}</p></div>`;
+        rerunTranslation();
         return;
       }
       if (!filtered.length) {
-        journalEntriesList.innerHTML = `<div class="tool-item"><p>No journal entries match "${filter}". Try another search.</p></div>`;
+        journalEntriesList.innerHTML = `<div class="tool-item"><p>${T('No journal entries match')} "${filter}". ${T('Try another search.')}</p></div>`;
+        rerunTranslation();
         return;
       }
       journalEntriesList.innerHTML = filtered.slice().reverse().map(entry => `
         <div class="tool-item">
           <div class="tool-item-head">
-            <h4>${entry.title || 'Untitled entry'}</h4>
-            <span>${entry.date || 'No date'}</span>
+            <h4>${entry.title || T('Untitled entry')}</h4>
+            <span>${entry.date || T('No date')}</span>
           </div>
-          <small>${entry.mood}</small>
+          <small>${T(entry.mood)}</small>
           <p>${entry.text}</p>
         </div>
       `).join('');
+      rerunTranslation();
     }
     function saveJournalEntry() {
       const date = journalDate.value || new Date().toISOString().slice(0, 10);
@@ -1738,6 +1894,7 @@
       budgetGoal.value = localStorage.getItem('soloSafarBudgetGoal') || '';
       renderBudgetSummary();
       budgetFeedback.textContent = '';
+      rerunTranslation();
     }
     function closeBudget() {
       budgetOverlay.classList.remove('open');
@@ -1745,8 +1902,9 @@
       document.body.style.overflow = '';
     }
     function setBudgetFeedback(message) {
-      budgetFeedback.textContent = message;
-      setTimeout(() => { if (budgetFeedback.textContent === message) budgetFeedback.textContent = ''; }, 3000);
+      const translated = T(message);
+      budgetFeedback.textContent = translated;
+      setTimeout(() => { if (budgetFeedback.textContent === translated) budgetFeedback.textContent = ''; }, 3000);
     }
     function renderBudgetSummary() {
       const allExpenses = JSON.parse(localStorage.getItem('soloSafarExpenses') || '[]');
@@ -1760,41 +1918,43 @@
       }, {});
 
       if (!allExpenses.length) {
-        budgetGoalSummary.innerHTML = goal ? `<p><strong>Budget goal:</strong> ₹${goal.toLocaleString()}</p><p><strong>Remaining:</strong> ₹${goal.toLocaleString()}</p>` : '<p>No expense data yet. Add expenses and set a goal to track progress.</p>';
-        budgetTotals.innerHTML = '<p>No expenses logged yet. Add your first cost to start tracking.</p>';
-        expenseList.innerHTML = '<div class="tool-item"><p>Your expense list is empty.</p></div>';
+        budgetGoalSummary.innerHTML = goal ? `<p><strong>${T('Budget goal:')}</strong> ₹${goal.toLocaleString()}</p><p><strong>${T('Remaining:')}</strong> ₹${goal.toLocaleString()}</p>` : `<p>${T('No expense data yet. Add expenses and set a goal to track progress.')}</p>`;
+        budgetTotals.innerHTML = `<p>${T('No expenses logged yet. Add your first cost to start tracking.')}</p>`;
+        expenseList.innerHTML = `<div class="tool-item"><p>${T('Your expense list is empty.')}</p></div>`;
+        rerunTranslation();
         return;
       }
 
       const remaining = goal ? goal - total : 0;
       budgetGoalSummary.innerHTML = goal ? `
-        <p><strong>Budget goal:</strong> ₹${goal.toLocaleString()}</p>
-        <p><strong>${remaining >= 0 ? 'Remaining' : 'Over budget'}:</strong> ₹${Math.abs(remaining).toLocaleString()}</p>
-      ` : '<p>Set a trip budget goal to measure progress against your total spend.</p>';
+        <p><strong>${T('Budget goal:')}</strong> ₹${goal.toLocaleString()}</p>
+        <p><strong>${remaining >= 0 ? T('Remaining:') : T('Over budget')}:</strong> ₹${Math.abs(remaining).toLocaleString()}</p>
+      ` : `<p>${T('Set a trip budget goal to measure progress against your total spend.')}</p>`;
 
       budgetTotals.innerHTML = `
-        <p><strong>Total spent${filterCategory === 'All' ? '' : ` (${filterCategory})`}:</strong> ₹${total.toLocaleString()}</p>
-        <p><strong>Average expense:</strong> ₹${expenses.length ? Math.round(total / expenses.length).toLocaleString() : 0}</p>
+        <p><strong>${T('Total spent')}${filterCategory === 'All' ? '' : ` (${T(filterCategory)})`}:</strong> ₹${total.toLocaleString()}</p>
+        <p><strong>${T('Average expense:')}</strong> ₹${expenses.length ? Math.round(total / expenses.length).toLocaleString() : 0}</p>
         <table class="tool-table">
-          <thead><tr><th>Category</th><th>Amount</th></tr></thead>
-          <tbody>${Object.entries(categoryTotals).map(([cat, amount]) => `<tr><td>${cat}</td><td>₹${amount.toLocaleString()}</td></tr>`).join('')}</tbody>
+          <thead><tr><th>${T('Category')}</th><th>${T('Amount')}</th></tr></thead>
+          <tbody>${Object.entries(categoryTotals).map(([cat, amount]) => `<tr><td>${T(cat)}</td><td>₹${amount.toLocaleString()}</td></tr>`).join('')}</tbody>
         </table>
       `;
 
       if (!expenses.length) {
-        expenseList.innerHTML = '<div class="tool-item"><p>No expenses match the selected filter.</p></div>';
+        expenseList.innerHTML = `<div class="tool-item"><p>${T('No expenses match the selected filter.')}</p></div>`;
       } else {
         expenseList.innerHTML = expenses.slice().reverse().map(item => `
           <div class="tool-item">
             <div class="tool-item-head">
-              <h4>₹${Number(item.amount).toLocaleString()} · ${item.category}</h4>
-              <button type="button" class="tool-delete-btn" data-id="${item.id}">Delete</button>
+              <h4>₹${Number(item.amount).toLocaleString()} · ${T(item.category)}</h4>
+              <button type="button" class="tool-delete-btn" data-id="${item.id}">${T('Delete')}</button>
             </div>
-            <small>${item.date || 'No date'} · ${item.note || 'No note'}</small>
+            <small>${item.date || T('No date')} · ${item.note || T('No note')}</small>
           </div>
         `).join('');
         expenseList.querySelectorAll('.tool-delete-btn').forEach(btn => btn.addEventListener('click', () => deleteExpense(btn.dataset.id)));
       }
+      rerunTranslation();
     }
     function setBudgetGoal() {
       const value = Number(budgetGoal.value);
@@ -1868,6 +2028,7 @@
       document.body.style.overflow = 'hidden';
       renderSafetyContacts();
       safetyFeedback.textContent = '';
+      rerunTranslation();
     }
     function closeSafety() {
       safetyOverlay.classList.remove('open');
@@ -1875,26 +2036,28 @@
       document.body.style.overflow = '';
     }
     function setSafetyFeedback(message) {
-      safetyFeedback.textContent = message;
-      setTimeout(() => { if (safetyFeedback.textContent === message) safetyFeedback.textContent = ''; }, 3000);
+      const translated = T(message);
+      safetyFeedback.textContent = translated;
+      setTimeout(() => { if (safetyFeedback.textContent === translated) safetyFeedback.textContent = ''; }, 3000);
     }
     function renderSafetyContacts() {
       const contacts = JSON.parse(localStorage.getItem('soloSafarSafetyContacts') || '[]');
       if (!contacts.length) {
-        contactList.innerHTML = '<div class="tool-item"><p>No emergency contacts saved yet.</p></div>';
+        contactList.innerHTML = `<div class="tool-item"><p>${T('No emergency contacts saved yet.')}</p></div>`;
+        rerunTranslation();
         return;
       }
       contactList.innerHTML = contacts.slice().reverse().map(contact => `
         <div class="tool-item">
           <div class="tool-item-head">
             <h4>${contact.name}</h4>
-            <button type="button" class="tool-delete-btn" data-id="${contact.id}">Delete</button>
+            <button type="button" class="tool-delete-btn" data-id="${contact.id}">${T('Delete')}</button>
           </div>
-          <small>${contact.relation} · <a href="tel:+91${contact.phone}">+91 ${contact.phone}</a></small>
+          <small>${T(contact.relation)} · <a href="tel:+91${contact.phone}">+91 ${contact.phone}</a></small>
         </div>
       `).join('');
-      // attach delete handlers
       contactList.querySelectorAll('.tool-delete-btn').forEach(btn => btn.addEventListener('click', () => deleteSafetyContact(btn.dataset.id)));
+      rerunTranslation();
     }
     function saveSafetyContact() {
       const name = contactName.value.trim();
@@ -1975,36 +2138,7 @@
     closeSafetyBtn.addEventListener('click', closeSafety);
     safetyOverlay.addEventListener('click', event => { if (event.target === safetyOverlay) closeSafety(); });
 
-    document.querySelectorAll('.dash-card').forEach(card => {
-      const feature = card.dataset.feature;
-      card.addEventListener('click', () => {
-        if (feature === 'plan') {
-          openPlanner();
-          return;
-        }
-        if (feature === 'find') {
-          openFinders();
-          return;
-        }
-        if (feature === 'journal') {
-          openJournal();
-          return;
-        }
-        if (feature === 'budget') {
-          openBudget();
-          return;
-        }
-        if (feature === 'safety') {
-          openSafety();
-          return;
-        }
-        const title = card.querySelector('.dash-title').textContent;
-        dashboardNote.textContent = `${title} selected — coming soon on SoloSafar.`;
-        dashboardNote.classList.add('visible');
-        setTimeout(() => dashboardNote.classList.remove('visible'), 2800);
-      });
-    });
+    bindToolCards();
   </script>
-  <script src="lang.js"></script>
 </body>
 </html>

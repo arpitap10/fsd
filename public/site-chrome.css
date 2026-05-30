@@ -1,0 +1,115 @@
+/* Shared SoloSafar header + manifesto ribbon (homepage + destination pages) */
+
+.site-chrome {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 200;
+}
+
+.site-nav {
+  padding: 18px 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(244, 239, 230, 0.96);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(26, 18, 8, 0.08);
+}
+
+.site-nav .nav-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2rem;
+  letter-spacing: 4px;
+  color: var(--warm-black);
+  text-decoration: none;
+}
+
+.site-nav .nav-links {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.site-nav .nav-links a {
+  text-decoration: none;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--warm-black);
+  transition: color 0.25s;
+}
+
+.site-nav .nav-links a:hover {
+  color: var(--rust);
+}
+
+.site-nav .nav-btn {
+  border: 1.5px solid var(--warm-black);
+  padding: 8px 18px;
+  border-radius: 2px;
+}
+
+.site-manifesto {
+  background: var(--rust);
+  padding: 14px 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.site-manifesto .manifesto-track {
+  display: inline-flex;
+  gap: 48px;
+  animation: siteMarquee 25s linear infinite;
+}
+
+.site-manifesto span {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.35rem;
+  letter-spacing: 4px;
+  color: rgba(244, 239, 230, 0.92);
+}
+
+.site-manifesto .dot {
+  color: var(--cream);
+}
+
+@keyframes siteMarquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* Destination pages: nav only (no orange manifesto ribbon) */
+body.has-site-chrome {
+  padding-top: 76px;
+}
+
+body.has-site-chrome .dest-hero {
+  padding-top: 24px;
+  min-height: calc(100vh - 76px);
+}
+
+body.has-site-chrome .site-manifesto {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .site-nav {
+    padding: 14px 20px;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .site-nav .nav-links {
+    gap: 14px 18px;
+  }
+
+  body.has-site-chrome {
+    padding-top: 120px;
+  }
+}

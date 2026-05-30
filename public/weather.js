@@ -105,6 +105,11 @@ function getPageDestination() {
   return title.trim();
 }
 
+function translateWeatherString(text) {
+  if (!text || typeof getTranslationForText !== 'function') return text;
+  return getTranslationForText(text) || text;
+}
+
 function renderWeatherPanel() {
   const destination = getPageDestination();
   const data = DESTINATION_WEATHER[destination] || {
@@ -112,7 +117,6 @@ function renderWeatherPanel() {
     weekly: []
   };
 
-  // Just populate the existing section — do NOT inject a new one
   const locationEl = document.getElementById('weatherLocation');
   if (locationEl) locationEl.textContent = destination;
 
@@ -120,19 +124,29 @@ function renderWeatherPanel() {
   const gridEl = document.getElementById('weatherGrid');
 
   if (summaryEl) {
-    summaryEl.textContent = data.description;
+    summaryEl.textContent = translateWeatherString(data.description);
   }
 
   if (gridEl && data.weekly.length) {
     gridEl.innerHTML = data.weekly.map(item => `
       <article class="weather-card">
-        <div class="weather-day">${item.day}</div>
+        <div class="weather-day">${translateWeatherString(item.day)}</div>
         <div class="weather-icon">${item.icon}</div>
         <div class="weather-temp"><strong>${item.high}</strong> / ${item.low}</div>
-        <div class="weather-note">${item.note}</div>
+        <div class="weather-note">${translateWeatherString(item.note)}</div>
       </article>
     `).join('');
   }
 }
 
-document.addEventListener('DOMContentLoaded', renderWeatherPanel);
+function bootWeatherPanel() {
+  renderWeatherPanel();
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', bootWeatherPanel);
+} else {
+  bootWeatherPanel();
+}
+
+window.addEventListener('languageChanged', renderWeatherPanel);

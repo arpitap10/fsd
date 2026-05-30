@@ -1,6 +1,11 @@
 import os
 import re
+import sys
 from html.parser import HTMLParser
+
+if sys.platform.startswith('win'):
+    sys.stdout.reconfigure(encoding='utf-8')
+
 
 class TextExtractor(HTMLParser):
     def __init__(self):

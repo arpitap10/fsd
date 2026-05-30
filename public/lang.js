@@ -10,6 +10,8 @@ const TRANSLATIONS = {
     'nav.signOut': 'Sign Out',
     'nav.back': 'Back to Home',
     'hero.title': 'Where Will<br>You <span>Go?</span>',
+    'hero.quote': '“Travel far enough to meet yourself.”',
+    'marquee.tagline': 'SoloSafar — every view is a story.',
     'hero.tagline': 'Discover India — solo travel made strikingly simple.',
     'section.count': '08 destinations',
     'feature1.title': 'Tailored for Solo Travelers',
@@ -18,8 +20,15 @@ const TRANSLATIONS = {
     'feature2.text': 'Authentic food, hidden stays, and cultural experiences beyond the tourist trail. Real India.',
     'feature3.title': 'Plan, Save & Go',
     'feature3.text': 'Enter your travel dates, get an instant budget estimate, and save your trip details.',
-    'dashboard.title': 'Tools for your solo travel journey',
-    'dashboard.copy': 'Everything you need to plan, connect and stay safe on the road.',
+    'dashboard.title': 'Everything you need. All in one place.',
+    'dashboard.copy': 'Interactive tools designed for the modern traveler.',
+    'tools.plan.desc': 'Plan routes, build itineraries and discover amazing destinations.',
+    'tools.find.desc': 'Connect with solo travelers and find travel buddies.',
+    'tools.budget.desc': 'Keep track of your expenses and travel smartly.',
+    'tools.journal.desc': 'Write your stories, save moments and relive your journey.',
+    'tools.safety.desc': 'Stay safe with verified tips, emergency contacts and travel alerts.',
+    'tools.footer': 'All tools work together seamlessly. Plan, connect, track, document and stay safe — your entire journey, simplified.',
+    'tools.howItWorks': 'How it works',
     'dashboard.ai.title': 'AI Recommendations',
     'dashboard.ai.text': 'Get personalized destination suggestions',
     'dashboard.plan.title': 'Plan a Trip',
@@ -48,6 +57,105 @@ const TRANSLATIONS = {
     'planner.days': 'Number of Days',
     'planner.date': 'Travel Date',
     'planner.saveBtn': 'Save My Trip →',
+    'planner.badge': 'Trip Planner',
+    'planner.modalTitle': 'Build your next itinerary',
+    'planner.intro': 'Choose your destination, travel dates and style. Get an instant day plan, budget estimate and save it for later.',
+    'planner.destinationLabel': 'Destination',
+    'planner.startDateLabel': 'Start Date',
+    'planner.endDateLabel': 'End Date',
+    'planner.styleLabel': 'Travel Style',
+    'planner.notesLabel': 'Notes',
+    'planner.generateBtn': 'Generate Plan',
+    'planner.viewSavedBtn': 'View Saved Trips',
+    'planner.shareBtn': 'Share',
+    'planner.summaryTitle': 'Your trip preview will appear here.',
+    'planner.summaryHint': 'Generate a plan to see your destination highlights, budget estimate, and day-by-day itinerary.',
+    'find.badge': 'Find Travelers',
+    'find.modalTitle': 'Connect with fellow adventurers',
+    'find.intro': 'Filter by destination, dates, and interests. Discover travelers ready to meet, share plans, or explore together.',
+    'find.destinationLabel': 'Destination',
+    'find.startDateLabel': 'Travel from',
+    'find.endDateLabel': 'Travel to',
+    'find.interestLabel': 'Interest',
+    'journal.badge': 'Travel Journal',
+    'journal.modalTitle': 'Document your adventures',
+    'journal.intro': 'Capture your journey notes, moods, and memories in one place.',
+    'journal.dateLabel': 'Date',
+    'journal.titleLabel': 'Entry title',
+    'journal.moodLabel': 'Mood',
+    'journal.entryLabel': 'Entry',
+    'journal.visibilityLabel': 'Visibility',
+    'journal.authorLabel': 'Author name',
+    'journal.locationLabel': 'Location',
+    'journal.searchLabel': 'Search entries',
+    'journal.saveBtn': 'Save Entry',
+    'journal.viewBtn': 'View Entries',
+    'journal.exportBtn': 'Export',
+    'journal.clearBtn': 'Clear All',
+    'journal.summaryTitle': 'Journal at a glance',
+    'journal.summaryHint': 'Save your reflections and browse your latest entries.',
+    'budget.badge': 'Track Budget',
+    'budget.modalTitle': 'Monitor your expenses',
+    'budget.intro': 'Log costs, compare categories, and keep the budget on track while you travel.',
+    'budget.dateLabel': 'Date',
+    'budget.categoryLabel': 'Category',
+    'budget.amountLabel': 'Amount',
+    'budget.goalLabel': 'Budget Goal',
+    'budget.filterLabel': 'Filter by',
+    'budget.noteLabel': 'Note',
+    'budget.setGoalBtn': 'Set Goal',
+    'budget.addBtn': 'Add Expense',
+    'budget.exportBtn': 'Export',
+    'budget.resetBtn': 'Reset',
+    'budget.clearBtn': 'Clear All',
+    'budget.summaryTitle': 'Budget Summary',
+    'budget.summaryHint': 'Track your spending and see where your money goes.',
+    'budget.expenseDateLabel': 'Expense date',
+    'budget.amountInrLabel': 'Amount (INR)',
+    'budget.tripGoalLabel': 'Trip budget goal (INR)',
+    'budget.filterCategoryLabel': 'Filter by category',
+    'budget.amountPlaceholder': 'Enter amount',
+    'budget.goalPlaceholder': 'Set your target budget',
+    'budget.notePlaceholder': 'Taxi, meal, souvenir, etc.',
+    'budget.exportCsvBtn': 'Export CSV',
+    'planner.notesPlaceholder': 'Add preferences, must-see spots, or special notes',
+    'safety.namePlaceholder': 'Friend, family, local contact',
+    'safety.relationPlaceholder': 'Relation or role',
+    'ui.transport': 'Transport',
+    'ui.food': 'Food',
+    'ui.stay': 'Stay',
+    'ui.activities': 'Activities',
+    'ui.shopping': 'Shopping',
+    'ui.all': 'All',
+    'ui.comfort': 'Comfort',
+    'ui.luxury': 'Luxury',
+    'ui.budget': 'Budget',
+    'ui.day': 'day',
+    'ui.days': 'days',
+    'safety.badge': 'Safety Tools',
+    'safety.modalTitle': 'Manage emergency contacts',
+    'safety.intro': 'Keep your vital contacts close and review key safety checks for your trip.',
+    'safety.nameLabel': 'Contact Name',
+    'safety.phoneLabel': 'Phone Number',
+    'safety.relationLabel': 'Relation',
+    'safety.saveBtn': 'Save Contact',
+    'safety.tipsBtn': 'Safety Tips',
+    'safety.callPoliceBtn': 'Call Police',
+    'safety.callAmbulanceBtn': 'Call Ambulance',
+    'safety.sosBtn': 'Emergency SOS',
+    'safety.summaryTitle': 'Safety Checklist',
+    'safety.summaryHint': 'Keep these tips in mind while traveling.',
+    'safety.checklistTitle': 'Pre-Trip Checklist',
+    'safety.check1': 'Share your itinerary with family',
+    'safety.check2': 'Register with your embassy (if traveling abroad)',
+    'safety.check3': 'Save emergency contact numbers',
+    'safety.check4': 'Get travel insurance',
+    'nav.tools': 'Tools',
+    'nav.blog': 'Blog',
+    'dashboard.label': 'Tools for your journey',
+    'footer.destinations': 'Destinations',
+    'footer.copyright': '© 2024 SoloSafar. All rights reserved.',
+    'footer.soloNote': 'Travel solo. Travel safe. Travel smart.',
     'review.shareHeading': 'Share Your Story',
     'review.placeholder': 'What was your experience like?',
     'review.button': 'Post Review →',
@@ -167,6 +275,15 @@ const TRANSLATIONS = {
     'dest.tag.6': 'Mountains · Monasteries · Mist',
     'dest.tag.7': 'Salt Desert · Folk Art · Festivals',
     'dest.tag.8': 'Tribes · Valleys · Hornbill',
+    'dest.name.1': 'Goa',
+    'dest.name.2': 'Leh Ladakh',
+    'dest.name.3': 'Manali',
+    'dest.name.4': 'Kerala',
+    'dest.name.5': 'Udaipur',
+    'dest.name.6': 'Sikkim',
+    'dest.name.7': 'Kutch',
+    'dest.name.8': 'Nagaland',
+    'udaipur.hero.destination': '<em>Royal</em><br>Udaipur',
     'page.title': 'SoloSafar — India Awaits',
     'Chat — SoloSafar': 'Chat — SoloSafar',
     'Welcome to the chat! Ask about the best time to visit any destination.': 'Welcome to the chat! Ask about the best time to visit any destination.',
@@ -191,6 +308,8 @@ const TRANSLATIONS = {
     'nav.signOut': 'साइन आउट',
     'nav.back': 'घर वापस',
     'hero.title': 'तुम कहाँ जाओगे? <br><span>भारत का सफर</span>',
+    'hero.quote': '“इतना दूर यात्रा करो कि खुद से मिलो।”',
+    'marquee.tagline': 'सोलो सफ़र हर नज़ारा कहानी ऐ।',
     'hero.tagline': 'इंडिया की खोज करें — सोलो ट्रैवल और भी आसान।',
     'section.count': '08 गंतव्य',
     'feature1.title': 'सोलो यात्रियों के लिए',
@@ -199,22 +318,22 @@ const TRANSLATIONS = {
     'feature2.text': 'प्रामाणिक भोजन, छुपे ठिकाने, और स्थानीय भारत का अनुभव।',
     'feature3.title': 'योजना बनाएं, बचत करें, चलें',
     'feature3.text': 'यात्रा तिथियाँ डालें, बजट पाएं, और अपनी योजना बचाएं।',
-    'dashboard.title': 'Tools for your solo travel journey',
-    'dashboard.copy': 'Everything you need to plan, connect and stay safe on the road.',
-    'dashboard.ai.title': 'AI Recommendations',
-    'dashboard.ai.text': 'Get personalized destination suggestions',
-    'dashboard.plan.title': 'Plan a Trip',
-    'dashboard.plan.text': 'Create your next itinerary',
-    'dashboard.find.title': 'Find Travelers',
-    'dashboard.find.text': 'Connect with fellow adventurers',
-    'dashboard.journal.title': 'Travel Journal',
-    'dashboard.journal.text': 'Document your adventures',
-    'dashboard.budget.title': 'Track Budget',
-    'dashboard.budget.text': 'Monitor your expenses',
-    'dashboard.safety.title': 'Safety Tools',
-    'dashboard.safety.text': 'Manage emergency contacts',
-    'dashboard.card.action': 'Explore',
-    'dashboard.note': 'Tap a card to preview the tool.',
+    'dashboard.title': 'आपकी सोलो यात्रा के लिए टूल्स',
+    'dashboard.copy': 'सड़क पर योजना बनाने, जोड़ने और सुरक्षित रहने के लिए सब कुछ।',
+    'dashboard.ai.title': 'AI सुझाव',
+    'dashboard.ai.text': 'व्यक्तिगत गंतव्य सुझाव पाएं',
+    'dashboard.plan.title': 'यात्रा योजना बनाएं',
+    'dashboard.plan.text': 'अपना अगला यात्रा कार्यक्रम बनाएं',
+    'dashboard.find.title': 'यात्रियों को खोजें',
+    'dashboard.find.text': 'साथी यात्रियों से जुड़ें',
+    'dashboard.journal.title': 'यात्रा डायरी',
+    'dashboard.journal.text': 'अपने अनुभव दर्ज करें',
+    'dashboard.budget.title': 'बजट ट्रैक करें',
+    'dashboard.budget.text': 'अपने खर्चों की निगरानी करें',
+    'dashboard.safety.title': 'सुरक्षा उपकरण',
+    'dashboard.safety.text': 'आपातकालीन संपर्क प्रबंधित करें',
+    'dashboard.card.action': 'खोजें',
+    'dashboard.note': 'उपकरण का पूर्वावलोकन करने के लिए कार्ड टैप करें।',
     'footer.tagline': 'अकेले यात्रा करें, फिर भी आसान तरीके से।',
     'footer.info': 'जानकारी',
     'chat.label': 'यात्रियों की बातचीत',
@@ -346,6 +465,15 @@ const TRANSLATIONS = {
     'dest.tag.6': 'पर्वत · मठ · धुंध',
     'dest.tag.7': 'नमक मरुस्थल · लोक कला · उत्सव',
     'dest.tag.8': 'जनजातियाँ · घाटियाँ · हॉर्नबिल',
+    'dest.name.1': 'गोवा',
+    'dest.name.2': 'लेह लद्दाख',
+    'dest.name.3': 'मनाली',
+    'dest.name.4': 'केरल',
+    'dest.name.5': 'उदयपुर',
+    'dest.name.6': 'सिक्किम',
+    'dest.name.7': 'कच्छ',
+    'dest.name.8': 'नगालैंड',
+    'udaipur.hero.destination': '<em>शाही</em><br>उदयपुर',
     'page.title': 'SoloSafar — भारत आपका इंतजार कर रहा है',
     'Chat — SoloSafar': 'चैट — SoloSafar',
     'Welcome to the chat! Ask about the best time to visit any destination.': 'चैट में आपका स्वागत है! किसी भी गंतव्य पर जाने का सबसे अच्छा समय पूछें।',
@@ -360,7 +488,105 @@ const TRANSLATIONS = {
     'manifesto.three': 'भारत की खोज करें',
     'manifesto.four': 'अकेला पर कभी अकेला नहीं',
     'manifesto.five': '08 गंतव्य',
-    'manifesto.six': 'बोलो तो सोलो'
+    'manifesto.six': 'बोलो तो सोलो',
+  
+    'dashboard.label': 'का सोलो डैशबोर्ड',
+    'nav.tools': 'उपकरण',
+    'nav.blog': 'ब्लॉग',
+    'footer.destinations': 'गंतव्य',
+    'planner.badge': 'यात्रा योजनाकार',
+    'planner.modalTitle': 'अपना अगला यात्रा कार्यक्रम बनाएं',
+    'planner.intro': 'अपना गंतव्य, यात्रा तिथियां और शैली चुनें। तुरंत दिन की योजना, बजट अनुमान पाएं और बाद के लिए सहेजें।',
+    'planner.destinationLabel': 'गंतव्य',
+    'planner.startDateLabel': 'शुरुआत की तारीख',
+    'planner.endDateLabel': 'समाप्ति तारीख',
+    'planner.styleLabel': 'यात्रा शैली',
+    'planner.notesLabel': 'नोट्स',
+    'planner.generateBtn': 'योजना बनाएं',
+    'planner.viewSavedBtn': 'सहेजी यात्राएं देखें',
+    'planner.shareBtn': 'साझा करें',
+    'planner.summaryTitle': 'आपका यात्रा पूर्वावलोकन यहाँ दिखेगा।',
+    'planner.summaryHint': 'गंतव्य की मुख्य बातें, बजट और दिन-दर-दिन यात्रा देखने के लिए योजना बनाएं।',
+    'find.badge': 'यात्री खोजें',
+    'find.modalTitle': 'साथी यात्रियों से जुड़ें',
+    'find.intro': 'गंतव्य, तारीखों और रुचियों के अनुसार फ़िल्टर करें। मिलने, योजनाएं साझा करने या एक साथ यात्रा करने के लिए तैयार यात्रियों को खोजें।',
+    'find.destinationLabel': 'गंतव्य',
+    'find.startDateLabel': 'यात्रा से',
+    'find.endDateLabel': 'यात्रा तक',
+    'find.interestLabel': 'रुचि',
+    'journal.badge': 'यात्रा डायरी',
+    'journal.modalTitle': 'अपने अनुभव दर्ज करें',
+    'journal.intro': 'एक जगह अपनी यात्रा के नोट्स, मूड और यादें सहेजें।',
+    'journal.dateLabel': 'तारीख',
+    'journal.titleLabel': 'प्रविष्टि शीर्षक',
+    'journal.moodLabel': 'मनोदशा',
+    'journal.entryLabel': 'प्रविष्टि',
+    'journal.visibilityLabel': 'दृश्यता',
+    'journal.authorLabel': 'लेखक नाम',
+    'journal.locationLabel': 'स्थान',
+    'journal.searchLabel': 'प्रविष्टियां खोजें',
+    'journal.saveBtn': 'प्रविष्टि सहेजें',
+    'journal.viewBtn': 'प्रविष्टियां देखें',
+    'journal.exportBtn': 'निर्यात करें',
+    'journal.clearBtn': 'सभी हटाएं',
+    'journal.summaryTitle': 'डायरी का अवलोकन',
+    'journal.summaryHint': 'अपने विचार सहेजें और नवीनतम प्रविष्टियां देखें।',
+    'budget.badge': 'बजट ट्रैक करें',
+    'budget.modalTitle': 'अपने खर्चों की निगरानी करें',
+    'budget.intro': 'लागत दर्ज करें, श्रेणियों की तुलना करें और यात्रा के दौरान बजट पर नजर रखें।',
+    'budget.dateLabel': 'तारीख',
+    'budget.categoryLabel': 'श्रेणी',
+    'budget.amountLabel': 'राशि',
+    'budget.goalLabel': 'बजट लक्ष्य',
+    'budget.filterLabel': 'फ़िल्टर करें',
+    'budget.noteLabel': 'नोट',
+    'budget.setGoalBtn': 'लक्ष्य निर्धारित करें',
+    'budget.addBtn': 'खर्च जोड़ें',
+    'budget.exportBtn': 'निर्यात करें',
+    'budget.resetBtn': 'रीसेट करें',
+    'budget.clearBtn': 'सभी हटाएं',
+    'budget.summaryTitle': 'बजट सारांश',
+    'budget.summaryHint': 'अपने खर्चों को ट्रैक करें और देखें कि पैसा कहां जा रहा है।',
+    'budget.expenseDateLabel': 'खर्च की तारीख',
+    'budget.amountInrLabel': 'राशि (INR)',
+    'budget.tripGoalLabel': 'यात्रा बजट लक्ष्य (INR)',
+    'budget.filterCategoryLabel': 'श्रेणी से फ़िल्टर',
+    'budget.amountPlaceholder': 'राशि दर्ज करें',
+    'budget.goalPlaceholder': 'अपना लक्ष्य बजट सेट करें',
+    'budget.notePlaceholder': 'टैक्सी, भोजन, स्मृति चिन्ह, आदि',
+    'budget.exportCsvBtn': 'CSV निर्यात',
+    'planner.notesPlaceholder': 'प्राथमिकताएँ, दर्शनीय स्थान या विशेष नोट्स जोड़ें',
+    'safety.namePlaceholder': 'मित्र, परिवार, स्थानीय संपर्क',
+    'safety.relationPlaceholder': 'संबंध या भूमिका',
+    'ui.transport': 'यातायात',
+    'ui.food': 'भोजन',
+    'ui.stay': 'ठहराव',
+    'ui.activities': 'गतिविधियाँ',
+    'ui.shopping': 'खरीदारी',
+    'ui.all': 'सभी',
+    'ui.comfort': 'आराम',
+    'ui.luxury': 'लक्ज़री',
+    'ui.budget': 'बजट',
+    'ui.day': 'दिन',
+    'ui.days': 'दिन',
+    'safety.badge': 'सुरक्षा उपकरण',
+    'safety.modalTitle': 'आपातकालीन संपर्क प्रबंधित करें',
+    'safety.intro': 'अपने महत्वपूर्ण संपर्क पास रखें और यात्रा के लिए सुरक्षा जांच सूची देखें।',
+    'safety.nameLabel': 'संपर्क नाम',
+    'safety.phoneLabel': 'फ़ोन नंबर',
+    'safety.relationLabel': 'संबंध',
+    'safety.saveBtn': 'संपर्क सहेजें',
+    'safety.tipsBtn': 'सुरक्षा सुझाव',
+    'safety.callPoliceBtn': 'पुलिस को कॉल करें',
+    'safety.callAmbulanceBtn': 'एम्बुलेंस को कॉल करें',
+    'safety.sosBtn': 'आपातकालीन SOS',
+    'safety.summaryTitle': 'सुरक्षा चेकलिस्ट',
+    'safety.summaryHint': 'यात्रा के दौरान इन सुझावों को याद रखें।',
+    'safety.checklistTitle': 'यात्रा पूर्व चेकलिस्ट',
+    'safety.check1': 'परिवार के साथ अपना यात्रा कार्यक्रम साझा करें',
+    'safety.check2': 'अपने दूतावास में पंजीकरण करें (विदेश यात्रा पर)',
+    'safety.check3': 'आपातकालीन नंबर सहेजें',
+    'safety.check4': 'यात्रा बीमा लें',
   },
   kn: {
     'nav.languageLabel': 'ಭಾಷೆ',
@@ -370,6 +596,8 @@ const TRANSLATIONS = {
     'nav.signOut': 'ಸೈನ್ ಔಟ್',
     'nav.back': 'ಹೋಂಗೆ ಮರಳಿ',
     'hero.title': 'ನೀವು ಎಲ್ಲಿಗೆ ಹೋಗುತ್ತೀರಿ? <br><span>ಭಾರತವನ್ನು ಅನ್ವೇಷಿಸಿ</span>',
+    'hero.quote': '“ನಿಮ್ಮನ್ನು ಭೇಟಿಯಾಗಲು ಸಾಕಷ್ಟು ದೂರ ಪ್ರಯಾಣ ಮಾಡಿ.”',
+    'marquee.tagline': 'ಸೋಲೋ ಸಫಾರ್ — ಪ್ರತಿ ನೋಟವೂ ಒಂದು ಕಥೆ.',
     'hero.tagline': 'ಒಬ್ಬೊಬ್ಬರಿಗಾಗಿ ಭಾರತವನ್ನು ಸುಲಭವಾಗಿ ಅನ್ವೇಷಿಸಿ.',
     'section.count': '08 ಗಮ್ಯಸ್ಥಾನಗಳು',
     'feature1.title': 'ಒಬ್ಬರಿಗಾಗಿ ರೂಪಿಸಲಾಗಿದೆ',
@@ -378,22 +606,22 @@ const TRANSLATIONS = {
     'feature2.text': 'ಸ್ಥಳೀಯ ಆಹಾರ, ಗುಪ್ತ ತಾಣಗಳು, ಮತ್ತು असಲೀ ಭಾರತ.',
     'feature3.title': 'ಯೋಜನೆ ಮಾಡಿ, ಉಳಿಸಿ, ಹೊರಟಿರಿ',
     'feature3.text': 'ಪ್ರಯಾಣ ದಿನಾಂಕ ಬರೆಯಿರಿ, ತಕ್ಷಣದ ಬಜೆಟ್ ಪಡೆಯಿರಿ, ಮತ್ತು ಸೇವ್ ಮಾಡಿ.',
-    'dashboard.title': 'Tools for your solo travel journey',
-    'dashboard.copy': 'Everything you need to plan, connect and stay safe on the road.',
-    'dashboard.ai.title': 'AI Recommendations',
-    'dashboard.ai.text': 'Get personalized destination suggestions',
-    'dashboard.plan.title': 'Plan a Trip',
-    'dashboard.plan.text': 'Create your next itinerary',
-    'dashboard.find.title': 'Find Travelers',
-    'dashboard.find.text': 'Connect with fellow adventurers',
-    'dashboard.journal.title': 'Travel Journal',
-    'dashboard.journal.text': 'Document your adventures',
-    'dashboard.budget.title': 'Track Budget',
-    'dashboard.budget.text': 'Monitor your expenses',
-    'dashboard.safety.title': 'Safety Tools',
-    'dashboard.safety.text': 'Manage emergency contacts',
-    'dashboard.card.action': 'Explore',
-    'dashboard.note': 'Tap a card to preview the tool.',
+    'dashboard.title': 'ನಿಮ್ಮ ಸೋಲೋ ಪ್ರಯಾಣಕ್ಕಾಗಿ ಸಾಧನಗಳು',
+    'dashboard.copy': 'ರಸ್ತೆಯಲ್ಲಿ ಯೋಜಿಸಲು, ಸಂಪರ್ಕಿಸಲು ಮತ್ತು ಸುರಕ್ಷಿತವಾಗಿ ಇರಲು ಅಗತ್ಯವಾದ ಎಲ್ಲವೂ.',
+    'dashboard.ai.title': 'AI ಶಿಫಾರಸುಗಳು',
+    'dashboard.ai.text': 'ವೈಯಕ್ತಿಕ ಗಮ್ಯಸ್ಥಾನ ಸಲಹೆಗಳನ್ನು ಪಡೆಯಿರಿ',
+    'dashboard.plan.title': 'ಪ್ರವಾಸ ಯೋಜಿಸಿ',
+    'dashboard.plan.text': 'ನಿಮ್ಮ ಮುಂದಿನ ಕಾರ್ಯಕ್ರಮ ರಚಿಸಿ',
+    'dashboard.find.title': 'ಪ್ರಯಾಣಿಕರನ್ನು ಹುಡುಕಿ',
+    'dashboard.find.text': 'ಸಹ ಸಾಹಸಿಗರೊಂದಿಗೆ ಸಂಪರ್ಕಿಸಿ',
+    'dashboard.journal.title': 'ಪ್ರಯಾಣ ಡೈರಿ',
+    'dashboard.journal.text': 'ನಿಮ್ಮ ಸಾಹಸಗಳನ್ನು ದಾಖಲಿಸಿ',
+    'dashboard.budget.title': 'ಬಜೆಟ್ ಟ್ರ್ಯಾಕ್ ಮಾಡಿ',
+    'dashboard.budget.text': 'ನಿಮ್ಮ ವೆಚ್ಚಗಳನ್ನು ನಿಗರಾನಿ ಮಾಡಿ',
+    'dashboard.safety.title': 'ಸುರಕ್ಷತಾ ಸಾಧನಗಳು',
+    'dashboard.safety.text': 'ತುರ್ತು ಸಂಪರ್ಕಗಳನ್ನು ನಿರ್ವಹಿಸಿ',
+    'dashboard.card.action': 'ಅನ್ವೇಷಿಸಿ',
+    'dashboard.note': 'ಸಾಧನ ಪೂರ್ವವೀಕ್ಷಣೆಗಾಗಿ ಕಾರ್ಡ್ ಟ್ಯಾಪ್ ಮಾಡಿ.',
     'footer.tagline': 'ಒೊಬ್ಬೊಳ್ಳುವುದಿಲ್ಲದೆ ಒಂದು ಸುಲಭ ಪ್ರಯಾಣ.',
     'footer.info': 'ಮಾಹಿತಿ',
     'chat.label': 'ಪ್ರಯಾಣಿಕರ ಚಾಟು',
@@ -527,6 +755,16 @@ const TRANSLATIONS = {
     'dest.tag.6': 'ಪರ್ವತಗಳು · ಮಠಗಳು · ಹೊಗೆ',
     'dest.tag.7': 'ಉಪ್ಪು ಮರುಭೂಮಿ · ಜನರ ಕಲಾ · ಹಬ್ಬಗಳು',
     'dest.tag.8': 'ಜಾತಿಗಳು · ಕಣಿವೆಗಳು · ಹಾರ್ನ್‌ಬಿಲ್',
+
+    'dest.name.1': 'ಗೋವಾ',
+    'dest.name.2': 'ಲೇಹ್ ಲಡಾಕ್',
+    'dest.name.3': 'ಮನಾಲಿ',
+    'dest.name.4': 'ಕೇರಳ',
+    'dest.name.5': 'ಉದಯಪುರ',
+    'dest.name.6': 'ಸಿಕ್ಕಿಂ',
+    'dest.name.7': 'ಕಚ್ಛ',
+    'dest.name.8': 'ನಾಗಾಲ್ಯಾಂಡ್',
+    'udaipur.hero.destination': '<em>ರಾಯಲ್</em><br>ಉದಯಪುರ',
     'page.title': 'SoloSafar — ಭಾರತ ಕರೆಗೆ ಕಾಯುತ್ತದೆ',
     'Chat — SoloSafar': 'ಚಾಟ್ — SoloSafar',
     'Welcome to the chat! Ask about the best time to visit any destination.': 'ಚಾಟ್‌ಗೆ ಸ್ವಾಗತ! ಯಾವುದೇ ಗಮ್ಯಸ್ಥಾನದ ಭೇಟಿಗೆ ಉತ್ತಮ ಸಮಯ ಯಾವುದು ಎಂದು ಕೇಳಿ.',
@@ -541,7 +779,83 @@ const TRANSLATIONS = {
     'manifesto.three': 'ಭಾರತವನ್ನು ಕಂಡುಹಿಡಿಯಿರಿ',
     'manifesto.four': 'ಒಂಟಿಯಾಗಿದ್ದರೂ ಒಂಟಿರೋದು ಇಲ್ಲ',
     'manifesto.five': '08 ಗಮ್ಯಸ್ಥಾನಗಳು',
-    'manifesto.six': 'ಬೋಲೋ ಹೊ ಮಾತನಾಡಿ ಸೋಲೋ'
+    'manifesto.six': 'ಬೋಲೋ ಹೊ ಮಾತನಾಡಿ ಸೋಲೋ',
+  
+    'dashboard.label': 'ನಿಮ್ಮ ಸೋಲೋ ಡ್ಯಾಶ್‌ಬೋರ್ಡ್',
+    'nav.tools': 'ಸಾಧನಗಳು',
+    'nav.blog': 'ಬ್ಲಾಗ್',
+    'footer.destinations': 'ಗಮ್ಯಸ್ಥಾನಗಳು',
+    'planner.badge': 'ಪ್ರಯಾಣ ಯೋಜಕ',
+    'planner.modalTitle': 'ನಿಮ್ಮ ಮುಂದಿನ ಕಾರ್ಯಕ್ರಮ ರಚಿಸಿ',
+    'planner.intro': 'ನಿಮ್ಮ ಗಮ್ಯಸ್ಥಾನ, ಪ್ರಯಾಣ ದಿನಾಂಕ ಮತ್ತು ಶೈಲಿ ಆರಿಸಿ. ತಕ್ಷಣದ ದಿನ ಯೋಜನೆ ಮತ್ತು ಬಜೆಟ್ ಅಂದಾಜು ಪಡೆಯಿರಿ.',
+    'planner.destinationLabel': 'ಗಮ್ಯಸ್ಥಾನ',
+    'planner.startDateLabel': 'ಆರಂಭ ದಿನಾಂಕ',
+    'planner.endDateLabel': 'ಅಂತ್ಯ ದಿನಾಂಕ',
+    'planner.styleLabel': 'ಪ್ರಯಾಣ ಶೈಲಿ',
+    'planner.notesLabel': 'ಟಿಪ್ಪಣಿಗಳು',
+    'planner.generateBtn': 'ಯೋಜನೆ ರಚಿಸಿ',
+    'planner.viewSavedBtn': 'ಉಳಿಸಿದ ಪ್ರಯಾಣಗಳನ್ನು ನೋಡಿ',
+    'planner.shareBtn': 'ಹಂಚಿಕೊಳ್ಳಿ',
+    'planner.summaryTitle': 'ನಿಮ್ಮ ಪ್ರಯಾಣ ಪೂರ್ವವೀಕ್ಷಣೆ ಇಲ್ಲಿ ಕಾಣಿಸುತ್ತದೆ.',
+    'planner.summaryHint': 'ಗಮ್ಯಸ್ಥಾನದ ಮುಖ್ಯಾಂಶಗಳು, ಬಜೆಟ್ ಮತ್ತು ದಿನ-ದಿನದ ಯೋಜನೆ ನೋಡಲು ಯೋಜನೆ ರಚಿಸಿ.',
+    'find.badge': 'ಪ್ರಯಾಣಿಕರನ್ನು ಹುಡುಕಿ',
+    'find.modalTitle': 'ಸಹ ಸಾಹಸಿಗರೊಂದಿಗೆ ಸಂಪರ್ಕಿಸಿ',
+    'find.intro': 'ಗಮ್ಯಸ್ಥಾನ, ದಿನಾಂಕ ಮತ್ತು ಆಸಕ್ತಿಗಳ ಮೂಲಕ ಫಿಲ್ಟರ್ ಮಾಡಿ.',
+    'find.destinationLabel': 'ಗಮ್ಯಸ್ಥಾನ',
+    'find.startDateLabel': 'ಪ್ರಯಾಣ ಆರಂಭ',
+    'find.endDateLabel': 'ಪ್ರಯಾಣ ಅಂತ್ಯ',
+    'find.interestLabel': 'ಆಸಕ್ತಿ',
+    'journal.badge': 'ಪ್ರಯಾಣ ಡೈರಿ',
+    'journal.modalTitle': 'ನಿಮ್ಮ ಸಾಹಸಗಳನ್ನು ದಾಖಲಿಸಿ',
+    'journal.intro': 'ನಿಮ್ಮ ಯಾತ್ರೆಯ ಟಿಪ್ಪಣಿಗಳು, ಮನೋಭಾವ ಮತ್ತು ನೆನಪುಗಳನ್ನು ಒಂದೆಡೆ ಉಳಿಸಿ.',
+    'journal.dateLabel': 'ದಿನಾಂಕ',
+    'journal.titleLabel': 'ಶೀರ್ಷಿಕೆ',
+    'journal.moodLabel': 'ಮನೋಭಾವ',
+    'journal.entryLabel': 'ನಮೂದು',
+    'journal.visibilityLabel': 'ಗೋಚರತೆ',
+    'journal.authorLabel': 'ಲೇಖಕ ಹೆಸರು',
+    'journal.locationLabel': 'ಸ್ಥಳ',
+    'journal.searchLabel': 'ನಮೂದುಗಳನ್ನು ಹುಡುಕಿ',
+    'journal.saveBtn': 'ನಮೂದು ಉಳಿಸಿ',
+    'journal.viewBtn': 'ನಮೂದುಗಳನ್ನು ನೋಡಿ',
+    'journal.exportBtn': 'ರಫ್ತು ಮಾಡಿ',
+    'journal.clearBtn': 'ಎಲ್ಲ ಅಳಿಸಿ',
+    'journal.summaryTitle': 'ಡೈರಿ ಸಾರಾಂಶ',
+    'journal.summaryHint': 'ನಿಮ್ಮ ಆಲೋಚನೆಗಳನ್ನು ಉಳಿಸಿ ಮತ್ತು ಇತ್ತೀಚಿನ ನಮೂದುಗಳನ್ನು ನೋಡಿ.',
+    'budget.badge': 'ಬಜೆಟ್ ಟ್ರ್ಯಾಕ್',
+    'budget.modalTitle': 'ನಿಮ್ಮ ವೆಚ್ಚಗಳನ್ನು ನಿಗರಾನಿ ಮಾಡಿ',
+    'budget.intro': 'ವೆಚ್ಚ ದಾಖಲಿಸಿ, ವಿಭಾಗಗಳನ್ನು ಹೋಲಿಸಿ ಮತ್ತು ಪ್ರಯಾಣದ ಸಮಯ ಬಜೆಟ್ ಮೇಲ್ವಿಚಾರಿಸಿ.',
+    'budget.dateLabel': 'ದಿನಾಂಕ',
+    'budget.categoryLabel': 'ವಿಭಾಗ',
+    'budget.amountLabel': 'ಮೊತ್ತ',
+    'budget.goalLabel': 'ಬಜೆಟ್ ಗುರಿ',
+    'budget.filterLabel': 'ಫಿಲ್ಟರ್ ಮಾಡಿ',
+    'budget.noteLabel': 'ಟಿಪ್ಪಣಿ',
+    'budget.setGoalBtn': 'ಗುರಿ ಹೊಂದಿಸಿ',
+    'budget.addBtn': 'ವೆಚ್ಚ ಸೇರಿಸಿ',
+    'budget.exportBtn': 'ರಫ್ತು ಮಾಡಿ',
+    'budget.resetBtn': 'ಮರುಹೊಂದಿಸಿ',
+    'budget.clearBtn': 'ಎಲ್ಲ ಅಳಿಸಿ',
+    'budget.summaryTitle': 'ಬಜೆಟ್ ಸಾರಾಂಶ',
+    'budget.summaryHint': 'ನಿಮ್ಮ ಖರ್ಚನ್ನು ಟ್ರ್ಯಾಕ್ ಮಾಡಿ ಮತ್ತು ಹಣ ಎಲ್ಲಿ ಹೋಗುತ್ತಿದೆ ನೋಡಿ.',
+    'safety.badge': 'ಸುರಕ್ಷತಾ ಸಾಧನಗಳು',
+    'safety.modalTitle': 'ತುರ್ತು ಸಂಪರ್ಕಗಳನ್ನು ನಿರ್ವಹಿಸಿ',
+    'safety.intro': 'ನಿಮ್ಮ ಮುಖ್ಯ ಸಂಪರ್ಕಗಳನ್ನು ಹತ್ತಿರ ಇಟ್ಟುಕೊಳ್ಳಿ ಮತ್ತು ಪ್ರಮುಖ ಸುರಕ್ಷತಾ ತಪಾಸಣೆಗಳನ್ನು ಪರಿಶೀಲಿಸಿ.',
+    'safety.nameLabel': 'ಸಂಪರ್ಕ ಹೆಸರು',
+    'safety.phoneLabel': 'ಫೋನ್ ಸಂಖ್ಯೆ',
+    'safety.relationLabel': 'ಸಂಬಂಧ',
+    'safety.saveBtn': 'ಸಂಪರ್ಕ ಉಳಿಸಿ',
+    'safety.tipsBtn': 'ಸುರಕ್ಷತಾ ಸಲಹೆಗಳು',
+    'safety.callPoliceBtn': 'ಪೊಲೀಸ್ ಕರೆ ಮಾಡಿ',
+    'safety.callAmbulanceBtn': 'ಅಂಬ್ಯುಲೆನ್ಸ್ ಕರೆ ಮಾಡಿ',
+    'safety.sosBtn': 'ತುರ್ತು SOS',
+    'safety.summaryTitle': 'ಸುರಕ್ಷತಾ ಪರಿಶೀಲನಾ ಪಟ್ಟಿ',
+    'safety.summaryHint': 'ಪ್ರಯಾಣದ ಸಮಯ ಈ ಸಲಹೆಗಳನ್ನು ನೆನಪಿನಲ್ಲಿ ಇಟ್ಟುಕೊಳ್ಳಿ.',
+    'safety.checklistTitle': 'ಪ್ರಯಾಣ ಪೂರ್ವ ಪರಿಶೀಲನಾ ಪಟ್ಟಿ',
+    'safety.check1': 'ಕುಟುಂಬದೊಂದಿಗೆ ನಿಮ್ಮ ಕಾರ್ಯಕ್ರಮ ಹಂಚಿಕೊಳ್ಳಿ',
+    'safety.check2': 'ನಿಮ್ಮ ರಾಯಭಾರ ಕಚೇರಿಯಲ್ಲಿ ನೋಂದಣಿ ಮಾಡಿ (ವಿದೇಶ ಪ್ರಯಾಣದಲ್ಲಿ)',
+    'safety.check3': 'ತುರ್ತು ಸಂಖ್ಯೆಗಳನ್ನು ಉಳಿಸಿ',
+    'safety.check4': 'ಪ್ರಯಾಣ ವಿಮೆ ಪಡೆಯಿರಿ',
   },
   ta: {
     'nav.languageLabel': 'மொழி',
@@ -551,6 +865,8 @@ const TRANSLATIONS = {
     'nav.signOut': 'வெளியேறு',
     'nav.back': 'மீண்டும் வீடு',
     'hero.title': 'நீங்கள் எங்கு செல்லப்போகிறீர்கள்? <br><span>இந்தியாவை கண்டறியவும்</span>',
+    'hero.quote': '“உங்களை சந்திக்க போதுமான தூரம் பயணம் செய்யுங்கள்.”',
+    'marquee.tagline': 'சோலோ சஃபார் — ஒவ்வொரு பார்வையும் ஒரு கதை.',
     'hero.tagline': 'தனியாக பயணிக்க இந்தியாவை எளிமையாக அனுபவியுங்கள்.',
     'section.count': '08 இடங்கள்',
     'feature1.title': 'தனியர் பயணிகளுக்காக',
@@ -559,22 +875,22 @@ const TRANSLATIONS = {
     'feature2.text': 'உள்ளூரின உணவு, மறைந்த தளங்கள் மற்றும் உண்மையான இந்தியா.',
     'feature3.title': 'திட்டமிடவும், சேமிக்கவும், செல்லவும்',
     'feature3.text': 'பயண தேதிகளை உள்ளிடுங்கள், உடனடி பட்ஜெட்டை பெறுங்கள், பயணத்தை சேமிக்கவும்.',
-    'dashboard.title': 'Tools for your solo travel journey',
-    'dashboard.copy': 'Everything you need to plan, connect and stay safe on the road.',
-    'dashboard.ai.title': 'AI Recommendations',
-    'dashboard.ai.text': 'Get personalized destination suggestions',
-    'dashboard.plan.title': 'Plan a Trip',
-    'dashboard.plan.text': 'Create your next itinerary',
-    'dashboard.find.title': 'Find Travelers',
-    'dashboard.find.text': 'Connect with fellow adventurers',
-    'dashboard.journal.title': 'Travel Journal',
-    'dashboard.journal.text': 'Document your adventures',
-    'dashboard.budget.title': 'Track Budget',
-    'dashboard.budget.text': 'Monitor your expenses',
-    'dashboard.safety.title': 'Safety Tools',
-    'dashboard.safety.text': 'Manage emergency contacts',
-    'dashboard.card.action': 'Explore',
-    'dashboard.note': 'Tap a card to preview the tool.',
+    'dashboard.title': 'உங்கள் சோலோ பயணத்திற்கான கருவிகள்',
+    'dashboard.copy': 'திட்டமிட, இணைக்க, பாதுகாப்பாக இருக்க வேண்டியதெல்லாம்.',
+    'dashboard.ai.title': 'AI பரிந்துரைகள்',
+    'dashboard.ai.text': 'தனிப்பட்ட இடப் பரிந்துரைகளை பெறுங்கள்',
+    'dashboard.plan.title': 'பயணம் திட்டமிடுங்கள்',
+    'dashboard.plan.text': 'உங்கள் அடுத்த பயண அட்டவணையை உருவாக்குங்கள்',
+    'dashboard.find.title': 'பயணிகளை கண்டறியுங்கள்',
+    'dashboard.find.text': 'சக சாகசர்களுடன் இணையுங்கள்',
+    'dashboard.journal.title': 'பயண நாட்குறிப்பு',
+    'dashboard.journal.text': 'உங்கள் சாகசங்களை பதிவு செய்யுங்கள்',
+    'dashboard.budget.title': 'பட்ஜெட் கண்காணிக்கவும்',
+    'dashboard.budget.text': 'உங்கள் செலவுகளை கண்காணிக்கவும்',
+    'dashboard.safety.title': 'பாதுகாப்பு கருவிகள்',
+    'dashboard.safety.text': 'அவசர தொடர்புகளை நிர்வகிக்கவும்',
+    'dashboard.card.action': 'ஆராயுங்கள்',
+    'dashboard.note': 'கருவியை முன்னோட்டமிட கார்டை தட்டவும்.',
     'footer.tagline': 'தனியாகவும், எளிதாகவும் பயணம் செய்யுங்கள்.',
     'chat.label': 'பயணிகள் வாய்மொழி',
     'chat.header': 'மற்ற பயணிகளுடன் உரையாடவும்',
@@ -707,6 +1023,16 @@ const TRANSLATIONS = {
     'dest.tag.6': 'மலைகள் · மடங்கள் · மூடுபனி',
     'dest.tag.7': 'உப்பு மருதனம் · மக்கள் கலை · திருவிழாக்கள்',
     'dest.tag.8': 'குலங்கள் · பள்ளத்தாக்குகள் · ஹார்ன்பில்',
+
+    'dest.name.1': 'கோவா',
+    'dest.name.2': 'லே லடாக்',
+    'dest.name.3': 'மணாலி',
+    'dest.name.4': 'கேரளா',
+    'dest.name.5': 'உதய்பூர்',
+    'dest.name.6': 'சிக்கிம்',
+    'dest.name.7': 'கச்சு',
+    'dest.name.8': 'நாகாலாந்து',
+    'udaipur.hero.destination': '<em>ராயல்</em><br>உதய்பூர்',
     'page.title': 'SoloSafar — இந்தியா காத்துக் கொண்டிருக்கிறது',
     'Chat — SoloSafar': 'அரட்டை — SoloSafar',
     'Welcome to the chat! Ask about the best time to visit any destination.': 'அரட்டையில் வரவேற்கிறோம்! எந்த இடத்தைப் பற்றி எப்போது செல்ல வேண்டும் என்று கேளுங்கள்.',
@@ -721,7 +1047,82 @@ const TRANSLATIONS = {
     'manifesto.three': 'இந்தியாவை கண்டறி',
     'manifesto.four': 'தனியாக் போகினாலும் ஒரை இல்ல',
     'manifesto.five': '08 இடங்கள்',
-    'manifesto.six': 'போலோ தோ சோலோ'
+    'manifesto.six': 'போலோ தோ சோலோ',
+    'dashboard.label': 'உங்கள் சோலோ டாஷ்போர்டு',
+    'nav.tools': 'கருவிகள்',
+    'nav.blog': 'வலைப்பதிவு',
+    'footer.destinations': 'இடங்கள்',
+    'planner.badge': 'பயண திட்டமிடுபவர்',
+    'planner.modalTitle': 'உங்கள் அடுத்த பயண அட்டவணையை உருவாக்குங்கள்',
+    'planner.intro': 'உங்கள் இடம், பயண தேதிகள் மற்றும் பாணியை தேர்ந்தெடுங்கள். உடனடி தினசரி திட்டம் மற்றும் பட்ஜெட் மதிப்பீடு பெறுங்கள்.',
+    'planner.destinationLabel': 'இடம்',
+    'planner.startDateLabel': 'தொடக்க தேதி',
+    'planner.endDateLabel': 'முடிவு தேதி',
+    'planner.styleLabel': 'பயண பாணி',
+    'planner.notesLabel': 'குறிப்புகள்',
+    'planner.generateBtn': 'திட்டம் உருவாக்கவும்',
+    'planner.viewSavedBtn': 'சேமித்த பயணங்களை பார்க்கவும்',
+    'planner.shareBtn': 'பகிர்வு',
+    'planner.summaryTitle': 'உங்கள் பயண முன்னோட்டம் இங்கே தோன்றும்.',
+    'planner.summaryHint': 'இடத்தின் முக்கிய அம்சங்கள், பட்ஜெட் மற்றும் தினசரி பயணத்தை பார்க்க திட்டம் உருவாக்கவும்.',
+    'find.badge': 'பயணிகளை கண்டறியுங்கள்',
+    'find.modalTitle': 'சக சாகசர்களுடன் இணையுங்கள்',
+    'find.intro': 'இடம், தேதிகள் மற்றும் ஆர்வங்களால் வடிகட்டவும்.',
+    'find.destinationLabel': 'இடம்',
+    'find.startDateLabel': 'பயணம் தொடங்கும் நாள்',
+    'find.endDateLabel': 'பயணம் முடியும் நாள்',
+    'find.interestLabel': 'ஆர்வம்',
+    'journal.badge': 'பயண நாட்குறிப்பு',
+    'journal.modalTitle': 'உங்கள் சாகசங்களை பதிவு செய்யுங்கள்',
+    'journal.intro': 'உங்கள் பயண குறிப்புகள், மனநிலை மற்றும் நினைவுகளை ஒரே இடத்தில் பதிவு செய்யுங்கள்.',
+    'journal.dateLabel': 'தேதி',
+    'journal.titleLabel': 'பதிவின் தலைப்பு',
+    'journal.moodLabel': 'மனநிலை',
+    'journal.entryLabel': 'பதிவு',
+    'journal.visibilityLabel': 'காட்சி',
+    'journal.authorLabel': 'ஆசிரியர் பெயர்',
+    'journal.locationLabel': 'இடம்',
+    'journal.searchLabel': 'பதிவுகளை தேடவும்',
+    'journal.saveBtn': 'பதிவு சேமிக்கவும்',
+    'journal.viewBtn': 'பதிவுகளை பார்க்கவும்',
+    'journal.exportBtn': 'ஏற்றுமதி',
+    'journal.clearBtn': 'அனைத்தையும் அழிக்கவும்',
+    'journal.summaryTitle': 'நாட்குறிப்பு சுருக்கம்',
+    'journal.summaryHint': 'உங்கள் சிந்தனைகளை சேமித்து சமீபத்திய பதிவுகளை பாருங்கள்.',
+    'budget.badge': 'பட்ஜெட் கண்காணிப்பு',
+    'budget.modalTitle': 'உங்கள் செலவுகளை கண்காணிக்கவும்',
+    'budget.intro': 'செலவுகளை பதிவு செய்யுங்கள், பிரிவுகளை ஒப்பிடுங்கள்.',
+    'budget.dateLabel': 'தேதி',
+    'budget.categoryLabel': 'பிரிவு',
+    'budget.amountLabel': 'தொகை',
+    'budget.goalLabel': 'பட்ஜெட் இலக்கு',
+    'budget.filterLabel': 'வடிகட்டவும்',
+    'budget.noteLabel': 'குறிப்பு',
+    'budget.setGoalBtn': 'இலக்கு நிர்ணயிக்கவும்',
+    'budget.addBtn': 'செலவு சேர்க்கவும்',
+    'budget.exportBtn': 'ஏற்றுமதி',
+    'budget.resetBtn': 'மீட்டமைக்கவும்',
+    'budget.clearBtn': 'அனைத்தையும் அழிக்கவும்',
+    'budget.summaryTitle': 'பட்ஜெட் சுருக்கம்',
+    'budget.summaryHint': 'உங்கள் செலவுகளை கண்காணித்து பணம் எங்கு செல்கிறது என பாருங்கள்.',
+    'safety.badge': 'பாதுகாப்பு கருவிகள்',
+    'safety.modalTitle': 'அவசர தொடர்புகளை நிர்வகிக்கவும்',
+    'safety.intro': 'உங்கள் முக்கியமான தொடர்புகளை அருகில் வையுங்கள்.',
+    'safety.nameLabel': 'தொடர்பு பெயர்',
+    'safety.phoneLabel': 'தொலைபேசி எண்',
+    'safety.relationLabel': 'உறவு',
+    'safety.saveBtn': 'தொடர்பை சேமிக்கவும்',
+    'safety.tipsBtn': 'பாதுகாப்பு குறிப்புகள்',
+    'safety.callPoliceBtn': 'காவல்துறையை அழைக்கவும்',
+    'safety.callAmbulanceBtn': 'ஆம்புலன்ஸ் அழைக்கவும்',
+    'safety.sosBtn': 'அவசர SOS',
+    'safety.summaryTitle': 'பாதுகாப்பு சரிபார்ப்பு பட்டியல்',
+    'safety.summaryHint': 'பயணத்தின் போது இந்த குறிப்புகளை மனதில் வையுங்கள்.',
+    'safety.checklistTitle': 'பயண முன் சரிபார்ப்பு பட்டியல்',
+    'safety.check1': 'குடும்பத்தினரிடம் உங்கள் பயண அட்டவணையை பகிர்ந்து கொள்ளுங்கள்',
+    'safety.check2': 'உங்கள் தூதரகத்தில் பதிவு செய்யுங்கள் (வெளிநாட்டில் பயணிக்கும்போது)',
+    'safety.check3': 'அவசர தொடர்பு எண்களை சேமிக்கவும்',
+    'safety.check4': 'பயண காப்பீடு எடுக்கவும்',
   },
   te: {
     'nav.languageLabel': 'భాష',
@@ -731,6 +1132,8 @@ const TRANSLATIONS = {
     'nav.signOut': 'సైన్ అవుట్',
     'nav.back': 'వీరుకి తిరిగి',
     'hero.title': 'మీరు ఎక్కడికి వెళ్తున్నారు? <br><span>భారతాన్ని అన్వేషించండి</span>',
+    'hero.quote': '“మిమ్మల్ని కలుసుకోవడానికి చాలా దూరం ప్రయాణించండి.”',
+    'marquee.tagline': 'సోలో సఫార్ — ప్రతి దృశ్యం ఒక కథ.',
     'hero.tagline': 'సోలోగా భారతదేశాన్ని సులభంగా అన్వేషించండి.',
     'section.count': '08 గమ్యస్థానాలు',
     'feature1.title': 'సోలో ప్రయాణులకు',
@@ -739,22 +1142,22 @@ const TRANSLATIONS = {
     'feature2.text': 'స్థానిక ఆహారం, దాగిన ప్రదేశాలు, నిజమైన భారత్.',
     'feature3.title': 'తయారు చేసుకోండి, సేవ్ చేయండి, వెళ్లండి',
     'feature3.text': 'మీ ప్రయాణ తేదీలు నమోదు చేసండి, తక్షణ బడ్జెట్ పొందండి.',
-    'dashboard.title': 'Tools for your solo travel journey',
-    'dashboard.copy': 'Everything you need to plan, connect and stay safe on the road.',
-    'dashboard.ai.title': 'AI Recommendations',
-    'dashboard.ai.text': 'Get personalized destination suggestions',
-    'dashboard.plan.title': 'Plan a Trip',
-    'dashboard.plan.text': 'Create your next itinerary',
-    'dashboard.find.title': 'Find Travelers',
-    'dashboard.find.text': 'Connect with fellow adventurers',
-    'dashboard.journal.title': 'Travel Journal',
-    'dashboard.journal.text': 'Document your adventures',
-    'dashboard.budget.title': 'Track Budget',
-    'dashboard.budget.text': 'Monitor your expenses',
-    'dashboard.safety.title': 'Safety Tools',
-    'dashboard.safety.text': 'Manage emergency contacts',
-    'dashboard.card.action': 'Explore',
-    'dashboard.note': 'Tap a card to preview the tool.',
+    'dashboard.title': 'మీ సోలో ప్రయాణానికి సాధనాలు',
+    'dashboard.copy': 'రోడ్‌లో ప్లాన్ చేయడానికి, కనెక్ట్ అవ్వడానికి మరియు సురక్షితంగా ఉండటానికి అవసరమైనదంతా.',
+    'dashboard.ai.title': 'AI సిఫారసులు',
+    'dashboard.ai.text': 'వ్యక్తిగత గమ్యస్థాన సూచనలు పొందండి',
+    'dashboard.plan.title': 'ప్రయాణం ప్లాన్ చేయండి',
+    'dashboard.plan.text': 'మీ తదుపరి ఇటినెరరీ రూపొందించండి',
+    'dashboard.find.title': 'ప్రయాణికులను వెతకండి',
+    'dashboard.find.text': 'సహ సాహసకారులతో కనెక్ట్ అవ్వండి',
+    'dashboard.journal.title': 'ప్రయాణ జర్నల్',
+    'dashboard.journal.text': 'మీ సాహసాలను నమోదు చేయండి',
+    'dashboard.budget.title': 'బడ్జెట్ ట్రాక్ చేయండి',
+    'dashboard.budget.text': 'మీ ఖర్చులను పర్యవేక్షించండి',
+    'dashboard.safety.title': 'భద్రతా సాధనాలు',
+    'dashboard.safety.text': 'అత్యవసర సంప్రదింపులను నిర్వహించండి',
+    'dashboard.card.action': 'అన్వేషించండి',
+    'dashboard.note': 'సాధనాన్ని ప్రివ్యూ చేయడానికి కార్డ్ ట్యాప్ చేయండి.',
     'footer.tagline': 'సోలోగా సులభంగా ప్రయాణించండి.',
     'footer.info': 'సమాచారం',
     'chat.label': 'ప్రయాణికుల చాట్',
@@ -888,6 +1291,16 @@ const TRANSLATIONS = {
     'dest.tag.6': 'పర్వతాలు · మఠాలు · పొగ',
     'dest.tag.7': 'ఉప్పు వనరులు · ప్రజా కళ · పండగలు',
     'dest.tag.8': 'గిరిజనులు · లోయలు · హార్న్‌బిల్',
+
+    'dest.name.1': 'గోవా',
+    'dest.name.2': 'లే లడాఖ్',
+    'dest.name.3': 'మనాలి',
+    'dest.name.4': 'కేరళ',
+    'dest.name.5': 'ఉదయపూర్',
+    'dest.name.6': 'సిక్కిం',
+    'dest.name.7': 'కచ్ఛ్',
+    'dest.name.8': 'నాగాలాండ్',
+    'udaipur.hero.destination': '<em>రాయల్</em><br>ఉదయపూర్',
     'page.title': 'SoloSafar — భారత్ ఎదురు చూడటుంది',
     'gallery.title': 'SoloSafar Gallery',
     'gallery.meta': 'No. 01 · India Vol. 1',
@@ -897,7 +1310,83 @@ const TRANSLATIONS = {
     'manifesto.three': 'భారతాన్ని కనుగొనండి',
     'manifesto.four': 'సోలో అయినా ఒంటరిగా లేరు',
     'manifesto.five': '08 గమ్యస్థానాలు',
-    'manifesto.six': 'బోలో టో సోలో'
+    'manifesto.six': 'బోలో టో సోలో',
+  
+    'dashboard.label': 'మీ సోలో డాష్‌బోర్డ్',
+    'nav.tools': 'సాధనాలు',
+    'nav.blog': 'బ్లాగ్',
+    'footer.destinations': 'గమ్యస్థానాలు',
+    'planner.badge': 'ప్రయాణ ప్లానర్',
+    'planner.modalTitle': 'మీ తదుపరి ఇటినెరరీ రూపొందించండి',
+    'planner.intro': 'మీ గమ్యస్థానం, ప్రయాణ తేదీలు మరియు శైలిని ఎంచుకోండి. తక్షణ రోజువారీ ప్లాన్ మరియు బడ్జెట్ అంచనా పొందండి.',
+    'planner.destinationLabel': 'గమ్యస్థానం',
+    'planner.startDateLabel': 'ప్రారంభ తేదీ',
+    'planner.endDateLabel': 'ముగింపు తేదీ',
+    'planner.styleLabel': 'ప్రయాణ శైలి',
+    'planner.notesLabel': 'నోట్సు',
+    'planner.generateBtn': 'ప్లాన్ రూపొందించండి',
+    'planner.viewSavedBtn': 'సేవ్ చేసిన ప్రయాణాలు చూడండి',
+    'planner.shareBtn': 'షేర్ చేయండి',
+    'planner.summaryTitle': 'మీ ప్రయాణ ప్రివ్యూ ఇక్కడ కనిపిస్తుంది.',
+    'planner.summaryHint': 'గమ్యస్థాన హైలైట్లు, బడ్జెట్ మరియు రోజువారీ ప్లాన్ చూడటానికి ప్లాన్ రూపొందించండి.',
+    'find.badge': 'ప్రయాణికులను వెతకండి',
+    'find.modalTitle': 'సహ సాహసకారులతో కనెక్ట్ అవ్వండి',
+    'find.intro': 'గమ్యస్థానం, తేదీలు మరియు ఆసక్తుల ద్వారా ఫిల్టర్ చేయండి.',
+    'find.destinationLabel': 'గమ్యస్థానం',
+    'find.startDateLabel': 'ప్రయాణం నుండి',
+    'find.endDateLabel': 'ప్రయాణం వరకు',
+    'find.interestLabel': 'ఆసక్తి',
+    'journal.badge': 'ప్రయాణ జర్నల్',
+    'journal.modalTitle': 'మీ సాహసాలను నమోదు చేయండి',
+    'journal.intro': 'మీ ప్రయాణ నోట్సు, మూడ్లు మరియు జ్ఞాపకాలను ఒకే చోట సేవ్ చేయండి.',
+    'journal.dateLabel': 'తేదీ',
+    'journal.titleLabel': 'ఎంట్రీ శీర్షిక',
+    'journal.moodLabel': 'మూడ్',
+    'journal.entryLabel': 'ఎంట్రీ',
+    'journal.visibilityLabel': 'దృశ్యమానత',
+    'journal.authorLabel': 'రచయిత పేరు',
+    'journal.locationLabel': 'స్థానం',
+    'journal.searchLabel': 'ఎంట్రీలు వెతకండి',
+    'journal.saveBtn': 'ఎంట్రీ సేవ్ చేయండి',
+    'journal.viewBtn': 'ఎంట్రీలు చూడండి',
+    'journal.exportBtn': 'ఎగుమతి',
+    'journal.clearBtn': 'అన్నీ తొలగించండి',
+    'journal.summaryTitle': 'జర్నల్ సారాంశం',
+    'journal.summaryHint': 'మీ ఆలోచనలు సేవ్ చేసి తాజా ఎంట్రీలు చూడండి.',
+    'budget.badge': 'బడ్జెట్ ట్రాకర్',
+    'budget.modalTitle': 'మీ ఖర్చులను పర్యవేక్షించండి',
+    'budget.intro': 'ఖర్చులు నమోదు చేయండి, వర్గాలు పోల్చండి.',
+    'budget.dateLabel': 'తేదీ',
+    'budget.categoryLabel': 'వర్గం',
+    'budget.amountLabel': 'మొత్తం',
+    'budget.goalLabel': 'బడ్జెట్ లక్ష్యం',
+    'budget.filterLabel': 'ఫిల్టర్ చేయండి',
+    'budget.noteLabel': 'నోట్',
+    'budget.setGoalBtn': 'లక్ష్యం నిర్ధారించండి',
+    'budget.addBtn': 'ఖర్చు జోడించండి',
+    'budget.exportBtn': 'ఎగుమతి',
+    'budget.resetBtn': 'రీసెట్',
+    'budget.clearBtn': 'అన్నీ తొలగించండి',
+    'budget.summaryTitle': 'బడ్జెట్ సారాంశం',
+    'budget.summaryHint': 'మీ వ్యయాలను ట్రాక్ చేయండి.',
+    'safety.badge': 'భద్రతా సాధనాలు',
+    'safety.modalTitle': 'అత్యవసర సంప్రదింపులను నిర్వహించండి',
+    'safety.intro': 'మీ ముఖ్యమైన సంప్రదింపులు దగ్గర ఉంచండి.',
+    'safety.nameLabel': 'సంప్రదింపు పేరు',
+    'safety.phoneLabel': 'ఫోన్ నంబర్',
+    'safety.relationLabel': 'సంబంధం',
+    'safety.saveBtn': 'సంప్రదింపు సేవ్ చేయండి',
+    'safety.tipsBtn': 'భద్రతా చిట్కాలు',
+    'safety.callPoliceBtn': 'పోలీసులకు కాల్ చేయండి',
+    'safety.callAmbulanceBtn': 'అంబులెన్స్ కాల్ చేయండి',
+    'safety.sosBtn': 'అత్యవసర SOS',
+    'safety.summaryTitle': 'భద్రతా చెక్‌లిస్ట్',
+    'safety.summaryHint': 'ప్రయాణంలో ఈ చిట్కాలు మనసులో ఉంచుకోండి.',
+    'safety.checklistTitle': 'ప్రయాణ ముందు చెక్‌లిస్ట్',
+    'safety.check1': 'కుటుంబంతో మీ ఇటినెరరీ పంచుకోండి',
+    'safety.check2': 'మీ రాయబారి కార్యాలయంలో నమోదు చేయండి',
+    'safety.check3': 'అత్యవసర నంబర్లు సేవ్ చేయండి',
+    'safety.check4': 'ప్రయాణ బీమా తీసుకోండి',
   },
   ml: {
     'nav.languageLabel': 'ഭാഷ',
@@ -907,6 +1396,8 @@ const TRANSLATIONS = {
     'nav.signOut': 'സൈൻ ഔട്ട്',
     'nav.back': 'വീട്ടിലേക്ക് തിരിച്ചുവരിക',
     'hero.title': 'നീ എവിടെ പോകുകയാണ്? <br><span>ഇന്ത്യയെ കണ്ടെത്തൂ</span>',
+    'hero.quote': '“നിങ്ങളെ കണ്ടുമുട്ടാൻ മതിയായ ദൂരം യാത്ര ചെയ്യുക.”',
+    'marquee.tagline': 'സോളോ സഫാർ — ഓരോ കാഴ്ചയും ഒരു കഥ.',
     'hero.tagline': 'ഒരു യാത്രയിൽ ഇന്ത്യയെ എളുപ്പത്തിൽ അനുഭവിക്കുക.',
     'section.count': '08 ഡെസ്റ്റിനേഷൻ',
     'feature1.title': 'ഒറ്റയാൾ യാത്രക്കാർക്കായി',
@@ -915,22 +1406,22 @@ const TRANSLATIONS = {
     'feature2.text': 'പ്രാദേശിക ഭക്ഷണം, മറഞ്ഞിടങ്ങൾ, സത്യമാർന്ന ഇന്ത്യ.',
     'feature3.title': 'പരിപാടി തയ്യാറാക്കൂ, സേവ് ചെയ്യൂ, പോകൂ',
     'feature3.text': 'യാത്രാ തിയ്യതികൾ നൽകുക, ഉടനെ ബഡ്‌ജറ്റ് നേടുക, സേവ് ചെയ്യുക.',
-    'dashboard.title': 'Tools for your solo travel journey',
-    'dashboard.copy': 'Everything you need to plan, connect and stay safe on the road.',
-    'dashboard.ai.title': 'AI Recommendations',
-    'dashboard.ai.text': 'Get personalized destination suggestions',
-    'dashboard.plan.title': 'Plan a Trip',
-    'dashboard.plan.text': 'Create your next itinerary',
-    'dashboard.find.title': 'Find Travelers',
-    'dashboard.find.text': 'Connect with fellow adventurers',
-    'dashboard.journal.title': 'Travel Journal',
-    'dashboard.journal.text': 'Document your adventures',
-    'dashboard.budget.title': 'Track Budget',
-    'dashboard.budget.text': 'Monitor your expenses',
-    'dashboard.safety.title': 'Safety Tools',
-    'dashboard.safety.text': 'Manage emergency contacts',
-    'dashboard.card.action': 'Explore',
-    'dashboard.note': 'Tap a card to preview the tool.',
+    'dashboard.title': 'നിങ്ങളുടെ സോളോ യാത്രയ്ക്കുള്ള ഉപകരണങ്ങൾ',
+    'dashboard.copy': 'ആസൂത്രണം ചെയ്യാനും ബന്ധം സ്ഥാപിക്കാനും സുരക്ഷിതമായി ഇരിക്കാനും ആവശ്യമായതെല്ലാം.',
+    'dashboard.ai.title': 'AI ശുപാർശകൾ',
+    'dashboard.ai.text': 'വ്യക്തിഗത ലക്ഷ്യസ്ഥാന നിർദ്ദേശങ്ങൾ നേടുക',
+    'dashboard.plan.title': 'യാത്ര ആസൂത്രണം ചെയ്യൂ',
+    'dashboard.plan.text': 'നിങ്ങളുടെ അടുത്ത ഇറ്റിനററി ഉണ്ടാക്കൂ',
+    'dashboard.find.title': 'യാത്രികരെ കണ്ടെത്തൂ',
+    'dashboard.find.text': 'സഹ സാഹസികരുമായി ബന്ധം സ്ഥാപിക്കൂ',
+    'dashboard.journal.title': 'യാത്രാ ഡയറി',
+    'dashboard.journal.text': 'നിങ്ങളുടെ സാഹസങ്ങൾ രേഖപ്പെടുത്തൂ',
+    'dashboard.budget.title': 'ബഡ്ജറ്റ് ട്രാക്ക് ചെയ്യൂ',
+    'dashboard.budget.text': 'നിങ്ങളുടെ ചെലവുകൾ നിരീക്ഷിക്കൂ',
+    'dashboard.safety.title': 'സുരക്ഷാ ഉപകരണങ്ങൾ',
+    'dashboard.safety.text': 'അടിയന്തര ബന്ധങ്ങൾ നിയന്ത്രിക്കൂ',
+    'dashboard.card.action': 'അന്വേഷിക്കൂ',
+    'dashboard.note': 'ടൂൾ പ്രിവ്യൂ ചെയ്യാൻ കാർഡ് ടാപ്പ് ചെയ്യൂ.',
     'footer.tagline': 'ഒറ്റക്കല്ലാതെ പൊക്കേയും യാത്ര ചെയ്യൂ.',
     'footer.info': 'വിവരം',
     'chat.label': 'യാത്രക്കാരുടെ ചാറ്റ്',
@@ -1064,6 +1555,16 @@ const TRANSLATIONS = {
     'dest.tag.6': 'മലയുകള്‍ · പള്ളി · മഞ്ഞുമൂടല്‍',
     'dest.tag.7': 'ഉപ്പ് മരുഭൂമി · ജനകീയ കല · ഉത്സവങ്ങള്‍',
     'dest.tag.8': 'വംശങ്ങള്‍ · താഴ്വരകള്‍ · ഹോര്‍ണ്ബില്‍',
+
+    'dest.name.1': 'ഗോവ',
+    'dest.name.2': 'ലേ ലഡാഖ്',
+    'dest.name.3': 'മനാലി',
+    'dest.name.4': 'കേരളം',
+    'dest.name.5': 'ഉദയ്പൂർ',
+    'dest.name.6': 'സിക്കിം',
+    'dest.name.7': 'കച്ച്',
+    'dest.name.8': 'നാഗാലാൻഡ്',
+    'udaipur.hero.destination': '<em>റോയൽ</em><br>ഉദയ്പൂർ',
     'page.title': 'SoloSafar — ഇന്ത്യ കാത്തിരിക്കുന്നു',
     'Chat — SoloSafar': 'ചാറ്റ് — SoloSafar',
     'Welcome to the chat! Ask about the best time to visit any destination.': 'ചാറ്റിലേക്ക് സ്വാഗതം! ഏത് സഞ്ചാരസ്ഥലത്തെ സന്ദർശിക്കാൻ ഏറ്റവും നല്ല സമയമെന്ന് ചോദിക്കുക.',
@@ -1078,7 +1579,83 @@ const TRANSLATIONS = {
     'manifesto.three': 'ഇന്ത്യയെ കണ്ടെത്തൂ',
     'manifesto.four': 'ഒറ്റയ്ക്ക്, പക്ഷേ ഒറ്റക്കല്ല',
     'manifesto.five': '08 ലക്ഷ്യങ്ങൾ',
-    'manifesto.six': 'ബോളോ തോ സോളോ'
+    'manifesto.six': 'ബോളോ തോ സോളോ',
+  
+    'dashboard.label': 'നിങ്ങളുടെ സോളോ ഡാഷ്‌ബോർഡ്',
+    'nav.tools': 'ഉപകരണങ്ങൾ',
+    'nav.blog': 'ബ്ലോഗ്',
+    'footer.destinations': 'ലക്ഷ്യസ്ഥലങ്ങൾ',
+    'planner.badge': 'യാത്രാ ആസൂത്രകൻ',
+    'planner.modalTitle': 'നിങ്ങളുടെ അടുത്ത ഇറ്റിനററി ഉണ്ടാക്കൂ',
+    'planner.intro': 'നിങ്ങളുടെ ലക്ഷ്യസ്ഥലം, യാത്രാ തിയ്യതി, ശൈലി തിരഞ്ഞെടുക്കൂ. ഉടനടി ദൈനംദിന ആസൂത്രണവും ബഡ്ജറ്റ് കണക്കുകൂട്ടലും ലഭിക്കൂ.',
+    'planner.destinationLabel': 'ലക്ഷ്യസ്ഥലം',
+    'planner.startDateLabel': 'ആരംഭ തിയ്യതി',
+    'planner.endDateLabel': 'അവസാന തിയ്യതി',
+    'planner.styleLabel': 'യാത്രാ ശൈലി',
+    'planner.notesLabel': 'കുറിപ്പുകൾ',
+    'planner.generateBtn': 'പ്ലാൻ ഉണ്ടാക്കൂ',
+    'planner.viewSavedBtn': 'സേവ് ചെയ്ത യാത്രകൾ കാണൂ',
+    'planner.shareBtn': 'പങ്കുവെക്കൂ',
+    'planner.summaryTitle': 'നിങ്ങളുടെ യാത്രാ പ്രിവ്യൂ ഇവിടെ കാണും.',
+    'planner.summaryHint': 'ലക്ഷ്യസ്ഥാന ഹൈലൈറ്റുകൾ, ബഡ്ജറ്റ് കാണാൻ പ്ലാൻ ഉണ്ടാക്കൂ.',
+    'find.badge': 'യാത്രികരെ കണ്ടെത്തൂ',
+    'find.modalTitle': 'സഹ സാഹസികരുമായി ബന്ധം സ്ഥാപിക്കൂ',
+    'find.intro': 'ലക്ഷ്യസ്ഥലം, തിയ്യതി, താൽപ്പര്യങ്ങൾ അനുസരിച്ച് ഫിൽട്ടർ ചെയ്യൂ.',
+    'find.destinationLabel': 'ലക്ഷ്യസ്ഥലം',
+    'find.startDateLabel': 'യാത്ര ആരംഭം',
+    'find.endDateLabel': 'യാത്ര അവസാനം',
+    'find.interestLabel': 'താൽപ്പര്യം',
+    'journal.badge': 'യാത്രാ ഡയറി',
+    'journal.modalTitle': 'നിങ്ങളുടെ സാഹസങ്ങൾ രേഖപ്പെടുത്തൂ',
+    'journal.intro': 'നിങ്ങളുടെ യാത്രാ കുറിപ്പുകൾ, മൂഡ്, ഓർമ്മകൾ ഒരിടത്ത് സൂക്ഷിക്കൂ.',
+    'journal.dateLabel': 'തിയ്യതി',
+    'journal.titleLabel': 'ശീർഷകം',
+    'journal.moodLabel': 'മൂഡ്',
+    'journal.entryLabel': 'എൻട്രി',
+    'journal.visibilityLabel': 'ദൃശ്യത',
+    'journal.authorLabel': 'രചയിതാവ്',
+    'journal.locationLabel': 'സ്ഥലം',
+    'journal.searchLabel': 'എൻട്രികൾ തിരയൂ',
+    'journal.saveBtn': 'എൻട്രി സേവ് ചെയ്യൂ',
+    'journal.viewBtn': 'എൻട്രികൾ കാണൂ',
+    'journal.exportBtn': 'എക്‌സ്‌പോർട്ട്',
+    'journal.clearBtn': 'എല്ലാം ഒഴിവാക്കൂ',
+    'journal.summaryTitle': 'ഡയറി സംഗ്രഹം',
+    'journal.summaryHint': 'നിങ്ങളുടെ ചിന്തകൾ സേവ് ചെയ്ത് ഏറ്റവും പുതിയ എൻട്രികൾ കാണൂ.',
+    'budget.badge': 'ബഡ്ജറ്റ് ട്രാക്കർ',
+    'budget.modalTitle': 'നിങ്ങളുടെ ചെലവുകൾ നിരീക്ഷിക്കൂ',
+    'budget.intro': 'ചെലവ് രേഖപ്പെടുത്തൂ, വിഭാഗങ്ങൾ താരതമ്യം ചെയ്യൂ.',
+    'budget.dateLabel': 'തിയ്യതി',
+    'budget.categoryLabel': 'വിഭാഗം',
+    'budget.amountLabel': 'തുക',
+    'budget.goalLabel': 'ബഡ്ജറ്റ് ലക്ഷ്യം',
+    'budget.filterLabel': 'ഫിൽട്ടർ ചെയ്യൂ',
+    'budget.noteLabel': 'കുറിപ്പ്',
+    'budget.setGoalBtn': 'ലക്ഷ്യം സെറ്റ് ചെയ്യൂ',
+    'budget.addBtn': 'ചെലവ് ചേർക്കൂ',
+    'budget.exportBtn': 'എക്‌സ്‌പോർട്ട്',
+    'budget.resetBtn': 'റീസെറ്റ്',
+    'budget.clearBtn': 'എല്ലാം ഒഴിവാക്കൂ',
+    'budget.summaryTitle': 'ബഡ്ജറ്റ് സംഗ്രഹം',
+    'budget.summaryHint': 'ചെലവ് ട്രാക്ക് ചെയ്ത് പണം എങ്ങോട്ട് പോകുന്നു കാണൂ.',
+    'safety.badge': 'സുരക്ഷാ ഉപകരണങ്ങൾ',
+    'safety.modalTitle': 'അടിയന്തര ബന്ധങ്ങൾ നിയന്ത്രിക്കൂ',
+    'safety.intro': 'നിങ്ങളുടെ പ്രധാന ബന്ധങ്ങൾ അടുത്ത് സൂക്ഷിക്കൂ.',
+    'safety.nameLabel': 'ബന്ധ നാമം',
+    'safety.phoneLabel': 'ഫോൺ നംബർ',
+    'safety.relationLabel': 'ബന്ധം',
+    'safety.saveBtn': 'ബന്ധം സേവ് ചെയ്യൂ',
+    'safety.tipsBtn': 'സുരക്ഷാ ടിപ്‌സ്',
+    'safety.callPoliceBtn': 'പോലീസിനെ വിളിക്കൂ',
+    'safety.callAmbulanceBtn': 'ആംബുലൻസ് വിളിക്കൂ',
+    'safety.sosBtn': 'അടിയന്തര SOS',
+    'safety.summaryTitle': 'സുരക്ഷാ ചെക്‌ലിസ്റ്റ്',
+    'safety.summaryHint': 'യാത്രയ്ക്കിടെ ഈ ടിപ്‌സ് മനസ്സിൽ ഉണ്ടാവട്ടെ.',
+    'safety.checklistTitle': 'യാത്രാ മുൻ ചെക്‌ലിസ്റ്റ്',
+    'safety.check1': 'കുടുംബത്തോടൊപ്പം ഇറ്റിനററി പങ്കുവെക്കൂ',
+    'safety.check2': 'നിങ്ങളുടെ എംബസ്സിയിൽ രജിസ്റ്റർ ചെയ്യൂ',
+    'safety.check3': 'അടിയന്തര നംബറുകൾ സേവ് ചെയ്യൂ',
+    'safety.check4': 'യാത്രാ ഇൻഷൂറൻസ് എടുക്കൂ',
   },
   mr: {
     'nav.languageLabel': 'भाषा',
@@ -1088,6 +1665,8 @@ const TRANSLATIONS = {
     'nav.signOut': 'साइन आउट',
     'nav.back': 'घरावर परत',
     'hero.title': 'तू कुठे जाणार आहेस? <br><span>भारत शोधा</span>',
+    'hero.quote': '“स्वतःला भेटण्यासाठी पुरेशी दूर प्रवास कर.”',
+    'marquee.tagline': 'सोलो सफार — प्रत्येक दृश्य एक कथा.',
     'hero.tagline': 'सोलो सफर सोबत भारताची सोपी सफर.',
     'section.count': '08 गंतव्ये',
     'feature1.title': 'सोलो प्रवाशांसाठी',
@@ -1096,22 +1675,22 @@ const TRANSLATIONS = {
     'feature2.text': 'प्रामाणिक अन्न, लपलेली ठिकाणे आणि खरे भारत.',
     'feature3.title': 'योजना करा, बचत करा, जा',
     'feature3.text': 'तुमची यात्रा तारीख भरा आणि त्वरित अंदाज घ्या.',
-    'dashboard.title': 'Tools for your solo travel journey',
-    'dashboard.copy': 'Everything you need to plan, connect and stay safe on the road.',
-    'dashboard.ai.title': 'AI Recommendations',
-    'dashboard.ai.text': 'Get personalized destination suggestions',
-    'dashboard.plan.title': 'Plan a Trip',
-    'dashboard.plan.text': 'Create your next itinerary',
-    'dashboard.find.title': 'Find Travelers',
-    'dashboard.find.text': 'Connect with fellow adventurers',
-    'dashboard.journal.title': 'Travel Journal',
-    'dashboard.journal.text': 'Document your adventures',
-    'dashboard.budget.title': 'Track Budget',
-    'dashboard.budget.text': 'Monitor your expenses',
-    'dashboard.safety.title': 'Safety Tools',
-    'dashboard.safety.text': 'Manage emergency contacts',
-    'dashboard.card.action': 'Explore',
-    'dashboard.note': 'Tap a card to preview the tool.',
+    'dashboard.title': 'तुमच्या एकट्या प्रवासासाठी साधने',
+    'dashboard.copy': 'योजना करण्यासाठी, जोडण्यासाठी आणि सुरक्षित राहण्यासाठी आवश्यक सर्वकाही.',
+    'dashboard.ai.title': 'AI शिफारशी',
+    'dashboard.ai.text': 'वैयक्तिक गंतव्य सूचना मिळवा',
+    'dashboard.plan.title': 'सहल आखा',
+    'dashboard.plan.text': 'तुमचा पुढील कार्यक्रम तयार करा',
+    'dashboard.find.title': 'प्रवासी शोधा',
+    'dashboard.find.text': 'सहप्रवाशांशी जोडून घ्या',
+    'dashboard.journal.title': 'प्रवास डायरी',
+    'dashboard.journal.text': 'तुमचे साहस नोंदवा',
+    'dashboard.budget.title': 'बजेट ट्रॅक करा',
+    'dashboard.budget.text': 'तुमच्या खर्चावर देखरेख ठेवा',
+    'dashboard.safety.title': 'सुरक्षा साधने',
+    'dashboard.safety.text': 'आपत्कालीन संपर्क व्यवस्थापित करा',
+    'dashboard.card.action': 'शोधा',
+    'dashboard.note': 'साधनाचे पूर्वावलोकन करण्यासाठी कार्ड टॅप करा.',
     'footer.tagline': 'एकट्याने पण सोपी यात्रा.',
     'footer.info': 'माहिती',
     'chat.label': 'प्रवाश्यांची चॅट',
@@ -1205,6 +1784,16 @@ const TRANSLATIONS = {
     'dest.tag.6': 'पर्वत · मठ · धुंद',
     'dest.tag.7': 'मीठ वाळवंट · लोककला · सण',
     'dest.tag.8': 'जमाती · दऱ्या · हॉर्नबिल',
+
+    'dest.name.1': 'गोवा',
+    'dest.name.2': 'लेह लडाख',
+    'dest.name.3': 'मनाली',
+    'dest.name.4': 'केरळ',
+    'dest.name.5': 'उदयपूर',
+    'dest.name.6': 'सिक्कीम',
+    'dest.name.7': 'कच्छ',
+    'dest.name.8': 'नागालँड',
+    'udaipur.hero.destination': '<em>राजेशाही</em><br>उदयपूर',
     'page.title': 'SoloSafar — भारत तुमची वाट पाहत आहे',
     'Chat — SoloSafar': 'चॅट — SoloSafar',
     'Welcome to the chat! Ask about the best time to visit any destination.': 'चॅटमध्ये आपले स्वागत आहे! कोणत्याही गंतव्याला भेट देण्याचा सर्वोत्तम वेळ काय आहे हे विचारा.',
@@ -1219,7 +1808,83 @@ const TRANSLATIONS = {
     'manifesto.three': 'भारत शोधा',
     'manifesto.four': 'एकटा पण एकटी नाही',
     'manifesto.five': '08 ठिकाणे',
-    'manifesto.six': 'बोलो तो सोलो'
+    'manifesto.six': 'बोलो तो सोलो',
+  
+    'dashboard.label': 'तुमचे सोलो डॅशबोर्ड',
+    'nav.tools': 'साधने',
+    'nav.blog': 'ब्लॉग',
+    'footer.destinations': 'स्थळे',
+    'planner.badge': 'प्रवास नियोजक',
+    'planner.modalTitle': 'तुमचा पुढील कार्यक्रम तयार करा',
+    'planner.intro': 'तुमचे गंतव्य, प्रवास तारखा आणि शैली निवडा. तात्काळ दिवसाची योजना आणि बजेट अंदाज मिळवा.',
+    'planner.destinationLabel': 'गंतव्य',
+    'planner.startDateLabel': 'सुरुवातीची तारीख',
+    'planner.endDateLabel': 'शेवटची तारीख',
+    'planner.styleLabel': 'प्रवास शैली',
+    'planner.notesLabel': 'नोट्स',
+    'planner.generateBtn': 'योजना तयार करा',
+    'planner.viewSavedBtn': 'जतन केलेल्या सहली पाहा',
+    'planner.shareBtn': 'सामायिक करा',
+    'planner.summaryTitle': 'तुमचे प्रवास पूर्वावलोकन येथे दिसेल.',
+    'planner.summaryHint': 'गंतव्य ठळक मुद्दे, बजेट आणि दिवसेंदिवस कार्यक्रम पाहण्यासाठी योजना तयार करा.',
+    'find.badge': 'प्रवासी शोधा',
+    'find.modalTitle': 'सहप्रवाशांशी जोडून घ्या',
+    'find.intro': 'गंतव्य, तारखा आणि स्वारस्यानुसार फिल्टर करा.',
+    'find.destinationLabel': 'गंतव्य',
+    'find.startDateLabel': 'प्रवास सुरू',
+    'find.endDateLabel': 'प्रवास समाप्त',
+    'find.interestLabel': 'स्वारस्य',
+    'journal.badge': 'प्रवास डायरी',
+    'journal.modalTitle': 'तुमचे साहस नोंदवा',
+    'journal.intro': 'तुमच्या प्रवासाच्या नोट्स, मनःस्थिती आणि आठवणी एकाच ठिकाणी साठवा.',
+    'journal.dateLabel': 'तारीख',
+    'journal.titleLabel': 'नोंदीचे शीर्षक',
+    'journal.moodLabel': 'मनःस्थिती',
+    'journal.entryLabel': 'नोंद',
+    'journal.visibilityLabel': 'दृश्यमानता',
+    'journal.authorLabel': 'लेखकाचे नाव',
+    'journal.locationLabel': 'ठिकाण',
+    'journal.searchLabel': 'नोंदी शोधा',
+    'journal.saveBtn': 'नोंद जतन करा',
+    'journal.viewBtn': 'नोंदी पाहा',
+    'journal.exportBtn': 'निर्यात करा',
+    'journal.clearBtn': 'सर्व हटवा',
+    'journal.summaryTitle': 'डायरीचा आढावा',
+    'journal.summaryHint': 'तुमचे विचार जतन करा आणि ताज्या नोंदी पाहा.',
+    'budget.badge': 'बजेट ट्रॅकर',
+    'budget.modalTitle': 'तुमच्या खर्चावर देखरेख ठेवा',
+    'budget.intro': 'खर्च नोंदवा, श्रेण्या तुलना करा.',
+    'budget.dateLabel': 'तारीख',
+    'budget.categoryLabel': 'श्रेणी',
+    'budget.amountLabel': 'रक्कम',
+    'budget.goalLabel': 'बजेट ध्येय',
+    'budget.filterLabel': 'फिल्टर करा',
+    'budget.noteLabel': 'टीप',
+    'budget.setGoalBtn': 'ध्येय ठरवा',
+    'budget.addBtn': 'खर्च जोडा',
+    'budget.exportBtn': 'निर्यात करा',
+    'budget.resetBtn': 'रीसेट',
+    'budget.clearBtn': 'सर्व हटवा',
+    'budget.summaryTitle': 'बजेट सारांश',
+    'budget.summaryHint': 'तुमचा खर्च ट्रॅक करा.',
+    'safety.badge': 'सुरक्षा साधने',
+    'safety.modalTitle': 'आपत्कालीन संपर्क व्यवस्थापित करा',
+    'safety.intro': 'तुमचे महत्त्वाचे संपर्क जवळ ठेवा.',
+    'safety.nameLabel': 'संपर्काचे नाव',
+    'safety.phoneLabel': 'फोन नंबर',
+    'safety.relationLabel': 'नाते',
+    'safety.saveBtn': 'संपर्क जतन करा',
+    'safety.tipsBtn': 'सुरक्षा टिप्स',
+    'safety.callPoliceBtn': 'पोलिसांना कॉल करा',
+    'safety.callAmbulanceBtn': 'रुग्णवाहिका कॉल करा',
+    'safety.sosBtn': 'आपत्कालीन SOS',
+    'safety.summaryTitle': 'सुरक्षा तपासणी यादी',
+    'safety.summaryHint': 'प्रवासादरम्यान या टिप्स लक्षात ठेवा.',
+    'safety.checklistTitle': 'प्रवासपूर्व तपासणी यादी',
+    'safety.check1': 'कुटुंबासह तुमचा कार्यक्रम सामायिक करा',
+    'safety.check2': 'तुमच्या दूतावासात नोंदणी करा',
+    'safety.check3': 'आपत्कालीन क्रमांक जतन करा',
+    'safety.check4': 'प्रवास विमा घ्या',
   },
   bn: {
     'nav.languageLabel': 'ভাষা',
@@ -1229,6 +1894,8 @@ const TRANSLATIONS = {
     'nav.signOut': 'সাইন আউট',
     'nav.back': 'বাড়িতে ফিরে যান',
     'hero.title': 'তুমি কোথায় যাবে? <br><span>ভারত আবিষ্কার কর</span>',
+    'hero.quote': '“নিজের সাথে দেখা করতে যথেষ্ট দূরে ভ্রমণ করো।”',
+    'marquee.tagline': 'সোলো সাফার — প্রতিটি দৃশ্য একটি গল্প।',
     'hero.tagline': 'সোলো ভ্রমণে ভারতকে সহজে আবিষ্কার করুন।',
     'section.count': '০৮ গন্তব্য',
     'feature1.title': 'সোলো ভ্রমণকারীদের জন্য',
@@ -1237,22 +1904,22 @@ const TRANSLATIONS = {
     'feature2.text': 'স্থানীয় খাবার, লুকানো জায়গা, এবং আসল ভারত।',
     'feature3.title': 'পরিকল্পনা করুন, সাশ্রয় করুন, যান',
     'feature3.text': 'আপনার ভ্রমণের তারিখ লিখুন, তাৎক্ষণিক বাজেট পান, এবং সংরক্ষণ করুন।',
-    'dashboard.title': 'Tools for your solo travel journey',
-    'dashboard.copy': 'Everything you need to plan, connect and stay safe on the road.',
-    'dashboard.ai.title': 'AI Recommendations',
-    'dashboard.ai.text': 'Get personalized destination suggestions',
-    'dashboard.plan.title': 'Plan a Trip',
-    'dashboard.plan.text': 'Create your next itinerary',
-    'dashboard.find.title': 'Find Travelers',
-    'dashboard.find.text': 'Connect with fellow adventurers',
-    'dashboard.journal.title': 'Travel Journal',
-    'dashboard.journal.text': 'Document your adventures',
-    'dashboard.budget.title': 'Track Budget',
-    'dashboard.budget.text': 'Monitor your expenses',
-    'dashboard.safety.title': 'Safety Tools',
-    'dashboard.safety.text': 'Manage emergency contacts',
-    'dashboard.card.action': 'Explore',
-    'dashboard.note': 'Tap a card to preview the tool.',
+    'dashboard.title': 'আপনার সোলো ভ্রমণের জন্য সরঞ্জামসমূহ',
+    'dashboard.copy': 'পথে পরিকল্পনা, সংযোগ এবং নিরাপদ থাকার জন্য প্রয়োজনীয় সবকিছু।',
+    'dashboard.ai.title': 'AI পরামর্শ',
+    'dashboard.ai.text': 'ব্যক্তিগতকৃত গন্তব্য পরামর্শ পান',
+    'dashboard.plan.title': 'ভ্রমণ পরিকল্পনা করুন',
+    'dashboard.plan.text': 'আপনার পরবর্তী ভ্রমণসূচি তৈরি করুন',
+    'dashboard.find.title': 'ভ্রমণকারী খুঁজুন',
+    'dashboard.find.text': 'সহ অ্যাডভেঞ্চারারদের সাথে সংযোগ করুন',
+    'dashboard.journal.title': 'ভ্রমণ জার্নাল',
+    'dashboard.journal.text': 'আপনার অ্যাডভেঞ্চার নথিভুক্ত করুন',
+    'dashboard.budget.title': 'বাজেট ট্র্যাক করুন',
+    'dashboard.budget.text': 'আপনার ব্যয় পর্যবেক্ষণ করুন',
+    'dashboard.safety.title': 'নিরাপত্তা সরঞ্জাম',
+    'dashboard.safety.text': 'জরুরি যোগাযোগ পরিচালনা করুন',
+    'dashboard.card.action': 'অন্বেষণ করুন',
+    'dashboard.note': 'সরঞ্জাম প্রিভিউ করতে কার্ড ট্যাপ করুন।',
     'footer.tagline': 'একা হলেও সহজ ভ্রমণ।',
     'footer.info': 'তথ্য',
     'chat.label': 'ভ্রমণকারীদের চ্যাট',
@@ -1386,6 +2053,16 @@ const TRANSLATIONS = {
     'dest.tag.6': 'পাহাড় · মঠ · কুয়াশা',
     'dest.tag.7': 'লবণ মরুভূমি · লোকশিল্প · উৎসব',
     'dest.tag.8': 'উপজাতি · উপত্যকা · হর্নবিল',
+
+    'dest.name.1': 'গোয়া',
+    'dest.name.2': 'লেহ লাদাখ',
+    'dest.name.3': 'মানালি',
+    'dest.name.4': 'কেরালা',
+    'dest.name.5': 'উদয়পুর',
+    'dest.name.6': 'সিকিম',
+    'dest.name.7': 'কচ্ছ',
+    'dest.name.8': 'নাগাল্যান্ড',
+    'udaipur.hero.destination': '<em>রাজকীয়</em><br>উদয়পুর',
     'page.title': 'SoloSafar — ভারত অপেক্ষা করছে',
     'Chat — SoloSafar': 'চ্যাট — SoloSafar',
     'Welcome to the chat! Ask about the best time to visit any destination.': 'চ্যাটে স্বাগতম! যে কোনো গন্তব্যে যাওয়ার সেরা সময় সম্পর্কে জিজ্ঞাসা করুন।',
@@ -1400,23 +2077,448 @@ const TRANSLATIONS = {
     'manifesto.three': 'ভারত আবিষ্কার করুন',
     'manifesto.four': 'একলা কিন্তু কখনও একা নয়',
     'manifesto.five': '০৮ গন্তব্য',
-    'manifesto.six': 'বলো তো সোলো'
+    'manifesto.six': 'বলো তো সোলো',
+  
+    'dashboard.label': 'আপনার সোলো ড্যাশবোর্ড',
+    'nav.tools': 'সরঞ্জাম',
+    'nav.blog': 'ব্লগ',
+    'footer.destinations': 'গন্তব্যসমূহ',
+    'planner.badge': 'ভ্রমণ পরিকল্পক',
+    'planner.modalTitle': 'আপনার পরবর্তী ভ্রমণসূচি তৈরি করুন',
+    'planner.intro': 'আপনার গন্তব্য, ভ্রমণ তারিখ এবং শৈলী বেছে নিন। তাৎক্ষণিক দৈনিক পরিকল্পনা ও বাজেট অনুমান পান।',
+    'planner.destinationLabel': 'গন্তব্য',
+    'planner.startDateLabel': 'শুরুর তারিখ',
+    'planner.endDateLabel': 'শেষের তারিখ',
+    'planner.styleLabel': 'ভ্রমণ শৈলী',
+    'planner.notesLabel': 'নোট',
+    'planner.generateBtn': 'পরিকল্পনা তৈরি করুন',
+    'planner.viewSavedBtn': 'সংরক্ষিত ভ্রমণ দেখুন',
+    'planner.shareBtn': 'শেয়ার করুন',
+    'planner.summaryTitle': 'আপনার ভ্রমণ প্রিভিউ এখানে দেখাবে।',
+    'planner.summaryHint': 'গন্তব্যের হাইলাইট, বাজেট ও দৈনিক পরিকল্পনা দেখতে পরিকল্পনা তৈরি করুন।',
+    'find.badge': 'ভ্রমণকারী খুঁজুন',
+    'find.modalTitle': 'সহ অ্যাডভেঞ্চারারদের সাথে সংযোগ করুন',
+    'find.intro': 'গন্তব্য, তারিখ এবং আগ্রহ অনুযায়ী ফিল্টার করুন।',
+    'find.destinationLabel': 'গন্তব্য',
+    'find.startDateLabel': 'ভ্রমণ শুরু',
+    'find.endDateLabel': 'ভ্রমণ শেষ',
+    'find.interestLabel': 'আগ্রহ',
+    'journal.badge': 'ভ্রমণ জার্নাল',
+    'journal.modalTitle': 'আপনার অ্যাডভেঞ্চার নথিভুক্ত করুন',
+    'journal.intro': 'আপনার যাত্রার নোট, মেজাজ এবং স্মৃতি এক জায়গায় সংরক্ষণ করুন।',
+    'journal.dateLabel': 'তারিখ',
+    'journal.titleLabel': 'এন্ট্রি শিরোনাম',
+    'journal.moodLabel': 'মেজাজ',
+    'journal.entryLabel': 'এন্ট্রি',
+    'journal.visibilityLabel': 'দৃশ্যমানতা',
+    'journal.authorLabel': 'লেখকের নাম',
+    'journal.locationLabel': 'অবস্থান',
+    'journal.searchLabel': 'এন্ট্রি অনুসন্ধান করুন',
+    'journal.saveBtn': 'এন্ট্রি সংরক্ষণ করুন',
+    'journal.viewBtn': 'এন্ট্রি দেখুন',
+    'journal.exportBtn': 'রপ্তানি',
+    'journal.clearBtn': 'সব মুছুন',
+    'journal.summaryTitle': 'জার্নাল সারসংক্ষেপ',
+    'journal.summaryHint': 'আপনার চিন্তাভাবনা সংরক্ষণ করুন এবং সর্বশেষ এন্ট্রি দেখুন।',
+    'budget.badge': 'বাজেট ট্র্যাকার',
+    'budget.modalTitle': 'আপনার ব্যয় পর্যবেক্ষণ করুন',
+    'budget.intro': 'খরচ লগ করুন, বিভাগ তুলনা করুন।',
+    'budget.dateLabel': 'তারিখ',
+    'budget.categoryLabel': 'বিভাগ',
+    'budget.amountLabel': 'পরিমাণ',
+    'budget.goalLabel': 'বাজেট লক্ষ্যমাত্রা',
+    'budget.filterLabel': 'ফিল্টার করুন',
+    'budget.noteLabel': 'নোট',
+    'budget.setGoalBtn': 'লক্ষ্যমাত্রা নির্ধারণ করুন',
+    'budget.addBtn': 'ব্যয় যোগ করুন',
+    'budget.exportBtn': 'রপ্তানি',
+    'budget.resetBtn': 'রিসেট',
+    'budget.clearBtn': 'সব মুছুন',
+    'budget.summaryTitle': 'বাজেট সারসংক্ষেপ',
+    'budget.summaryHint': 'আপনার ব্যয় ট্র্যাক করুন।',
+    'safety.badge': 'নিরাপত্তা সরঞ্জাম',
+    'safety.modalTitle': 'জরুরি যোগাযোগ পরিচালনা করুন',
+    'safety.intro': 'আপনার গুরুত্বপূর্ণ পরিচিতি কাছে রাখুন।',
+    'safety.nameLabel': 'যোগাযোগের নাম',
+    'safety.phoneLabel': 'ফোন নম্বর',
+    'safety.relationLabel': 'সম্পর্ক',
+    'safety.saveBtn': 'যোগাযোগ সংরক্ষণ করুন',
+    'safety.tipsBtn': 'নিরাপত্তা টিপস',
+    'safety.callPoliceBtn': 'পুলিশকে ফোন করুন',
+    'safety.callAmbulanceBtn': 'অ্যাম্বুলেন্স ডাকুন',
+    'safety.sosBtn': 'জরুরি SOS',
+    'safety.summaryTitle': 'নিরাপত্তা চেকলিস্ট',
+    'safety.summaryHint': 'ভ্রমণকালে এই টিপস মনে রাখুন।',
+    'safety.checklistTitle': 'ভ্রমণ পূর্ববর্তী চেকলিস্ট',
+    'safety.check1': 'পরিবারের সাথে আপনার সূচি শেয়ার করুন',
+    'safety.check2': 'দূতাবাসে নিবন্ধন করুন (বিদেশ ভ্রমণে)',
+    'safety.check3': 'জরুরি নম্বর সংরক্ষণ করুন',
+    'safety.check4': 'ভ্রমণ বিমা নিন',
   }
 };
 
 const DEFAULT_TRANSLATIONS = TRANSLATIONS[DEFAULT_LANGUAGE];
-const ENGLISH_TEXT_TO_KEY = Object.fromEntries(
-  Object.entries(DEFAULT_TRANSLATIONS).map(([key, value]) => [value, key])
-);
 
-function getTranslationForText(text, translations) {
-  if (translations[text] !== undefined) return translations[text];
-  const key = ENGLISH_TEXT_TO_KEY[text];
-  if (key && translations[key] !== undefined) return translations[key];
-  return text;
+// Map of: Normalized English Text -> Translation
+let englishToTranslation = {};
+let activeTranslateLang = DEFAULT_LANGUAGE;
+let i18nObserver = null;
+
+function getLangAssetUrl(filename) {
+  const script = document.querySelector('script[src*="lang.js"]');
+  if (script && script.src) {
+    return new URL(filename, script.src).href;
+  }
+  return filename;
 }
 
-function translateTextNodes(translations) {
+// Normalize quotes, dashes, spacing
+function normalizeText(str) {
+  if (typeof str !== 'string') return '';
+  return str
+    .replace(/[\u201C\u201D\u201E\u201F\u2033\u2036]/g, '"') // Normalize smart double quotes
+    .replace(/[\u2018\u2019\u201A\u201B\u2032\u2035]/g, "'") // Normalize smart single quotes
+    .replace(/\u2013|\u2014/g, "-") // Normalize dashes/hyphens
+    .replace(/\s+/g, ' ') // Normalize spaces
+    .trim();
+}
+
+// Build direct mapping of English values/keys to translated values
+function buildTranslationMap(lang) {
+  activeTranslateLang = lang;
+  englishToTranslation = {};
+  const currentDict = TRANSLATIONS[lang] || {};
+  const enDict = TRANSLATIONS[DEFAULT_LANGUAGE] || {};
+  
+  // 1. Map English values in TRANSLATIONS[en] to TRANSLATIONS[lang]
+  for (const key in enDict) {
+    const enVal = enDict[key];
+    const transVal = currentDict[key];
+    if (enVal && transVal) {
+      englishToTranslation[enVal.trim()] = transVal;
+      englishToTranslation[normalizeText(enVal)] = transVal;
+    }
+  }
+  
+  // 2. Map keys in currentDict directly (for destination_translations where key is English text)
+  for (const key in currentDict) {
+    const transVal = currentDict[key];
+    if (transVal) {
+      englishToTranslation[key.trim()] = transVal;
+      englishToTranslation[normalizeText(key)] = transVal;
+      
+      // Handle quoted keys (review snippets in destination_translations.json)
+      if (key.startsWith('"') && key.endsWith('"') && key.length > 2) {
+        const strippedKey = key.slice(1, -1).trim();
+        const strippedVal = transVal.startsWith('"') && transVal.endsWith('"') && transVal.length > 2 ? transVal.slice(1, -1) : transVal;
+        englishToTranslation[strippedKey] = strippedVal;
+        englishToTranslation[normalizeText(strippedKey)] = strippedVal;
+      }
+    }
+  }
+}
+
+// Lookup translation for any English string
+function getTranslationForText(text) {
+  if (!text) return undefined;
+  const trimmed = text.trim();
+  if (englishToTranslation[trimmed] !== undefined) {
+    return englishToTranslation[trimmed];
+  }
+  const normalized = normalizeText(trimmed);
+  if (englishToTranslation[normalized] !== undefined) {
+    return englishToTranslation[normalized];
+  }
+
+  return undefined;
+}
+
+function translationContainsHtml(value) {
+  return typeof value === 'string' && /<[a-z][\s\S]*>/i.test(value);
+}
+
+// Prefer real translations: current lang, then Hindi, then destination text map
+function resolveTranslation(lang, key, translations) {
+  const enDict = TRANSLATIONS[DEFAULT_LANGUAGE] || {};
+  const enValue = enDict[key];
+  let value = translations[key];
+
+  if (lang === DEFAULT_LANGUAGE) {
+    return value !== undefined ? value : enValue;
+  }
+
+  if (value !== undefined && enValue !== undefined && value !== enValue) {
+    return value;
+  }
+  if (value !== undefined && enValue === undefined) {
+    return value;
+  }
+
+  if (enValue) {
+    const byText = getTranslationForText(enValue);
+    if (byText !== undefined && byText !== enValue) {
+      return byText;
+    }
+  }
+
+  return value !== undefined ? value : enValue;
+}
+
+function applyTranslationToElement(node, value) {
+  if (value === undefined) return;
+  if (translationContainsHtml(value)) {
+    node.innerHTML = value;
+  } else {
+    node.textContent = value;
+  }
+}
+
+const BLOCK_TRANSLATION_SELECTOR = [
+  'p',
+  'h1',
+  'h2',
+  'h3',
+  'h4',
+  'h5',
+  'h6',
+  'label',
+  'li',
+  '.section-label',
+  '.section-intro-label',
+  '.hero-tagline',
+  '.hero-eyebrow span',
+  '.hero-destination',
+  '.place-card-label',
+  '.strip-label',
+  '.dest-card-name',
+  '.dest-card-tag',
+  '.feature-title',
+  '.feature-text',
+  '.review-meta',
+  '.essential-text h4',
+  '.essential-text p',
+  '.map-text h2',
+  '.map-text p',
+  '.dest-footer-links a',
+  'nav .nav-link',
+  '.btn-primary',
+  '.btn-secondary',
+  '.hero-stat-label',
+  '.budget-label',
+  '.budget-sub',
+  '.tool-summary strong',
+  '.tool-summary p',
+  '.find-status',
+  '.hindi-track span',
+  'h3',
+  '.field-group label',
+  '.safety-card h4',
+  '.safety-card li',
+  '.review-form-wrap h3',
+  '.find-actions button',
+  '.tool-row label',
+  '.tool-actions button',
+  '.load-trip-btn',
+  '.copy-trip-btn',
+  '.delete-trip-btn',
+  '.tool-delete-btn'
+].join(',');
+
+const BLOCK_SKIP_TAGS = new Set(['SCRIPT', 'STYLE', 'NOSCRIPT', 'TEXTAREA', 'OPTION', 'SELECT', 'IFRAME']);
+
+function getBlockLookupText(el) {
+  if (el.matches('.place-card-label')) {
+    const num = el.querySelector('.place-card-num');
+    let text = el.textContent.trim();
+    if (num) text = text.replace(num.textContent.trim(), '').trim();
+    return text;
+  }
+  return el.textContent.trim();
+}
+
+function i18nKeyResolves(lang, key, useHtml) {
+  if (!key) return false;
+  const translations = TRANSLATIONS[lang] || TRANSLATIONS[DEFAULT_LANGUAGE];
+  const value = resolveTranslation(lang, key, translations);
+  if (value === undefined) return false;
+  const enDict = TRANSLATIONS[DEFAULT_LANGUAGE] || {};
+  const enValue = enDict[key];
+  if (lang === DEFAULT_LANGUAGE) return true;
+  if (enValue === undefined) return value !== key;
+  return value !== enValue;
+}
+
+function translateCompositeHero(el) {
+  if (!el.hasAttribute('data-original-block-text')) {
+    el.setAttribute('data-original-block-text', getBlockLookupText(el));
+    if (el.innerHTML.trim()) {
+      el.setAttribute('data-original-block-html', el.innerHTML);
+    }
+  }
+  const em = el.querySelector('em');
+  if (em) {
+    const emTranslated = getTranslationForText(em.textContent.trim());
+    if (emTranslated !== undefined) em.textContent = emTranslated;
+  }
+  el.childNodes.forEach((node) => {
+    if (node.nodeType !== Node.TEXT_NODE) return;
+    const trimmed = node.textContent.trim();
+    if (!trimmed) return;
+    const translated = getTranslationForText(trimmed);
+    if (translated !== undefined) {
+      node.textContent = node.textContent.replace(trimmed, translated);
+    }
+  });
+}
+
+function applyBlockTranslation(el, lookupText, translated) {
+  if (el.matches('.place-card-label') && el.querySelector('.place-card-num')) {
+    const num = el.querySelector('.place-card-num');
+    el.innerHTML = `${num.outerHTML} ${translated}`;
+    return;
+  }
+  if (el.hasAttribute('data-original-block-html') && el.querySelector('em')) {
+    const em = el.querySelector('em');
+    const emOriginal = em.textContent.trim();
+    const emTranslated = getTranslationForText(emOriginal) || emOriginal;
+    const html = el.getAttribute('data-original-block-html')
+      .replace(emOriginal, emTranslated)
+      .replace(lookupText, translated);
+    el.innerHTML = html;
+    if (el.textContent.trim() === lookupText) el.textContent = translated;
+    return;
+  }
+  el.textContent = translated;
+}
+
+function shouldSkipBlockElement(el) {
+  if (!el || el.closest('#weatherGrid, #plannerResults, #savedTripsList, #findResults, #journalEntriesList, #expenseList, #contactList, #budgetTotals, #budgetGoalSummary')) {
+    return true;
+  }
+  const lang = localStorage.getItem(LANGUAGE_KEY) || DEFAULT_LANGUAGE;
+  if (el.hasAttribute('data-skip-i18n')) return true;
+  if (el.hasAttribute('data-i18n-html') && i18nKeyResolves(lang, el.getAttribute('data-i18n-html'), true)) {
+    return true;
+  }
+  if (el.hasAttribute('data-i18n') && i18nKeyResolves(lang, el.getAttribute('data-i18n'), false)) {
+    return true;
+  }
+  const i18nAncestor = el.closest('[data-i18n-html], [data-i18n]');
+  if (i18nAncestor) {
+    if (i18nAncestor.hasAttribute('data-i18n-html') && i18nKeyResolves(lang, i18nAncestor.getAttribute('data-i18n-html'), true)) {
+      return true;
+    }
+    if (i18nAncestor.hasAttribute('data-i18n') && i18nKeyResolves(lang, i18nAncestor.getAttribute('data-i18n'), false)) {
+      return true;
+    }
+  }
+  if (BLOCK_SKIP_TAGS.has(el.tagName)) {
+    return true;
+  }
+  return false;
+}
+
+function restoreBlockElements() {
+  document.querySelectorAll('[data-original-block-text]').forEach(el => {
+    const originalText = el.getAttribute('data-original-block-text');
+    const originalHtml = el.getAttribute('data-original-block-html');
+    if (originalHtml) {
+      el.innerHTML = originalHtml;
+    } else if (originalText) {
+      el.textContent = originalText;
+    }
+  });
+}
+
+function translateBlockElements(lang) {
+  if (lang === DEFAULT_LANGUAGE) {
+    restoreBlockElements();
+    return;
+  }
+
+  document.querySelectorAll(BLOCK_TRANSLATION_SELECTOR).forEach(el => {
+    if (shouldSkipBlockElement(el)) return;
+
+    if (el.matches('.hero-destination') && !el.hasAttribute('data-i18n-html')) {
+      translateCompositeHero(el);
+      return;
+    }
+
+    const childTags = [...el.children].map(child => child.tagName);
+    const onlyInlineMarkup = childTags.every(tag => ['EM', 'STRONG', 'SPAN', 'BR'].includes(tag));
+    const isPlaceCard = el.matches('.place-card-label');
+    if (el.children.length && !onlyInlineMarkup && !isPlaceCard) return;
+
+    if (!el.hasAttribute('data-original-block-text')) {
+      el.setAttribute('data-original-block-text', getBlockLookupText(el));
+      if ((onlyInlineMarkup || isPlaceCard) && el.innerHTML.trim()) {
+        el.setAttribute('data-original-block-html', el.innerHTML);
+      }
+    }
+
+    const lookupText = el.getAttribute('data-original-block-text');
+    const translated = getTranslationForText(lookupText);
+    if (translated === undefined || translated === lookupText) return;
+
+    applyBlockTranslation(el, lookupText, translated);
+  });
+}
+
+function translateUntaggedButtons(lang) {
+  if (lang === DEFAULT_LANGUAGE) {
+    document.querySelectorAll('[data-original-btn]').forEach(btn => {
+      btn.textContent = btn.getAttribute('data-original-btn');
+    });
+    return;
+  }
+  document.querySelectorAll(
+    'button:not([data-i18n]), .find-actions button, .tool-delete-btn, .load-trip-btn, .copy-trip-btn, .delete-trip-btn'
+  ).forEach(btn => {
+    if (btn.closest('script, style, noscript')) return;
+    if (!btn.getAttribute('data-original-btn')) {
+      btn.setAttribute('data-original-btn', btn.textContent.trim());
+    }
+    const original = btn.getAttribute('data-original-btn');
+    const translated = getTranslationForText(original);
+    if (translated !== undefined) btn.textContent = translated;
+  });
+}
+
+function translateSelectOptions(lang) {
+  const translations = TRANSLATIONS[lang] || TRANSLATIONS[DEFAULT_LANGUAGE];
+  document.querySelectorAll('select').forEach(select => {
+    [...select.options].forEach(option => {
+      if (option.hasAttribute('data-i18n')) {
+        const key = option.getAttribute('data-i18n');
+        const value = resolveTranslation(lang, key, translations);
+        if (value !== undefined) option.textContent = value;
+        return;
+      }
+      if (!option.getAttribute('data-original-option')) {
+        option.setAttribute('data-original-option', option.textContent);
+      }
+      const original = option.getAttribute('data-original-option');
+      const translated = getTranslationForText(original.trim());
+      if (translated !== undefined) {
+        option.textContent = translated;
+      } else {
+        option.textContent = original;
+      }
+    });
+  });
+}
+
+function updateMarquee(lang) {
+  const translations = TRANSLATIONS[lang] || TRANSLATIONS[DEFAULT_LANGUAGE];
+  const text = resolveTranslation(lang, 'marquee.tagline', translations);
+  if (!text) return;
+  document.querySelectorAll('.hindi-track span').forEach(span => {
+    span.textContent = text;
+  });
+}
+
+// Translate individual text nodes losslessly (caching original value in node._originalValue)
+function translateTextNodes() {
   const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
     acceptNode(node) {
       const parent = node.parentElement;
@@ -1429,63 +2531,334 @@ function translateTextNodes(translations) {
 
   let node = walker.nextNode();
   while (node) {
-    const trimmed = node.nodeValue.trim();
-    const translated = getTranslationForText(trimmed, translations);
-    if (translated !== undefined && trimmed !== translated) {
-      node.nodeValue = node.nodeValue.replace(trimmed, translated);
+    if (node._originalValue === undefined) {
+      node._originalValue = node.nodeValue;
+    }
+    const original = node._originalValue;
+    const trimmed = original.trim();
+    const translated = getTranslationForText(trimmed);
+    if (translated !== undefined) {
+      node.nodeValue = original.replace(trimmed, translated);
+    } else {
+      node.nodeValue = original;
     }
     node = walker.nextNode();
   }
 }
 
-function translatePage(language) {
-  const translations = TRANSLATIONS[language] || TRANSLATIONS[DEFAULT_LANGUAGE];
-  document.documentElement.lang = language;
-  document.title = getTranslationForText(document.title, translations);
-
+// Translate all elements with data-i18n attributes
+function translateI18nAttributes(lang, translations) {
   document.querySelectorAll('[data-i18n]').forEach(node => {
     const key = node.getAttribute('data-i18n');
     if (!key) return;
-    const value = translations[key];
-    if (value === undefined) return;
-    node.innerHTML = value;
+    const value = resolveTranslation(lang, key, translations);
+    applyTranslationToElement(node, value);
   });
 
   document.querySelectorAll('[data-i18n-placeholder]').forEach(node => {
     const key = node.getAttribute('data-i18n-placeholder');
-    const value = translations[key];
+    const value = resolveTranslation(lang, key, translations);
     if (value === undefined) return;
     node.placeholder = value;
   });
 
   document.querySelectorAll('[data-i18n-value]').forEach(node => {
     const key = node.getAttribute('data-i18n-value');
-    const value = translations[key];
+    const value = resolveTranslation(lang, key, translations);
     if (value === undefined) return;
     node.value = value;
   });
 
   document.querySelectorAll('[data-i18n-html]').forEach(node => {
     const key = node.getAttribute('data-i18n-html');
-    const value = translations[key];
+    const value = resolveTranslation(lang, key, translations);
     if (value === undefined) return;
     node.innerHTML = value;
   });
-
-  translateTextNodes(translations);
 }
 
-function initLanguageSelector() {
-  const selector = document.getElementById('languageSelect');
-  if (!selector) return;
-  const stored = localStorage.getItem(LANGUAGE_KEY) || DEFAULT_LANGUAGE;
-  selector.value = stored;
-  translatePage(stored);
-  selector.addEventListener('change', () => {
-    const selected = selector.value;
-    localStorage.setItem(LANGUAGE_KEY, selected);
-    translatePage(selected);
+// Translate standard placeholders, titles, and submit buttons dynamically
+function translateAttributes() {
+  // 1. Placeholders
+  document.querySelectorAll('[placeholder]').forEach(el => {
+    if (el.hasAttribute('data-i18n-placeholder')) return;
+    const original = el.getAttribute('data-original-placeholder') || el.placeholder;
+    if (!el.hasAttribute('data-original-placeholder')) {
+      el.setAttribute('data-original-placeholder', original);
+    }
+    const translated = getTranslationForText(original);
+    if (translated !== undefined) {
+      el.placeholder = translated;
+    } else {
+      el.placeholder = original;
+    }
+  });
+
+  // 2. Titles
+  document.querySelectorAll('[title]').forEach(el => {
+    if (el.hasAttribute('data-i18n-title')) return;
+    const original = el.getAttribute('data-original-title') || el.title;
+    if (!el.hasAttribute('data-original-title')) {
+      el.setAttribute('data-original-title', original);
+    }
+    const translated = getTranslationForText(original);
+    if (translated !== undefined) {
+      el.title = translated;
+    } else {
+      el.title = original;
+    }
+  });
+
+  // 3. Submit buttons
+  document.querySelectorAll('input[type="submit"], input[type="button"]').forEach(el => {
+    if (el.hasAttribute('data-i18n-value')) return;
+    const original = el.getAttribute('data-original-value') || el.value;
+    if (!el.hasAttribute('data-original-value')) {
+      el.setAttribute('data-original-value', original);
+    }
+    const translated = getTranslationForText(original);
+    if (translated !== undefined) {
+      el.value = translated;
+    } else {
+      el.value = original;
+    }
   });
 }
 
-document.addEventListener('DOMContentLoaded', initLanguageSelector);
+// Perform translation immediately
+function translatePageImmediate(language) {
+  const translations = TRANSLATIONS[language] || TRANSLATIONS[DEFAULT_LANGUAGE];
+  document.documentElement.lang = language;
+  
+  // Re-build direct text-to-translated maps
+  buildTranslationMap(language);
+  
+  // Translate page title
+  const currentTitle = document.title;
+  if (!window._originalTitle) window._originalTitle = currentTitle;
+  const translatedTitle = getTranslationForText(window._originalTitle);
+  document.title = translatedTitle !== undefined ? translatedTitle : window._originalTitle;
+
+  // Translate explicit attributes
+  translateI18nAttributes(language, translations);
+
+  // Translate block-level copy on pages without data-i18n (e.g. Kerala, Manali)
+  translateBlockElements(language);
+
+  // Translate standard text nodes (remaining snippets)
+  translateTextNodes();
+
+  // Translate standard attributes (placeholders, titles, values)
+  translateAttributes();
+
+  // Translate select options and hero marquee
+  translateSelectOptions(language);
+  translateUntaggedButtons(language);
+  updateMarquee(language);
+
+  // Dispatch custom event for dynamic components
+  window.dispatchEvent(new CustomEvent('languageChanged', { detail: { language, translations } }));
+}
+
+function tt(text) {
+  if (!text) return text;
+  const translated = getTranslationForText(String(text).trim());
+  return translated !== undefined ? translated : text;
+}
+
+function t(key, fallback) {
+  const lang = localStorage.getItem(LANGUAGE_KEY) || DEFAULT_LANGUAGE;
+  const translations = TRANSLATIONS[lang] || TRANSLATIONS[DEFAULT_LANGUAGE];
+  return resolveTranslation(lang, key, translations) || fallback || key;
+}
+
+function refreshI18n() {
+  const lang = localStorage.getItem(LANGUAGE_KEY) || DEFAULT_LANGUAGE;
+  translatePageImmediate(lang);
+}
+
+function patchNativeDialogs() {
+  if (window._soloSafarDialogsPatched) return;
+  window._soloSafarDialogsPatched = true;
+  const nativeAlert = window.alert.bind(window);
+  const nativeConfirm = window.confirm.bind(window);
+  window.alert = (message) => nativeAlert(tt(message));
+  window.confirm = (message) => nativeConfirm(tt(message));
+}
+
+// Perform translation with smooth fade transition
+function translatePageSmooth(language) {
+  const html = document.documentElement;
+  html.style.opacity = '0.5';
+  html.style.transition = 'opacity 250ms ease-in-out';
+  
+  setTimeout(() => {
+    translatePageImmediate(language);
+    html.style.opacity = '1';
+  }, 125);
+}
+
+// MutationObserver to capture and translate dynamically generated AJAX/DOM elements on the fly
+function startMutationObserver() {
+  if (i18nObserver) i18nObserver.disconnect();
+
+  i18nObserver = new MutationObserver((mutations) => {
+    // Temporarily stop observing so our own text replacements don't loop infinitely
+    i18nObserver.disconnect();
+
+    const currentLang = localStorage.getItem(LANGUAGE_KEY) || DEFAULT_LANGUAGE;
+    const translations = TRANSLATIONS[currentLang] || TRANSLATIONS[DEFAULT_LANGUAGE];
+
+    for (const mutation of mutations) {
+      if (mutation.type === 'childList') {
+        mutation.addedNodes.forEach(node => {
+          if (node.nodeType === Node.ELEMENT_NODE) {
+            translateElementAndChildren(node, translations);
+          } else if (node.nodeType === Node.TEXT_NODE) {
+            translateSingleTextNode(node);
+          }
+        });
+      }
+    }
+    if (currentLang !== DEFAULT_LANGUAGE) {
+      translateBlockElements(currentLang);
+      translateUntaggedButtons(currentLang);
+    }
+
+    i18nObserver.observe(document.body, { childList: true, subtree: true });
+  });
+
+  i18nObserver.observe(document.body, { childList: true, subtree: true });
+}
+
+function translateSingleTextNode(node) {
+  if (['SCRIPT', 'STYLE', 'NOSCRIPT', 'TEXTAREA'].includes(node.parentElement?.tagName)) return;
+  if (node._originalValue === undefined) {
+    node._originalValue = node.nodeValue;
+  }
+  const original = node._originalValue;
+  const trimmed = original.trim();
+  const translated = getTranslationForText(trimmed);
+  if (translated !== undefined) {
+    node.nodeValue = original.replace(trimmed, translated);
+  }
+}
+
+function translateElementAndChildren(element, translations) {
+  // If the element itself is script/style, ignore
+  if (['SCRIPT', 'STYLE', 'NOSCRIPT', 'TEXTAREA'].includes(element.tagName)) return;
+
+  // 1. Apply attribute translation (placeholders, titles)
+  if (element.hasAttribute('placeholder') && !element.hasAttribute('data-i18n-placeholder')) {
+    const original = element.getAttribute('data-original-placeholder') || element.placeholder;
+    if (!element.hasAttribute('data-original-placeholder')) {
+      element.setAttribute('data-original-placeholder', original);
+    }
+    const translated = getTranslationForText(original);
+    if (translated !== undefined) element.placeholder = translated;
+  }
+  if (element.hasAttribute('title') && !element.hasAttribute('data-i18n-title')) {
+    const original = element.getAttribute('data-original-title') || element.title;
+    if (!element.hasAttribute('data-original-title')) {
+      element.setAttribute('data-original-title', original);
+    }
+    const translated = getTranslationForText(original);
+    if (translated !== undefined) element.title = translated;
+  }
+
+  // 2. Walk text nodes inside this element
+  const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT, {
+    acceptNode(node) {
+      const parent = node.parentElement;
+      if (!parent) return NodeFilter.FILTER_REJECT;
+      if (['SCRIPT', 'STYLE', 'NOSCRIPT', 'TEXTAREA'].includes(parent.tagName)) return NodeFilter.FILTER_REJECT;
+      if (!node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+      return NodeFilter.FILTER_ACCEPT;
+    }
+  });
+
+  let node = walker.nextNode();
+  while (node) {
+    translateSingleTextNode(node);
+    node = walker.nextNode();
+  }
+}
+
+// Fetch external destination translations database asynchronously and boot
+function mergeExternalTranslations(payload) {
+  if (!payload || typeof payload !== 'object') return;
+  for (const lang in payload) {
+    if (!TRANSLATIONS[lang]) TRANSLATIONS[lang] = {};
+    Object.assign(TRANSLATIONS[lang], payload[lang]);
+  }
+}
+
+async function initLanguageSelector() {
+  const selector = document.getElementById('languageSelect');
+  const stored = localStorage.getItem(LANGUAGE_KEY) || DEFAULT_LANGUAGE;
+
+  patchNativeDialogs();
+  window.t = t;
+  window.tt = tt;
+  window.refreshI18n = refreshI18n;
+  window.getTranslationForText = getTranslationForText;
+  window.translatePageImmediate = translatePageImmediate;
+
+  if (selector) selector.value = stored;
+
+  if (window.__SOLOSAFAR_DEST_TRANSLATIONS__) {
+    mergeExternalTranslations(window.__SOLOSAFAR_DEST_TRANSLATIONS__);
+  }
+
+  // Translate with built-in keys + bundled destination phrases
+  translatePageImmediate(stored);
+
+  try {
+    const response = await fetch(getLangAssetUrl('destination_translations.json'));
+    if (response.ok) {
+      const destTranslations = await response.json();
+      for (const lang in destTranslations) {
+        if (!TRANSLATIONS[lang]) TRANSLATIONS[lang] = {};
+        Object.assign(TRANSLATIONS[lang], destTranslations[lang]);
+      }
+    }
+  } catch (e) {
+    console.warn('Destination translations could not be loaded dynamically', e);
+  }
+
+  try {
+    const uiResponse = await fetch(getLangAssetUrl('ui-extra.json'));
+    if (uiResponse.ok) {
+      const uiExtra = await uiResponse.json();
+      for (const lang in uiExtra) {
+        if (!TRANSLATIONS[lang]) TRANSLATIONS[lang] = {};
+        Object.assign(TRANSLATIONS[lang], uiExtra[lang]);
+      }
+    }
+  } catch (e) {
+    console.warn('UI extra translations could not be loaded', e);
+  }
+
+  // Re-translate with merged destination phrase dictionary
+  translatePageImmediate(stored);
+
+  if (selector) {
+    selector.addEventListener('change', () => {
+      const selected = selector.value;
+      localStorage.setItem(LANGUAGE_KEY, selected);
+      translatePageSmooth(selected);
+    });
+  }
+
+  startMutationObserver();
+}
+
+function bootLanguageSelector() {
+  initLanguageSelector();
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', bootLanguageSelector);
+} else {
+  bootLanguageSelector();
+}
