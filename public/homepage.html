@@ -70,30 +70,39 @@
 
     .hero-quote {
       position: absolute;
-      top: 22%;
+      top: 3.5%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: min(68vw, 700px);
-      padding: 20px 22px;
-      background: rgba(255, 250, 242, 0.94);
+      width: min(82vw, 780px);
+      padding: 24px 28px;
+      background: rgba(255, 250, 242, 0.96);
       border: 1px solid rgba(26,18,8,0.08);
       border-radius: 26px;
-      box-shadow: 0 16px 34px rgba(26,18,8,0.12);
+      box-shadow: 0 18px 40px rgba(26,18,8,0.14);
       z-index: 5;
       text-align: center;
-      backdrop-filter: blur(10px);
+      backdrop-filter: blur(12px);
     }
     .hero-quote p {
       margin: 0;
       font-family: 'Playfair Display', serif;
-      font-size: clamp(1.5rem, 1.8vw, 2rem);
-      line-height: 1.1;
+      font-size: clamp(2rem, 2.6vw, 2.5rem);
+      line-height: 1.05;
       font-weight: 700;
-      color: rgba(26,18,8,0.9);
+      color: rgba(26,18,8,0.95);
       letter-spacing: -0.02em;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+    }
+    .hero-quote .quote-brand {
+      display: block;
+      margin-bottom: 10px;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: rgba(26,18,8,0.6);
     }
     .hero-quote .quote-author {
       display: none;
@@ -568,6 +577,7 @@
       </div><!-- /photo-fan -->
 
       <div class="hero-quote" aria-label="Travel quote">
+        <span class="quote-brand">SOLOSAFAR</span>
         <p>“Travel far enough to meet yourself.”</p>
         <div class="quote-author">SoloSafar</div>
       </div>

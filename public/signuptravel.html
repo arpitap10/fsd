@@ -3,114 +3,218 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-i18n="signup.pageTitle">Sign Up - Solo Traveler</title>
+    <title data-i18n="signup.pageTitle">Sign Up - SoloSafar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Space+Grotesk:wght@300;400;500;600&family=Bebas+Neue&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --cream: #f4efe6;
+            --warm-black: #1a1208;
+            --rust: #c44b2a;
+            --gold: #d4a853;
+            --paper: #e8e0d0;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { height: 100%; }
+
         body {
-            font-family: Arial, sans-serif;
-            background-image: url('images/signin.jpg'); /* Background image for a travel vibe */
+            font-family: 'Space Grotesk', sans-serif;
+            background: linear-gradient(135deg, rgba(196, 75, 42, 0.15) 0%, rgba(212, 168, 83, 0.15) 100%),
+                        url('/india-background.jpg');
             background-size: cover;
             background-position: center;
+            background-attachment: fixed;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
+            min-height: 100vh;
+            padding: 20px;
         }
-    
+        
         .signin-container {
-            background-color: rgba(255, 255, 255, 0.9);
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background: rgba(244, 239, 230, 0.97);
+            backdrop-filter: blur(12px);
+            padding: 48px;
+            border-radius: 28px;
+            box-shadow: 0 20px 60px rgba(26, 18, 8, 0.25), 0 0 1px rgba(196, 75, 42, 0.3);
             width: 100%;
-            max-width: 400px;
-            text-align: center;
+            max-width: 420px;
+            border: 1px solid rgba(196, 75, 42, 0.15);
+            animation: slideUp 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
-    
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
         h2 {
-            color: #333;
-            margin-bottom: 20px;
+            font-family: 'Playfair Display', serif;
+            color: var(--warm-black);
+            margin-bottom: 32px;
+            font-size: 2rem;
+            font-weight: 900;
+            letter-spacing: -0.02em;
         }
-    
+        
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 28px;
             text-align: left;
         }
-    
+        
         label {
-            font-weight: bold;
-            font-size: 0.9rem;
-            color: #333;
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: var(--warm-black);
             display: block;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
-    
+        
+        .password-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        
         input[type="text"],
         input[type="email"],
         input[type="password"] {
             width: 100%;
-            padding: 10px;
+            padding: 14px 16px;
             font-size: 1rem;
-            border-radius: 5px;
-            border: 1px solid #ccc;
+            border-radius: 12px;
+            border: 2px solid rgba(196, 75, 42, 0.2);
+            background: rgba(255, 255, 255, 0.85);
+            color: var(--warm-black);
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            font-family: 'Space Grotesk', sans-serif;
         }
-    
+        
         input[type="text"]:focus,
         input[type="email"]:focus,
         input[type="password"]:focus {
             outline: none;
-            border: 2px solid #4c51bf;
-            box-shadow: 0 0 5px rgba(92, 100, 242, 0.5);
+            border: 2px solid var(--rust);
+            box-shadow: 0 0 0 3px rgba(196, 75, 42, 0.1);
+            background: rgba(255, 255, 255, 1);
         }
-    
-        input[type="submit"] {
-            background-color: #5a67d8;
-            color: #fff;
-            border: none;
-            padding: 10px;
-            font-size: 1rem;
-            border-radius: 5px;
+
+        .password-toggle {
+            position: absolute;
+            right: 14px;
             cursor: pointer;
-            transition: background-color 0.3s;
+            font-size: 1.2rem;
+            color: var(--rust);
+            user-select: none;
+            transition: opacity 0.2s;
         }
-    
+
+        .password-toggle:hover {
+            opacity: 0.7;
+        }
+        
+        input[type="submit"] {
+            width: 100%;
+            background: linear-gradient(135deg, var(--rust), #b83d1f);
+            color: var(--cream);
+            border: none;
+            padding: 14px;
+            font-size: 1rem;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            box-shadow: 0 8px 20px rgba(196, 75, 42, 0.3);
+            margin-top: 12px;
+        }
+        
         input[type="submit"]:hover {
-            background-color: #4c51bf;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 28px rgba(196, 75, 42, 0.4);
         }
-    
+
+        input[type="submit"]:active {
+            transform: translateY(0);
+        }
+        
         .signup-link {
-            margin-top: 10px;
+            margin-top: 24px;
             display: block;
-            color: #5a67d8;
+            color: var(--rust);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .signup-link:hover {
+            color: var(--warm-black);
+        }
+
+        .signup-link strong {
+            font-weight: 600;
         }
     </style>
     
 </head>
 <body>
     <div class="signin-container">
-        <h2 data-i18n="signup.heading">Sign Up to Solo Traveler</h2>
+        <h2 data-i18n="signup.heading">Sign Up to SoloSafar</h2>
         <form action="/signup" method="POST">
             <div class="form-group">
                 <label for="username" data-i18n="signup.usernameLabel">Username</label>
                 <input type="text" id="username" name="username" required>
             </div>
-<div class="form-group">
+            <div class="form-group">
                 <label for="email" data-i18n="signup.emailLabel">Email</label>
                 <input type="email" id="email" name="email" required>
             </div>
             <div class="form-group">
                 <label for="password" data-i18n="signup.passwordLabel">Password</label>
-                <input type="password" id="password" name="password" required>
+                <div class="password-wrapper">
+                    <input type="password" id="password" name="password" required>
+                    <span class="password-toggle" id="togglePassword">👁️</span>
+                </div>
             </div>
             <div class="form-group">
                 <label for="confirm-password" data-i18n="signup.confirmPasswordLabel">Confirm Password</label>
-                <input type="password" id="confirmPassword" name="confirmPassword" required>
+                <div class="password-wrapper">
+                    <input type="password" id="confirmPassword" name="confirmPassword" required>
+                    <span class="password-toggle" id="toggleConfirmPassword">👁️</span>
+                </div>
             </div>
 
             <input type="submit" data-i18n-value="signup.submit" value="Sign Up">
         </form>
-        <a href="signintravel.html" class="signup-link" data-i18n="signup.backToSignIn">Back to Sign in here</a>
+        <a href="signintravel.html" class="signup-link" data-i18n="signup.backToSignIn">Already have an account? <strong>Sign in here</strong></a>
     </div>
     <script src="lang.js"></script>
+    <script>
+        const togglePassword = document.getElementById('togglePassword');
+        const toggleConfirmPassword = document.getElementById('toggleConfirmPassword');
+        const passwordInput = document.getElementById('password');
+        const confirmPasswordInput = document.getElementById('confirmPassword');
+
+        togglePassword.addEventListener('click', () => {
+            const isPassword = passwordInput.type === 'password';
+            passwordInput.type = isPassword ? 'text' : 'password';
+            togglePassword.textContent = isPassword ? '👁️‍🗨️' : '👁️';
+        });
+
+        toggleConfirmPassword.addEventListener('click', () => {
+            const isPassword = confirmPasswordInput.type === 'password';
+            confirmPasswordInput.type = isPassword ? 'text' : 'password';
+            toggleConfirmPassword.textContent = isPassword ? '👁️‍🗨️' : '👁️';
+        });
+    </script>
 </body>
 </html>
