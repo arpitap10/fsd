@@ -236,7 +236,7 @@
             btn.textContent = 'Signing in…';
 
             try {
-                const res = await fetch('/signin', {
+                const res = await fetch('https://fsd-u8by.onrender.com/signin', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ email, password })

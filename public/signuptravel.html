@@ -260,7 +260,7 @@
             btn.textContent = 'Creating account…';
 
             try {
-                const res = await fetch('/signup', {
+                const res = await fetch('https://fsd-u8by.onrender.com/signup', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ username, email, password, confirmPassword })
