@@ -84,7 +84,7 @@
         if (!saved) return defaultMessages;
         const parsed = JSON.parse(saved);
         return Array.isArray(parsed) && parsed.length ? parsed : defaultMessages;
-      } catch (error) {
+      } catch (e) {
         return defaultMessages;
       }
     }
@@ -93,22 +93,15 @@
       localStorage.setItem(STORAGE_KEY, JSON.stringify(messages));
     }
 
-    function getCurrentTranslations() {
-      const currentLang = localStorage.getItem(LANGUAGE_KEY) || DEFAULT_LANGUAGE;
-      return TRANSLATIONS[currentLang] || TRANSLATIONS[DEFAULT_LANGUAGE];
-    }
-
-    function translateText(text) {
-      const translations = getCurrentTranslations();
-      return getTranslationForText(text, translations);
-    }
-
     function formatMessage(message) {
       const classes = message.author === 'You' ? 'chat-message self' : 'chat-message';
+      const text = message.text || '';
+      const time = message.time || '';
+      const author = message.author || 'Unknown';
       return `
         <article class="${classes}">
-          <div>${translateText(message.text)}</div>
-          <div class="message-meta">${message.author} · ${translateText(message.time)}</div>
+          <div>${text}</div>
+          <div class="message-meta">${author} · ${time}</div>
         </article>
       `;
     }
@@ -125,7 +118,7 @@
       const text = input.value.trim();
       if (!text) return;
       const messages = getStoredMessages();
-      messages.push({ author: 'You', text, time: 'Just now' });
+      messages.push({ author: 'You', text: text, time: 'Just now' });
       saveMessages(messages);
       renderChat();
       input.value = '';
@@ -133,12 +126,28 @@
     }
 
     document.getElementById('sendBtn').addEventListener('click', addMessage);
-    document.getElementById('chatInput').addEventListener('keydown', event => {
+    document.getElementById('chatInput').addEventListener('keydown', function(event) {
       if (event.key === 'Enter' && !event.shiftKey) {
         event.preventDefault();
         addMessage();
       }
     });
+
+    // Clear any corrupted localStorage messages that contain undefined
+    (function() {
+      try {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (saved) {
+          const parsed = JSON.parse(saved);
+          if (Array.isArray(parsed)) {
+            const hasBad = parsed.some(m => !m.text || !m.author || m.text === 'undefined' || m.author === 'undefined');
+            if (hasBad) localStorage.removeItem(STORAGE_KEY);
+          }
+        }
+      } catch(e) {
+        localStorage.removeItem(STORAGE_KEY);
+      }
+    })();
 
     renderChat();
   </script>

@@ -4,20 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title data-i18n="feedback.pageTitle">Feedback</title>
-
 <style>
 body {
   margin: 0;
   font-family: sans-serif;
   background: url('images/goa.jpg') center/cover no-repeat;
 }
-
 .overlay {
   position: fixed;
   inset: 0;
   background: rgba(0,0,0,0.7);
 }
-
 .box {
   position: relative;
   z-index: 2;
@@ -28,17 +25,13 @@ body {
   padding: 30px;
   border-radius: 10px;
 }
-
-h2 {
-  text-align: center;
-}
-
+h2 { text-align: center; }
 input, textarea {
   width: 100%;
   padding: 10px;
   margin: 10px 0;
+  box-sizing: border-box;
 }
-
 button {
   width: 100%;
   padding: 12px;
@@ -49,17 +42,33 @@ button {
 }
 </style>
 </head>
-
 <body>
 
 <div class="overlay"></div>
 
 <div class="box">
   <h2 data-i18n="feedback.heading">Feedback</h2>
-  <input type="text" data-i18n-placeholder="feedback.namePlaceholder" placeholder="Your Name">
-  <textarea data-i18n-placeholder="feedback.feedbackPlaceholder" placeholder="Your feedback"></textarea>
-  <button data-i18n="feedback.submit">Submit</button>
+  <input id="feedbackName" type="text" data-i18n-placeholder="feedback.namePlaceholder" placeholder="Your Name">
+  <textarea id="feedbackText" data-i18n-placeholder="feedback.feedbackPlaceholder" placeholder="Your feedback"></textarea>
+  <button id="feedbackBtn" data-i18n="feedback.submit">Submit</button>
 </div>
+
 <script src="lang.js"></script>
+<script>
+  document.getElementById('feedbackBtn').addEventListener('click', function () {
+    const name = document.getElementById('feedbackName').value.trim();
+    const feedback = document.getElementById('feedbackText').value.trim();
+    if (!name || !feedback) {
+      alert('Please fill in both fields.');
+      return;
+    }
+    const existing = JSON.parse(localStorage.getItem('soloSafarFeedback') || '[]');
+    existing.push({ name, feedback, date: new Date().toISOString() });
+    localStorage.setItem('soloSafarFeedback', JSON.stringify(existing));
+    document.getElementById('feedbackName').value = '';
+    document.getElementById('feedbackText').value = '';
+    alert('Thank you for your feedback!');
+  });
+</script>
 </body>
 </html>
